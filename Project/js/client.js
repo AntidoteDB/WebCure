@@ -8,7 +8,12 @@ $(document).ready(function() {
 });
 
 
-function pullUpdates(callback) {
+function pullUpdates(timestamp, callback) {
+    // We need to specify, which updates we want to get
+    // If the @timestamp parameter is null, then we want to get all of the updates. 
+    // Otherwise, we want to received all of the updates that are fresher than @timestamp
+
+
     // Send GET-request to the SERVER
 
     if (response.status === 200 && response.data !== null){
@@ -19,14 +24,15 @@ function pullUpdates(callback) {
     }
 }
 
-function pushUpdates() {
+function pushUpdates(data, callbackSuccessful, callbackFailure) {
+    // We want to push to the server only these updates that are either located  
     // Send POST-request to the SERVER
 
     if (response.status === 200 && response.data !== null){
-        console.log(SUCCESS_MESSAGE);
+        callbackSuccessful(response);
     }
     else {
-        console.log(ERROR_MESSAGE);
+        callbackFailure(response);
     }
 }
 
@@ -38,6 +44,7 @@ function handleTheData(){
     pullUpdates(function callback(){
         showTheDataFromtheNetwork();
         storeNewDataTotheDB();
+        sendDataFromTempDB();
     });
 }
 
@@ -75,5 +82,23 @@ function openMainDatabase(){
         var store = upgradeDb.createObjectStore('counters', {
             keyPath: 'timestamp' // will treat timestamps as primary key
         });
+    });
+}
+
+function openTempDatabase(){
+    // similar code
+}
+
+function storeDataToDB(data, response){
+    // function that handles storing the data to DB after server marked it with a timestamp
+}
+
+function getDataFromUI(data){
+    pushUpdates(data, function(res){
+        // sucess callback
+        storeDataToDB(data, response);
+    }, function(response){
+        // failure callback
+        storeDataToTempDB(data);
     });
 }
