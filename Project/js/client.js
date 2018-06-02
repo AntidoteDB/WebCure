@@ -1,29 +1,40 @@
-import idb from 'idb';
+import idb from 'idb'; // import of the framework to maintain IndexDB databases
 
-// This function is called, when the document is loaded
+
+// Define databases globally
+var mainDatabase; // = ... specify the details
+var tempDatabase; // = ... specify the details
+
+
 $(document).ready(function() { 
-    // Start processing the data
-    openMainDatabase();
-    handleTheData(); 
+    init(); 
 });
 
 
+/**
+ *  A function, which is called to pull updates from the server
+ * 
+ * @param {any} timestamp: a timestamp, which indicates that server sents back updates that are fresher than timestamp
+ *              if undefined, then server sends all available data;
+ * @param {any} callback: a function, which is going to be called after the updates were received. 
+ */
 function pullUpdates(timestamp, callback) {
-    // We need to specify, which updates we want to get
-    // If the @timestamp parameter is null, then we want to get all of the updates. 
-    // Otherwise, we want to received all of the updates that are fresher than @timestamp
-
-
-    // Send GET-request to the SERVER
-
     if (response.status === 200 && response.data !== null){
-        callback();
+        callback(response.data);
     }
     else {
         console.log(ERROR_MESSAGE);
     }
 }
 
+
+/**
+ *  A function, which is called in order to push updates to the server
+ * 
+ * @param {any} data: operations that have to be sent to the server; 
+ * @param {any} callbackSuccessful: function to call in case of success 
+ * @param {any} callbackFailure: function to call in case of failure 
+ */
 function pushUpdates(data, callbackSuccessful, callbackFailure) {
     // We want to push to the server only these updates that are either located  
     // Send POST-request to the SERVER
@@ -36,29 +47,67 @@ function pushUpdates(data, callbackSuccessful, callbackFailure) {
     }
 }
 
-function handleTheData(){
-    
-    // Before going to the network, show the data from the database in UI
-    showTheDataFromtheDB();
 
-    pullUpdates(function callback(){
-        showTheDataFromtheNetwork();
-        storeNewDataTotheDB();
+/**
+ * A function, which is running operations to maintain the data of the application
+ * 
+ */
+function init(){    
+    // Before going to the network, show in UI the data from the database
+    displayDataFromDB();
+
+    // get the latest timestamp from main database
+    var timestamp = getLatestTimestamp();
+    
+    // Pull updates from the server starting from the passed timestamp
+    pullUpdates(timestamp, function callback(data){
+        // once updates recieved, show them in UI
+        showTheDataFromtheNetwork(data);
+        // store recived updates in the DB
+        storeNewDataTotheDB(data);
+        // if temp database is not empty, send it's operations to the server
         sendDataFromTempDB();
     });
 }
 
-function showTheDataFromtheDB(){
+
+/**
+ * return the latest timestamp from the main database 
+ * 
+ */
+function getLatestTimestamp(){
+    // TODO 
+}
+
+
+/**
+ * This function is displaying data from the database in UI
+ * 
+ * @returns 
+ */
+function displayDataFromDB(){
     var index = db.transaction('counters').objectStore('counters');
     return index.getAll().then(function(data){
         addDatatoUI();
     });
 }
 
-function showTheDataFromtheNetwork(){
+
+/**
+ * This function is displaying in UI the data, which was just received from the server
+ * 
+ * @param data: data that was just received from the server
+ */
+function showTheDataFromtheNetwork(data){
 
 }
 
+
+/**
+ * This function stores newly received data from the network to the main database
+ * 
+ * @param {any} data: newly received data
+ */
 function storeNewDataTotheDB(data){
 
     var messages = JSON.parse(data);
@@ -73,6 +122,12 @@ function storeNewDataTotheDB(data){
     });
 }
 
+
+/**
+ * This function creates the main Database 
+ * 
+ * @returns the database object
+ */
 function openMainDatabase(){
     if (!navigator.serviceWorker){
         return;
@@ -85,14 +140,33 @@ function openMainDatabase(){
     });
 }
 
+
+/**
+ * This function cretes the temporary database
+ * 
+ * @returns the database object
+ */
 function openTempDatabase(){
     // similar code
 }
 
+
+/**
+ * This function handles storing the data to the main DB after the server marked it with a timestamp
+ * 
+ * @param {any} data: - originally added data
+ * @param {any} response: - a response from the server, which consists of timestamp for the data
+ */
 function storeDataToDB(data, response){
-    // function that handles storing the data to DB after server marked it with a timestamp
+    
 }
 
+
+/**
+ * This function handles user-inserted data 
+ * 
+ * @param {any} data This parameter is for data added through the UI
+ */
 function getDataFromUI(data){
     pushUpdates(data, function(res){
         // sucess callback
