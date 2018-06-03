@@ -18,6 +18,8 @@ $(document).ready(function() {
  *              if undefined, then server sends all available data;
  * @param {any} callback: a function, which is going to be called after the updates were received. 
  */
+// TODO: discuss, whether to store only the latest timestamp on the clien't side (alongside an object, where all previous operations are applied already)
+// TODO: or to have timestamps for all the objects
 function pullUpdates(timestamp, callback) {
     if (response.status === 200 && response.data !== null){
         callback(response.data);
@@ -62,11 +64,12 @@ function init(){
     // Pull updates from the server starting from the passed timestamp
     pullUpdates(timestamp, function callback(data){
         // once updates recieved, show them in UI
-        showTheDataFromtheNetwork(data);
+        showReceivedData(data);
         // store recived updates in the DB
         storeNewDataTotheDB(data);
         // if temp database is not empty, send it's operations to the server
-        sendDataFromTempDB();
+        sendDataFromTempDB(); // TODO: discuss the behaviour of the situation, when changes were made to both server and client. 
+                              // TODO: - What and how to display in the UI?  
     });
 }
 
@@ -98,7 +101,7 @@ function displayDataFromDB(){
  * 
  * @param data: data that was just received from the server
  */
-function showTheDataFromtheNetwork(data){
+function showReceivedData(data){
 
 }
 
@@ -161,6 +164,15 @@ function storeDataToDB(data, response){
     
 }
 
+/**
+ * This function handles cleaning the temporary database, after updates were pushed to the server.
+ * 
+ * @param {any} data: optional (depends whether to remove all of the data or just part of it)
+ */
+function emptyTempDB(data){
+
+}
+
 
 /**
  * This function handles user-inserted data 
@@ -171,6 +183,7 @@ function getDataFromUI(data){
     pushUpdates(data, function(res){
         // sucess callback
         storeDataToDB(data, response);
+        emptyTempDB(data);
     }, function(response){
         // failure callback
         storeDataToTempDB(data);
