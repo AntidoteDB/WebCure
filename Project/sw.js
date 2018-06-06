@@ -16,7 +16,7 @@ self.addEventListener('fetch', function (event) {
     event.respondWith(
         caches.match(event.request).then(function (response) {
             // Respond the data from the cache, if it was found there. Otherwise, fetch from the network.
-            return response || fetch(event.request); 
+            return response || fetch(event.request);
         })
     );
 });
