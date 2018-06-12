@@ -2,7 +2,7 @@
 
 
 
-![Workflow](.\Untitled Diagram.svg)
+![Workflow](./diagram.svg)
 
 
 
