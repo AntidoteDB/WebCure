@@ -1,60 +1,105 @@
 # Pseudocode 
 
-#### Initial state 
+
+
+![Workflow](.\Untitled Diagram.svg)
+
+
+
+#### The client is offline 
+
+###### read() function 
 
 ```pseudocode
-if the main database is not empty:
-    Process the data from the main database 
-if the temp database is not empty:
-	Process the data from the temp database 
+// Read function that pulls database changes
+// @param key: the key of the object, for which the update was requested; if undefined, then all changes will be pulled
 
-Dispay processed data in the UI
+function read(key) {
+    responseArray = []; // define an empty array, which is going to be sent back
+    if (main database is not empty) {
+        if (key is not undefined) {
+            state = get state of object by key from the main database
+            operations = get operations performed on the object o from the temp database
+            apply operations over the state
+            response = object that contains the key and the value
+            responseArray.push(response);
+        } else {
+            for (every key in the main database) {
+                state = get state of object by key
+                for (every key in the temp database) {
+                    operations = get operations performed on the object o;
+                    apply operations over the state
+                    response = object that contains the key and the value
+                    responseArray.push(response);
+                }
+            }
+        }
+    }
 
-Send GET-request to receive states[values + metadata] from the server
-	if the response is successful:
-		for every i in updates 
-			if (updates[i].timestamp is later than latest timestamp on a client)
-				Process received data and show changes in the UI // (*)
-				Store newly received data to the main database
-
-Send POST-request with data (operations) from the temp database to the server
-	if the response is successful:
-		Update main database with received data along with timestamps
-		Clean temp database
-	else 
-		Try to send the request to the server again
+    return reponseArray;
+}
 ```
 
-###### Comments in the code:
-
-At the point, which marked as (*), it is not clear, what should be done with temp data:**
-
-* Try to show newly received data from the server along with data in main database & temp database; 
-* Show only newly received data along with the data from the main database and add changes from temp data base only after it was sent to the server, where it was successfully applied.
-
-#### Adding data through the Client
+###### update() function 
 
 ````pseudocode
-Add an event listener to the 'submit' button
-
-if input is not empty and button was pressed:
-	Send POST-request with data (operations) to the server
-		if the response is successful:
-			Update the main database with received data along with timestamps
-			Update the UI
-		else:
-			Add the entry to the temporary database
-			Update the UI
+// update function that processes user-made update
+// @param key
+// @param op: 
+function write(key, op){
+    if (key is found in the main database){
+        add op to the temp database for the found key;
+    }
+    else {
+        newop = create a key;
+        add newop to the temp database;
+        add op to the temp database for the key;
+        // or maybe we can just notify the user that there is no such key in the main database
+    }
+}
 ````
 
-#### Client is offline
+#### The client is online
+
+###### read() function
 
 ````pseudocode
-if the main database is not empty:
-	Process the data from the main database
-if the temp database is not empty:
-	Process the data from the temp database
-	
-Display processed data in the UI
+// Read function that pulls database changes
+// @param key: the key of the object, for which the update was requested; if undefined, then all changes will be pulled
+
+function read(key){
+     responseArray = []; // define an empty array, which is going to be sent back
+     if (temp database is not empty){
+         send operations from temp database to the server
+         update the main database 
+     }
+     
+     state = get the state of key from the main database;
+     response = object that contains the key and the value
+     responseArray.push(response);
+}
+````
+
+###### update() function 
+
+```` fdsf 
+// update function that processes user-made update
+// @param key
+// @param op: 
+function write(key, op){
+    if (key is found in the main database){
+        add op to the temp database for the found key;
+    }
+    else {
+        newop = create a key;
+        add newop to the temp database;
+        add op to the temp database for the key;
+    }
+    
+    send created operations to the server
+    when the response is received:
+    	update the main database
+    	clean the temp database
+}
 ````
 
