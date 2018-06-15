@@ -8,6 +8,28 @@
 
 #### The client is offline 
 
+![Workflow](./offline.svg)
+
+###### start() function 
+
+````pseudocode
+function start(){
+    read(); // read the latest changes.
+    
+    changesAwaiting = add listener to the event 'push changes'
+    changesAdded = add listener for already added changes
+    
+    if (changesAwaiting){
+     	update();   
+    }
+    
+    if (changesAdded){
+        connect();
+    }
+    
+}
+````
+
 ###### read() function 
 
 ```pseudocode
@@ -46,7 +68,7 @@ function read(key) {
 // update function that processes user-made update
 // @param key
 // @param op: 
-function write(key, op){
+function update(key, op){
     if (key is found in the main database){
         add op to the temp database for the found key;
     }
@@ -56,6 +78,8 @@ function write(key, op){
         add op to the temp database for the key;
         // or maybe we can just notify the user that there is no such key in the main database
     }
+    
+    return responseStatus;
 }
 ````
 
@@ -69,11 +93,9 @@ function write(key, op){
 
 function read(key){
      responseArray = []; // define an empty array, which is going to be sent back
-     if (temp database is not empty){
-         send operations from temp database to the server
-         update the main database 
-     }
-     
+    
+     connect();
+	
      state = get the state of key from the main database;
      response = object that contains the key and the value
      responseArray.push(response);
@@ -86,7 +108,7 @@ function read(key){
 // update function that processes user-made update
 // @param key
 // @param op: 
-function write(key, op){
+function update(key, op){
     if (key is found in the main database){
         add op to the temp database for the found key;
     }
@@ -100,6 +122,26 @@ function write(key, op){
     when the response is received:
     	update the main database
     	clean the temp database
+    	
+	return responseStatus;
 }
 ````
 
+###### connect() function
+
+````pseudocode
+function connect(){
+	request = GET request;
+    if (temp database is not empty){
+   		request = POST request with data from temp database;
+    }
+    send request to the server;
+    receive response and update the main database and clean temporary database
+}
+````
+
+- client has changes and server has changes;
+- server has multiple changes
+- client has multiple changes
+- connection lost after pushing 
+- etc. 
