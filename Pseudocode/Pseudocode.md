@@ -16,17 +16,11 @@
 function start(){
     read(); // read the latest changes.
     
-    changesAwaiting = add listener to the event 'push changes'
-    changesAdded = add listener for already added changes
+    changesAwaiting = add listener to the event 'push changes' (when the user tries to add new changes)
     
-    if (changesAwaiting){
+    if (changesAwaiting){ // if the event was triggered
      	update();   
     }
-    
-    if (changesAdded){
-        connect();
-    }
-    
 }
 ````
 
@@ -68,6 +62,7 @@ function read(key) {
 // update function that processes user-made update
 // @param key
 // @param op: 
+// TODO: add the support for multiple changes also!
 function update(key, op){
     if (key is found in the main database){
         add op to the temp database for the found key;
@@ -84,6 +79,22 @@ function update(key, op){
 ````
 
 #### The client is online
+
+![Workflow](./online.svg)
+
+###### start() function 
+
+````pseudocode
+function start(){
+    read(); // read the latest changes.
+    
+    changesAwaiting = add listener to the event 'push changes' (when the user tries to add new changes)
+    
+    if (changesAwaiting){ // if the event was triggered
+     	update();   
+    }
+}
+````
 
 ###### read() function
 
@@ -108,6 +119,7 @@ function read(key){
 // update function that processes user-made update
 // @param key
 // @param op: 
+// TODO: add the support for multiple changes also!
 function update(key, op){
     if (key is found in the main database){
         add op to the temp database for the found key;
@@ -118,10 +130,7 @@ function update(key, op){
         add op to the temp database for the key;
     }
     
-    send created operations to the server
-    when the response is received:
-    	update the main database
-    	clean the temp database
+    connect();
     	
 	return responseStatus;
 }
@@ -139,9 +148,3 @@ function connect(){
     receive response and update the main database and clean temporary database
 }
 ````
-
-- client has changes and server has changes;
-- server has multiple changes
-- client has multiple changes
-- connection lost after pushing 
-- etc. 
