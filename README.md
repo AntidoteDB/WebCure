@@ -1,5 +1,4 @@
-# MasterThesis
-AntidoteDB Web-Client with Cache support and Offline-first experience
+## Master Thesis
+# Offline caching in web applications for AntidoteDB
 
-Arhitecture Overview: 
 ![Arhitecture Overview](./Main_article.PNG "Arhitecture Overview")
