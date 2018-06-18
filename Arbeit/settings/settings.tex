@@ -1,0 +1,201 @@
+% Included by MAIN.TEX
+% Defines the settings for the CAMP report document
+
+% use german characters as well
+\usepackage[utf8]{inputenc}       % allow UTF-8 characters
+%\usepackage[ansinew]{inputenc}       % allow ANSII-new characters
+
+\renewcommand{\sectfont}{\normalfont \bfseries}        % Schriftart der Kopfzeile
+
+% manipulate footer
+\usepackage{scrpage2}
+\pagestyle{scrheadings}
+\ifoot[\footertext]{\footertext} % \footertext set in INFO.TEX
+%\setkomafont{pagehead}{\normalfont\rmfamily}
+\setkomafont{pagenumber}{\normalfont\rmfamily}
+
+
+%\usepackage{algorithm}
+%\usepackage{algpseudocode}
+%\floatname{algorithm}{Algorithmus}
+%\usepackage{framed}
+%\usepackage{multicol}
+
+%% allow sophisticated control structures
+\usepackage{ifthen}
+
+% use Palatino as default font
+\usepackage{palatino}
+
+% enable special PostScript fonts
+\usepackage{pifont}
+
+%to use the subfigures
+\usepackage{subfigure}
+
+%\usepackage{wrapfig}
+\usepackage{listings}
+\usepackage{color}
+\usepackage[svgnames]{xcolor}
+\usepackage{colortbl}
+
+%\makeatletter 
+%\g@addto@macro\UrlBreaks{ 
+%  \do\a\do\b\do\c\do\d\do\e\do\f\do\g\do\h\do\i\do\j 
+%  \do\k\do\l\do\m\do\n\do\o\do\p\do\q\do\r\do\s\do\t 
+%  \do\u\do\v\do\w\do\x\do\y\do\z\do\&\do\1\do\2\do\3 
+%  \do\4\do\5\do\6\do\7\do\8\do\9\do\0} 
+%% \def\do@url@hyp{\do\-} 
+%\makeatother 
+
+\usepackage{url}
+\urlstyle{same}
+
+%% show program code\ldots
+%\usepackage{verbatim}
+%\usepackage{program}
+
+%% enable TUM symbols on title page
+\usepackage{styles/tumlogo}
+
+
+\usepackage{multirow}
+
+%% use colors
+\usepackage{color}
+
+%% make fancy math
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{textcomp}
+\usepackage{yhmath} % f�r die adots 
+%% mark text as preliminary
+%\usepackage[draft,german,scrtime]{prelim2e}
+
+%% create an index
+\usepackage{makeidx}
+
+% for the program environment
+%\usepackage{float}
+\usepackage{tocbasic}
+
+%% load german babel package for german abstract
+%\usepackage[german,american]{babel}
+\usepackage[ngerman]{babel}
+%\selectlanguage{german}
+
+% use initals dropped caps - doesn't work with PDF
+%\usepackage{dropping}
+
+
+\usepackage{styles/shortoverview}
+%----------------------------------------------------
+%      Graphics and Hyperlinks
+%----------------------------------------------------
+
+
+%% check for pdfTeX
+\ifx\pdftexversion\undefined
+ %% use PostScript graphics
+ \usepackage[dvips]{graphicx}
+ \DeclareGraphicsExtensions{.eps,.epsi}
+ \graphicspath{{figures/}{figures/review}} 
+ %% allow rotations
+ \usepackage{rotating}
+ %% mark pages as draft copies
+ %\usepackage[english,all,light]{draftcopy}
+ %% use hypertex version of hyperref
+ \usepackage[hypertex,hyperindex=false,colorlinks=false,breaklinks]{hyperref} 
+ %% breaks urls if they are too long
+ \usepackage{breakurl}
+\else %% reduce output size \pdfcompresslevel=9
+ %% declare pdfinfo
+ %\pdfinfo { 
+ %  /Title (my title) 
+ %  /Creator (pdfLaTeX) 
+ %  /\dfrac{Author}{den} (my name) 
+ %  /Subject (my subject	) 
+ %  /Keywords (my keywords)
+ %}
+ %% use pdf or jpg graphics
+ \usepackage[pdftex]{graphicx}
+ \DeclareGraphicsExtensions{.jpg,.JPG,.png,.pdf,.eps}
+ \graphicspath{{figures/}} 
+ 
+ %% allow rotations
+ \usepackage{rotating}
+ %% use pdftex version of hyperref
+ \usepackage[pdftex,colorlinks=true,linkcolor=black,citecolor=black,%
+ anchorcolor=black,urlcolor=black,bookmarks=true,%
+ bookmarksopen=true,bookmarksopenlevel=0,plainpages=false,%
+ bookmarksnumbered=true,hyperindex=false,pdfstartview=%
+ ]{hyperref}
+%
+%\usepackage[pdftex,colorlinks=false,linkcolor=red,citecolor=red,%
+% anchorcolor=red,urlcolor=red,bookmarks=true,%
+% bookmarksopen=true,bookmarksopenlevel=0,plainpages=false%
+% bookmarksnumbered=true,hyperindex=false,pdfstartview=%
+% ]{hyperref}
+
+
+
+
+
+%% Fancy chapters
+%\usepackage[Lenny]{fncychap}
+%\usepackage[Glenn]{fncychap}
+%\usepackage[Bjarne]{fncychap}
+
+%\usepackage[avantgarde]{quotchap}
+
+% set the bibliography style
+\bibliographystyle{alphaurl}
+
+\usepackage{textcomp}
+%\definecolor{listinggray}{gray}{0.9}
+%\definecolor{lbcolor}{rgb}{0.9,0.9,0.9}
+%\lstset{language=XML}
+
+\usepackage[all]{hypcap}
+\pdfminorversion=6
+
+\usepackage[T1]{fontenc}
+\usepackage{epsfig}
+\usepackage[numbers,sort&compress]{natbib}
+\usepackage{bm}
+\usepackage[normalem]{ulem}
+
+%% Do tabs
+\usepackage{tabto}
+
+\addtokomafont{captionlabel}{\bfseries}
+
+%% Use enumeration of subsubsections
+\setcounter{secnumdepth}{3}
+
+%% Use footnote numbering for whole document
+\usepackage{chngcntr} 
+\counterwithout{footnote}{chapter}
+
+%% \DeclareNewTOC[%
+%	counterwithin=chapter,%
+%	hang=2em,%
+%	type=example,%
+%	types=examples,%
+%	nonfloat,%
+%	name=Beispiel,%
+%	listname={Beispielverzeichnis}%
+%]{loex}
+%\setuptoc{loex}{chapteratlist}
+
+%\DeclareNewTOC[%
+%	counterwithin=chapter,%
+%	hang=2em,%
+%	type=definition,%
+%	types=definitions,%
+%	nonfloat,%
+%	name=Begriff,%
+%	listname={Begriffsverzeichnis}%
+%]{lode}
+%\setuptoc{lode}{chapteratlist}

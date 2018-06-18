@@ -1,0 +1,127 @@
+\DeclareOldFontCommand{\bf}{\normalfont\bfseries}{\mathbf}
+\documentclass[
+	fontsize=12pt,
+	paper=a4,
+	bibliography=totoc,
+	index=totoc,
+	listof=totoc,
+	footinclude=false,
+	BCOR16mm,
+	DIV=10
+	]{scrbook}
+
+
+%%%%% include settings
+\input{settings/settings}
+
+%%%%% include command
+\input{settings/commands}
+
+% Set here the title, authors and other stuff to be used for the cover
+% This file is used by MAIN.TEX
+
+
+
+% set title, authors and stuff for the cover
+\def\doctype{Master Thesis}
+\def\title{Offline caching in web applications for AntidoteDB} 
+\def\author{Server Khalilov}
+\def\date{DD. April 2018}
+
+% text to appear in the footer
+\def\footertext{}
+
+
+%%%%% global hyphenation
+\hyphenation{
+}
+
+\sloppy
+
+\makeglossary
+
+\begin{document}
+\renewcommand{\chaptername}{Chapter}
+\renewcommand\contentsname{Contents}
+\renewcommand{\tablename}{Table}
+\renewcommand{\listtablename}{List of Tables}
+\renewcommand{\figurename}{Figure}
+\renewcommand{\listfigurename}{List of Figures}
+\renewcommand{\bibname}{Bibliography}
+\renewcommand{\appendixname}{Appendix}
+
+	%%%%% Deckblatt
+	\frontmatter	
+	\input{titlepage/Titlepage}
+	
+	%%%%% Abstract und Disclaimer
+	\cleardoubleoddemptypage
+	\thispagestyle{plain}
+	\input{abstract/Abstract_german}
+	\cleardoubleoddplainpage
+	\input{abstract/Abstract}
+	
+	\cleardoubleevenplainpage
+	\input{disclaimer/Disclaimer}
+	
+	%%%%% Inhaltsverzeichnis
+	\cleardoubleoddplainpage
+	\pdfbookmark[1]{Contents}{toc}
+	\tableofcontents
+	
+	%%%%% Alle anderen Kapitel, Anhang und Verzeichnisse
+	\mainmatter
+	
+		\cleardoubleoddplainpage
+		\label{part:Introduction}
+		\input{chapters/1-Introduction}
+
+		\cleardoubleoddplainpage
+		\label{part:Background}
+		\input{chapters/2-Background}
+		
+		\cleardoubleoddplainpage
+		\label{part:Problem Analysis}
+		\input{chapters/3-ProblemAnalysis}
+
+		\cleardoubleoddplainpage
+		\label{part:Related Work}
+		\input{chapters/4-RelatedWork}
+
+		\cleardoubleoddplainpage
+		\label{part:Design}
+		\input{chapters/5-Design}
+		
+		\cleardoubleoddplainpage
+		\label{part:Architecture}
+		\input{chapters/6-Architecture}
+
+		\cleardoubleoddplainpage
+		\label{part:Implementation}
+		\input{chapters/7-Implementation}
+
+		\cleardoubleoddplainpage
+		\label{part:Evaluation}
+		\input{chapters/8-Evaluation}
+		
+		\cleardoubleoddplainpage
+		\label{part:Discussion}
+		\input{chapters/9-Discussion}
+
+		\cleardoubleoddplainpage
+		\label{part:Conclusion and Future Work}
+		\input{chapters/10-ConclusionandFutureWork}
+	
+		\cleardoubleoddplainpage
+		\label{part:Appendix}
+		\input{appendix/Appendix}
+		
+		\listoffigures
+		\listoftables
+		%\listoftoc{loex}
+		%\listoftoc{lode}
+
+		\cleardoubleoddplainpage
+		\bibliography{bibliography/references}
+
+\end{document}

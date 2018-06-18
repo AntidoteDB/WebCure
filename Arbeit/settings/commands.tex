@@ -1,0 +1,146 @@
+% Commands to be used within the TUM report document
+% Included by MAIN.TEX
+% Please include your own cool commands here. 
+% Be only sure to comment it sufficiently so others can use it.
+
+%-------------------------------------------------------------
+%                      Own Commands
+%-------------------------------------------------------------
+
+
+%-------------------------------------------------------------
+% math stuff -------------------------------------------------
+
+% nice R, N, C
+\newcommand{\nat}{\mathbb{N}}
+\newcommand{\real}{\mathbb{R}}
+\newcommand{\compl}{\mathbb{C}}
+
+
+
+% norm
+\newcommand{\norm}[1]{\left\| #1 \right\|}
+
+% un demi
+\newcommand{\half}{\frac{1}{2}}
+
+% parantheses
+\newcommand{\parenth}[1]{ \left( #1 \right) }
+\newcommand{\bracket}[1]{ \left[ #1 \right] }
+\newcommand{\accolade}[1]{ \left\{ #1 \right\} }
+%\newcommand{\angle}[1]{ \left\langle  #1 \right\rangle }
+
+% partial derivative: %#1 function, #2 which variable
+% simple / single line version
+\newcommand{\pardevS}[2]{ \delta_{#1} f(#2) }
+% fraction version
+\newcommand{\pardevF}[2]{ \frac{\partial #1}{\partial #2} }
+
+% render vectors: 3 and 4 dimensional
+\newcommand{\veciii}[3]{\left[ \begin{array}[h]{c} #1 \\ #2 \\ #3	\end{array} \right]}
+\newcommand{\veciv}[4]{\left[ \begin{array}[h]{c} #1 \\ #2 \\ #3 \\ #4	\end{array} \right]}
+
+% render matrices: 3  dimensional (arguments in row first order)
+\newcommand{\matiii}[9]{\left[ \begin{array}[h]{ccc} #1 & #2 & #3 \\ #4 & #5 & #6 \\ #7 & #8 & #9	\end{array} \right]}
+%DOESN'T WORK,DON'T KNOW WHY \newcommand{\mativ}[16]{\left[ \begin{array}[h]{cccc} #1 & #2 & #3 & #4 \\ #5 & #6 & #7 & #8 \\ #9 & #10 & #11 & #12 \\ #13 & #14 & #15 & #16 \end{array} \right]}
+
+
+%-------------------------------------------------------------
+%-------------------------------------------------------------
+
+
+%-------------------------------------------------------------
+% some abreviations ------------------------------------------
+\newcommand{\Reg}{$^{\textregistered}$}
+\newcommand{\reg}{$^{\textregistered}$ }
+\newcommand{\Tm}{\texttrademark}
+\newcommand{\tm}{\texttrademark~}
+\newcommand {\bsl} {$\backslash$}
+
+%-------------------------------------------------------------
+%-------------------------------------------------------------
+
+
+
+%-------------------------------------------------------------
+% formating --------------------------------------------------
+
+% Theorem & Co environments and counters
+%\newtheorem{theorem}{Theorem}
+%\newtheorem{lemma}[theorem]{Lemma}
+%\newtheorem{corollary}[theorem]{Corollary}
+%\newtheorem{remark}[theorem]{Remark}
+%\newtheorem{definition}[theorem]{Definition}
+%\newtheorem{equat}[theorem]{Equation}
+%\newtheorem{example}[theorem]{Example}
+% \newtheorem{algorithm}[theorem]{Algorithm}
+
+% inserting figures
+%\newcommand{\insertfigure}[4]{ % Filename, Caption, Label, Width percent of textwidth
+%	\begin{figure}[htbp]
+%		\begin{center}
+%			\includegraphics[width=#4\textwidth]{#1}
+%		\end{center}
+%		\vspace{-0.4cm}
+%		\caption{#2}
+%		\label{#3}
+%	\end{figure}
+%}
+
+%-------------------------------------------------------------
+%-------------------------------------------------------------
+
+
+% new stuff (Michael)
+
+%-------------------------------------------------------------
+%-------------------------------------------------------------
+
+\newcommand{\insertfigure}[3]{ %filename and label, width, caption
+	\begin{figure}
+		\center
+		\includegraphics[width=#2\columnwidth]{images/#1}
+		\vspace{-0.2cm}
+		\caption{#3}
+		\label{fig:#1}
+	\end{figure}
+}
+
+\newcommand{\insertdefinition}[3] { %label, caption, text
+%	\begin{definition-}
+		\KOMAoptions{captions=nooneline}
+		\captionof{definition}[#2]{\textbf{#2}: #3}
+		\label{def:#1}
+		\vspace{0.2cm}
+		\KOMAoptions{captions=oneline}
+%	\end{definition-}
+}
+
+\newcommand{\insertexample}[3] { %label, caption, text
+	\begin{example-}
+		\KOMAoptions{captions=nooneline}
+		\captionof{example}[#2]{\textbf{#2}:}
+		\label{ex:#1}
+		\KOMAoptions{captions=oneline}
+		\setlength\parindent{1em}
+		#3
+	\end{example-}
+}
+
+\newcommand{\insertlst}{
+	\lstset{
+		basicstyle=\small,
+		keywordstyle=\bfseries,
+		commentstyle=\color{green!50!black!100}, 
+		stringstyle=\ttfamily, 
+		language=Java,                % choose the language of the code
+		frame=single,	                % adds a frame around the code
+		aboveskip=11pt,
+		belowskip=11pt,
+		breaklines=true,                % sets automatic line breaking
+		breakatwhitespace=false,  % sets if automatic breaks should only happen at
+		showspaces=false,
+		showstringspaces=false
+	}
+}
+

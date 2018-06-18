@@ -2,13 +2,13 @@
 
 
 
-![Workflow](./diagram.svg)
+![Workflow](./img/diagram.svg)
 
 
 
 #### The client is offline 
 
-![Workflow](./offline.svg)
+![Workflow](./img/offline.svg)
 
 ###### start() function 
 
@@ -80,7 +80,7 @@ function update(key, op){
 
 #### The client is online
 
-![Workflow](./online.svg)
+![Workflow](./img/online.svg)
 
 ###### start() function 
 

@@ -1,0 +1,24 @@
+\select@language {ngerman}
+\contentsline {chapter}{\numberline {1}Introduction}{1}{chapter.1}
+\contentsline {section}{\numberline {1.1}Motivation}{1}{section.1.1}
+\contentsline {section}{\numberline {1.2}Research questions}{1}{section.1.2}
+\contentsline {chapter}{\numberline {2}Background}{3}{chapter.2}
+\contentsline {chapter}{\numberline {3}Problem Analysis}{5}{chapter.3}
+\contentsline {chapter}{\numberline {4}Related Work}{7}{chapter.4}
+\contentsline {chapter}{\numberline {5}Design}{9}{chapter.5}
+\contentsline {section}{\numberline {5.1}Modern offline applications}{9}{section.5.1}
+\contentsline {section}{\numberline {5.2}Service Workers}{9}{section.5.2}
+\contentsline {section}{\numberline {5.3}IndexDB database}{9}{section.5.3}
+\contentsline {chapter}{\numberline {6}Architecture}{11}{chapter.6}
+\contentsline {section}{\numberline {6.1}View of the architecture}{11}{section.6.1}
+\contentsline {section}{\numberline {6.2}Communication protocol description}{11}{section.6.2}
+\contentsline {chapter}{\numberline {7}Implementation}{13}{chapter.7}
+\contentsline {chapter}{\numberline {8}Evaluation}{15}{chapter.8}
+\contentsline {chapter}{\numberline {9}Discussion}{17}{chapter.9}
+\contentsline {chapter}{\numberline {10}Conclusion and Future Work}{19}{chapter.10}
+\contentsline {section}{\numberline {10.1}Summary}{19}{section.10.1}
+\contentsline {section}{\numberline {10.2}Possible future improvements}{19}{section.10.2}
+\contentsline {chapter}{\numberline {11}Appendix}{21}{chapter.11}
+\contentsline {chapter}{\nonumberline List of Figures}{23}{chapter*.2}
+\contentsline {chapter}{\nonumberline List of Tables}{25}{chapter*.3}
+\contentsline {chapter}{\nonumberline Bibliography}{27}{chapter*.4}
