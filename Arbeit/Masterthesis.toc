@@ -3,22 +3,20 @@
 \contentsline {section}{\numberline {1.1}Motivation}{1}{section.1.1}
 \contentsline {section}{\numberline {1.2}Research questions}{1}{section.1.2}
 \contentsline {chapter}{\numberline {2}Background}{3}{chapter.2}
+\contentsline {section}{\numberline {2.1}Related Work}{3}{section.2.1}
 \contentsline {chapter}{\numberline {3}Problem Analysis}{5}{chapter.3}
-\contentsline {chapter}{\numberline {4}Related Work}{7}{chapter.4}
-\contentsline {chapter}{\numberline {5}Design}{9}{chapter.5}
-\contentsline {section}{\numberline {5.1}Modern offline applications}{9}{section.5.1}
-\contentsline {section}{\numberline {5.2}Service Workers}{9}{section.5.2}
-\contentsline {section}{\numberline {5.3}IndexDB database}{9}{section.5.3}
-\contentsline {chapter}{\numberline {6}Architecture}{11}{chapter.6}
-\contentsline {section}{\numberline {6.1}View of the architecture}{11}{section.6.1}
-\contentsline {section}{\numberline {6.2}Communication protocol description}{11}{section.6.2}
-\contentsline {chapter}{\numberline {7}Implementation}{13}{chapter.7}
-\contentsline {chapter}{\numberline {8}Evaluation}{15}{chapter.8}
-\contentsline {chapter}{\numberline {9}Discussion}{17}{chapter.9}
-\contentsline {chapter}{\numberline {10}Conclusion and Future Work}{19}{chapter.10}
-\contentsline {section}{\numberline {10.1}Summary}{19}{section.10.1}
-\contentsline {section}{\numberline {10.2}Possible future improvements}{19}{section.10.2}
-\contentsline {chapter}{\numberline {11}Appendix}{21}{chapter.11}
-\contentsline {chapter}{\nonumberline List of Figures}{23}{chapter*.2}
-\contentsline {chapter}{\nonumberline List of Tables}{25}{chapter*.3}
-\contentsline {chapter}{\nonumberline Bibliography}{27}{chapter*.4}
+\contentsline {chapter}{\numberline {4}Design}{7}{chapter.4}
+\contentsline {section}{\numberline {4.1}Modern offline applications}{7}{section.4.1}
+\contentsline {section}{\numberline {4.2}Service Workers}{7}{section.4.2}
+\contentsline {section}{\numberline {4.3}IndexDB database}{7}{section.4.3}
+\contentsline {chapter}{\numberline {5}Architecture}{9}{chapter.5}
+\contentsline {section}{\numberline {5.1}General overview of the architecture}{9}{section.5.1}
+\contentsline {section}{\numberline {5.2}Communication protocol description}{9}{section.5.2}
+\contentsline {chapter}{\numberline {6}Implementation}{11}{chapter.6}
+\contentsline {chapter}{\numberline {7}Evaluation}{13}{chapter.7}
+\contentsline {chapter}{\numberline {8}Conclusion and Future Work}{15}{chapter.8}
+\contentsline {section}{\numberline {8.1}Summary}{15}{section.8.1}
+\contentsline {section}{\numberline {8.2}Future Work}{15}{section.8.2}
+\contentsline {chapter}{\nonumberline List of Figures}{17}{chapter*.2}
+\contentsline {chapter}{\nonumberline List of Tables}{19}{chapter*.3}
+\contentsline {chapter}{\nonumberline Bibliography}{21}{chapter*.4}
