@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (MiKTeX 2.9.6350 64-bit) (preloaded format=pdflatex 2017.7.15)  26 JUN 2018 11:30
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (MiKTeX 2.9.6350 64-bit) (preloaded format=pdflatex 2017.7.15)  26 JUN 2018 17:04
 entering extended mode
 **./Masterthesis.tex
 (Masterthesis.tex
@@ -1347,14 +1347,6 @@ Package babel Info: Redefining ngerman shorthand "|
 (babel)             in language  on input line 6.
 Package babel Info: Redefining ngerman shorthand "~
 (babel)             in language  on input line 6.
-Package babel Info: Redefining ngerman shorthand "|
-(babel)             in language  on input line 7.
-Package babel Info: Redefining ngerman shorthand "~
-(babel)             in language  on input line 7.
-Package babel Info: Redefining ngerman shorthand "|
-(babel)             in language  on input line 8.
-Package babel Info: Redefining ngerman shorthand "~
-(babel)             in language  on input line 8.
 )
 Package babel Info: Redefining ngerman shorthand "|
 (babel)             in language  on input line 91.
@@ -1379,7 +1371,7 @@ Package babel Info: Redefining ngerman shorthand "~
  [8
 
 
-] (chapters/6-Architecture.tex
+] (chapters/51-Technologies.tex
 chapter 5.
 Package babel Info: Redefining ngerman shorthand "|
 (babel)             in language  on input line 1.
@@ -1417,12 +1409,20 @@ Package babel Info: Redefining ngerman shorthand "~
  [10
 
 
-] (chapters/7-Implementation.tex
+] (chapters/6-Architecture.tex
 chapter 6.
 Package babel Info: Redefining ngerman shorthand "|
 (babel)             in language  on input line 1.
 Package babel Info: Redefining ngerman shorthand "~
 (babel)             in language  on input line 1.
+Package babel Info: Redefining ngerman shorthand "|
+(babel)             in language  on input line 5.
+Package babel Info: Redefining ngerman shorthand "~
+(babel)             in language  on input line 5.
+Package babel Info: Redefining ngerman shorthand "|
+(babel)             in language  on input line 6.
+Package babel Info: Redefining ngerman shorthand "~
+(babel)             in language  on input line 6.
 )
 Package babel Info: Redefining ngerman shorthand "|
 (babel)             in language  on input line 99.
@@ -1447,7 +1447,7 @@ Package babel Info: Redefining ngerman shorthand "~
  [12
 
 
-] (chapters/8-Evaluation.tex
+] (chapters/7-Implementation.tex
 chapter 7.
 Package babel Info: Redefining ngerman shorthand "|
 (babel)             in language  on input line 1.
@@ -1477,20 +1477,12 @@ Package babel Info: Redefining ngerman shorthand "~
  [14
 
 
-] (chapters/10-ConclusionandFutureWork.tex
+] (chapters/8-Evaluation.tex
 chapter 8.
 Package babel Info: Redefining ngerman shorthand "|
 (babel)             in language  on input line 1.
 Package babel Info: Redefining ngerman shorthand "~
 (babel)             in language  on input line 1.
-Package babel Info: Redefining ngerman shorthand "|
-(babel)             in language  on input line 6.
-Package babel Info: Redefining ngerman shorthand "~
-(babel)             in language  on input line 6.
-Package babel Info: Redefining ngerman shorthand "|
-(babel)             in language  on input line 7.
-Package babel Info: Redefining ngerman shorthand "~
-(babel)             in language  on input line 7.
 )
 Package babel Info: Redefining ngerman shorthand "|
 (babel)             in language  on input line 107.
@@ -1515,43 +1507,52 @@ Package babel Info: Redefining ngerman shorthand "~
  [16
 
 
+] (chapters/10-ConclusionandFutureWork.tex
+chapter 9.
+Package babel Info: Redefining ngerman shorthand "|
+(babel)             in language  on input line 1.
+Package babel Info: Redefining ngerman shorthand "~
+(babel)             in language  on input line 1.
+Package babel Info: Redefining ngerman shorthand "|
+(babel)             in language  on input line 6.
+Package babel Info: Redefining ngerman shorthand "~
+(babel)             in language  on input line 6.
+Package babel Info: Redefining ngerman shorthand "|
+(babel)             in language  on input line 7.
+Package babel Info: Redefining ngerman shorthand "~
+(babel)             in language  on input line 7.
+)
+Package babel Info: Redefining ngerman shorthand "|
+(babel)             in language  on input line 111.
+Package babel Info: Redefining ngerman shorthand "~
+(babel)             in language  on input line 111.
+Package babel Info: Redefining ngerman shorthand "|
+(babel)             in language  on input line 111.
+Package babel Info: Redefining ngerman shorthand "~
+(babel)             in language  on input line 111.
+ [17
+
+
 ]
 Package babel Info: Redefining ngerman shorthand "|
-(babel)             in language  on input line 107.
+(babel)             in language  on input line 111.
 Package babel Info: Redefining ngerman shorthand "~
-(babel)             in language  on input line 107.
- (Masterthesis.lof)
-\tf@lof=\write6
-\openout6 = `Masterthesis.lof'.
-
+(babel)             in language  on input line 111.
 Package babel Info: Redefining ngerman shorthand "|
-(babel)             in language  on input line 108.
+(babel)             in language  on input line 111.
 Package babel Info: Redefining ngerman shorthand "~
-(babel)             in language  on input line 108.
-Package babel Info: Redefining ngerman shorthand "|
-(babel)             in language  on input line 108.
-Package babel Info: Redefining ngerman shorthand "~
-(babel)             in language  on input line 108.
- [17]
-Package babel Info: Redefining ngerman shorthand "|
-(babel)             in language  on input line 108.
-Package babel Info: Redefining ngerman shorthand "~
-(babel)             in language  on input line 108.
-Package babel Info: Redefining ngerman shorthand "|
-(babel)             in language  on input line 108.
-Package babel Info: Redefining ngerman shorthand "~
-(babel)             in language  on input line 108.
+(babel)             in language  on input line 111.
  [18
 
 
 ]
 Package babel Info: Redefining ngerman shorthand "|
-(babel)             in language  on input line 108.
+(babel)             in language  on input line 111.
 Package babel Info: Redefining ngerman shorthand "~
-(babel)             in language  on input line 108.
- (Masterthesis.lot)
-\tf@lot=\write7
-\openout7 = `Masterthesis.lot'.
+(babel)             in language  on input line 111.
+ (Masterthesis.lof)
+\tf@lof=\write6
+\openout6 = `Masterthesis.lof'.
 
 Package babel Info: Redefining ngerman shorthand "|
 (babel)             in language  on input line 112.
@@ -1574,6 +1575,35 @@ Package babel Info: Redefining ngerman shorthand "~
 
 
 ]
+Package babel Info: Redefining ngerman shorthand "|
+(babel)             in language  on input line 112.
+Package babel Info: Redefining ngerman shorthand "~
+(babel)             in language  on input line 112.
+ (Masterthesis.lot)
+\tf@lot=\write7
+\openout7 = `Masterthesis.lot'.
+
+Package babel Info: Redefining ngerman shorthand "|
+(babel)             in language  on input line 116.
+Package babel Info: Redefining ngerman shorthand "~
+(babel)             in language  on input line 116.
+Package babel Info: Redefining ngerman shorthand "|
+(babel)             in language  on input line 116.
+Package babel Info: Redefining ngerman shorthand "~
+(babel)             in language  on input line 116.
+ [21]
+Package babel Info: Redefining ngerman shorthand "|
+(babel)             in language  on input line 116.
+Package babel Info: Redefining ngerman shorthand "~
+(babel)             in language  on input line 116.
+Package babel Info: Redefining ngerman shorthand "|
+(babel)             in language  on input line 116.
+Package babel Info: Redefining ngerman shorthand "~
+(babel)             in language  on input line 116.
+ [22
+
+
+]
 (Masterthesis.bbl
 chapter without number
 Package babel Info: Redefining ngerman shorthand "|
@@ -1584,51 +1614,42 @@ Package babel Info: Redefining ngerman shorthand "~
 Package natbib Warning: Empty `thebibliography' environment on input line 3.
 
 )
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 115.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 119.
 Package babel Info: Redefining ngerman shorthand "|
-(babel)             in language  on input line 115.
+(babel)             in language  on input line 119.
 Package babel Info: Redefining ngerman shorthand "~
-(babel)             in language  on input line 115.
+(babel)             in language  on input line 119.
 Package babel Info: Redefining ngerman shorthand "|
-(babel)             in language  on input line 115.
+(babel)             in language  on input line 119.
 Package babel Info: Redefining ngerman shorthand "~
-(babel)             in language  on input line 115.
- [21
+(babel)             in language  on input line 119.
+ [23
 
 
 ]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 115.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 119.
  (Masterthesis.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 115.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 115.
-
-
-Package rerunfilecheck Warning: File `Masterthesis.out' has changed.
-(rerunfilecheck)                Rerun to get outlines right
-(rerunfilecheck)                or use package `bookmark'.
-
-Package rerunfilecheck Info: Checksums for `Masterthesis.out':
-(rerunfilecheck)             Before: EE97076EDCEAF27DC35D354F574DCD27;1358
-(rerunfilecheck)             After:  60C542A4902E843D629F217DDF075E78;1311.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 115.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 119.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 119.
+Package rerunfilecheck Info: File `Masterthesis.out' has not changed.
+(rerunfilecheck)             Checksum: 4FC6AFF47D625248A3554132CD6DAB30;1346.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 119.
  )
 (\end occurred when \ifx on line 99 was incomplete) 
 Here is how much of TeX's memory you used:
- 13438 strings out of 493323
- 199125 string characters out of 3140787
- 406789 words of memory out of 3000000
- 16605 multiletter control sequences out of 15000+200000
+ 13446 strings out of 493323
+ 199296 string characters out of 3140787
+ 406793 words of memory out of 3000000
+ 16608 multiletter control sequences out of 15000+200000
  25677 words of font info for 62 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
  42i,11n,66p,9093b,361s stack positions out of 5000i,500n,10000p,200000b,50000s
-pdfTeX warning (dest): name{
-chapter.9} has been referenced but does not exist, replaced by a fixed one
-
-{C:/MiKTeX/fonts/enc/dvips/base/8r.enc}<C:/MiKTeX/fonts/type1/urw/palatino/uplb
-8a.pfb><C:/MiKTeX/fonts/type1/urw/palatino/uplr8a.pfb>
-Output written on Masterthesis.pdf (29 pages, 84169 bytes).
+{C:/MiKTeX/fonts/enc/dvips/b
+ase/8r.enc}<C:/MiKTeX/fonts/type1/urw/palatino/uplb8a.pfb><C:/MiKTeX/fonts/type
+1/urw/palatino/uplr8a.pfb>
+Output written on Masterthesis.pdf (31 pages, 85558 bytes).
 PDF statistics:
- 265 PDF objects out of 1000 (max. 8388607)
- 54 named destinations out of 1000 (max. 500000)
+ 275 PDF objects out of 1000 (max. 8388607)
+ 56 named destinations out of 1000 (max. 500000)
  190 words of extra memory for PDF output out of 10000 (max. 10000000)
 

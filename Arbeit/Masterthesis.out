@@ -7,16 +7,17 @@
 \BOOKMARK [0][-]{chapter.3}{3 Problem Analysis}{}% 7
 \BOOKMARK [0][-]{chapter.4}{4 Design}{}% 8
 \BOOKMARK [1][-]{section.4.1}{4.1 Modern offline applications}{chapter.4}% 9
-\BOOKMARK [1][-]{section.4.2}{4.2 Service Workers}{chapter.4}% 10
-\BOOKMARK [1][-]{section.4.3}{4.3 IndexDB database}{chapter.4}% 11
-\BOOKMARK [0][-]{chapter.5}{5 Architecture}{}% 12
-\BOOKMARK [1][-]{section.5.1}{5.1 General overview of the architecture}{chapter.5}% 13
-\BOOKMARK [1][-]{section.5.2}{5.2 Communication protocol description}{chapter.5}% 14
-\BOOKMARK [0][-]{chapter.6}{6 Implementation}{}% 15
-\BOOKMARK [0][-]{chapter.7}{7 Evaluation}{}% 16
-\BOOKMARK [0][-]{chapter.8}{8 Conclusion and Future Work}{}% 17
-\BOOKMARK [1][-]{section.8.1}{8.1 Summary}{chapter.8}% 18
-\BOOKMARK [1][-]{section.8.2}{8.2 Future Work}{chapter.8}% 19
-\BOOKMARK [0][-]{chapter*.2}{List of Figures}{}% 20
-\BOOKMARK [0][-]{chapter*.3}{List of Tables}{}% 21
-\BOOKMARK [0][-]{chapter*.4}{Bibliography}{}% 22
+\BOOKMARK [0][-]{chapter.5}{5 Technologies}{}% 10
+\BOOKMARK [1][-]{section.5.1}{5.1 Service Workers}{chapter.5}% 11
+\BOOKMARK [1][-]{section.5.2}{5.2 IndexDB database}{chapter.5}% 12
+\BOOKMARK [0][-]{chapter.6}{6 Architecture}{}% 13
+\BOOKMARK [1][-]{section.6.1}{6.1 General overview of the architecture}{chapter.6}% 14
+\BOOKMARK [1][-]{section.6.2}{6.2 Communication protocol description}{chapter.6}% 15
+\BOOKMARK [0][-]{chapter.7}{7 Implementation}{}% 16
+\BOOKMARK [0][-]{chapter.8}{8 Evaluation}{}% 17
+\BOOKMARK [0][-]{chapter.9}{9 Conclusion}{}% 18
+\BOOKMARK [1][-]{section.9.1}{9.1 Summary}{chapter.9}% 19
+\BOOKMARK [1][-]{section.9.2}{9.2 Future Work}{chapter.9}% 20
+\BOOKMARK [0][-]{chapter*.2}{List of Figures}{}% 21
+\BOOKMARK [0][-]{chapter*.3}{List of Tables}{}% 22
+\BOOKMARK [0][-]{chapter*.4}{Bibliography}{}% 23
