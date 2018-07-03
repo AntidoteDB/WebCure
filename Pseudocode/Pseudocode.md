@@ -9,7 +9,10 @@ First of all, let's briefly describe the key components:
 This is a client application, which runs in the web-browser and supports interactive commands from the user. It sits on top of the database layer.
 
 - *read(key)* - asynchronous function that pulls database changes with an optional parameter to pull changes by *key*.
-- *update(key, op, param)* - asynchronous function that processes user-made update.
+- *update(key, op, param)* - asynchronous function that processes user-made update:
+  - *key* - the key, which is going to be updated;
+  - *op* - the operation, which is going to be performed on the *key*;
+  - *param* - any additional parameters that might be needed;
 
 **Server**
 
@@ -18,7 +21,7 @@ It is a configured AntidoteDB server that supports the following scenarios:
 - receiving an operation performed on a CRDT-object;
 - applying received operation on the server;
 - sending back to the client the state of requested  CRDT-object / objects according to their state on the server;
-- sending back states of all stored CRDT-objects, if specific object was not asked for;
+- sending back states of all stored CRDT-objects, if a specific object was not asked for;
 
 **A database layer:**
 
@@ -68,11 +71,11 @@ function start(){
 function read(key) {
     responseArray = []; // define an empty array, which is going to be sent back
     
-    state = get state of object by key from the main database
+    state = get state of object o by key from the main database
     operations = get operations performed on the object o from the temp database
     
-    response = apply operations over the state
-    responseArray.push(response);
+    latest state = apply operations over the state to get latest state of object o
+    responseArray.push(latest state);
     
     return reponseArray;
 }
@@ -82,21 +85,12 @@ function read(key) {
 
 ````pseudocode
 // update function that processes user-made update
-// @param key
-// @param op: operation performed on the object under the key
+// @param key: a key for the object that should be updates;
+// @param op: operation performed on the object under the key;
 // TODO: add the support for multiple changes also!
 function update(key, op){
-    if (key is found in the main database){
-        add op to the temp database for the found key;
-    }
-    else {
-        newop = create a key;
-        add newop to the temp database;
-        add op to the temp database for the key;
-        // or maybe we can just notify the user that there is no such key in the main database
-    }
-    
-    return responseStatus;
+	add op to the temp database for the found key;
+	return responseStatus;
 }
 ````
 
