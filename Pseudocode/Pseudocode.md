@@ -4,38 +4,48 @@ In this document, the overview of the solution is going to be represented.
 
 First of all, let's briefly describe the key components:
 
-**Web Application:**
+###### Web Application:
 
 This is a client application, which runs in the web-browser and supports interactive commands from the user. It sits on top of the database layer.
 
-- *read(key)* - asynchronous function that pulls database changes with an optional parameter to pull changes by *key*.
+- *read(key)* - asynchronous function that pulls database changes with an optional parameter to pull changes by *key*. 
+
+  - It receives a *state* object back according to the requested *key*.
+
 - *update(key, op, param)* - asynchronous function that processes user-made update:
+
   - *key* - the key, which is going to be updated;
+
   - *op* - the operation, which is going to be performed on the *key*;
+
   - *param* - any additional parameters that might be needed;
 
-**Server**
+  - It stores user-made operations on CRDT-states for a specific *key* in the following way:
+
+    *{key, [op1, op2, op3, ... ]}* 
+
+###### **Server**
 
 It is a configured AntidoteDB server that supports the following scenarios:
 
-- receiving an operation performed on a CRDT-object;
-- applying received operation on the server;
+- receiving an array of operations (*[{key, operation}, ..., ... ]*) performed on a CRDT-object (according to the key);
+- applying received operations on the server;
 - sending back to the client the state of requested  CRDT-object / objects according to their state on the server;
 - sending back states of all stored CRDT-objects, if a specific object was not asked for;
 
-**A database layer:**
+###### **A database layer:**
 
 This layer consists of the two databases - *Main database* and *Temp database*.
 
-- Main database: this database stores CRDT states;
+- Main database: this database stores states of CRDT-objects;
 - Temp database: this database stores user-added operations on CRDT-objects, which are stored in the main database; 
 
-When a user performs *read* operation by some *key*, the following actions are taking place:
+When a user performs *read* operation from cache by some *key*, the following actions are taking place:
 
 1. Firstly, the state of the object ***O*** is going to be found by ***key*** in the *Main database*
 2. Then from the *Temporary database*, operations ***o*** performed on the object ***O*** are found.
 3. Afterwards, operations ***o*** are applied on the object ***O***.
-4. And the object from step *3* is returned back as a response to the application.
+4. And then object from step *3* is returned back as a response to the application.
 
  
 
@@ -50,6 +60,7 @@ When a user performs *read* operation by some *key*, the following actions are t
 ###### start() function 
 
 ````pseudocode
+// starting point of the application, which is going to be called on document onload event
 function start(){
     read(); // read the latest changes.
     
@@ -85,11 +96,14 @@ function read(key) {
 
 ````pseudocode
 // update function that processes user-made update
-// @param key: a key for the object that should be updates;
-// @param op: operation performed on the object under the key;
+// @param key: a key for the object that should be updated;
+// @param op: operation performed on the object for the specified key;
 // TODO: add the support for multiple changes also!
+
 function update(key, op){
-	add op to the temp database for the found key;
+	// as we need to have operations sorted, it should be added to the temp database in the following way:
+	// {key, [op1, op2, op3, ... ]} 
+	add op to the temp database for the found key;  
 	return responseStatus;
 }
 ````
@@ -117,15 +131,15 @@ function start(){
 
 ````pseudocode
 // Read function that pulls database changes
-// @param key: the key of the object, for which the update was requested; if undefined, then all changes will be pulled
+// @param key: the key of the object, for which the update was requested;
 
 function read(key){
      responseArray = []; // define an empty array, which is going to be sent back
     
      connect(key);
-     state = get state of object by key from the main database
-     response = object that contains the key and the value
-     responseArray.push(response);
+     state = get state of object o by key from the main database
+     latest state = object that contains the key and the value
+     responseArray.push(latest state);
      return reponseArray;
 }
 ````
@@ -134,11 +148,13 @@ function read(key){
 
 ```` fdsf 
 // update function that processes user-made update
-// @param key
-// @param op: operation performed on the object under the key
+// @param key: a key for the object that should be updated;
+// @param op: operation performed on the object for the specified key
 // TODO: add the support for multiple changes also!
 function update(key, op){
-	add op to the temp database for the found key;
+	// as we need to have operations sorted, it should be added to the temp database in the following way:
+	// {key, [op1, op2, op3, ... ]} 
+	add op to the temp database for the found key; // store it like this: {key, operation}
     connect();
     return responseStatus;
 }
@@ -148,13 +164,12 @@ function update(key, op){
 
 ````pseudocode
 function connect(key){	
-	sumbit operations from temp databases to the server;
-	wait for them to apply on the server's side
-
-	make a request to the server for the state of object under the key
+	operations = create an array of objects (from temp database) that consists of key-value pairs, where each value is an operation. // [{key, operation}, ..., ]
+	sumbit operations object to the server;
+	wait for applying operations on the server's side
+	get back from the server updated states of objects 
 	state = received state;
-	
-	in the main database update the state of object under the key
-	clean temporary database;
+	in the main database update the state of object under the key // [{key, state}, ... ]
+	clean temporary database; // because these values are already on the server's side
 }
 ````
