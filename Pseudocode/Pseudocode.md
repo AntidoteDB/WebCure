@@ -64,8 +64,8 @@ When a user performs *read* operation from cache by some *key*, the following ac
 function start(){
     read(); // read the latest changes.
     
-    // add listener to the button, for event 'onclick' (when the user tries to add new changes)
-    addButton.addEventListener('onclick', callback);
+    // add listener for a custom event 'add-data' (when the user tries to add new changes)
+    addEventListener('add-data', callback);
 
 	callback = function(){
         update();   
@@ -118,8 +118,8 @@ function update(key, op){
 function start(){
     read(); // read the latest changes.
     
-    // add listener to the button, for event 'onclick' (when the user tries to add new changes)
-    addButton.addEventListener('onclick', callback);
+    // add listener for a custom event 'add-data' (when the user tries to add new changes)
+    addEventListener('add-data', callback);
 
 	callback = function(){
         update();   
