@@ -1,0 +1,16 @@
+version: "2"
+services:
+  antidote1:
+    ports:
+    - "127.0.0.1:8087:8087"
+    image: mweber/antidotedb:latest #pviotti/antidote-alpine:iptables #mweber/antidotedb:latest # Specify the image to start the container from. Can either be a repository/tag or a partial image ID
+    environment: # Add environment variables. You can use either an array or a dictionary.
+      NODE_NAME: "antidote@antidote1"
+      SHORT_NAME: "true"
+    cap_add: # Add or drop container capabilities. See 'man 7 capabilities' for a full list
+        - NET_ADMIN # Perform various network-related operations.
+    networks: # Networks to join.
+        - local1
+      
+networks:
+  local1:

@@ -1,4 +1,4 @@
-self.addEventListener('install', function (event) {
+/* self.addEventListener('install', function (event) {
     var urlsToCache = [
         // Mention URLS that need to be cached
         // It is required in order for the application to work offline
@@ -19,4 +19,4 @@ self.addEventListener('fetch', function (event) {
             return response || fetch(event.request);
         })
     );
-});
+}); */

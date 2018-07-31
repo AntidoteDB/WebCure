@@ -1,0 +1,33 @@
+{
+    "version": "1.0.0",
+    "description": "Web-Client with caching support for AntidoteDB",
+    "author": "Server Khalilov",
+    "main": "./bin/www",
+    "scripts": {
+        "start": "node ./bin/www"
+    },
+    "dependencies": {
+        "antidote_ts_client": "^0.2.1",
+        "body-parser": "^1.18.3",
+        "compression": "^1.7.2",
+        "cookie-parser": "^1.4.3",
+        "express": "^4.16.3",
+        "helmet": "^3.12.1",
+        "jshint": "^2.9.5",
+        "morgan": "^1.9.0",
+        "serve-favicon": "^2.5.0"
+    },
+    "devDependencies": {
+        "eslint": "^5.2.0",
+        "eslint-config-standard": "^11.0.0",
+        "eslint-plugin-import": "^2.13.0",
+        "eslint-plugin-node": "^7.0.1",
+        "eslint-plugin-promise": "^3.8.0",
+        "eslint-plugin-standard": "^3.1.0"
+    },
+    "prettier": {
+        "printWidth": 100,
+        "parser": "flow",
+        "singleQuote": true
+    }
+}
