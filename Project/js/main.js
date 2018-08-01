@@ -4,6 +4,7 @@
 /*global DBHelper Logger log :true*/
 
 window.addEventListener('load', () => {
+  registerServiceWorker();
   Logger.show();
   Logger.open();
   addCounterForm();
@@ -152,4 +153,21 @@ const addCounterForm = () => {
   li.appendChild(liDecBtn);
   form.appendChild(li);
   mainContainer.appendChild(form);
+};
+
+/**
+ * Register a service worker
+ */
+
+const registerServiceWorker = () => {
+  if (!navigator.serviceWorker) return;
+
+  navigator.serviceWorker
+    .register('/sw.js')
+    .then(function() {
+      console.log('Service Worker registered!');
+    })
+    .catch(function() {
+      console.log('Registration of the Service Worker failed');
+    });
 };
