@@ -16,5 +16,10 @@
         "node": true,
         "serviceworker": true,
         "es6": true
-    }
+    },
+    "ecmaFeatures": {
+        "blockBindings": true,
+        "modules": true,
+        "superInFunctions": true
+      }
 }

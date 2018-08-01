@@ -15,6 +15,8 @@ self.addEventListener('install', function(event) {
     '/logger.js',
     '/main.js',
     '/vectorclock.js',
+    '/dbhelper.js',
+    '/idb.js',
     // css
     '/styles.css'
   ];

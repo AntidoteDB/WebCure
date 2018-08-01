@@ -1,6 +1,14 @@
 /**
  * Register Service Worker and manipulate the content on load
  */
+
+/**
+ * Initialize the database, Fetch neighborhoods and cuisines as soon as the page is loaded.
+ */
+document.addEventListener('DOMContentLoaded', event => {
+  DBHelper.getDB();
+});
+
 /*global DBHelper Logger log :true*/
 
 window.addEventListener('load', () => {
@@ -52,7 +60,7 @@ const addCounterForm = () => {
 
   getBtn.onclick = function() {
     log(`Getting ${name.value}`);
-    fetch(`/api/1/count/${name.value}`, {
+    fetch(`${DBHelper.SERVER_URL}/api/1/count/${name.value}`, {
       headers: {
         'Content-Type': 'application/json; charset=utf-8'
       }
@@ -89,7 +97,7 @@ const addCounterForm = () => {
 
   incBtn.onclick = function() {
     log(`Decrementing the value of ${name.value}`);
-    fetch(`/api/1/count/${name.value}`, {
+    fetch(`${DBHelper.SERVER_URL}/api/1/count/${name.value}`, {
       method: 'PUT',
       data: `value=${1}`,
       headers: {
@@ -128,7 +136,7 @@ const addCounterForm = () => {
 
   decBtn.onclick = function() {
     log(`Decrementing the value of ${name.value}`);
-    fetch(`/api/1/count/${name.value}`, {
+    fetch(`${DBHelper.SERVER_URL}/api/1/count/${name.value}`, {
       method: 'DELETE',
       data: `value=${1}`,
       headers: {
@@ -153,6 +161,8 @@ const addCounterForm = () => {
   li.appendChild(liDecBtn);
   form.appendChild(li);
   mainContainer.appendChild(form);
+
+  //DBHelper.fetchRestaurants();
 };
 
 /**
