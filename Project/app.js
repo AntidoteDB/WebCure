@@ -6,7 +6,6 @@ const path = require('path');
 const cookieParser = require('cookie-parser');
 const logger = require('morgan');
 const bodyParser = require('body-parser');
-const { spawn } = require('child_process');
 const compression = require('compression');
 const helmet = require('helmet');
 
@@ -52,7 +51,6 @@ var apiRouter = express.Router();
 apiRouter
   .route('/:rep_id/count/:counter_id')
   .get(function(req, res) {
-    debugger;
     var counterId = req.params.counter_id;
     atdClient
       .counter(counterId)
@@ -69,10 +67,8 @@ apiRouter
       });
   })
   .put(function(req, res) {
-    debugger;
-    let repId = parseInt(req.params.rep_id);
     var counterId = req.params.counter_id;
-    atdClient.update(atdClient.counter(counterId).increment(1)).then(resp => {
+    atdClient.update(atdClient.counter(counterId).increment(1)).then(() => {
       //log('Increment', counterId, 'on replica', repId);
       res.json({
         status: 'OK'
@@ -80,10 +76,8 @@ apiRouter
     });
   })
   .delete(function(req, res) {
-    debugger;
-    let repId = parseInt(req.params.rep_id);
     var counterId = req.params.counter_id;
-    atdClient.update(atdClient.counter(counterId).increment(-1)).then(resp => {
+    atdClient.update(atdClient.counter(counterId).increment(-1)).then(() => {
       //log('Decrement', counterId, 'on replica', repId);
       res.json({
         status: 'OK'

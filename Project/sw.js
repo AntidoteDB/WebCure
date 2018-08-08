@@ -1,3 +1,5 @@
+/*global DBHelper Logger log :true*/
+
 var CACHES_NAME = 'web-antidotedb-v1';
 
 self.addEventListener('install', function(event) {
@@ -37,3 +39,64 @@ self.addEventListener('fetch', function(event) {
     })
   );
 });
+
+self.addEventListener('sync', function(event) {
+  if (event.tag === 'syncChanges') {
+    event.waitUntil(pushChangesToTheServer());
+  }
+});
+
+function pushChangesToTheServer() {
+  if (typeof idb === 'undefined' || typeof DBHelper === 'undefined') {
+    self.importScripts('js/dbhelper.js', 'js/idb.js');
+  }
+
+  let promiseArray = [];
+
+  DBHelper.getDB();
+  DBHelper.crdtDBPromise.then(function(db) {
+    var index = db.transaction('crdt-operations').objectStore('crdt-operations');
+
+    return index
+      .getAll()
+      .then(function(operations) {
+        if (operations) {
+          operations.forEach(object => {
+            if (object.operations) {
+              object.operations.forEach(operation => {
+                promiseArray.push(
+                  fetch(`${DBHelper.SERVER_URL}/api/1/count/${object.id}`, {
+                    method: operation > 0 ? 'PUT' : 'DELETE',
+                    data: `value=${operation}`,
+                    headers: {
+                      'Content-Type': 'application/json; charset=utf-8'
+                    }
+                  }).then(response => response.json())
+                );
+              });
+            }
+          });
+        }
+      })
+      .then(function() {
+        return Promise.all(promiseArray)
+          .then(function() {
+            console.log('Success! Promise all');
+          })
+          .catch(function(error) {
+            throw 'Silenced Exception! ' + error;
+          });
+      })
+      .then(function() {
+        var tx = db.transaction('crdt-operations', 'readwrite');
+        var store = tx.objectStore('crdt-operations');
+
+        return store.openCursor();
+      })
+      .then(function cleanOperationsDB(cursor) {
+        if (!cursor) return;
+        cursor.delete(cursor.value);
+        return cursor.continue().then(cleanOperationsDB);
+      });
+  });
+}

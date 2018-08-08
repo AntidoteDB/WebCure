@@ -30,7 +30,7 @@ class vectorclock {
   }
 
   merge(v) {
-    let res = new Vectorclock(this.v.length);
+    let res = new vectorclock(this.v.length);
     for (let i = 0; i < this.v.length; i++) {
       res.v[i] = Math.max(this.get(i), v.get(i));
     }

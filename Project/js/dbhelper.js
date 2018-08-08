@@ -1,6 +1,7 @@
 /**
  * Common database helper functions.
  */
+/*global idb :true*/
 
 class DBHelper {
   /**
@@ -16,13 +17,18 @@ class DBHelper {
    *
    */
   static getDB() {
-    this.restaurantDBPromise = idb.open('crdt-db', 1, function(upgradeDB) {
+    this.crdtDBPromise = idb.open('crdt-db', 1, function(upgradeDB) {
       switch (upgradeDB.oldVersion) {
         case 0:
-          var keyValStore = upgradeDB.createObjectStore('crdt-states', {
+          var stateStore = upgradeDB.createObjectStore('crdt-states', {
             keyPath: 'id'
           });
-          keyValStore.createIndex('id', 'id');
+          stateStore.createIndex('id', 'id');
+
+          var operationStore = upgradeDB.createObjectStore('crdt-operations', {
+            keyPath: 'id'
+          });
+          operationStore.createIndex('id', 'id');
       }
     });
   }

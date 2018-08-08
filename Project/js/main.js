@@ -18,6 +18,20 @@ window.addEventListener('load', () => {
   addCounterForm();
 });
 
+/*
+ * Subscribe for the sync event
+ */
+
+const requestSync = () => {
+  navigator.serviceWorker.ready
+    .then(function(swRegistration) {
+      return swRegistration.sync.register('syncChanges');
+    })
+    .catch(function(error) {
+      console.log(error);
+    });
+};
+
 const addCounterForm = () => {
   const mainContainer = document.getElementById('maincontent');
   const form = document.createElement('form');
@@ -69,10 +83,56 @@ const addCounterForm = () => {
         return response.json();
       })
       .then(function(json) {
+        DBHelper.crdtDBPromise.then(function(db) {
+          if (!db) return;
+
+          var tx = db.transaction('crdt-states', 'readwrite');
+          var store = tx.objectStore('crdt-states');
+
+          var item = {
+            id: name.value,
+            value: json.cont
+          };
+
+          store.put(item);
+        });
         log(`The value of ${name.value} is: ${json.cont}`);
       })
-      .catch(function(error) {
-        log(`Failed to get the value of ${name.value}: ${error}`);
+      .catch(function() {
+        var statesCached = [];
+        DBHelper.crdtDBPromise
+          .then(function(db) {
+            if (!db) return;
+
+            var index = db.transaction('crdt-states').objectStore('crdt-states');
+
+            return index.getAll().then(function(states) {
+              statesCached = states;
+              var index = db.transaction('crdt-operations').objectStore('crdt-operations');
+
+              return index.get(name.value).then(function(value) {
+                var counter = 0;
+                statesCached.forEach(state => {
+                  if (state.id === name.value) {
+                    if (value) {
+                      var operations = value.operations;
+
+                      operations.forEach(operation => {
+                        counter = counter + operation;
+                      });
+                    }
+
+                    counter += state.value;
+
+                    log(`[Offline] The value of ${name.value} is: ${counter}`);
+                  }
+                });
+              });
+            });
+          })
+          .catch(function() {
+            // TODO throw an error
+          });
       });
   };
 
@@ -96,7 +156,8 @@ const addCounterForm = () => {
   liIncBtn.appendChild(incBtn);
 
   incBtn.onclick = function() {
-    log(`Decrementing the value of ${name.value}`);
+    requestSync();
+    log(`Incrementing the value of ${name.value}`);
     fetch(`${DBHelper.SERVER_URL}/api/1/count/${name.value}`, {
       method: 'PUT',
       data: `value=${1}`,
@@ -107,11 +168,44 @@ const addCounterForm = () => {
       .then(function(response) {
         return response.json();
       })
-      .then(function(json) {
-        log(`The response for id ${name.value} is: ${json.status}`);
+      .then(function() {
+        //log(`The response for id ${name.value} is: ${json.status}`);
       })
       .catch(function(error) {
-        log(`Failed to decrement the id ${name.value}: ${error}`);
+        DBHelper.crdtDBPromise
+          .then(function(db) {
+            if (!db) return;
+
+            var index = db.transaction('crdt-operations').objectStore('crdt-operations');
+
+            return index.get(name.value).then(function(val) {
+              var tx = db.transaction('crdt-operations', 'readwrite');
+              var store = tx.objectStore('crdt-operations');
+              if (!val) {
+                store.put({
+                  id: name.value,
+                  operations: [1]
+                });
+              } else {
+                var temp = val;
+
+                if (!temp.operations) {
+                  temp.operations = [];
+                }
+
+                temp.operations.push(1);
+
+                store.put(temp);
+              }
+
+              return tx.complete;
+            });
+          })
+          .catch(function() {
+            // TODO throw an error
+          });
+
+        //log(`Failed to increment the id ${name.value}: ${error}`);
       });
   };
 
@@ -135,6 +229,7 @@ const addCounterForm = () => {
   liDecBtn.appendChild(decBtn);
 
   decBtn.onclick = function() {
+    requestSync();
     log(`Decrementing the value of ${name.value}`);
     fetch(`${DBHelper.SERVER_URL}/api/1/count/${name.value}`, {
       method: 'DELETE',
@@ -146,11 +241,44 @@ const addCounterForm = () => {
       .then(function(response) {
         return response.json();
       })
-      .then(function(json) {
-        log(`The response for id ${name.value} is: ${json.status}`);
+      .then(function() {
+        //log(`The response for id ${name.value} is: ${json.status}`);
       })
       .catch(function(error) {
-        log(`Failed to increment the id ${name.value}: ${error}`);
+        DBHelper.crdtDBPromise
+          .then(function(db) {
+            if (!db) return;
+
+            var index = db.transaction('crdt-operations').objectStore('crdt-operations');
+
+            return index.get(name.value).then(function(val) {
+              var tx = db.transaction('crdt-operations', 'readwrite');
+              var store = tx.objectStore('crdt-operations');
+              if (!val) {
+                store.put({
+                  id: name.value,
+                  operations: [-1]
+                });
+              } else {
+                var temp = val;
+
+                if (!temp.operations) {
+                  temp.operations = [];
+                }
+
+                temp.operations.push(-1);
+
+                store.put(temp);
+              }
+
+              return tx.complete;
+            });
+          })
+          .catch(function() {
+            // TODO throw an error
+          });
+
+        //log(`Failed to increment the id ${name.value}: ${error}`);
       });
   };
 
