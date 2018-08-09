@@ -33,7 +33,7 @@ const requestSync = () => {
 };
 
 const addCounterForm = () => {
-  const mainContainer = document.getElementById('maincontent');
+  const mainContainer = document.getElementById('counter-options');
   const form = document.createElement('form');
   const li = document.createElement('ul');
 
