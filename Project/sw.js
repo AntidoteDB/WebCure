@@ -86,17 +86,6 @@ function pushChangesToTheServer() {
           .catch(function(error) {
             throw 'Silenced Exception! ' + error;
           });
-      })
-      .then(function() {
-        var tx = db.transaction('crdt-operations', 'readwrite');
-        var store = tx.objectStore('crdt-operations');
-
-        return store.openCursor();
-      })
-      .then(function cleanOperationsDB(cursor) {
-        if (!cursor) return;
-        cursor.delete(cursor.value);
-        return cursor.continue().then(cleanOperationsDB);
       });
   });
 }

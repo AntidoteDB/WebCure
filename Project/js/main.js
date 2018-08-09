@@ -83,19 +83,38 @@ const addCounterForm = () => {
         return response.json();
       })
       .then(function(json) {
-        DBHelper.crdtDBPromise.then(function(db) {
-          if (!db) return;
+        DBHelper.crdtDBPromise
+          .then(function(db) {
+            if (!db) return;
 
-          var tx = db.transaction('crdt-states', 'readwrite');
-          var store = tx.objectStore('crdt-states');
+            var tx = db.transaction('crdt-states', 'readwrite');
+            var store = tx.objectStore('crdt-states');
 
-          var item = {
-            id: name.value,
-            value: json.cont
-          };
+            var item = {
+              id: name.value,
+              value: json.cont
+            };
 
-          store.put(item);
-        });
+            store.put(item);
+
+            return tx.complete;
+          })
+          .then(function() {
+            DBHelper.crdtDBPromise
+              .then(function(db) {
+                if (!db) return;
+
+                var tx = db.transaction('crdt-operations', 'readwrite');
+                var store = tx.objectStore('crdt-operations');
+
+                return store.openCursor();
+              })
+              .then(function cleanOperationsDB(cursor) {
+                if (!cursor) return;
+                cursor.delete(cursor.value);
+                return cursor.continue().then(cleanOperationsDB);
+              });
+          });
         log(`The value of ${name.value} is: ${json.cont}`);
       })
       .catch(function() {
