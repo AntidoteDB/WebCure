@@ -135,10 +135,19 @@ const addCounterForm = () => {
                   if (state.id === name.value) {
                     if (value) {
                       var operations = value.operations;
+                      var sentOperations = value.sentOperations;
 
-                      operations.forEach(operation => {
-                        counter = counter + operation;
-                      });
+                      if (operations) {
+                        operations.forEach(operation => {
+                          counter = counter + operation;
+                        });
+                      }
+
+                      if (sentOperations) {
+                        sentOperations.forEach(operation => {
+                          counter = counter + operation;
+                        });
+                      }
                     }
 
                     counter += state.value;

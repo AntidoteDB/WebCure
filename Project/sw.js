@@ -1,4 +1,4 @@
-/*global DBHelper Logger log :true*/
+/*global DBHelper:true*/
 
 var CACHES_NAME = 'web-antidotedb-v1';
 
@@ -59,9 +59,9 @@ function pushChangesToTheServer() {
 
     return index
       .getAll()
-      .then(function(operations) {
-        if (operations) {
-          operations.forEach(object => {
+      .then(function(objects) {
+        if (objects) {
+          objects.forEach(object => {
             if (object.operations) {
               object.operations.forEach(operation => {
                 promiseArray.push(
@@ -81,7 +81,37 @@ function pushChangesToTheServer() {
       .then(function() {
         return Promise.all(promiseArray)
           .then(function() {
-            console.log('Success! Promise all');
+            DBHelper.crdtDBPromise.then(function(db) {
+              if (!db) return;
+
+              var index = db.transaction('crdt-operations').objectStore('crdt-operations');
+
+              return index.getAll().then(function(objects) {
+                var tx = db.transaction('crdt-operations', 'readwrite');
+                var store = tx.objectStore('crdt-operations');
+
+                if (objects) {
+                  objects.forEach(object => {
+                    var temp = object;
+
+                    if (!temp.sentOperations) {
+                      temp.sentOperations = [];
+                    }
+
+                    if (temp.operations) {
+                      temp.operations.forEach(operation => {
+                        temp.sentOperations.push(operation);
+                      });
+                      temp.operations = [];
+                    }
+
+                    store.put(temp);
+                  });
+                }
+                console.log('Success! Promise all');
+                return tx.complete;
+              });
+            });
           })
           .catch(function(error) {
             throw 'Silenced Exception! ' + error;
