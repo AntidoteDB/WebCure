@@ -38,7 +38,8 @@ video {
   display: flex;
 }
 
-#counter-container {
+#counter-container,
+#set_aw-container {
   width: 100%;
 }
 
@@ -106,4 +107,13 @@ a:hover,
 a:focus {
   color: #3397db;
   text-decoration: none;
+}
+
+li {
+  display: flex;
+}
+
+li button,
+li input{
+  width: 100%;
 }

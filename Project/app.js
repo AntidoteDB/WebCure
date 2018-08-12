@@ -13,6 +13,10 @@ const conf = require('./config');
 
 const app = express();
 
+function log(...args) {
+  console.log(...args);
+}
+
 app.use(helmet());
 app.use(compression()); // Compress all routes
 app.use(logger('dev'));
@@ -56,7 +60,7 @@ apiRouter
       .counter(counterId)
       .read()
       .then(content => {
-        //log('Get', counterId, 'from replica', repId);
+        log('### Get', counterId, 'from replica');
         res.json({
           status: 'OK',
           cont: content
@@ -82,6 +86,38 @@ apiRouter
       res.json({
         status: 'OK'
       });
+    });
+  });
+
+// Set API
+apiRouter
+  .route('/:rep_id/set/:set_id')
+  .get(function(req, res) {
+    var setId = req.params.set_id;
+    atdClient
+      .set(setId)
+      .read()
+      .then(content => {
+        log('### Get set', setId);
+        res.json({ status: 'OK', cont: content });
+      });
+  })
+  .put(function(req, res) {
+    log(JSON.stringify(req.params));
+    log(JSON.stringify(req.body));
+    var setId = req.params.set_id;
+    var value = req.body.value;
+    atdClient.update(atdClient.set(setId).add(value)).then(resp => {
+      log('Add', value, 'to', setId);
+      res.json({ status: 'OK' });
+    });
+  })
+  .delete(function(req, res) {
+    var setId = req.params.set_id;
+    var value = req.body.value;
+    atdClient.update(atdClient.set(setId).remove(value)).then(resp => {
+      log('Remove', value, 'from', setId);
+      res.json({ status: 'OK' });
     });
   });
 
