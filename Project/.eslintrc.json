@@ -6,10 +6,7 @@
         "no-console": "off"
     },
     "parserOptions": {
-        "ecmaVersion": 6,
-        "ecmaFeatures": {
-            "jsx": true
-        }
+        "ecmaVersion": 6
     },
     "env": {
         "browser": true,

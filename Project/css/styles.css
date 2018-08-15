@@ -113,7 +113,45 @@ li {
   display: flex;
 }
 
-li button,
+li button{
+  background-color: #000000;
+  border: none;
+  color: white;
+  padding: 10px;
+  text-decoration: none;
+  margin: 4px 2px;
+  cursor: pointer;
+  width: 100%;
+  border-radius: 4px;
+}
+
 li input{
   width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  box-sizing: border-box;
+  border: 2px solid #000000;
+  border-radius: 4px;
+}
+
+li input:focus {
+  border: 3px solid #c1552e;
+}
+
+#counter-title,
+#set-title {
+  width: 100%;
+  text-align: center;
+  background-color: #c3c3c3;
+}
+
+#counter-options,
+#set_aw-options {
+  margin: auto;
+  width: 20%;
+}
+
+#counter-container,
+#set_aw-container {
+  background-color: whitesmoke;
 }
