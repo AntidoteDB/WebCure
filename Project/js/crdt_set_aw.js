@@ -1,6 +1,6 @@
 class crdt_set_aw {
-  constructor() {
-    this.initialState = new Map();
+  static initialState() {
+    return new Map();
   }
 
   downstream(operation, uid, state) {

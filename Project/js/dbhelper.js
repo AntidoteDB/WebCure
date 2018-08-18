@@ -50,41 +50,4 @@ class DBHelper {
   static json(response) {
     return response.json();
   }
-
-  /**
-   * Fetch all restaurants.
-   */
-  /*   static fetchRestaurants(callback) {
-    fetch(DBHelper.DATABASE_URL)
-      .then(DBHelper.status)
-      .then(DBHelper.json)
-      .then(function(restaurants) {
-        DBHelper.restaurantDBPromise.then(function(db) {
-          if (!db) return;
-
-          var tx = db.transaction('restaurants', 'readwrite');
-          var store = tx.objectStore('restaurants');
-          restaurants.forEach(function(restaurant) {
-            store.put(restaurant);
-          });
-        });
-        callback(null, restaurants);
-      })
-      .catch(function(error) {
-        // When fetch fails, try to get the data from the database
-        DBHelper.restaurantDBPromise
-          .then(function(db) {
-            if (!db) return;
-
-            var index = db.transaction('restaurants').objectStore('restaurants');
-
-            return index.getAll().then(function(restaurants) {
-              callback(null, restaurants);
-            });
-          })
-          .catch(function() {
-            callback(error, null);
-          });
-      });
-  } */
 }

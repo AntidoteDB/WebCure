@@ -56,11 +56,14 @@ apiRouter
   .route('/:rep_id/count/:counter_id')
   .get(function(req, res) {
     var counterId = req.params.counter_id;
+    var lastCommitTimestamp = atdClient.getLastCommitTimestamp();
+    log('### Last commit: ', lastCommitTimestamp);
     atdClient
       .counter(counterId)
       .read()
       .then(content => {
         log('### Get', counterId, 'from replica');
+        log('### content', JSON.stringify(content));
         res.json({
           status: 'OK',
           cont: content

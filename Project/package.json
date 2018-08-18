@@ -15,6 +15,7 @@
         "helmet": "^3.12.1",
         "jshint": "^2.9.5",
         "morgan": "^1.9.0",
+        "proto2ts": "^2.0.0",
         "serve-favicon": "^2.5.0"
     },
     "devDependencies": {

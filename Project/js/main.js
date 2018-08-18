@@ -9,7 +9,7 @@ document.addEventListener('DOMContentLoaded', event => {
   DBHelper.getDB();
 });
 
-/*global DBHelper Logger log :true*/
+/*global DBHelper Logger log crdt_set_aw:true*/
 
 window.addEventListener('load', () => {
   registerServiceWorker();
@@ -33,6 +33,20 @@ const requestSync = () => {
     });
 };
 
+/*
+* Generate an array of alphabet symbols 
+*/
+
+const genCharArray = (charA, charZ) => {
+  var a = [],
+    i = charA.charCodeAt(0),
+    j = charZ.charCodeAt(0);
+  for (; i <= j; ++i) {
+    a.push(String.fromCharCode(i));
+  }
+  return a;
+};
+
 /**
  * Add the form for interacting with a counter CRDT
  *
@@ -52,7 +66,6 @@ const addCounterForm = () => {
 
   const labelName = document.createElement('label');
   labelName.setAttribute('for', name.id);
-  labelName.innerHTML = 'Name: ';
 
   liName.appendChild(labelName);
   liName.appendChild(document.createElement('br'));
@@ -340,7 +353,6 @@ const addSetForm = () => {
 
   const labelName = document.createElement('label');
   labelName.setAttribute('for', name.id);
-  labelName.innerHTML = 'Name: ';
 
   liName.appendChild(labelName);
   liName.appendChild(document.createElement('br'));
@@ -356,7 +368,6 @@ const addSetForm = () => {
 
   const labelValue = document.createElement('label');
   labelValue.setAttribute('for', value.id);
-  labelValue.innerHTML = 'Value: ';
 
   liValue.appendChild(labelValue);
   liValue.appendChild(document.createElement('br'));
@@ -381,6 +392,7 @@ const addSetForm = () => {
   liGetBtn.appendChild(getBtn);
 
   getBtn.onclick = function() {
+    debugger;
     log(`Getting ${name.value} set`);
     fetch(`${DBHelper.SERVER_URL}/api/1/set/${name.value}`, {
       headers: {
@@ -391,16 +403,25 @@ const addSetForm = () => {
         return response.json();
       })
       .then(function(json) {
-        /*         DBHelper.crdtDBPromise
+        DBHelper.crdtDBPromise
           .then(function(db) {
+            debugger;
             if (!db) return;
 
-            var tx = db.transaction('crdt-states', 'readwrite');
-            var store = tx.objectStore('crdt-states');
+            var tx = db.transaction('crdt-set-states', 'readwrite');
+            var store = tx.objectStore('crdt-set-states');
+            //var set = crdt_set_aw.initialState();
+            var keys = [];
+            json.cont.forEach(element => {
+              keys.push([element, '']);
+            });
+            //
 
             var item = {
               id: name.value,
-              value: json.cont
+              value: {
+                state: new Map(keys)
+              }
             };
 
             store.put(item);
@@ -408,7 +429,8 @@ const addSetForm = () => {
             return tx.complete;
           })
           .then(function() {
-            DBHelper.crdtDBPromise
+            // TODO
+            /*             DBHelper.crdtDBPromise
               .then(function(db) {
                 if (!db) return;
 
@@ -421,27 +443,28 @@ const addSetForm = () => {
                 if (!cursor) return;
                 cursor.delete(cursor.value);
                 return cursor.continue().then(cleanOperationsDB);
-              });
-          }); */
-        log(`The value of ${name.value} is: ${json.cont}`);
+              }); */
+          });
+        log(`The value of ${name.value} is: [ ${json.cont} ]`);
       })
       .catch(function() {
-        /*         var statesCached = [];
+        debugger;
+        var statesCached = [];
         DBHelper.crdtDBPromise
           .then(function(db) {
             if (!db) return;
 
-            var index = db.transaction('crdt-states').objectStore('crdt-states');
+            var index = db.transaction('crdt-set-states').objectStore('crdt-set-states');
 
             return index.getAll().then(function(states) {
               statesCached = states;
-              var index = db.transaction('crdt-operations').objectStore('crdt-operations');
+              //var index = db.transaction('crdt-set-operations').objectStore('crdt-set-operations');
 
-              return index.get(name.value).then(function(value) {
-                var counter = 0;
-                statesCached.forEach(state => {
-                  if (state.id === name.value) {
-                    if (value) {
+              //return index.get(name.value).then(function(value) {
+              //var counter = 0;
+              statesCached.forEach(state => {
+                //if (state.id === name.value) {
+                /*                     if (value) {
                       var operations = value.operations;
                       var sentOperations = value.sentOperations;
 
@@ -458,17 +481,18 @@ const addSetForm = () => {
                       }
                     }
 
-                    counter += state.value;
+                    counter += state.value; */
 
-                    log(`[Offline] The value of ${name.value} is: ${counter}`);
-                  }
-                });
+                log(`[Offline] The value of ${name.value} is: ${crdt_set_aw.value(state.value)}`);
+                // }
               });
+
+              //});
             });
           })
           .catch(function() {
             // TODO throw an error
-          }); */
+          });
       });
   };
 

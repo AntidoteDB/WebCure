@@ -20,6 +20,10 @@ section {
   display: block;
 }
 
+header {
+  margin: 5px;
+}
+
 img,
 embed,
 object,
@@ -143,6 +147,7 @@ li input:focus {
   width: 100%;
   text-align: center;
   background-color: #c3c3c3;
+  border: 3px solid #252831;
 }
 
 #counter-options,
