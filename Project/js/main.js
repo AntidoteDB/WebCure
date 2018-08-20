@@ -33,18 +33,47 @@ const requestSync = () => {
     });
 };
 
-/*
-* Generate an array of alphabet symbols 
+/* 
+ * Fill in the select elements 
 */
 
-const genCharArray = (charA, charZ) => {
-  var a = [],
-    i = charA.charCodeAt(0),
-    j = charZ.charCodeAt(0);
-  for (; i <= j; ++i) {
-    a.push(String.fromCharCode(i));
-  }
-  return a;
+const fillSelectsEls = elementDoms => {
+  elementDoms.forEach(elementDom => {
+    elementDom.innerHTML = '';
+    let statesCached = [];
+    DBHelper.crdtDBPromise.then(function(db) {
+      if (!db) return;
+
+      var index = db.transaction('crdt-states').objectStore('crdt-states');
+
+      return index.getAll().then(function(states) {
+        states.forEach(state => {
+          statesCached.push(state.id + '+' + state.type);
+        });
+
+        var selectOptions = [],
+          i = 'a'.charCodeAt(0),
+          j = 'z'.charCodeAt(0);
+
+        for (; i <= j; ++i) {
+          selectOptions.push(String.fromCharCode(i));
+        }
+
+        states.forEach(state => {
+          if (elementDom.id.indexOf(state.type) === -1) {
+            selectOptions.splice(state.id, 1);
+          }
+        });
+
+        selectOptions.forEach(element => {
+          const option = document.createElement('option');
+          option.value = element;
+          option.innerHTML = element;
+          elementDom.appendChild(option);
+        });
+      });
+    });
+  });
 };
 
 /**
@@ -58,11 +87,12 @@ const addCounterForm = () => {
 
   const liName = document.createElement('li');
 
-  const name = document.createElement('input');
-  name.type = 'text';
+  const name = document.createElement('select');
   name.name = 'name';
-  name.id = 'name-field';
+  name.id = 'counter-name-field';
   name.placeholder = 'Enter the variable name';
+
+  fillSelectsEls([name]);
 
   const labelName = document.createElement('label');
   labelName.setAttribute('for', name.id);
@@ -109,11 +139,14 @@ const addCounterForm = () => {
 
             var item = {
               id: name.value,
-              value: json.cont
+              value: json.cont,
+              type: 'counter'
             };
 
             store.put(item);
 
+            let setSelector = document.getElementById('set-name-field');
+            fillSelectsEls([name, setSelector]);
             return tx.complete;
           })
           .then(function() {
@@ -135,6 +168,8 @@ const addCounterForm = () => {
         log(`The value of ${name.value} is: ${json.cont}`);
       })
       .catch(function() {
+        // TODO add the functionality when the key is not created yet and don't forget to recreate the select element
+
         var statesCached = [];
         DBHelper.crdtDBPromise
           .then(function(db) {
@@ -345,11 +380,12 @@ const addSetForm = () => {
 
   const liName = document.createElement('li');
 
-  const name = document.createElement('input');
-  name.type = 'text';
+  const name = document.createElement('select');
   name.name = 'name';
   name.id = 'set-name-field';
   name.placeholder = 'Enter the set name';
+
+  fillSelectsEls([name]);
 
   const labelName = document.createElement('label');
   labelName.setAttribute('for', name.id);
@@ -425,7 +461,8 @@ const addSetForm = () => {
             };
 
             store.put(item);
-
+            let counterSelector = document.getElementById();
+            fillSelectsEls([name, counterSelector]);
             return tx.complete;
           })
           .then(function() {
@@ -448,6 +485,7 @@ const addSetForm = () => {
         log(`The value of ${name.value} is: [ ${json.cont} ]`);
       })
       .catch(function() {
+        // TODO add the functionality when the key is not created yet and don't forget to recreate the select element
         debugger;
         var statesCached = [];
         DBHelper.crdtDBPromise

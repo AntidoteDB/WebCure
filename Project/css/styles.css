@@ -129,7 +129,8 @@ li button{
   border-radius: 4px;
 }
 
-li input{
+li input, 
+li select{
   width: 100%;
   padding: 12px 20px;
   margin: 8px 0;
