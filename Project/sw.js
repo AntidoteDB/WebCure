@@ -1,4 +1,4 @@
-/*global DBHelper:true*/
+/*global DBHelper CounterCRDT:true*/
 
 var CACHES_NAME = 'web-antidotedb-v1';
 
@@ -11,14 +11,14 @@ self.addEventListener('install', function(event) {
     '/index.html',
     // js
     '/client.js',
-    '/crdt_counter.js',
-    '/crdt_set_aw.js',
     '/index.js',
     '/logger.js',
     '/main.js',
-    '/vectorclock.js',
     '/dbhelper.js',
     '/idb.js',
+    // js CRDTs
+    '/CRDTs/CounterCRDT.js',
+    '/CRDTs/SetCRDT.js',
     // css
     '/styles.css'
   ];
@@ -47,15 +47,19 @@ self.addEventListener('sync', function(event) {
 });
 
 function pushChangesToTheServer() {
-  if (typeof idb === 'undefined' || typeof DBHelper === 'undefined') {
-    self.importScripts('js/dbhelper.js', 'js/idb.js');
+  if (
+    typeof idb === 'undefined' ||
+    typeof DBHelper === 'undefined' ||
+    typeof CounterCRDT === 'undefined'
+  ) {
+    self.importScripts('js/dbhelper.js', 'js/idb.js', 'js/CRDTs/CounterCRDT.js');
   }
 
   let promiseArray = [];
 
   DBHelper.getDB();
   DBHelper.crdtDBPromise.then(function(db) {
-    var index = db.transaction('crdt-operations').objectStore('crdt-operations');
+    var index = db.transaction('crdt-states').objectStore('crdt-states');
 
     return index
       .getAll()
@@ -65,7 +69,7 @@ function pushChangesToTheServer() {
             if (object.operations) {
               object.operations.forEach(operation => {
                 promiseArray.push(
-                  fetch(`${DBHelper.SERVER_URL}/api/1/count/${object.id}`, {
+                  fetch(`${DBHelper.SERVER_URL}/api/count/${object.id}`, {
                     method: operation > 0 ? 'PUT' : 'DELETE',
                     data: `value=${operation}`,
                     headers: {
@@ -84,27 +88,17 @@ function pushChangesToTheServer() {
             DBHelper.crdtDBPromise.then(function(db) {
               if (!db) return;
 
-              var index = db.transaction('crdt-operations').objectStore('crdt-operations');
+              var index = db.transaction('crdt-states').objectStore('crdt-states');
 
               return index.getAll().then(function(objects) {
-                var tx = db.transaction('crdt-operations', 'readwrite');
-                var store = tx.objectStore('crdt-operations');
+                var tx = db.transaction('crdt-states', 'readwrite');
+                var store = tx.objectStore('crdt-states');
 
                 if (objects) {
                   objects.forEach(object => {
                     var temp = object;
-
-                    if (!temp.sentOperations) {
-                      temp.sentOperations = [];
-                    }
-
-                    if (temp.operations) {
-                      temp.operations.forEach(operation => {
-                        temp.sentOperations.push(operation);
-                      });
-                      temp.operations = [];
-                    }
-
+                    Object.setPrototypeOf(temp, CounterCRDT.prototype);
+                    temp.processSentOperations();
                     store.put(temp);
                   });
                 }

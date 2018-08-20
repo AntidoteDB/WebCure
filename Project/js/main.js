@@ -9,7 +9,7 @@ document.addEventListener('DOMContentLoaded', event => {
   DBHelper.getDB();
 });
 
-/*global DBHelper Logger log crdt_set_aw:true*/
+/*global DBHelper Logger log CounterCRDT CounterOps:true*/
 
 window.addEventListener('load', () => {
   registerServiceWorker();
@@ -40,17 +40,12 @@ const requestSync = () => {
 const fillSelectsEls = elementDoms => {
   elementDoms.forEach(elementDom => {
     elementDom.innerHTML = '';
-    let statesCached = [];
     DBHelper.crdtDBPromise.then(function(db) {
       if (!db) return;
 
       var index = db.transaction('crdt-states').objectStore('crdt-states');
 
       return index.getAll().then(function(states) {
-        states.forEach(state => {
-          statesCached.push(state.id + '+' + state.type);
-        });
-
         var selectOptions = [],
           i = 'a'.charCodeAt(0),
           j = 'z'.charCodeAt(0);
@@ -61,7 +56,7 @@ const fillSelectsEls = elementDoms => {
 
         states.forEach(state => {
           if (elementDom.id.indexOf(state.type) === -1) {
-            selectOptions.splice(state.id, 1);
+            selectOptions = selectOptions.filter(item => item !== state.id);
           }
         });
 
@@ -121,7 +116,7 @@ const addCounterForm = () => {
 
   getBtn.onclick = function() {
     log(`Getting ${name.value}`);
-    fetch(`${DBHelper.SERVER_URL}/api/1/count/${name.value}`, {
+    fetch(`${DBHelper.SERVER_URL}/api/count/${name.value}`, {
       headers: {
         'Content-Type': 'application/json; charset=utf-8'
       }
@@ -137,11 +132,7 @@ const addCounterForm = () => {
             var tx = db.transaction('crdt-states', 'readwrite');
             var store = tx.objectStore('crdt-states');
 
-            var item = {
-              id: name.value,
-              value: json.cont,
-              type: 'counter'
-            };
+            var item = new CounterCRDT(name.value, json.cont);
 
             store.put(item);
 
@@ -150,7 +141,8 @@ const addCounterForm = () => {
             return tx.complete;
           })
           .then(function() {
-            DBHelper.crdtDBPromise
+            //     TODO       cleaning operations;
+            /*             DBHelper.crdtDBPromise
               .then(function(db) {
                 if (!db) return;
 
@@ -163,51 +155,24 @@ const addCounterForm = () => {
                 if (!cursor) return;
                 cursor.delete(cursor.value);
                 return cursor.continue().then(cleanOperationsDB);
-              });
+              }); */
           });
         log(`The value of ${name.value} is: ${json.cont}`);
       })
       .catch(function() {
         // TODO add the functionality when the key is not created yet and don't forget to recreate the select element
-
-        var statesCached = [];
         DBHelper.crdtDBPromise
           .then(function(db) {
             if (!db) return;
 
             var index = db.transaction('crdt-states').objectStore('crdt-states');
 
-            return index.getAll().then(function(states) {
-              statesCached = states;
-              var index = db.transaction('crdt-operations').objectStore('crdt-operations');
+            return index.get(name.value).then(function(state) {
+              if (state) {
+                Object.setPrototypeOf(state, CounterCRDT.prototype);
 
-              return index.get(name.value).then(function(value) {
-                var counter = 0;
-                statesCached.forEach(state => {
-                  if (state.id === name.value) {
-                    if (value) {
-                      var operations = value.operations;
-                      var sentOperations = value.sentOperations;
-
-                      if (operations) {
-                        operations.forEach(operation => {
-                          counter = counter + operation;
-                        });
-                      }
-
-                      if (sentOperations) {
-                        sentOperations.forEach(operation => {
-                          counter = counter + operation;
-                        });
-                      }
-                    }
-
-                    counter += state.value;
-
-                    log(`[Offline] The value of ${name.value} is: ${counter}`);
-                  }
-                });
-              });
+                log(`[Offline] The value of ${name.value} is: ${state.calculateState()}`);
+              }
             });
           })
           .catch(function() {
@@ -237,7 +202,7 @@ const addCounterForm = () => {
   incBtn.onclick = function() {
     requestSync();
     log(`Incrementing the value of ${name.value}`);
-    fetch(`${DBHelper.SERVER_URL}/api/1/count/${name.value}`, {
+    fetch(`${DBHelper.SERVER_URL}/api/count/${name.value}`, {
       method: 'PUT',
       data: `value=${1}`,
       headers: {
@@ -255,27 +220,19 @@ const addCounterForm = () => {
           .then(function(db) {
             if (!db) return;
 
-            var index = db.transaction('crdt-operations').objectStore('crdt-operations');
+            var index = db.transaction('crdt-states').objectStore('crdt-states');
 
             return index.get(name.value).then(function(val) {
-              var tx = db.transaction('crdt-operations', 'readwrite');
-              var store = tx.objectStore('crdt-operations');
-              if (!val) {
-                store.put({
-                  id: name.value,
-                  operations: [1]
-                });
-              } else {
-                var temp = val;
+              var tx = db.transaction('crdt-states', 'readwrite');
+              var store = tx.objectStore('crdt-states');
 
-                if (!temp.operations) {
-                  temp.operations = [];
-                }
+              var item = val;
 
-                temp.operations.push(1);
+              // TODO check on !val
+              Object.setPrototypeOf(item, CounterCRDT.prototype);
 
-                store.put(temp);
-              }
+              item.inc();
+              store.put(item);
 
               return tx.complete;
             });
@@ -309,7 +266,7 @@ const addCounterForm = () => {
   decBtn.onclick = function() {
     requestSync();
     log(`Decrementing the value of ${name.value}`);
-    fetch(`${DBHelper.SERVER_URL}/api/1/count/${name.value}`, {
+    fetch(`${DBHelper.SERVER_URL}/api/count/${name.value}`, {
       method: 'DELETE',
       data: `value=${1}`,
       headers: {
@@ -327,27 +284,18 @@ const addCounterForm = () => {
           .then(function(db) {
             if (!db) return;
 
-            var index = db.transaction('crdt-operations').objectStore('crdt-operations');
+            var index = db.transaction('crdt-states').objectStore('crdt-states');
 
             return index.get(name.value).then(function(val) {
-              var tx = db.transaction('crdt-operations', 'readwrite');
-              var store = tx.objectStore('crdt-operations');
-              if (!val) {
-                store.put({
-                  id: name.value,
-                  operations: [-1]
-                });
-              } else {
-                var temp = val;
+              var tx = db.transaction('crdt-states', 'readwrite');
+              var store = tx.objectStore('crdt-states');
 
-                if (!temp.operations) {
-                  temp.operations = [];
-                }
+              var item = val;
+              // TODO check on !val
+              Object.setPrototypeOf(item, CounterCRDT.prototype);
 
-                temp.operations.push(-1);
-
-                store.put(temp);
-              }
+              item.dec();
+              store.put(item);
 
               return tx.complete;
             });
@@ -356,7 +304,7 @@ const addCounterForm = () => {
             // TODO throw an error
           });
 
-        //log(`Failed to increment the id ${name.value}: ${error}`);
+        //log(`Failed to decrement the id ${name.value}: ${error}`);
       });
   };
 
@@ -428,9 +376,8 @@ const addSetForm = () => {
   liGetBtn.appendChild(getBtn);
 
   getBtn.onclick = function() {
-    debugger;
     log(`Getting ${name.value} set`);
-    fetch(`${DBHelper.SERVER_URL}/api/1/set/${name.value}`, {
+    fetch(`${DBHelper.SERVER_URL}/api/set/${name.value}`, {
       headers: {
         'Content-Type': 'application/json; charset=utf-8'
       }
@@ -441,11 +388,10 @@ const addSetForm = () => {
       .then(function(json) {
         DBHelper.crdtDBPromise
           .then(function(db) {
-            debugger;
             if (!db) return;
 
-            var tx = db.transaction('crdt-set-states', 'readwrite');
-            var store = tx.objectStore('crdt-set-states');
+            var tx = db.transaction('crdt-states', 'readwrite');
+            var store = tx.objectStore('crdt-states');
             //var set = crdt_set_aw.initialState();
             var keys = [];
             json.cont.forEach(element => {
@@ -457,11 +403,12 @@ const addSetForm = () => {
               id: name.value,
               value: {
                 state: new Map(keys)
-              }
+              },
+              type: 'set'
             };
 
             store.put(item);
-            let counterSelector = document.getElementById();
+            let counterSelector = document.getElementById('counter-name-field');
             fillSelectsEls([name, counterSelector]);
             return tx.complete;
           })
@@ -486,7 +433,6 @@ const addSetForm = () => {
       })
       .catch(function() {
         // TODO add the functionality when the key is not created yet and don't forget to recreate the select element
-        debugger;
         var statesCached = [];
         DBHelper.crdtDBPromise
           .then(function(db) {
@@ -555,7 +501,7 @@ const addSetForm = () => {
   addBtn.onclick = function() {
     //requestSync();
     log(`Adding to the set ${name.value} the value of ${value.value}`);
-    fetch(`${DBHelper.SERVER_URL}/api/1/set/${name.value}`, {
+    fetch(`${DBHelper.SERVER_URL}/api/set/${name.value}`, {
       method: 'PUT',
       body: JSON.stringify({ value: value.value }),
       headers: {
@@ -624,9 +570,9 @@ const addSetForm = () => {
   liDecBtn.appendChild(decBtn);
 
   decBtn.onclick = function() {
-    requestSync();
+    //requestSync();
     log(`Removing from the set ${name.value} the value of ${value.value}`);
-    fetch(`${DBHelper.SERVER_URL}/api/1/set/${name.value}`, {
+    fetch(`${DBHelper.SERVER_URL}/api/set/${name.value}`, {
       method: 'DELETE',
       body: JSON.stringify({ value: value.value }),
       headers: {

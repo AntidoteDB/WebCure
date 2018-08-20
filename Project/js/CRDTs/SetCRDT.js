@@ -1,4 +1,4 @@
-class crdt_set_aw {
+class SetCRDT {
   static initialState() {
     return new Map();
   }

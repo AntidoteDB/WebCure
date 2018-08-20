@@ -53,7 +53,7 @@ var apiRouter = express.Router();
 
 // Counter API
 apiRouter
-  .route('/:rep_id/count/:counter_id')
+  .route('/count/:counter_id')
   .get(function(req, res) {
     var counterId = req.params.counter_id;
     var lastCommitTimestamp = atdClient.getLastCommitTimestamp();
@@ -94,7 +94,7 @@ apiRouter
 
 // Set API
 apiRouter
-  .route('/:rep_id/set/:set_id')
+  .route('/set/:set_id')
   .get(function(req, res) {
     var setId = req.params.set_id;
     atdClient

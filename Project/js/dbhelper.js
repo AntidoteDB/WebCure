@@ -24,11 +24,6 @@ class DBHelper {
             keyPath: 'id'
           });
           stateStore.createIndex('id', 'id');
-
-          var operationStore = upgradeDB.createObjectStore('crdt-operations', {
-            keyPath: 'id'
-          });
-          operationStore.createIndex('id', 'id');
       }
     });
   }
