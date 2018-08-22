@@ -8,6 +8,8 @@ const logger = require('morgan');
 const bodyParser = require('body-parser');
 const compression = require('compression');
 const helmet = require('helmet');
+const protobuf = require('protobufjs');
+const bytebuffer = require('bytebuffer');
 
 const conf = require('./config');
 
@@ -51,13 +53,11 @@ app.use('/', staticRouter);
 /* API routing. */
 var apiRouter = express.Router();
 
-// Counter API
+// Counter API+
 apiRouter
   .route('/count/:counter_id')
   .get(function(req, res) {
     var counterId = req.params.counter_id;
-    var lastCommitTimestamp = atdClient.getLastCommitTimestamp();
-    log('### Last commit: ', lastCommitTimestamp);
     atdClient
       .counter(counterId)
       .read()
@@ -66,30 +66,70 @@ apiRouter
         log('### content', JSON.stringify(content));
         res.json({
           status: 'OK',
-          cont: content
+          cont: content,
+          lastCommitTimestamp: atdClient.getLastCommitTimestamp().toBase64()
         });
       })
       .catch(function(error) {
         console.log('Antidote error: ' + error);
       });
   })
-  .put(function(req, res) {
-    var counterId = req.params.counter_id;
-    atdClient.update(atdClient.counter(counterId).increment(1)).then(() => {
+  .put(async function(req, res, next) {
+    try {
+      var counterId = req.params.counter_id;
+      var lastCommitTimestamp = req.body.lastCommitTimestamp;
+      if (lastCommitTimestamp) {
+        lastCommitTimestamp = bytebuffer.fromBase64(lastCommitTimestamp.data);
+        console.log(lastCommitTimestamp);
+        atdClient.monotonicSnapshots = true;
+        atdClient.setLastCommitTimestamp(lastCommitTimestamp);
+      }
+
+      let tx = await atdClient.startTransaction(false);
+      let counter = tx.counter(counterId);
+
+      await tx.update(counter.increment(1));
+      await tx.commit();
+      res.json({ status: 'OK' });
+    } catch (error) {
+      next(error);
+    }
+
+    /*     atdClient.update(atdClient.counter(counterId).increment(1)).then(() => {
       //log('Increment', counterId, 'on replica', repId);
       res.json({
         status: 'OK'
       });
-    });
+    }); */
   })
-  .delete(function(req, res) {
-    var counterId = req.params.counter_id;
-    atdClient.update(atdClient.counter(counterId).increment(-1)).then(() => {
+  .delete(async function(req, res, next) {
+    try {
+      var counterId = req.params.counter_id;
+      var lastCommitTimestamp = req.body.lastCommitTimestamp;
+
+      if (lastCommitTimestamp) {
+        lastCommitTimestamp = bytebuffer.fromBase64(lastCommitTimestamp.data);
+        console.log(lastCommitTimestamp);
+        atdClient.monotonicSnapshots = true;
+        atdClient.setLastCommitTimestamp(lastCommitTimestamp);
+      }
+
+      let tx = await atdClient.startTransaction(false);
+      let counter = tx.counter(counterId);
+
+      await tx.update(counter.increment(-1));
+      await tx.commit();
+      res.json({ status: 'OK' });
+    } catch (error) {
+      next(error);
+    }
+
+    /*     atdClient.update(atdClient.counter(counterId).increment(-1)).then(() => {
       //log('Decrement', counterId, 'on replica', repId);
       res.json({
         status: 'OK'
       });
-    });
+    }); */
   });
 
 // Set API

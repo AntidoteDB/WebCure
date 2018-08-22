@@ -64,23 +64,35 @@ function pushChangesToTheServer() {
     return index
       .getAll()
       .then(function(objects) {
-        if (objects) {
-          objects.forEach(object => {
-            if (object.operations) {
-              object.operations.forEach(operation => {
-                promiseArray.push(
-                  fetch(`${DBHelper.SERVER_URL}/api/count/${object.id}`, {
-                    method: operation > 0 ? 'PUT' : 'DELETE',
-                    data: `value=${operation}`,
-                    headers: {
-                      'Content-Type': 'application/json; charset=utf-8'
-                    }
-                  }).then(response => response.json())
-                );
-              });
-            }
+        DBHelper.crdtDBPromise
+          .then(function(db) {
+            if (!db) return;
+            var index = db.transaction('crdt-timestamps').objectStore('crdt-timestamps');
+            return index.get(0).then(function(timestamp) {
+              if (objects) {
+                objects.forEach(object => {
+                  if (object.operations) {
+                    object.operations.forEach(operation => {
+                      promiseArray.push(
+                        fetch(`${DBHelper.SERVER_URL}/api/count/${object.id}`, {
+                          method: operation > 0 ? 'PUT' : 'DELETE',
+                          body: JSON.stringify({
+                            lastCommitTimestamp: timestamp ? timestamp : undefined
+                          }),
+                          headers: {
+                            'Content-Type': 'application/json; charset=utf-8'
+                          }
+                        }).then(response => response.json())
+                      );
+                    });
+                  }
+                });
+              }
+            });
+          })
+          .catch(function() {
+            // TODO throw an error
           });
-        }
       })
       .then(function() {
         return Promise.all(promiseArray)

@@ -3,7 +3,10 @@
  */
 /*global idb :true*/
 
+/* eslint-disable no-unused-vars */
 class DBHelper {
+  /* eslint-enable  no-unused-vars */
+
   /**
    * Server URL.
    */
@@ -24,6 +27,12 @@ class DBHelper {
             keyPath: 'id'
           });
           stateStore.createIndex('id', 'id');
+
+          var snapshotStore = upgradeDB.createObjectStore('crdt-timestamps', {
+            keyPath: 'id'
+          });
+
+          snapshotStore.createIndex('id', 'id');
       }
     });
   }

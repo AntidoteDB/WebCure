@@ -141,6 +141,20 @@ const addCounterForm = () => {
             return tx.complete;
           })
           .then(function() {
+            DBHelper.crdtDBPromise.then(function(db) {
+              if (!db) return;
+
+              var tx = db.transaction('crdt-timestamps', 'readwrite');
+              var store = tx.objectStore('crdt-timestamps');
+              var temp = json.lastCommitTimestamp;
+
+              if (temp) {
+                store.put({ id: 0, data: temp });
+              }
+
+              return tx.complete;
+            });
+
             //     TODO       cleaning operations;
             /*             DBHelper.crdtDBPromise
               .then(function(db) {
@@ -202,46 +216,60 @@ const addCounterForm = () => {
   incBtn.onclick = function() {
     requestSync();
     log(`Incrementing the value of ${name.value}`);
-    fetch(`${DBHelper.SERVER_URL}/api/count/${name.value}`, {
-      method: 'PUT',
-      data: `value=${1}`,
-      headers: {
-        'Content-Type': 'application/json; charset=utf-8'
-      }
-    })
-      .then(function(response) {
-        return response.json();
-      })
-      .then(function() {
-        //log(`The response for id ${name.value} is: ${json.status}`);
-      })
-      .catch(function(error) {
-        DBHelper.crdtDBPromise
-          .then(function(db) {
-            if (!db) return;
 
-            var index = db.transaction('crdt-states').objectStore('crdt-states');
-
-            return index.get(name.value).then(function(val) {
-              var tx = db.transaction('crdt-states', 'readwrite');
-              var store = tx.objectStore('crdt-states');
-
-              var item = val;
-
-              // TODO check on !val
-              Object.setPrototypeOf(item, CounterCRDT.prototype);
-
-              item.inc();
-              store.put(item);
-
-              return tx.complete;
-            });
+    DBHelper.crdtDBPromise
+      .then(function(db) {
+        if (!db) return;
+        var index = db.transaction('crdt-timestamps').objectStore('crdt-timestamps');
+        return index.get(0).then(function(timestamp) {
+          fetch(`${DBHelper.SERVER_URL}/api/count/${name.value}`, {
+            method: 'PUT',
+            data: `value=${1}`,
+            body: JSON.stringify({
+              lastCommitTimestamp: timestamp ? timestamp : undefined
+            }),
+            headers: {
+              'Content-Type': 'application/json; charset=utf-8'
+            }
           })
-          .catch(function() {
-            // TODO throw an error
-          });
+            .then(function(response) {
+              return response.json();
+            })
+            .then(function() {
+              //log(`The response for id ${name.value} is: ${json.status}`);
+            })
+            .catch(function(error) {
+              DBHelper.crdtDBPromise
+                .then(function(db) {
+                  if (!db) return;
 
-        //log(`Failed to increment the id ${name.value}: ${error}`);
+                  var index = db.transaction('crdt-states').objectStore('crdt-states');
+
+                  return index.get(name.value).then(function(val) {
+                    var tx = db.transaction('crdt-states', 'readwrite');
+                    var store = tx.objectStore('crdt-states');
+
+                    var item = val;
+
+                    // TODO check on !val
+                    Object.setPrototypeOf(item, CounterCRDT.prototype);
+
+                    item.inc();
+                    store.put(item);
+
+                    return tx.complete;
+                  });
+                })
+                .catch(function() {
+                  // TODO throw an error
+                });
+
+              //log(`Failed to increment the id ${name.value}: ${error}`);
+            });
+        });
+      })
+      .catch(function() {
+        // TODO throw an error
       });
   };
 
@@ -266,45 +294,58 @@ const addCounterForm = () => {
   decBtn.onclick = function() {
     requestSync();
     log(`Decrementing the value of ${name.value}`);
-    fetch(`${DBHelper.SERVER_URL}/api/count/${name.value}`, {
-      method: 'DELETE',
-      data: `value=${1}`,
-      headers: {
-        'Content-Type': 'application/json; charset=utf-8'
-      }
-    })
-      .then(function(response) {
-        return response.json();
-      })
-      .then(function() {
-        //log(`The response for id ${name.value} is: ${json.status}`);
-      })
-      .catch(function(error) {
-        DBHelper.crdtDBPromise
-          .then(function(db) {
-            if (!db) return;
 
-            var index = db.transaction('crdt-states').objectStore('crdt-states');
-
-            return index.get(name.value).then(function(val) {
-              var tx = db.transaction('crdt-states', 'readwrite');
-              var store = tx.objectStore('crdt-states');
-
-              var item = val;
-              // TODO check on !val
-              Object.setPrototypeOf(item, CounterCRDT.prototype);
-
-              item.dec();
-              store.put(item);
-
-              return tx.complete;
-            });
+    DBHelper.crdtDBPromise
+      .then(function(db) {
+        if (!db) return;
+        var index = db.transaction('crdt-timestamps').objectStore('crdt-timestamps');
+        return index.get(0).then(function(timestamp) {
+          fetch(`${DBHelper.SERVER_URL}/api/count/${name.value}`, {
+            method: 'DELETE',
+            body: JSON.stringify({
+              lastCommitTimestamp: timestamp ? timestamp : undefined
+            }),
+            headers: {
+              'Content-Type': 'application/json; charset=utf-8'
+            }
           })
-          .catch(function() {
-            // TODO throw an error
-          });
+            .then(function(response) {
+              return response.json();
+            })
+            .then(function() {
+              //log(`The response for id ${name.value} is: ${json.status}`);
+            })
+            .catch(function(error) {
+              DBHelper.crdtDBPromise
+                .then(function(db) {
+                  if (!db) return;
 
-        //log(`Failed to decrement the id ${name.value}: ${error}`);
+                  var index = db.transaction('crdt-states').objectStore('crdt-states');
+
+                  return index.get(name.value).then(function(val) {
+                    var tx = db.transaction('crdt-states', 'readwrite');
+                    var store = tx.objectStore('crdt-states');
+
+                    var item = val;
+                    // TODO check on !val
+                    Object.setPrototypeOf(item, CounterCRDT.prototype);
+
+                    item.dec();
+                    store.put(item);
+
+                    return tx.complete;
+                  });
+                })
+                .catch(function() {
+                  // TODO throw an error
+                });
+
+              //log(`Failed to decrement the id ${name.value}: ${error}`);
+            });
+        });
+      })
+      .catch(function() {
+        // TODO throw an error
       });
   };
 

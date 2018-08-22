@@ -9,6 +9,7 @@
     "dependencies": {
         "antidote_ts_client": "^0.2.1",
         "body-parser": "^1.18.3",
+        "bytebuffer": "^5.0.1",
         "compression": "^1.7.2",
         "cookie-parser": "^1.4.3",
         "express": "^4.16.3",
