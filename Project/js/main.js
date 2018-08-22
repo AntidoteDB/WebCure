@@ -9,7 +9,7 @@ document.addEventListener('DOMContentLoaded', event => {
   DBHelper.getDB();
 });
 
-/*global DBHelper Logger log CounterCRDT CounterOps:true*/
+/*global DBHelper Logger log CounterCRDT SetCRDT:true*/
 
 window.addEventListener('load', () => {
   registerServiceWorker();
@@ -433,20 +433,8 @@ const addSetForm = () => {
 
             var tx = db.transaction('crdt-states', 'readwrite');
             var store = tx.objectStore('crdt-states');
-            //var set = crdt_set_aw.initialState();
-            var keys = [];
-            json.cont.forEach(element => {
-              keys.push([element, '']);
-            });
-            //
 
-            var item = {
-              id: name.value,
-              value: {
-                state: new Map(keys)
-              },
-              type: 'set'
-            };
+            var item = new SetCRDT(name.value, json.cont);
 
             store.put(item);
             let counterSelector = document.getElementById('counter-name-field');
@@ -454,6 +442,20 @@ const addSetForm = () => {
             return tx.complete;
           })
           .then(function() {
+            DBHelper.crdtDBPromise.then(function(db) {
+              if (!db) return;
+
+              var tx = db.transaction('crdt-timestamps', 'readwrite');
+              var store = tx.objectStore('crdt-timestamps');
+              var temp = json.lastCommitTimestamp;
+
+              if (temp) {
+                store.put({ id: 0, data: temp });
+              }
+
+              return tx.complete;
+            });
+
             // TODO
             /*             DBHelper.crdtDBPromise
               .then(function(db) {
@@ -474,47 +476,20 @@ const addSetForm = () => {
       })
       .catch(function() {
         // TODO add the functionality when the key is not created yet and don't forget to recreate the select element
-        var statesCached = [];
         DBHelper.crdtDBPromise
           .then(function(db) {
             if (!db) return;
 
-            var index = db.transaction('crdt-set-states').objectStore('crdt-set-states');
+            var index = db.transaction('crdt-states').objectStore('crdt-states');
 
-            return index.getAll().then(function(states) {
-              statesCached = states;
-              //var index = db.transaction('crdt-set-operations').objectStore('crdt-set-operations');
-
-              //return index.get(name.value).then(function(value) {
-              //var counter = 0;
-              statesCached.forEach(state => {
-                //if (state.id === name.value) {
-                /*                     if (value) {
-                      var operations = value.operations;
-                      var sentOperations = value.sentOperations;
-
-                      if (operations) {
-                        operations.forEach(operation => {
-                          counter = counter + operation;
-                        });
-                      }
-
-                      if (sentOperations) {
-                        sentOperations.forEach(operation => {
-                          counter = counter + operation;
-                        });
-                      }
-                    }
-
-                    counter += state.value; */
-
-                log(`[Offline] The value of ${name.value} is: ${crdt_set_aw.value(state.value)}`);
-                // }
-              });
-
-              //});
+            return index.get(name.value).then(function(state) {
+              if (state) {
+                Object.setPrototypeOf(state, SetCRDT.prototype);
+                log(`[Offline] The value of ${name.value} is: ${state.calculateState()}`);
+              }
             });
           })
+
           .catch(function() {
             // TODO throw an error
           });
@@ -541,55 +516,59 @@ const addSetForm = () => {
 
   addBtn.onclick = function() {
     //requestSync();
-    log(`Adding to the set ${name.value} the value of ${value.value}`);
-    fetch(`${DBHelper.SERVER_URL}/api/set/${name.value}`, {
-      method: 'PUT',
-      body: JSON.stringify({ value: value.value }),
-      headers: {
-        'Content-Type': 'application/json; charset=utf-8'
-      }
-    })
-      .then(function(response) {
-        return response.json();
+    if (value.value !== '') {
+      log(`Adding to the set ${name.value} the value of ${value.value}`);
+      fetch(`${DBHelper.SERVER_URL}/api/set/${name.value}`, {
+        method: 'PUT',
+        body: JSON.stringify({ value: value.value }),
+        headers: {
+          'Content-Type': 'application/json; charset=utf-8'
+        }
       })
-      .then(function() {
-        //log(`The response for id ${name.value} is: ${json.status}`);
-      })
-      .catch(function(error) {
-        /*         DBHelper.crdtDBPromise
-          .then(function(db) {
-            if (!db) return;
-
-            var index = db.transaction('crdt-operations').objectStore('crdt-operations');
-
-            return index.get(name.value).then(function(val) {
-              var tx = db.transaction('crdt-operations', 'readwrite');
-              var store = tx.objectStore('crdt-operations');
-              if (!val) {
-                store.put({
-                  id: name.value,
-                  operations: [1]
-                });
-              } else {
-                var temp = val;
-
-                if (!temp.operations) {
-                  temp.operations = [];
+        .then(function(response) {
+          return response.json();
+        })
+        .then(function() {
+          //log(`The response for id ${name.value} is: ${json.status}`);
+        })
+        .catch(function(error) {
+          /*         DBHelper.crdtDBPromise
+            .then(function(db) {
+              if (!db) return;
+  
+              var index = db.transaction('crdt-operations').objectStore('crdt-operations');
+  
+              return index.get(name.value).then(function(val) {
+                var tx = db.transaction('crdt-operations', 'readwrite');
+                var store = tx.objectStore('crdt-operations');
+                if (!val) {
+                  store.put({
+                    id: name.value,
+                    operations: [1]
+                  });
+                } else {
+                  var temp = val;
+  
+                  if (!temp.operations) {
+                    temp.operations = [];
+                  }
+  
+                  temp.operations.push(1);
+  
+                  store.put(temp);
                 }
-
-                temp.operations.push(1);
-
-                store.put(temp);
-              }
-
-              return tx.complete;
-            });
-          })
-          .catch(function() {
-            // TODO throw an error
-          }); */
-        //log(`Failed to increment the id ${name.value}: ${error}`);
-      });
+  
+                return tx.complete;
+              });
+            })
+            .catch(function() {
+              // TODO throw an error
+            }); */
+          //log(`Failed to increment the id ${name.value}: ${error}`);
+        });
+    } else {
+      alert('Plese, fill in all the fields!');
+    }
   };
 
   /**
@@ -611,23 +590,24 @@ const addSetForm = () => {
   liDecBtn.appendChild(decBtn);
 
   decBtn.onclick = function() {
-    //requestSync();
-    log(`Removing from the set ${name.value} the value of ${value.value}`);
-    fetch(`${DBHelper.SERVER_URL}/api/set/${name.value}`, {
-      method: 'DELETE',
-      body: JSON.stringify({ value: value.value }),
-      headers: {
-        'Content-Type': 'application/json; charset=utf-8'
-      }
-    })
-      .then(function(response) {
-        return response.json();
+    if (value.value !== '') {
+      //requestSync();
+      log(`Removing from the set ${name.value} the value of ${value.value}`);
+      fetch(`${DBHelper.SERVER_URL}/api/set/${name.value}`, {
+        method: 'DELETE',
+        body: JSON.stringify({ value: value.value }),
+        headers: {
+          'Content-Type': 'application/json; charset=utf-8'
+        }
       })
-      .then(function() {
-        //log(`The response for id ${name.value} is: ${json.status}`);
-      })
-      .catch(function(error) {
-        /*         DBHelper.crdtDBPromise
+        .then(function(response) {
+          return response.json();
+        })
+        .then(function() {
+          //log(`The response for id ${name.value} is: ${json.status}`);
+        })
+        .catch(function(error) {
+          /*         DBHelper.crdtDBPromise
           .then(function(db) {
             if (!db) return;
 
@@ -659,8 +639,11 @@ const addSetForm = () => {
           .catch(function() {
             // TODO throw an error
           }); */
-        //log(`Failed to increment the id ${name.value}: ${error}`);
-      });
+          //log(`Failed to increment the id ${name.value}: ${error}`);
+        });
+    } else {
+      alert('Plese, fill in all the fields!');
+    }
   };
 
   // Add everything to the form
