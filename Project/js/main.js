@@ -96,6 +96,21 @@ const addCounterForm = () => {
   liName.appendChild(document.createElement('br'));
   liName.appendChild(name);
 
+  const liTimestamp = document.createElement('li');
+
+  const timestamp = document.createElement('input');
+  timestamp.type = 'text';
+  timestamp.name = 'timestamp';
+  timestamp.id = 'count-timestamp-field';
+  timestamp.placeholder = 'Enter the timestamp to read (optional)';
+
+  const labelTimestamp = document.createElement('label');
+  labelTimestamp.setAttribute('for', timestamp.id);
+
+  liTimestamp.appendChild(labelTimestamp);
+  liTimestamp.appendChild(document.createElement('br'));
+  liTimestamp.appendChild(timestamp);
+
   /**
    * Creating the 'get' button:
    */
@@ -116,11 +131,16 @@ const addCounterForm = () => {
 
   getBtn.onclick = function() {
     log(`Getting ${name.value}`);
-    fetch(`${DBHelper.SERVER_URL}/api/count/${name.value}`, {
-      headers: {
-        'Content-Type': 'application/json; charset=utf-8'
+    fetch(
+      `${DBHelper.SERVER_URL}/api/count/${name.value}${
+        timestamp.value ? `/${timestamp.value}` : '/null'
+      }`,
+      {
+        headers: {
+          'Content-Type': 'application/json; charset=utf-8'
+        }
       }
-    })
+    )
       .then(function(response) {
         return response.json();
       })
@@ -149,6 +169,7 @@ const addCounterForm = () => {
               var temp = json.lastCommitTimestamp;
 
               if (temp) {
+                log(`Timestamp: ${temp}`);
                 store.put({ id: 0, data: temp });
               }
 
@@ -351,6 +372,7 @@ const addCounterForm = () => {
 
   // Add everything to the form
   li.appendChild(liName);
+  li.appendChild(liTimestamp);
   li.appendChild(liGetBtn);
   li.appendChild(liIncBtn);
   li.appendChild(liDecBtn);
@@ -567,7 +589,7 @@ const addSetForm = () => {
           //log(`Failed to increment the id ${name.value}: ${error}`);
         });
     } else {
-      alert('Plese, fill in all the fields!');
+      alert('Please, fill in all the fields!');
     }
   };
 
@@ -642,7 +664,7 @@ const addSetForm = () => {
           //log(`Failed to increment the id ${name.value}: ${error}`);
         });
     } else {
-      alert('Plese, fill in all the fields!');
+      alert('Please, fill in all the fields!');
     }
   };
 
