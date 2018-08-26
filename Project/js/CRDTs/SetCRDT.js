@@ -8,4 +8,22 @@ class SetCRDT {
     this.operations = [];
     this.sentOperations = [];
   }
+
+  add(valueToAdd) {
+    let operation = {
+      type: 'add',
+      value: valueToAdd
+    };
+
+    this.operations.push(operation);
+  }
+
+  remove(valueToRemove) {
+    let operation = {
+      type: 'remove',
+      value: valueToRemove
+    };
+
+    this.operations.push(operation);
+  }
 }

@@ -42,11 +42,13 @@ self.addEventListener('fetch', function(event) {
 
 self.addEventListener('sync', function(event) {
   if (event.tag === 'syncChanges') {
-    event.waitUntil(pushChangesToTheServer());
+    event.waitUntil(pushCounterChangesToTheServer());
+  } else if (event.tag === 'syncSetChanges') {
+    event.waitUntil(pushSetChangesToTheServer());
   }
 });
 
-function pushChangesToTheServer() {
+function pushCounterChangesToTheServer() {
   if (
     typeof idb === 'undefined' ||
     typeof DBHelper === 'undefined' ||
@@ -75,6 +77,87 @@ function pushChangesToTheServer() {
                     object.operations.forEach(operation => {
                       promiseArray.push(
                         fetch(`${DBHelper.SERVER_URL}/api/count/${object.id}`, {
+                          method: operation > 0 ? 'PUT' : 'DELETE',
+                          body: JSON.stringify({
+                            lastCommitTimestamp: timestamp ? timestamp : undefined
+                          }),
+                          headers: {
+                            'Content-Type': 'application/json; charset=utf-8'
+                          }
+                        }).then(response => response.json())
+                      );
+                    });
+                  }
+                });
+              }
+            });
+          })
+          .catch(function() {
+            // TODO throw an error
+          });
+      })
+      .then(function() {
+        return Promise.all(promiseArray)
+          .then(function() {
+            DBHelper.crdtDBPromise.then(function(db) {
+              if (!db) return;
+
+              var index = db.transaction('crdt-states').objectStore('crdt-states');
+
+              return index.getAll().then(function(objects) {
+                var tx = db.transaction('crdt-states', 'readwrite');
+                var store = tx.objectStore('crdt-states');
+
+                if (objects) {
+                  objects.forEach(object => {
+                    var temp = object;
+                    Object.setPrototypeOf(temp, CounterCRDT.prototype);
+                    temp.processSentOperations();
+                    store.put(temp);
+                  });
+                }
+                console.log('Success! Promise all');
+                return tx.complete;
+              });
+            });
+          })
+          .catch(function(error) {
+            throw 'Silenced Exception! ' + error;
+          });
+      });
+  });
+}
+
+function pushSetChangesToTheServer() {
+  if (
+    typeof idb === 'undefined' ||
+    typeof DBHelper === 'undefined' ||
+    typeof SetCRDT === 'undefined'
+  ) {
+    self.importScripts('js/dbhelper.js', 'js/idb.js', 'js/CRDTs/SetCRDT.js');
+  }
+
+  let promiseArray = [];
+
+  DBHelper.getDB();
+  DBHelper.crdtDBPromise.then(function(db) {
+    var index = db.transaction('crdt-states').objectStore('crdt-states');
+
+    return index
+      .getAll()
+      .then(function(objects) {
+        DBHelper.crdtDBPromise
+          .then(function(db) {
+            if (!db) return;
+            var index = db.transaction('crdt-timestamps').objectStore('crdt-timestamps');
+            return index.get(0).then(function(timestamp) {
+              if (objects) {
+                objects.forEach(object => {
+                  if (object.operations) {
+                    // TODO Change this logic
+                    object.operations.forEach(operation => {
+                      promiseArray.push(
+                        fetch(`${DBHelper.SERVER_URL}/api/set/${object.id}`, {
                           method: operation > 0 ? 'PUT' : 'DELETE',
                           body: JSON.stringify({
                             lastCommitTimestamp: timestamp ? timestamp : undefined

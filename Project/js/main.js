@@ -23,10 +23,24 @@ window.addEventListener('load', () => {
  * Subscribe for the sync event
  */
 
-const requestSync = () => {
+const requestCounterSync = () => {
   navigator.serviceWorker.ready
     .then(function(swRegistration) {
-      return swRegistration.sync.register('syncChanges');
+      return swRegistration.sync.register('syncCounterChanges');
+    })
+    .catch(function(error) {
+      console.log(error);
+    });
+};
+
+/*
+ * Subscribe for the sync event
+ */
+
+const requestSetSync = () => {
+  navigator.serviceWorker.ready
+    .then(function(swRegistration) {
+      return swRegistration.sync.register('syncSetChanges');
     })
     .catch(function(error) {
       console.log(error);
@@ -235,7 +249,7 @@ const addCounterForm = () => {
   liIncBtn.appendChild(incBtn);
 
   incBtn.onclick = function() {
-    requestSync();
+    requestCounterSync();
     log(`Incrementing the value of ${name.value}`);
 
     DBHelper.crdtDBPromise
@@ -313,7 +327,7 @@ const addCounterForm = () => {
   liDecBtn.appendChild(decBtn);
 
   decBtn.onclick = function() {
-    requestSync();
+    requestCounterSync();
     log(`Decrementing the value of ${name.value}`);
 
     DBHelper.crdtDBPromise
@@ -537,7 +551,7 @@ const addSetForm = () => {
   liAddBtn.appendChild(addBtn);
 
   addBtn.onclick = function() {
-    //requestSync();
+    requestSetSync();
     if (value.value !== '') {
       log(`Adding to the set ${name.value} the value of ${value.value}`);
       fetch(`${DBHelper.SERVER_URL}/api/set/${name.value}`, {
@@ -554,38 +568,28 @@ const addSetForm = () => {
           //log(`The response for id ${name.value} is: ${json.status}`);
         })
         .catch(function(error) {
-          /*         DBHelper.crdtDBPromise
+          DBHelper.crdtDBPromise
             .then(function(db) {
               if (!db) return;
-  
-              var index = db.transaction('crdt-operations').objectStore('crdt-operations');
-  
+
+              var index = db.transaction('crdt-states').objectStore('crdt-states');
+
               return index.get(name.value).then(function(val) {
-                var tx = db.transaction('crdt-operations', 'readwrite');
-                var store = tx.objectStore('crdt-operations');
-                if (!val) {
-                  store.put({
-                    id: name.value,
-                    operations: [1]
-                  });
-                } else {
-                  var temp = val;
-  
-                  if (!temp.operations) {
-                    temp.operations = [];
-                  }
-  
-                  temp.operations.push(1);
-  
-                  store.put(temp);
-                }
-  
+                var tx = db.transaction('crdt-states', 'readwrite');
+                var store = tx.objectStore('crdt-states');
+
+                var item = val;
+
+                Object.setPrototypeOf(item, SetCRDT.prototype);
+                item.add(value.value);
+                store.put(item);
+
                 return tx.complete;
               });
             })
             .catch(function() {
               // TODO throw an error
-            }); */
+            });
           //log(`Failed to increment the id ${name.value}: ${error}`);
         });
     } else {
@@ -613,7 +617,7 @@ const addSetForm = () => {
 
   decBtn.onclick = function() {
     if (value.value !== '') {
-      //requestSync();
+      requestSetSync();
       log(`Removing from the set ${name.value} the value of ${value.value}`);
       fetch(`${DBHelper.SERVER_URL}/api/set/${name.value}`, {
         method: 'DELETE',
@@ -629,38 +633,28 @@ const addSetForm = () => {
           //log(`The response for id ${name.value} is: ${json.status}`);
         })
         .catch(function(error) {
-          /*         DBHelper.crdtDBPromise
-          .then(function(db) {
-            if (!db) return;
+          DBHelper.crdtDBPromise
+            .then(function(db) {
+              if (!db) return;
 
-            var index = db.transaction('crdt-operations').objectStore('crdt-operations');
+              var index = db.transaction('crdt-states').objectStore('crdt-states');
 
-            return index.get(name.value).then(function(val) {
-              var tx = db.transaction('crdt-operations', 'readwrite');
-              var store = tx.objectStore('crdt-operations');
-              if (!val) {
-                store.put({
-                  id: name.value,
-                  operations: [-1]
-                });
-              } else {
-                var temp = val;
+              return index.get(name.value).then(function(val) {
+                var tx = db.transaction('crdt-states', 'readwrite');
+                var store = tx.objectStore('crdt-states');
 
-                if (!temp.operations) {
-                  temp.operations = [];
-                }
+                var item = val;
 
-                temp.operations.push(-1);
+                Object.setPrototypeOf(item, SetCRDT.prototype);
+                item.remove(value.value);
+                store.put(item);
 
-                store.put(temp);
-              }
-
-              return tx.complete;
+                return tx.complete;
+              });
+            })
+            .catch(function() {
+              // TODO throw an error
             });
-          })
-          .catch(function() {
-            // TODO throw an error
-          }); */
           //log(`Failed to increment the id ${name.value}: ${error}`);
         });
     } else {

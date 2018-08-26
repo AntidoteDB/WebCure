@@ -63,7 +63,7 @@ apiRouter.route('/count/:counter_id/:timestamp').get(async function(req, res, ne
       timestamp = bytebuffer.fromBase64(timestamp);
       atdClient.monotonicSnapshots = true;
       atdClient.setLastCommitTimestamp(timestamp);
-      atdClient.update_clock = false;
+      //atdClient.update_clock = false;
     }
 
     let tx = await atdClient.startTransaction();
@@ -71,7 +71,7 @@ apiRouter.route('/count/:counter_id/:timestamp').get(async function(req, res, ne
     let val = await counter.read();
 
     await tx.commit();
-    atdClient.update_clock = true;
+    //atdClient.update_clock = true;
     res.json({
       status: 'OK',
       cont: val,
@@ -107,9 +107,9 @@ apiRouter
       if (lastCommitTimestamp) {
         lastCommitTimestamp = bytebuffer.fromBase64(lastCommitTimestamp.data);
         console.log(lastCommitTimestamp);
-        atdClient.monotonicSnapshots = true;
+        //atdClient.monotonicSnapshots = true;
         atdClient.setLastCommitTimestamp(lastCommitTimestamp);
-        atdClient.update_clock = false;
+        //atdClient.update_clock = false;
       }
 
       let tx = await atdClient.startTransaction();
@@ -117,7 +117,7 @@ apiRouter
 
       await tx.update(counter.increment(1));
       await tx.commit();
-      atdClient.update_clock = true;
+      //atdClient.update_clock = true;
       res.json({ status: 'OK' });
     } catch (error) {
       next(error);
