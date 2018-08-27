@@ -3,7 +3,7 @@ services:
   antidote1:
     ports:
     - "127.0.0.1:8087:8087"
-    image: mweber/antidotedb:latest #pviotti/antidote-alpine:iptables #mweber/antidotedb:latest # Specify the image to start the container from. Can either be a repository/tag or a partial image ID
+    image: antidotedb/antidote:nocert #mweber/antidotedb:latest #pviotti/antidote-alpine:iptables #mweber/antidotedb:latest # Specify the image to start the container from. Can either be a repository/tag or a partial image ID
     environment: # Add environment variables. You can use either an array or a dictionary.
       NODE_NAME: "antidote@antidote1"
       SHORT_NAME: "true"

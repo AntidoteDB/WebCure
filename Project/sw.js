@@ -41,7 +41,7 @@ self.addEventListener('fetch', function(event) {
 });
 
 self.addEventListener('sync', function(event) {
-  if (event.tag === 'syncChanges') {
+  if (event.tag === 'syncCounterChanges') {
     event.waitUntil(pushCounterChangesToTheServer());
   } else if (event.tag === 'syncSetChanges') {
     event.waitUntil(pushSetChangesToTheServer());

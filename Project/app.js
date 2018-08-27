@@ -54,24 +54,44 @@ app.use('/', staticRouter);
 var apiRouter = express.Router();
 
 // Counter API+
-apiRouter.route('/count/:counter_id/:timestamp').get(async function(req, res, next) {
+apiRouter.route('/count/:counter_id/timestamp').put(async function(req, res, next) {
   try {
     var counterId = req.params.counter_id;
-    var timestamp = req.params.timestamp;
+    var timestamp = req.body.timestamp;
 
     if (timestamp !== 'null') {
       timestamp = bytebuffer.fromBase64(timestamp);
       atdClient.monotonicSnapshots = true;
       atdClient.setLastCommitTimestamp(timestamp);
-      //atdClient.update_clock = false;
+      atdClient.update_clock = false;
     }
+
+    let tx = await atdClient.startTransaction();
+    let counter = tx.counter(counterId);
+    let val = await counter.read();
+    await tx.commit();
+    atdClient.update_clock = true;
+
+    res.json({
+      status: 'OK',
+      cont: val,
+      lastCommitTimestamp: atdClient.getLastCommitTimestamp().toBase64()
+    });
+  } catch (error) {
+    next(error);
+  }
+});
+
+apiRouter.route('/count/:counter_id').get(async function(req, res, next) {
+  try {
+    var counterId = req.params.counter_id;
 
     let tx = await atdClient.startTransaction();
     let counter = tx.counter(counterId);
     let val = await counter.read();
 
     await tx.commit();
-    //atdClient.update_clock = true;
+    atdClient.update_clock = true;
     res.json({
       status: 'OK',
       cont: val,
@@ -107,9 +127,9 @@ apiRouter
       if (lastCommitTimestamp) {
         lastCommitTimestamp = bytebuffer.fromBase64(lastCommitTimestamp.data);
         console.log(lastCommitTimestamp);
-        //atdClient.monotonicSnapshots = true;
+        atdClient.monotonicSnapshots = true;
         atdClient.setLastCommitTimestamp(lastCommitTimestamp);
-        //atdClient.update_clock = false;
+        atdClient.update_clock = false;
       }
 
       let tx = await atdClient.startTransaction();
@@ -117,7 +137,7 @@ apiRouter
 
       await tx.update(counter.increment(1));
       await tx.commit();
-      //atdClient.update_clock = true;
+      atdClient.update_clock = true;
       res.json({ status: 'OK' });
     } catch (error) {
       next(error);

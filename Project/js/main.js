@@ -145,16 +145,26 @@ const addCounterForm = () => {
 
   getBtn.onclick = function() {
     log(`Getting ${name.value}`);
-    fetch(
-      `${DBHelper.SERVER_URL}/api/count/${name.value}${
-        timestamp.value ? `/${timestamp.value}` : '/null'
-      }`,
-      {
-        headers: {
-          'Content-Type': 'application/json; charset=utf-8'
-        }
+
+    var fetchCounter = function() {
+      if (timestamp.value === '') {
+        return fetch(`${DBHelper.SERVER_URL}/api/count/${name.value}`, {
+          headers: {
+            'Content-Type': 'application/json; charset=utf-8'
+          }
+        });
+      } else {
+        return fetch(`${DBHelper.SERVER_URL}/api/count/${name.value}/timestamp`, {
+          method: 'PUT',
+          body: JSON.stringify({ timestamp: timestamp.value }),
+          headers: {
+            'Content-Type': 'application/json; charset=utf-8'
+          }
+        });
       }
-    )
+    };
+
+    fetchCounter()
       .then(function(response) {
         return response.json();
       })
