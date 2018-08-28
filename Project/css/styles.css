@@ -99,6 +99,7 @@ nav h1 a {
 @media screen and (min-width: 756px) {
   #footer {
     padding: 25px 0 25px 0 !important;
+    height: 150px;
   }
 }
 
@@ -160,5 +161,4 @@ li input:focus {
 #counter-container,
 #set_aw-container {
   background-color: whitesmoke;
-  width: 50%;
 }

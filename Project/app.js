@@ -91,7 +91,6 @@ apiRouter.route('/count/:counter_id').get(async function(req, res, next) {
     let val = await counter.read();
 
     await tx.commit();
-    atdClient.update_clock = true;
     res.json({
       status: 'OK',
       cont: val,
@@ -151,17 +150,54 @@ apiRouter
   });
 
 // Set API
+
+apiRouter.route('/set/:set_id/timestamp').put(async function(req, res, next) {
+  try {
+    var setId = req.params.set_id;
+    var timestamp = req.body.timestamp;
+
+    if (timestamp !== 'null') {
+      timestamp = bytebuffer.fromBase64(timestamp);
+      atdClient.monotonicSnapshots = true;
+      atdClient.setLastCommitTimestamp(timestamp);
+      atdClient.update_clock = false;
+    }
+
+    let tx = await atdClient.startTransaction();
+    let set = tx.set(setId);
+    let val = await set.read();
+    await tx.commit();
+    atdClient.update_clock = true;
+
+    res.json({
+      status: 'OK',
+      cont: val,
+      lastCommitTimestamp: atdClient.getLastCommitTimestamp().toBase64()
+    });
+  } catch (error) {
+    next(error);
+  }
+});
+
 apiRouter
   .route('/set/:set_id')
-  .get(function(req, res) {
-    var setId = req.params.set_id;
-    atdClient
-      .set(setId)
-      .read()
-      .then(content => {
-        log('### Get set', setId);
-        res.json({ status: 'OK', cont: content });
+  .get(async function(req, res, next) {
+    try {
+      var setId = req.params.set_id;
+
+      let tx = await atdClient.startTransaction();
+      let set = tx.set(setId);
+      let val = await set.read();
+
+      await tx.commit();
+      res.json({
+        status: 'OK',
+        cont: val,
+        lastCommitTimestamp: atdClient.getLastCommitTimestamp().toBase64()
       });
+    } catch (error) {
+      next(error);
+    }
   })
   .put(async function(req, res, next) {
     try {
