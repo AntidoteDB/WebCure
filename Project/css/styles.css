@@ -125,7 +125,7 @@ li button{
   text-decoration: none;
   margin: 4px 2px;
   cursor: pointer;
-  width: 100%;
+  min-width: 100%;
   border-radius: 4px;
 }
 
@@ -160,4 +160,5 @@ li input:focus {
 #counter-container,
 #set_aw-container {
   background-color: whitesmoke;
+  width: 50%;
 }

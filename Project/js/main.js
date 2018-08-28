@@ -561,8 +561,8 @@ const addSetForm = () => {
   liAddBtn.appendChild(addBtn);
 
   addBtn.onclick = function() {
-    requestSetSync();
     if (value.value !== '') {
+      requestSetSync();
       log(`Adding to the set ${name.value} the value of ${value.value}`);
       fetch(`${DBHelper.SERVER_URL}/api/set/${name.value}`, {
         method: 'PUT',

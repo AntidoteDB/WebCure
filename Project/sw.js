@@ -1,4 +1,4 @@
-/*global DBHelper CounterCRDT:true*/
+/*global DBHelper CounterCRDT SetCRDT:true*/
 
 var CACHES_NAME = 'web-antidotedb-v1';
 
@@ -158,8 +158,10 @@ function pushSetChangesToTheServer() {
                     object.operations.forEach(operation => {
                       promiseArray.push(
                         fetch(`${DBHelper.SERVER_URL}/api/set/${object.id}`, {
-                          method: operation > 0 ? 'PUT' : 'DELETE',
+                          method: operation.type === 'add' ? 'PUT' : 'DELETE',
+
                           body: JSON.stringify({
+                            value: operation.value,
                             lastCommitTimestamp: timestamp ? timestamp : undefined
                           }),
                           headers: {
@@ -192,7 +194,7 @@ function pushSetChangesToTheServer() {
                 if (objects) {
                   objects.forEach(object => {
                     var temp = object;
-                    Object.setPrototypeOf(temp, CounterCRDT.prototype);
+                    Object.setPrototypeOf(temp, SetCRDT.prototype);
                     temp.processSentOperations();
                     store.put(temp);
                   });

@@ -100,22 +100,6 @@ apiRouter.route('/count/:counter_id').get(async function(req, res, next) {
   } catch (error) {
     next(error);
   }
-
-  /*     atdClient
-      .counter(counterId)
-      .read()
-      .then(content => {
-        log('### Get', counterId, 'from replica');
-        log('### content', JSON.stringify(content));
-        res.json({
-          status: 'OK',
-          cont: content,
-          lastCommitTimestamp: atdClient.getLastCommitTimestamp().toBase64()
-        });
-      })
-      .catch(function(error) {
-        console.log('Antidote error: ' + error);
-      }); */
 });
 
 apiRouter
@@ -142,13 +126,6 @@ apiRouter
     } catch (error) {
       next(error);
     }
-
-    /*     atdClient.update(atdClient.counter(counterId).increment(1)).then(() => {
-      //log('Increment', counterId, 'on replica', repId);
-      res.json({
-        status: 'OK'
-      });
-    }); */
   })
   .delete(async function(req, res, next) {
     try {
@@ -171,13 +148,6 @@ apiRouter
     } catch (error) {
       next(error);
     }
-
-    /*     atdClient.update(atdClient.counter(counterId).increment(-1)).then(() => {
-      //log('Decrement', counterId, 'on replica', repId);
-      res.json({
-        status: 'OK'
-      });
-    }); */
   });
 
 // Set API
@@ -193,23 +163,55 @@ apiRouter
         res.json({ status: 'OK', cont: content });
       });
   })
-  .put(function(req, res) {
-    log(JSON.stringify(req.params));
-    log(JSON.stringify(req.body));
-    var setId = req.params.set_id;
-    var value = req.body.value;
-    atdClient.update(atdClient.set(setId).add(value)).then(resp => {
-      log('Add', value, 'to', setId);
+  .put(async function(req, res, next) {
+    try {
+      var setId = req.params.set_id;
+      var lastCommitTimestamp = req.body.lastCommitTimestamp;
+      if (lastCommitTimestamp) {
+        lastCommitTimestamp = bytebuffer.fromBase64(lastCommitTimestamp.data);
+        console.log(lastCommitTimestamp);
+        atdClient.monotonicSnapshots = true;
+        atdClient.setLastCommitTimestamp(lastCommitTimestamp);
+        atdClient.update_clock = false;
+      }
+
+      var value = req.body.value;
+
+      let tx = await atdClient.startTransaction();
+      let set = tx.set(setId);
+
+      await tx.update(set.add(value));
+      await tx.commit();
+      atdClient.update_clock = true;
       res.json({ status: 'OK' });
-    });
+    } catch (error) {
+      next(error);
+    }
   })
-  .delete(function(req, res) {
-    var setId = req.params.set_id;
-    var value = req.body.value;
-    atdClient.update(atdClient.set(setId).remove(value)).then(resp => {
-      log('Remove', value, 'from', setId);
+  .delete(async function(req, res, next) {
+    try {
+      var setId = req.params.set_id;
+      var lastCommitTimestamp = req.body.lastCommitTimestamp;
+      if (lastCommitTimestamp) {
+        lastCommitTimestamp = bytebuffer.fromBase64(lastCommitTimestamp.data);
+        console.log(lastCommitTimestamp);
+        atdClient.monotonicSnapshots = true;
+        atdClient.setLastCommitTimestamp(lastCommitTimestamp);
+        atdClient.update_clock = false;
+      }
+
+      var value = req.body.value;
+
+      let tx = await atdClient.startTransaction();
+      let set = tx.set(setId);
+
+      await tx.update(set.remove(value));
+      await tx.commit();
+      atdClient.update_clock = true;
       res.json({ status: 'OK' });
-    });
+    } catch (error) {
+      next(error);
+    }
   });
 
 app.use('/api', apiRouter);

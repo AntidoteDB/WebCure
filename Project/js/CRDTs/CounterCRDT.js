@@ -10,21 +10,19 @@ class CounterCRDT {
   }
 
   calculateState() {
-    var counter = this.state;
+    if (this.sentOperations.length > 0) {
+      this.sentOperations.forEach(operation => {
+        this.state += operation;
+      });
+    }
 
     if (this.operations.length > 0) {
       this.operations.forEach(operation => {
-        counter = counter + operation;
+        this.state += operation;
       });
     }
 
-    if (this.sentOperations.length > 0) {
-      this.sentOperations.forEach(operation => {
-        counter = counter + operation;
-      });
-    }
-
-    return counter;
+    return this.state;
   }
 
   processSentOperations() {
