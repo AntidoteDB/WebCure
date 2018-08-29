@@ -270,7 +270,9 @@ const addCounterForm = () => {
           fetch(`${DBHelper.SERVER_URL}/api/count/${name.value}`, {
             method: 'PUT',
             body: JSON.stringify({
-              lastCommitTimestamp: timestamp ? timestamp : undefined
+              // TODO decide whether you want to apply changes only on the timestamp that is stored in the web-browser
+              // TODO FIX of the problem with adding and then removing a value from a set without pressing GET
+              //              lastCommitTimestamp: timestamp ? timestamp : undefined
             }),
             headers: {
               'Content-Type': 'application/json; charset=utf-8'
@@ -347,7 +349,9 @@ const addCounterForm = () => {
           fetch(`${DBHelper.SERVER_URL}/api/count/${name.value}`, {
             method: 'DELETE',
             body: JSON.stringify({
-              lastCommitTimestamp: timestamp ? timestamp : undefined
+              // TODO decide whether you want to apply changes only on the timestamp that is stored in the web-browser
+              // TODO FIX of the problem with adding and then removing a value from a set without pressing GET
+              //lastCommitTimestamp: timestamp ? timestamp : undefined
             }),
             headers: {
               'Content-Type': 'application/json; charset=utf-8'
@@ -561,7 +565,7 @@ const addSetForm = () => {
             return index.get(name.value).then(function(state) {
               if (state) {
                 Object.setPrototypeOf(state, SetCRDT.prototype);
-                log(`[Offline] The value of ${name.value} is: ${state.calculateState()}`);
+                log(`[Offline] The value of ${name.value} is: [ ${state.calculateState()} ]`);
               }
             });
           })
@@ -605,8 +609,10 @@ const addSetForm = () => {
             fetch(`${DBHelper.SERVER_URL}/api/set/${name.value}`, {
               method: 'PUT',
               body: JSON.stringify({
-                value: value.value,
-                lastCommitTimestamp: timestamp ? timestamp : undefined
+                value: value.value
+                // TODO decide whether you want to apply changes only on the timestamp that is stored in the web-browser
+                // TODO FIX of the problem with adding and then removing a value from a set without pressing GET
+                //lastCommitTimestamp: timestamp ? timestamp : undefined
               }),
               headers: {
                 'Content-Type': 'application/json; charset=utf-8'
@@ -686,8 +692,10 @@ const addSetForm = () => {
             fetch(`${DBHelper.SERVER_URL}/api/set/${name.value}`, {
               method: 'DELETE',
               body: JSON.stringify({
-                value: value.value,
-                lastCommitTimestamp: timestamp ? timestamp : undefined
+                value: value.value
+                // TODO decide whether you want to apply changes only on the timestamp that is stored in the web-browser
+                // TODO FIX of the problem with adding and then removing a value from a set without pressing GET
+                //lastCommitTimestamp: timestamp ? timestamp : undefined
               }),
               headers: {
                 'Content-Type': 'application/json; charset=utf-8'
