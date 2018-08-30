@@ -11,7 +11,6 @@ self.addEventListener('install', function(event) {
     '/index.html',
     // js
     '/client.js',
-    '/index.js',
     '/logger.js',
     '/main.js',
     '/dbhelper.js',
