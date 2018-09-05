@@ -8,16 +8,11 @@ const logger = require('morgan');
 const bodyParser = require('body-parser');
 const compression = require('compression');
 const helmet = require('helmet');
-const protobuf = require('protobufjs');
 const bytebuffer = require('bytebuffer');
 
 const conf = require('./config');
 
 const app = express();
-
-function log(...args) {
-  console.log(...args);
-}
 
 app.use(helmet());
 app.use(compression()); // Compress all routes

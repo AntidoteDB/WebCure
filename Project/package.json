@@ -4,7 +4,8 @@
     "author": "Server Khalilov",
     "main": "./bin/www",
     "scripts": {
-        "start": "node ./bin/www"
+        "start": "node ./bin/www",
+        "test": "istanbul cover node_modules/jasmine/bin/jasmine.js"
     },
     "dependencies": {
         "antidote_ts_client": "^0.2.1",
@@ -14,18 +15,32 @@
         "cookie-parser": "^1.4.3",
         "express": "^4.16.3",
         "helmet": "^3.12.1",
-        "jshint": "^2.9.5",
+        "jshint": "^2.9.6",
+        "karma-chrome-launcher": "^2.2.0",
+        "karma-jasmine": "^1.1.2",
+        "karma-phantomjs-launcher": "^1.0.4",
         "morgan": "^1.9.0",
+        "node-cmd": "^3.0.0",
         "proto2ts": "^2.0.0",
+        "requirejs": "^2.3.6",
         "serve-favicon": "^2.5.0"
     },
     "devDependencies": {
+        "babel-cli": "^6.26.0",
+        "babel-preset-env": "^1.7.0",
         "eslint": "^5.2.0",
         "eslint-config-standard": "^11.0.0",
         "eslint-plugin-import": "^2.13.0",
         "eslint-plugin-node": "^7.0.1",
         "eslint-plugin-promise": "^3.8.0",
-        "eslint-plugin-standard": "^3.1.0"
+        "eslint-plugin-standard": "^3.1.0",
+        "istanbul": "^1.1.0-alpha.1",
+        "jasmine": "^3.2.0",
+        "jest": "^23.5.0",
+        "karma": "^3.0.0",
+        "karma-requirejs": "^1.1.0",
+        "superagent": "^3.8.3",
+        "supertest": "^3.1.0"
     },
     "prettier": {
         "printWidth": 100,
