@@ -69,9 +69,6 @@ describe('Counter', function() {
       expect(result.status).toEqual('OK');
 
       request.get(endpoint + '/api/count/a', function(error, response) {
-        var haha = new CounterCRDT('a', 5);
-        expect(haha.calculateState()).toBe(5);
-
         expect(response).toBeDefined();
 
         let result = JSON.parse(response.body);
