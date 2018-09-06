@@ -3,6 +3,12 @@ Tested with Travis:
 
 # Documentation 
 
+## Install the docker-image with 'no-cert' flag
+
+First of all, build the docker-image by moving to the `docker-container` folder and running there the following command:
+
+`docker build . -t antidotedb/antidote:nocert`
+
 ## Run the docker container
 
 In order to run the docker container, please type the following command in the root folder of the project:
