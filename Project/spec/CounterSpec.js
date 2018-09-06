@@ -1,5 +1,4 @@
 const request = require('request');
-var CounterCRDT = require('../js/CRDTs/CounterCRDT.js');
 const endpoint = 'http://localhost:3001';
 var cmd = require('node-cmd');
 

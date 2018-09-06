@@ -1,5 +1,5 @@
 /* eslint-disable no-unused-vars */
-module.exports = class MultiValueRegisterCRDT {
+class MultiValueRegisterCRDT {
   /* eslint-enable  no-unused-vars */
   constructor(id, value) {
     this.id = id;
@@ -19,4 +19,8 @@ module.exports = class MultiValueRegisterCRDT {
       this.operations = [];
     }
   }
-};
+}
+
+if (window.module) {
+  module.exports = MultiValueRegisterCRDT;
+}

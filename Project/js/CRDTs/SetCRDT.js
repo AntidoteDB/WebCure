@@ -1,5 +1,5 @@
 /* eslint-disable no-unused-vars */
-module.exports = class SetCRDT {
+class SetCRDT {
   /* eslint-enable  no-unused-vars */
   constructor(id, values) {
     this.id = id;
@@ -65,4 +65,8 @@ module.exports = class SetCRDT {
 
     this.operations.push(operation);
   }
-};
+}
+
+if (typeof module === 'object' && module.exports) {
+  module.exports = SetCRDT;
+}

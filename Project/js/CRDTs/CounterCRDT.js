@@ -1,5 +1,5 @@
 /* eslint-disable no-unused-vars */
-module.exports = class CounterCRDT {
+class CounterCRDT {
   /* eslint-enable  no-unused-vars */
   constructor(id, value) {
     this.id = id;
@@ -43,4 +43,8 @@ module.exports = class CounterCRDT {
     let value = decValue ? -decValue : -1;
     this.operations.push(value);
   }
-};
+}
+
+if (typeof module === 'object' && module.exports) {
+  module.exports = CounterCRDT;
+}
