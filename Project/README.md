@@ -1,3 +1,6 @@
+Tested with Travis: 
+[![Build Status](https://travis-ci.com/red17electro/MasterThesis.svg?token=rP4eqxmTqQ9TJrEQ14nv&branch=master)](https://travis-ci.com/red17electro/MasterThesis)
+
 # Documentation 
 
 ## Run the docker container
