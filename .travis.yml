@@ -1,11 +1,8 @@
-language:
-  node_js
-services:
-  -docker
-before_script:
-  cd Project
-script:
-  npm test
+language: node_js
+services: -docker
+before_install:
+  - "cd Project"
+  - "npm i -g npm@version-number"
+script: npm test
 cache:
-  directories:
-    -"node_modules"
+  directories: -"node_modules"
