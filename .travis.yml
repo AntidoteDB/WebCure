@@ -3,7 +3,9 @@ node_js:
  - "node"
 services: -docker
 before_install:
-  - "cd Project"
+  - "cd Project/docker-container"
+  - "docker build . -t antidotedb/antidote:nocert"
+  - "cd .."
   - "npm i -g npm@^6.4.1"
 install:
   - "npm install"
