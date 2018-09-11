@@ -1,6 +1,6 @@
 'use strict';
 
-const antidote = require('antidote_ts_client');
+const antidote = require('./antidote_ts_client');
 const express = require('express');
 const path = require('path');
 const cookieParser = require('cookie-parser');
