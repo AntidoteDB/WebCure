@@ -1,8 +1,9 @@
 const request = require('request');
+var CounterCRDT = require('../js/CRDTs/CounterCRDT.js');
 const endpoint = 'http://localhost:3001';
 var cmd = require('node-cmd');
 
-describe('Set', function() {
+describe('Counter Offline', function() {
   var stopDocker = function(callback) {
     console.log('##################### Stopping docker-container ...');
     cmd.get('docker-compose kill', function() {
@@ -27,72 +28,57 @@ describe('Set', function() {
     });
   });
 
-  it('Should check the get request for the set and initial value of [ ], [d]', function(done) {
-    request.get(endpoint + '/api/set/d', function(error, response) {
-      expect(response).toBeDefined();
-      let result = JSON.parse(response.body);
-      expect(result.status).toEqual('OK');
-      expect(result.cont).toEqual([]);
-      expect(result.lastCommitTimestamp).not.toEqual(null);
-      expect(result.lastCommitTimestamp).not.toEqual('');
-      expect(response.statusCode).toEqual(200);
-      done();
-    });
-  });
+  it('Get counter, save locally, increment it and then check that the counter by timestamp is still there [f]', function(done) {
+    let timestamp;
+    let item;
 
-  it('Adding and removing the value from the set [e]', function(done) {
-    request.put(
-      {
-        url: endpoint + '/api/set/e',
-        headers: {
-          'Content-Type': 'application/json'
-        },
-        body: JSON.stringify({
-          value: 'a'
-        })
-      },
-      function(error, response) {
-        expect(response).toBeDefined();
+    request.get(endpoint + '/api/count/f', function(error, response) {
+      let result = JSON.parse(response.body);
+      expect(result.cont).toEqual(0);
+
+      item = new CounterCRDT('f', result.cont);
+      timestamp = result.lastCommitTimestamp;
+      expect(timestamp).not.toEqual(null);
+      expect(timestamp).not.toEqual('');
+      expect(response.statusCode).toEqual(200);
+
+      request.put(endpoint + '/api/count/f', function(error, response) {
         let result = JSON.parse(response.body);
         expect(result.status).toEqual('OK');
-        request.get(endpoint + '/api/set/e', function(error, response) {
+
+        request.get(endpoint + '/api/count/f', function(error, response) {
           expect(response).toBeDefined();
           let result = JSON.parse(response.body);
           expect(result.status).toEqual('OK');
-          expect(result.cont).toEqual(['a']);
+          expect(result.cont).toEqual(1);
           expect(result.lastCommitTimestamp).not.toEqual(null);
           expect(result.lastCommitTimestamp).not.toEqual('');
           expect(response.statusCode).toEqual(200);
 
-          request.delete(
+          request.put(
             {
-              url: endpoint + '/api/set/e',
+              url: endpoint + '/api/count/f/timestamp',
               headers: {
                 'Content-Type': 'application/json'
               },
               body: JSON.stringify({
-                value: 'a'
+                timestamp: timestamp
               })
             },
             function(error, response) {
               expect(response).toBeDefined();
               let result = JSON.parse(response.body);
               expect(result.status).toEqual('OK');
-              request.get(endpoint + '/api/set/e', function(error, response) {
-                expect(response).toBeDefined();
-                let result = JSON.parse(response.body);
-                expect(result.status).toEqual('OK');
-                expect(result.cont).toEqual([]);
-                expect(result.lastCommitTimestamp).not.toEqual(null);
-                expect(result.lastCommitTimestamp).not.toEqual('');
-                expect(response.statusCode).toEqual(200);
-                done();
-              });
+              expect(result.cont).toEqual(item.state);
+              expect(result.lastCommitTimestamp).toEqual(timestamp);
+              expect(response.statusCode).toEqual(200);
+
+              done();
             }
           );
         });
-      }
-    );
+      });
+    });
   });
 
   // Stop the docker-container after the test;

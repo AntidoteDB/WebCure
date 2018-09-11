@@ -27,7 +27,7 @@ describe('Counter', function() {
     });
   });
 
-  it('Should check the get request for the counter and initial value of 0', function(done) {
+  it('Should check the get request for the counter and initial value of 0 [a]', function(done) {
     request.get(endpoint + '/api/count/a', function(error, response) {
       expect(response).toBeDefined();
       let result = JSON.parse(response.body);
@@ -41,13 +41,13 @@ describe('Counter', function() {
     });
   });
 
-  it('Incrementing the value', function(done) {
-    request.put(endpoint + '/api/count/a', function(error, response) {
+  it('Incrementing the value [b]', function(done) {
+    request.put(endpoint + '/api/count/b', function(error, response) {
       expect(response).toBeDefined();
       let result = JSON.parse(response.body);
       expect(result.status).toEqual('OK');
 
-      request.get(endpoint + '/api/count/a', function(error, response) {
+      request.get(endpoint + '/api/count/b', function(error, response) {
         expect(response).toBeDefined();
         let result = JSON.parse(response.body);
         expect(result.status).toEqual('OK');
@@ -61,13 +61,13 @@ describe('Counter', function() {
     });
   });
 
-  it('Decrementing the value', function(done) {
-    request.del(endpoint + '/api/count/a', function(error, response) {
+  it('Decrementing the value [c]', function(done) {
+    request.delete(endpoint + '/api/count/c', function(error, response) {
       expect(response).toBeDefined();
       let result = JSON.parse(response.body);
       expect(result.status).toEqual('OK');
 
-      request.get(endpoint + '/api/count/a', function(error, response) {
+      request.get(endpoint + '/api/count/c', function(error, response) {
         expect(response).toBeDefined();
 
         let result = JSON.parse(response.body);
