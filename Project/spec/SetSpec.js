@@ -1,32 +1,7 @@
 const request = require('request');
 const endpoint = 'http://localhost:3001';
-var cmd = require('node-cmd');
 
 describe('Set', function() {
-  var stopDocker = function(callback) {
-    console.log('##################### Stopping docker-container ...');
-    cmd.get('docker rm antidoteClientProject -f', function() {
-      console.log('##################### Docker-container stopped ...');
-      callback();
-    });
-  };
-
-  var runDocker = function(callback) {
-    console.log('##################### Restarting docker-container ...');
-    cmd.run('docker-compose up');
-    setTimeout(function() {
-      console.log('##################### Docker-container restarted ...');
-      callback();
-    }, 15000);
-  };
-
-  // Restart the docker-container in order to erase the AntidoteDB of old values
-  beforeEach(function(done) {
-    stopDocker(function() {
-      runDocker(done);
-    });
-  });
-
   it('Should check the get request for the set and initial value of [ ], [d]', function(done) {
     request.get(endpoint + '/api/set/d', function(error, response) {
       expect(response).toBeDefined();
@@ -93,10 +68,5 @@ describe('Set', function() {
         });
       }
     );
-  });
-
-  // Stop the docker-container after the test;
-  afterEach(function(done) {
-    stopDocker(done);
   });
 });

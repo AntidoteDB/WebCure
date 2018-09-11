@@ -1,33 +1,8 @@
 const request = require('request');
 var CounterCRDT = require('../js/CRDTs/CounterCRDT.js');
 const endpoint = 'http://localhost:3001';
-var cmd = require('node-cmd');
 
 describe('Counter Offline', function() {
-  var stopDocker = function(callback) {
-    console.log('##################### Stopping docker-container ...');
-    cmd.get('docker rm antidoteClientProject -f', function() {
-      console.log('##################### Docker-container stopped ...');
-      callback();
-    });
-  };
-
-  var runDocker = function(callback) {
-    console.log('##################### Restarting docker-container ...');
-    cmd.run('docker-compose up');
-    setTimeout(function() {
-      console.log('##################### Docker-container restarted ...');
-      callback();
-    }, 15000);
-  };
-
-  // Restart the docker-container in order to erase the AntidoteDB of old values
-  beforeEach(function(done) {
-    stopDocker(function() {
-      runDocker(done);
-    });
-  });
-
   it('Get counter, save locally, increment it and then check that the counter by timestamp is still there [f]', function(done) {
     let timestamp;
     let item;
@@ -79,10 +54,5 @@ describe('Counter Offline', function() {
         });
       });
     });
-  });
-
-  // Stop the docker-container after the test;
-  afterEach(function(done) {
-    stopDocker(done);
   });
 });
