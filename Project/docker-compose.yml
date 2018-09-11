@@ -11,6 +11,7 @@ services:
         - NET_ADMIN # Perform various network-related operations.
     networks: # Networks to join.
         - local1
+    container_name: antidoteClientProject
       
 networks:
   local1:

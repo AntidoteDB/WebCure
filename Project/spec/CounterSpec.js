@@ -5,7 +5,7 @@ var cmd = require('node-cmd');
 describe('Counter', function() {
   var stopDocker = function(callback) {
     console.log('##################### Stopping docker-container ...');
-    cmd.get('docker-compose kill', function() {
+    cmd.get('docker rm antidoteClientProject -f', function() {
       console.log('##################### Docker-container stopped ...');
       callback();
     });
