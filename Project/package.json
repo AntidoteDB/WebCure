@@ -8,7 +8,6 @@
         "test": "istanbul cover node_modules/jasmine/bin/jasmine.js"
     },
     "dependencies": {
-        "antidote_ts_client": "^0.2.1",
         "body-parser": "^1.18.3",
         "bytebuffer": "^5.0.1",
         "compression": "^1.7.2",
