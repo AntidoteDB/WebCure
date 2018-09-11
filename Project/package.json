@@ -16,8 +16,10 @@
         "helmet": "^3.12.1",
         "jshint": "^2.9.6",
         "morgan": "^1.9.0",
+        "msgpack-lite": "^0.1.26",
         "node-cmd": "^3.0.0",
         "proto2ts": "^2.0.0",
+        "protobufjs": "^5.0.1",
         "requirejs": "^2.3.6",
         "serve-favicon": "^2.5.0"
     },
