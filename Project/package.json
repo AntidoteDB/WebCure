@@ -16,9 +16,6 @@
         "express": "^4.16.3",
         "helmet": "^3.12.1",
         "jshint": "^2.9.6",
-        "karma-chrome-launcher": "^2.2.0",
-        "karma-jasmine": "^1.1.2",
-        "karma-phantomjs-launcher": "^1.0.4",
         "morgan": "^1.9.0",
         "node-cmd": "^3.0.0",
         "proto2ts": "^2.0.0",
@@ -38,8 +35,6 @@
         "jasmine": "^3.2.0",
         "jasmine-spec-reporter": "^4.2.1",
         "jest": "^23.5.0",
-        "karma": "^3.0.0",
-        "karma-requirejs": "^1.1.0",
         "superagent": "^3.8.3",
         "supertest": "^3.1.0"
     },

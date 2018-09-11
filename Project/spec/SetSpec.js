@@ -1,5 +1,4 @@
 const request = require('request');
-var SetCRDT = require('../js/CRDTs/SetCRDT.js');
 const endpoint = 'http://localhost:3001';
 var cmd = require('node-cmd');
 

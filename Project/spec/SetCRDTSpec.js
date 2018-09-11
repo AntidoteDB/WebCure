@@ -1,7 +1,7 @@
 var SetCRDT = require('../js/CRDTs/SetCRDT.js');
 
 describe('SetCRDT', function() {
-  it('Check the initialization of a set CRDT Class', function() {
+  it('Check the initialization of a SetCRDT Class', function() {
     var a = new SetCRDT('a', ['a', 'b', 'c']);
     var b = new SetCRDT('b');
 
@@ -14,7 +14,7 @@ describe('SetCRDT', function() {
     expect(a.sentOperations).toEqual([]);
   });
 
-  it('Increment the Counter by value', function() {
+  it('Add an element to a set', function() {
     var a = new SetCRDT('a');
     var b = new SetCRDT('b');
     expect(a.state).toEqual(new Set([]));
@@ -44,7 +44,7 @@ describe('SetCRDT', function() {
     expect(b.calculateState()).toEqual(['a']);
   });
 
-  it('Decrement the Counter by value', function() {
+  it('Remove an element from a Set', function() {
     var a = new SetCRDT('a', ['a']);
     var b = new SetCRDT('b', ['a']);
     expect(a.state).toEqual(new Set(['a']));

@@ -21,6 +21,6 @@ class MultiValueRegisterCRDT {
   }
 }
 
-if (window.module) {
+if (typeof module === 'object' && module.exports) {
   module.exports = MultiValueRegisterCRDT;
 }
