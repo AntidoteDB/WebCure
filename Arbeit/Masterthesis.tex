@@ -62,6 +62,9 @@
 	\input{abstract/Abstract}
 	
 	\cleardoubleevenplainpage
+	\input{acknowledgement/Acknowledgement}
+
+	\cleardoubleevenplainpage
 	\input{disclaimer/Disclaimer}
 	
 	%%%%% Inhaltsverzeichnis
@@ -71,7 +74,7 @@
 	
 	%%%%% Alle anderen Kapitel, Anhang und Verzeichnisse
 	\mainmatter
-	
+
 		\cleardoubleoddplainpage
 		\label{part:Introduction}
 		\input{chapters/1-Introduction}
@@ -81,8 +84,8 @@
 		\input{chapters/2-Background}
 		
 		\cleardoubleoddplainpage
-		\label{part:Problem Analysis}
-		\input{chapters/3-ProblemAnalysis}
+		\label{part:Requirements}
+		\input{chapters/3-Requirements}
 
 		\cleardoubleoddplainpage
 		\label{part:Design}
@@ -107,12 +110,10 @@
 		\cleardoubleoddplainpage 
 		\label{part:Conclusion}
 		\input{chapters/10-ConclusionandFutureWork}
-		
+
 		\listoffigures
 		\listoftables
-		%\listoftoc{loex}
-		%\listoftoc{lode}
-
+		\listoftoc{loc}
 		\cleardoubleoddplainpage
 		\bibliography{bibliography/references}
 

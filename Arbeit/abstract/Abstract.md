@@ -1,11 +1,3 @@
-% Abstract for the TUM report document
-% Included by MAIN.TEX
-
-\begin{center}
-{\Large \textbf Abstract}
-\end{center}
-\vspace{1cm}
-
 The purpose of this thesis is to explore the possibilities of developing an offline web application, which would serve as a client for the AntidoteDB database. We developed a prototype of the application and designed the architecture of the application in such a way that both offline and online functionalities are possible. 
 
 To model the data stored offline in the local database of a web-browser, Conflict-free Replicated Data Types (CRDTs). It lets to ease the task of merging the changes. 
