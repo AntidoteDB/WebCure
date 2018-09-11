@@ -18,7 +18,7 @@ describe('Counter Offline', function() {
     setTimeout(function() {
       console.log('##################### Docker-container restarted ...');
       callback();
-    }, 5000);
+    }, 15000);
   };
 
   // Restart the docker-container in order to erase the AntidoteDB of old values
