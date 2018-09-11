@@ -262,60 +262,50 @@ const addCounterForm = () => {
     requestCounterSync();
     log(`Incrementing the value of ${name.value}`);
 
-    DBHelper.crdtDBPromise
-      .then(function(db) {
-        if (!db) return;
-        var index = db.transaction('crdt-timestamps').objectStore('crdt-timestamps');
-        return index.get(0).then(function(timestamp) {
-          fetch(`${DBHelper.SERVER_URL}/api/count/${name.value}`, {
-            method: 'PUT',
-            body: JSON.stringify({
-              // TODO decide whether you want to apply changes only on the timestamp that is stored in the web-browser
-              // TODO FIX of the problem with adding and then removing a value from a set without pressing GET
-              //              lastCommitTimestamp: timestamp ? timestamp : undefined
-            }),
-            headers: {
-              'Content-Type': 'application/json; charset=utf-8'
-            }
-          })
-            .then(function(response) {
-              return response.json();
-            })
-            .then(function() {
-              //log(`The response for id ${name.value} is: ${json.status}`);
-            })
-            .catch(function(error) {
-              DBHelper.crdtDBPromise
-                .then(function(db) {
-                  if (!db) return;
-
-                  var index = db.transaction('crdt-states').objectStore('crdt-states');
-
-                  return index.get(name.value).then(function(val) {
-                    var tx = db.transaction('crdt-states', 'readwrite');
-                    var store = tx.objectStore('crdt-states');
-
-                    var item = val;
-
-                    // TODO check on !val
-                    Object.setPrototypeOf(item, CounterCRDT.prototype);
-
-                    item.inc();
-                    store.put(item);
-
-                    return tx.complete;
-                  });
-                })
-                .catch(function() {
-                  // TODO throw an error
-                });
-
-              //log(`Failed to increment the id ${name.value}: ${error}`);
-            });
-        });
+    fetch(`${DBHelper.SERVER_URL}/api/count/${name.value}`, {
+      method: 'PUT',
+      body: JSON.stringify({
+        // TODO decide whether you want to apply changes only on the timestamp that is stored in the web-browser
+        // TODO FIX of the problem with adding and then removing a value from a set without pressing GET
+        lastCommitTimestamp: timestamp.value === '' ? undefined : { id: 0, data: timestamp.value }
+      }),
+      headers: {
+        'Content-Type': 'application/json; charset=utf-8'
+      }
+    })
+      .then(function(response) {
+        return response.json();
       })
-      .catch(function() {
-        // TODO throw an error
+      .then(function() {
+        //log(`The response for id ${name.value} is: ${json.status}`);
+      })
+      .catch(function(error) {
+        DBHelper.crdtDBPromise
+          .then(function(db) {
+            if (!db) return;
+
+            var index = db.transaction('crdt-states').objectStore('crdt-states');
+
+            return index.get(name.value).then(function(val) {
+              var tx = db.transaction('crdt-states', 'readwrite');
+              var store = tx.objectStore('crdt-states');
+
+              var item = val;
+
+              // TODO check on !val
+              Object.setPrototypeOf(item, CounterCRDT.prototype);
+
+              item.inc();
+              store.put(item);
+
+              return tx.complete;
+            });
+          })
+          .catch(function() {
+            // TODO throw an error
+          });
+
+        //log(`Failed to increment the id ${name.value}: ${error}`);
       });
   };
 
@@ -341,59 +331,49 @@ const addCounterForm = () => {
     requestCounterSync();
     log(`Decrementing the value of ${name.value}`);
 
-    DBHelper.crdtDBPromise
-      .then(function(db) {
-        if (!db) return;
-        var index = db.transaction('crdt-timestamps').objectStore('crdt-timestamps');
-        return index.get(0).then(function(timestamp) {
-          fetch(`${DBHelper.SERVER_URL}/api/count/${name.value}`, {
-            method: 'DELETE',
-            body: JSON.stringify({
-              // TODO decide whether you want to apply changes only on the timestamp that is stored in the web-browser
-              // TODO FIX of the problem with adding and then removing a value from a set without pressing GET
-              //lastCommitTimestamp: timestamp ? timestamp : undefined
-            }),
-            headers: {
-              'Content-Type': 'application/json; charset=utf-8'
-            }
-          })
-            .then(function(response) {
-              return response.json();
-            })
-            .then(function() {
-              //log(`The response for id ${name.value} is: ${json.status}`);
-            })
-            .catch(function(error) {
-              DBHelper.crdtDBPromise
-                .then(function(db) {
-                  if (!db) return;
-
-                  var index = db.transaction('crdt-states').objectStore('crdt-states');
-
-                  return index.get(name.value).then(function(val) {
-                    var tx = db.transaction('crdt-states', 'readwrite');
-                    var store = tx.objectStore('crdt-states');
-
-                    var item = val;
-                    // TODO check on !val
-                    Object.setPrototypeOf(item, CounterCRDT.prototype);
-
-                    item.dec();
-                    store.put(item);
-
-                    return tx.complete;
-                  });
-                })
-                .catch(function() {
-                  // TODO throw an error
-                });
-
-              //log(`Failed to decrement the id ${name.value}: ${error}`);
-            });
-        });
+    fetch(`${DBHelper.SERVER_URL}/api/count/${name.value}`, {
+      method: 'DELETE',
+      body: JSON.stringify({
+        // TODO decide whether you want to apply changes only on the timestamp that is stored in the web-browser
+        // TODO FIX of the problem with adding and then removing a value from a set without pressing GET
+        lastCommitTimestamp: timestamp.value === '' ? undefined : { id: 0, data: timestamp.value }
+      }),
+      headers: {
+        'Content-Type': 'application/json; charset=utf-8'
+      }
+    })
+      .then(function(response) {
+        return response.json();
       })
-      .catch(function() {
-        // TODO throw an error
+      .then(function() {
+        //log(`The response for id ${name.value} is: ${json.status}`);
+      })
+      .catch(function(error) {
+        DBHelper.crdtDBPromise
+          .then(function(db) {
+            if (!db) return;
+
+            var index = db.transaction('crdt-states').objectStore('crdt-states');
+
+            return index.get(name.value).then(function(val) {
+              var tx = db.transaction('crdt-states', 'readwrite');
+              var store = tx.objectStore('crdt-states');
+
+              var item = val;
+              // TODO check on !val
+              Object.setPrototypeOf(item, CounterCRDT.prototype);
+
+              item.dec();
+              store.put(item);
+
+              return tx.complete;
+            });
+          })
+          .catch(function() {
+            // TODO throw an error
+          });
+
+        //log(`Failed to decrement the id ${name.value}: ${error}`);
       });
   };
 
@@ -599,60 +579,48 @@ const addSetForm = () => {
       requestSetSync();
       log(`Adding to the set ${name.value} the value of ${value.value}`);
 
-      DBHelper.crdtDBPromise
-        .then(function(db) {
-          if (!db) return;
-
-          var index = db.transaction('crdt-timestamps').objectStore('crdt-timestamps');
-
-          return index.get(1).then(function(timestamp) {
-            fetch(`${DBHelper.SERVER_URL}/api/set/${name.value}`, {
-              method: 'PUT',
-              body: JSON.stringify({
-                value: value.value
-                // TODO decide whether you want to apply changes only on the timestamp that is stored in the web-browser
-                // TODO FIX of the problem with adding and then removing a value from a set without pressing GET
-                //lastCommitTimestamp: timestamp ? timestamp : undefined
-              }),
-              headers: {
-                'Content-Type': 'application/json; charset=utf-8'
-              }
-            })
-              .then(function(response) {
-                return response.json();
-              })
-              .then(function() {
-                //log(`The response for id ${name.value} is: ${json.status}`);
-              })
-              .catch(function(error) {
-                DBHelper.crdtDBPromise
-                  .then(function(db) {
-                    if (!db) return;
-
-                    var index = db.transaction('crdt-states').objectStore('crdt-states');
-
-                    return index.get(name.value).then(function(val) {
-                      var tx = db.transaction('crdt-states', 'readwrite');
-                      var store = tx.objectStore('crdt-states');
-
-                      var item = val;
-
-                      Object.setPrototypeOf(item, SetCRDT.prototype);
-                      item.add(value.value);
-                      store.put(item);
-
-                      return tx.complete;
-                    });
-                  })
-                  .catch(function() {
-                    // TODO throw an error
-                  });
-                //log(`Failed to increment the id ${name.value}: ${error}`);
-              });
-          });
+      fetch(`${DBHelper.SERVER_URL}/api/set/${name.value}`, {
+        method: 'PUT',
+        body: JSON.stringify({
+          value: value.value,
+          // TODO decide whether you want to apply changes only on the timestamp that is stored in the web-browser
+          // TODO FIX of the problem with adding and then removing a value from a set without pressing GET
+          lastCommitTimestamp: timestamp.value === '' ? undefined : { id: 0, data: timestamp.value }
+        }),
+        headers: {
+          'Content-Type': 'application/json; charset=utf-8'
+        }
+      })
+        .then(function(response) {
+          return response.json();
         })
-        .catch(function() {
-          // TODO Throw an error
+        .then(function() {
+          //log(`The response for id ${name.value} is: ${json.status}`);
+        })
+        .catch(function(error) {
+          DBHelper.crdtDBPromise
+            .then(function(db) {
+              if (!db) return;
+
+              var index = db.transaction('crdt-states').objectStore('crdt-states');
+
+              return index.get(name.value).then(function(val) {
+                var tx = db.transaction('crdt-states', 'readwrite');
+                var store = tx.objectStore('crdt-states');
+
+                var item = val;
+
+                Object.setPrototypeOf(item, SetCRDT.prototype);
+                item.add(value.value);
+                store.put(item);
+
+                return tx.complete;
+              });
+            })
+            .catch(function() {
+              // TODO throw an error
+            });
+          //log(`Failed to increment the id ${name.value}: ${error}`);
         });
     } else {
       alert('Please, fill in all the fields!');
@@ -681,61 +649,48 @@ const addSetForm = () => {
     if (value.value !== '') {
       requestSetSync();
       log(`Removing from the set ${name.value} the value of ${value.value}`);
-
-      DBHelper.crdtDBPromise
-        .then(function(db) {
-          if (!db) return;
-
-          var index = db.transaction('crdt-timestamps').objectStore('crdt-timestamps');
-
-          return index.get(1).then(function(timestamp) {
-            fetch(`${DBHelper.SERVER_URL}/api/set/${name.value}`, {
-              method: 'DELETE',
-              body: JSON.stringify({
-                value: value.value
-                // TODO decide whether you want to apply changes only on the timestamp that is stored in the web-browser
-                // TODO FIX of the problem with adding and then removing a value from a set without pressing GET
-                //lastCommitTimestamp: timestamp ? timestamp : undefined
-              }),
-              headers: {
-                'Content-Type': 'application/json; charset=utf-8'
-              }
-            })
-              .then(function(response) {
-                return response.json();
-              })
-              .then(function() {
-                //log(`The response for id ${name.value} is: ${json.status}`);
-              })
-              .catch(function(error) {
-                DBHelper.crdtDBPromise
-                  .then(function(db) {
-                    if (!db) return;
-
-                    var index = db.transaction('crdt-states').objectStore('crdt-states');
-
-                    return index.get(name.value).then(function(val) {
-                      var tx = db.transaction('crdt-states', 'readwrite');
-                      var store = tx.objectStore('crdt-states');
-
-                      var item = val;
-
-                      Object.setPrototypeOf(item, SetCRDT.prototype);
-                      item.remove(value.value);
-                      store.put(item);
-
-                      return tx.complete;
-                    });
-                  })
-                  .catch(function() {
-                    // TODO throw an error
-                  });
-                //log(`Failed to increment the id ${name.value}: ${error}`);
-              });
-          });
+      fetch(`${DBHelper.SERVER_URL}/api/set/${name.value}`, {
+        method: 'DELETE',
+        body: JSON.stringify({
+          value: value.value,
+          // TODO decide whether you want to apply changes only on the timestamp that is stored in the web-browser
+          // TODO FIX of the problem with adding and then removing a value from a set without pressing GET
+          lastCommitTimestamp: timestamp.value === '' ? undefined : { id: 0, data: timestamp.value }
+        }),
+        headers: {
+          'Content-Type': 'application/json; charset=utf-8'
+        }
+      })
+        .then(function(response) {
+          return response.json();
         })
-        .catch(function() {
-          // TODO throw an error
+        .then(function() {
+          //log(`The response for id ${name.value} is: ${json.status}`);
+        })
+        .catch(function(error) {
+          DBHelper.crdtDBPromise
+            .then(function(db) {
+              if (!db) return;
+
+              var index = db.transaction('crdt-states').objectStore('crdt-states');
+
+              return index.get(name.value).then(function(val) {
+                var tx = db.transaction('crdt-states', 'readwrite');
+                var store = tx.objectStore('crdt-states');
+
+                var item = val;
+
+                Object.setPrototypeOf(item, SetCRDT.prototype);
+                item.remove(value.value);
+                store.put(item);
+
+                return tx.complete;
+              });
+            })
+            .catch(function() {
+              // TODO throw an error
+            });
+          //log(`Failed to increment the id ${name.value}: ${error}`);
         });
     } else {
       alert('Please, fill in all the fields!');

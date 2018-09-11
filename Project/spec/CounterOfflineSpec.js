@@ -3,7 +3,7 @@ var CounterCRDT = require('../js/CRDTs/CounterCRDT.js');
 const endpoint = 'http://localhost:3001';
 
 describe('Counter Offline', function() {
-  it('Get counter, save locally, increment it and then check that the counter by timestamp is still there [f]', function(done) {
+  it('Get counter, save locally, increment it and then check that the counter by previous timestamp is still the same [f]', function(done) {
     let timestamp;
     let item;
 
