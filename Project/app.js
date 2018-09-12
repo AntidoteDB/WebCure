@@ -48,18 +48,23 @@ app.use('/', staticRouter);
 /* API routing. */
 var apiRouter = express.Router();
 
+var setTheTimestamp = function(timestamp) {
+  if (timestamp && timestamp !== 'null') {
+    timestamp = bytebuffer.fromBase64(timestamp.data);
+    console.log(timestamp);
+    atdClient.monotonicSnapshots = true;
+    atdClient.setLastCommitTimestamp(timestamp);
+    atdClient.update_clock = false;
+  }
+};
+
 // Counter API+
 apiRouter.route('/count/:counter_id/timestamp').put(async function(req, res, next) {
   try {
     var counterId = req.params.counter_id;
     var timestamp = req.body.timestamp;
 
-    if (timestamp !== 'null') {
-      timestamp = bytebuffer.fromBase64(timestamp);
-      atdClient.monotonicSnapshots = true;
-      atdClient.setLastCommitTimestamp(timestamp);
-      atdClient.update_clock = false;
-    }
+    setTheTimestamp(timestamp);
 
     let tx = await atdClient.startTransaction();
     let counter = tx.counter(counterId);
@@ -102,13 +107,7 @@ apiRouter
     try {
       var counterId = req.params.counter_id;
       var lastCommitTimestamp = req.body.lastCommitTimestamp;
-      if (lastCommitTimestamp) {
-        lastCommitTimestamp = bytebuffer.fromBase64(lastCommitTimestamp.data);
-        console.log(lastCommitTimestamp);
-        atdClient.monotonicSnapshots = true;
-        atdClient.setLastCommitTimestamp(lastCommitTimestamp);
-        atdClient.update_clock = false;
-      }
+      setTheTimestamp(lastCommitTimestamp);
 
       let tx = await atdClient.startTransaction();
       let counter = tx.counter(counterId);
@@ -128,13 +127,7 @@ apiRouter
     try {
       var counterId = req.params.counter_id;
       var lastCommitTimestamp = req.body.lastCommitTimestamp;
-
-      if (lastCommitTimestamp) {
-        lastCommitTimestamp = bytebuffer.fromBase64(lastCommitTimestamp.data);
-        console.log(lastCommitTimestamp);
-        atdClient.monotonicSnapshots = true;
-        atdClient.setLastCommitTimestamp(lastCommitTimestamp);
-      }
+      setTheTimestamp(lastCommitTimestamp);
 
       let tx = await atdClient.startTransaction(false);
       let counter = tx.counter(counterId);
@@ -157,12 +150,7 @@ apiRouter.route('/set/:set_id/timestamp').put(async function(req, res, next) {
     var setId = req.params.set_id;
     var timestamp = req.body.timestamp;
 
-    if (timestamp !== 'null') {
-      timestamp = bytebuffer.fromBase64(timestamp);
-      atdClient.monotonicSnapshots = true;
-      atdClient.setLastCommitTimestamp(timestamp);
-      atdClient.update_clock = false;
-    }
+    setTheTimestamp(timestamp);
 
     let tx = await atdClient.startTransaction();
     let set = tx.set(setId);
@@ -204,13 +192,7 @@ apiRouter
     try {
       var setId = req.params.set_id;
       var lastCommitTimestamp = req.body.lastCommitTimestamp;
-      if (lastCommitTimestamp) {
-        lastCommitTimestamp = bytebuffer.fromBase64(lastCommitTimestamp.data);
-        console.log(lastCommitTimestamp);
-        atdClient.monotonicSnapshots = true;
-        atdClient.setLastCommitTimestamp(lastCommitTimestamp);
-        atdClient.update_clock = false;
-      }
+      setTheTimestamp(lastCommitTimestamp);
 
       var value = req.body.value;
 
@@ -232,13 +214,7 @@ apiRouter
     try {
       var setId = req.params.set_id;
       var lastCommitTimestamp = req.body.lastCommitTimestamp;
-      if (lastCommitTimestamp) {
-        lastCommitTimestamp = bytebuffer.fromBase64(lastCommitTimestamp.data);
-        console.log(lastCommitTimestamp);
-        atdClient.monotonicSnapshots = true;
-        atdClient.setLastCommitTimestamp(lastCommitTimestamp);
-        atdClient.update_clock = false;
-      }
+      setTheTimestamp(lastCommitTimestamp);
 
       var value = req.body.value;
 

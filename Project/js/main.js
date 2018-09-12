@@ -156,7 +156,11 @@ const addCounterForm = () => {
       } else {
         return fetch(`${DBHelper.SERVER_URL}/api/count/${name.value}/timestamp`, {
           method: 'PUT',
-          body: JSON.stringify({ timestamp: timestamp.value }),
+          body: JSON.stringify({
+            timestamp: {
+              data: timestamp.value
+            }
+          }),
           headers: {
             'Content-Type': 'application/json; charset=utf-8'
           }
@@ -473,7 +477,11 @@ const addSetForm = () => {
       } else {
         return fetch(`${DBHelper.SERVER_URL}/api/set/${name.value}/timestamp`, {
           method: 'PUT',
-          body: JSON.stringify({ timestamp: timestamp.value }),
+          body: JSON.stringify({
+            timestamp: {
+              data: timestamp.value
+            }
+          }),
           headers: {
             'Content-Type': 'application/json; charset=utf-8'
           }
