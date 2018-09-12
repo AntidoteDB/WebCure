@@ -1,4 +1,4 @@
-var CounterCRDT = require('../js/CRDTs/CounterCRDT.js');
+var CounterCRDT = require('../../js/CRDTs/CounterCRDT.js');
 
 describe('CounterCRDT', function() {
   it('Check the initialization of a CounterCRDT Class', function() {

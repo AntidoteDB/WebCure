@@ -1,4 +1,4 @@
-var SetCRDT = require('../js/CRDTs/SetCRDT.js');
+var SetCRDT = require('../../js/CRDTs/SetCRDT.js');
 
 describe('SetCRDT', function() {
   it('Check the initialization of a SetCRDT Class', function() {

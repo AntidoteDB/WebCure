@@ -1,54 +1,122 @@
-const request = require('request');
 var CounterCRDT = require('../js/CRDTs/CounterCRDT.js');
-const endpoint = 'http://localhost:3001';
+var TestHelper = require('./TestHelper');
+const type = 'counter';
 
 describe('Counter Offline', function() {
   it('Get counter, save locally, increment it and then check that the counter by previous timestamp is still the same [f]', function(done) {
+    const key = 'f';
     let timestamp;
     let item;
 
-    request.get(endpoint + '/api/count/f', function(error, response) {
-      let result = JSON.parse(response.body);
-      expect(result.cont).toEqual(0);
-
-      item = new CounterCRDT('f', result.cont);
+    TestHelper.checkGet(type, key, 0, function(result) {
+      item = new CounterCRDT(key, result.cont);
       timestamp = result.lastCommitTimestamp;
-      expect(timestamp).not.toEqual(null);
-      expect(timestamp).not.toEqual('');
-      expect(response.statusCode).toEqual(200);
-
-      request.put(endpoint + '/api/count/f', function(error, response) {
-        let result = JSON.parse(response.body);
-        expect(result.status).toEqual('OK');
-
-        request.get(endpoint + '/api/count/f', function(error, response) {
-          expect(response).toBeDefined();
-          let result = JSON.parse(response.body);
-          expect(result.status).toEqual('OK');
-          expect(result.cont).toEqual(1);
-          expect(result.lastCommitTimestamp).not.toEqual(null);
-          expect(result.lastCommitTimestamp).not.toEqual('');
-          expect(response.statusCode).toEqual(200);
-
-          request.put(
+      TestHelper.checkPut(type, key, {}, function() {
+        TestHelper.checkGet(type, key, 1, function() {
+          TestHelper.checkPut(
+            type,
+            key + '/timestamp',
             {
-              url: endpoint + '/api/count/f/timestamp',
-              headers: {
-                'Content-Type': 'application/json'
-              },
-              body: JSON.stringify({
-                timestamp: timestamp
-              })
+              timestamp: timestamp
             },
-            function(error, response) {
-              expect(response).toBeDefined();
-              let result = JSON.parse(response.body);
-              expect(result.status).toEqual('OK');
+            function(result) {
               expect(result.cont).toEqual(item.state);
               expect(result.lastCommitTimestamp).toEqual(timestamp);
-              expect(response.statusCode).toEqual(200);
-
               done();
+            }
+          );
+        });
+      });
+    });
+  });
+
+  it('Get counter, increment and check changes, check the value by old timestamp, apply some changes on that one, check lastest changes [h]', function(done) {
+    let timestamp, newTimestamp;
+    let item;
+    const key = 'h';
+
+    TestHelper.checkGet(type, key, 0, function(result) {
+      item = new CounterCRDT(key, result.cont);
+      timestamp = result.lastCommitTimestamp;
+
+      TestHelper.checkPut(type, key, {}, function() {
+        TestHelper.checkGet(type, key, 1, function() {
+          TestHelper.checkPut(
+            type,
+            key + '/timestamp',
+            {
+              timestamp: timestamp
+            },
+            function(result) {
+              expect(result.cont).toEqual(item.state);
+              expect(result.lastCommitTimestamp).toEqual(timestamp);
+              TestHelper.checkPut(type, key, { lastCommitTimestamp: { data: timestamp } }, function(
+                result
+              ) {
+                newTimestamp = result.lastCommitTimestamp;
+                TestHelper.checkPut(type, key + '/timestamp', { timestamp: timestamp }, function(
+                  result
+                ) {
+                  expect(result.cont).toEqual(item.state);
+                  expect(result.lastCommitTimestamp).toEqual(timestamp);
+                  TestHelper.checkPut(
+                    type,
+                    key + '/timestamp',
+                    { timestamp: newTimestamp },
+                    function(result) {
+                      expect(result.lastCommitTimestamp).toEqual(newTimestamp);
+                      TestHelper.checkGet(type, key, 2, done);
+                    }
+                  );
+                });
+              });
+            }
+          );
+        });
+      });
+    });
+  });
+
+  it('Get counter, decrement and check changes, check the value by old timestamp, apply some changes on that one, check lastest changes [k]', function(done) {
+    const key = 'k';
+    let timestamp, newTimestamp;
+    let item;
+
+    TestHelper.checkGet(type, key, 0, function(result) {
+      item = new CounterCRDT(key, result.cont);
+      timestamp = result.lastCommitTimestamp;
+
+      TestHelper.checkDel(type, key, {}, function() {
+        TestHelper.checkGet(type, key, -1, function() {
+          TestHelper.checkPut(
+            type,
+            key + '/timestamp',
+            {
+              timestamp: timestamp
+            },
+            function(result) {
+              expect(result.cont).toEqual(item.state);
+              expect(result.lastCommitTimestamp).toEqual(timestamp);
+              TestHelper.checkDel(type, key, { lastCommitTimestamp: { data: timestamp } }, function(
+                result
+              ) {
+                newTimestamp = result.lastCommitTimestamp;
+                TestHelper.checkPut(type, key + '/timestamp', { timestamp: timestamp }, function(
+                  result
+                ) {
+                  expect(result.cont).toEqual(item.state);
+                  expect(result.lastCommitTimestamp).toEqual(timestamp);
+                  TestHelper.checkPut(
+                    type,
+                    key + '/timestamp',
+                    { timestamp: newTimestamp },
+                    function(result) {
+                      expect(result.lastCommitTimestamp).toEqual(newTimestamp);
+                      TestHelper.checkGet(type, key, -2, done);
+                    }
+                  );
+                });
+              });
             }
           );
         });

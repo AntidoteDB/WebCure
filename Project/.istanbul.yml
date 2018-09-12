@@ -5,7 +5,7 @@ instrumentation:
         - .js
         - .ts
     default-excludes: true
-    excludes: ['**/antidote_ts_client/**']
+    excludes: ['**/antidote_ts_client/**', '**/spec/**']
     embed-source: false
     variable: __coverage__
     compact: true

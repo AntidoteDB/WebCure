@@ -116,7 +116,10 @@ apiRouter
       await tx.update(counter.increment(1));
       await tx.commit();
       atdClient.update_clock = true;
-      res.json({ status: 'OK' });
+      res.json({
+        status: 'OK',
+        lastCommitTimestamp: atdClient.getLastCommitTimestamp().toBase64()
+      });
     } catch (error) {
       next(error);
     }
@@ -138,7 +141,10 @@ apiRouter
 
       await tx.update(counter.increment(-1));
       await tx.commit();
-      res.json({ status: 'OK' });
+      res.json({
+        status: 'OK',
+        lastCommitTimestamp: atdClient.getLastCommitTimestamp().toBase64()
+      });
     } catch (error) {
       next(error);
     }
@@ -214,7 +220,10 @@ apiRouter
       await tx.update(set.add(value));
       await tx.commit();
       atdClient.update_clock = true;
-      res.json({ status: 'OK' });
+      res.json({
+        status: 'OK',
+        lastCommitTimestamp: atdClient.getLastCommitTimestamp().toBase64()
+      });
     } catch (error) {
       next(error);
     }
@@ -239,7 +248,10 @@ apiRouter
       await tx.update(set.remove(value));
       await tx.commit();
       atdClient.update_clock = true;
-      res.json({ status: 'OK' });
+      res.json({
+        status: 'OK',
+        lastCommitTimestamp: atdClient.getLastCommitTimestamp().toBase64()
+      });
     } catch (error) {
       next(error);
     }
