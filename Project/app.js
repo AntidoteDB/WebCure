@@ -101,6 +101,34 @@ apiRouter.route('/count/:counter_id').get(async function(req, res, next) {
   }
 });
 
+apiRouter.route('/count_sync/:counter_id').put(async function(req, res, next) {
+  try {
+    var counterId = req.params.counter_id;
+    var lastCommitTimestamp = req.body.lastCommitTimestamp;
+    var updates = req.body.updates;
+
+    setTheTimestamp(lastCommitTimestamp);
+    let tx = await atdClient.startTransaction();
+    let counter = tx.counter(counterId);
+
+    var antidoteUpdates = [];
+    updates.forEach(element => {
+      antidoteUpdates.push(counter.increment(element));
+    });
+
+    await tx.update(antidoteUpdates);
+    await tx.commit();
+    atdClient.update_clock = true;
+
+    res.json({
+      status: 'OK',
+      lastCommitTimestamp: atdClient.getLastCommitTimestamp().toBase64()
+    });
+  } catch (error) {
+    next(error);
+  }
+});
+
 apiRouter
   .route('/count/:counter_id')
   .put(async function(req, res, next) {
@@ -161,6 +189,40 @@ apiRouter.route('/set/:set_id/timestamp').put(async function(req, res, next) {
     res.json({
       status: 'OK',
       cont: val,
+      lastCommitTimestamp: atdClient.getLastCommitTimestamp().toBase64()
+    });
+  } catch (error) {
+    next(error);
+  }
+});
+
+apiRouter.route('/set_sync/:set_id').put(async function(req, res, next) {
+  try {
+    var setId = req.params.set_id;
+    var lastCommitTimestamp = req.body.lastCommitTimestamp;
+    var updates = req.body.updates;
+
+    console.log(updates);
+    console.log(lastCommitTimestamp);
+    setTheTimestamp(lastCommitTimestamp);
+    let tx = await atdClient.startTransaction();
+    let set = tx.set(setId);
+
+    var antidoteUpdates = [];
+    updates.forEach(element => {
+      if (element.type === 'add') {
+        antidoteUpdates.push(set.add(element.value));
+      } else if (element.type === 'remove') {
+        antidoteUpdates.push(set.remove(element.value));
+      }
+    });
+
+    await tx.update(antidoteUpdates);
+    await tx.commit();
+    atdClient.update_clock = true;
+
+    res.json({
+      status: 'OK',
       lastCommitTimestamp: atdClient.getLastCommitTimestamp().toBase64()
     });
   } catch (error) {

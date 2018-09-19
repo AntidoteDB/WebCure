@@ -72,20 +72,17 @@ function pushCounterChangesToTheServer() {
             return index.get(0).then(function(timestamp) {
               if (objects) {
                 objects.forEach(object => {
-                  if (object.operations) {
-                    object.operations.forEach(operation => {
-                      promiseArray.push(
-                        fetch(`${DBHelper.SERVER_URL}/api/count/${object.id}`, {
-                          method: operation > 0 ? 'PUT' : 'DELETE',
-                          body: JSON.stringify({
-                            lastCommitTimestamp: timestamp ? timestamp : undefined
-                          }),
-                          headers: {
-                            'Content-Type': 'application/json; charset=utf-8'
-                          }
-                        }).then(response => response.json())
-                      );
-                    });
+                  if (object.operations && object.operations.length > 0) {
+                    fetch(`${DBHelper.SERVER_URL}/api/count_sync/${object.id}`, {
+                      method: 'PUT',
+                      body: JSON.stringify({
+                        lastCommitTimestamp: timestamp ? timestamp : undefined,
+                        updates: object.operations
+                      }),
+                      headers: {
+                        'Content-Type': 'application/json; charset=utf-8'
+                      }
+                    }).then(response => response.json());
                   }
                 });
               }
@@ -109,6 +106,7 @@ function pushCounterChangesToTheServer() {
 
                 if (objects) {
                   objects.forEach(object => {
+                    // TODO FIX THE BUG WITH CLEANING NOT CORRECT DATA!!!!!
                     var temp = object;
                     Object.setPrototypeOf(temp, CounterCRDT.prototype);
                     temp.processSentOperations();
@@ -152,23 +150,17 @@ function pushSetChangesToTheServer() {
             return index.get(0).then(function(timestamp) {
               if (objects) {
                 objects.forEach(object => {
-                  if (object.operations) {
-                    // TODO Change this logic
-                    object.operations.forEach(operation => {
-                      promiseArray.push(
-                        fetch(`${DBHelper.SERVER_URL}/api/set/${object.id}`, {
-                          method: operation.type === 'add' ? 'PUT' : 'DELETE',
-
-                          body: JSON.stringify({
-                            value: operation.value,
-                            lastCommitTimestamp: timestamp ? timestamp : undefined
-                          }),
-                          headers: {
-                            'Content-Type': 'application/json; charset=utf-8'
-                          }
-                        }).then(response => response.json())
-                      );
-                    });
+                  if (object.operations && object.operations.length > 0) {
+                    fetch(`${DBHelper.SERVER_URL}/api/set_sync/${object.id}`, {
+                      method: 'PUT',
+                      body: JSON.stringify({
+                        lastCommitTimestamp: timestamp ? timestamp : undefined,
+                        updates: object.operations
+                      }),
+                      headers: {
+                        'Content-Type': 'application/json; charset=utf-8'
+                      }
+                    }).then(response => response.json());
                   }
                 });
               }
