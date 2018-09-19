@@ -19,7 +19,13 @@ self.addEventListener('install', function(event) {
     '/CRDTs/CounterCRDT.js',
     '/CRDTs/SetCRDT.js',
     // css
-    '/styles.css'
+    '/styles.css',
+    // images
+    'img/icon-192.png',
+    'img/icon-512.png',
+    'img/favicon.ico',
+    // manifest
+    'manifest.json'
   ];
 
   event.waitUntil(

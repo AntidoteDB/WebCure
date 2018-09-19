@@ -95,6 +95,7 @@ const addCounterForm = () => {
   const li = document.createElement('ul');
 
   const liName = document.createElement('li');
+  const liNameLabel = document.createElement('li');
 
   const name = document.createElement('select');
   name.name = 'name';
@@ -104,13 +105,16 @@ const addCounterForm = () => {
   fillSelectsEls([name]);
 
   const labelName = document.createElement('label');
+  labelName.innerHTML = 'Counter Id';
   labelName.setAttribute('for', name.id);
 
-  liName.appendChild(labelName);
+  liNameLabel.appendChild(labelName);
+
   liName.appendChild(document.createElement('br'));
   liName.appendChild(name);
 
   const liTimestamp = document.createElement('li');
+  const liTimestampName = document.createElement('li');
 
   const timestamp = document.createElement('input');
   timestamp.type = 'text';
@@ -120,8 +124,9 @@ const addCounterForm = () => {
 
   const labelTimestamp = document.createElement('label');
   labelTimestamp.setAttribute('for', timestamp.id);
+  labelTimestamp.innerHTML = 'Timestamp';
 
-  liTimestamp.appendChild(labelTimestamp);
+  liTimestampName.appendChild(labelTimestamp);
   liTimestamp.appendChild(document.createElement('br'));
   liTimestamp.appendChild(timestamp);
 
@@ -382,7 +387,9 @@ const addCounterForm = () => {
   };
 
   // Add everything to the form
+  li.appendChild(liNameLabel);
   li.appendChild(liName);
+  li.appendChild(liTimestampName);
   li.appendChild(liTimestamp);
   li.appendChild(liGetBtn);
   li.appendChild(liIncBtn);
@@ -401,6 +408,7 @@ const addSetForm = () => {
   const li = document.createElement('ul');
 
   const liName = document.createElement('li');
+  const liNameLabel = document.createElement('li');
 
   const name = document.createElement('select');
   name.name = 'name';
@@ -411,27 +419,31 @@ const addSetForm = () => {
 
   const labelName = document.createElement('label');
   labelName.setAttribute('for', name.id);
+  labelName.innerHTML = 'Set Id';
 
-  liName.appendChild(labelName);
+  liNameLabel.appendChild(labelName);
   liName.appendChild(document.createElement('br'));
   liName.appendChild(name);
 
   const liValue = document.createElement('li');
+  const liValueName = document.createElement('li');
 
   const value = document.createElement('input');
   value.type = 'text';
   value.name = 'value';
   value.id = 'set-value-field';
-  value.placeholder = 'Enter the object to add';
+  value.placeholder = 'Enter the element to add';
 
   const labelValue = document.createElement('label');
   labelValue.setAttribute('for', value.id);
+  labelValue.innerHTML = 'Element';
 
-  liValue.appendChild(labelValue);
+  liValueName.appendChild(labelValue);
   liValue.appendChild(document.createElement('br'));
   liValue.appendChild(value);
 
   const liTimestamp = document.createElement('li');
+  const liTimestampName = document.createElement('li');
 
   const timestamp = document.createElement('input');
   timestamp.type = 'text';
@@ -441,8 +453,9 @@ const addSetForm = () => {
 
   const labelTimestamp = document.createElement('label');
   labelTimestamp.setAttribute('for', timestamp.id);
+  labelTimestamp.innerHTML = 'Timestamp';
 
-  liTimestamp.appendChild(labelTimestamp);
+  liTimestampName.appendChild(labelTimestamp);
   liTimestamp.appendChild(document.createElement('br'));
   liTimestamp.appendChild(timestamp);
 
@@ -571,7 +584,7 @@ const addSetForm = () => {
   const liAddBtn = document.createElement('li');
 
   const addBtn = document.createElement('button');
-  addBtn.id = 'incbtn-field';
+  addBtn.id = 'addbtn-field';
   addBtn.innerHTML = 'Add to the set!';
   addBtn.type = 'button';
 
@@ -642,7 +655,7 @@ const addSetForm = () => {
   const liDecBtn = document.createElement('li');
 
   const decBtn = document.createElement('button');
-  decBtn.id = 'decbtn-field';
+  decBtn.id = 'rembtn-field';
   decBtn.innerHTML = 'Remove from the set!';
   decBtn.type = 'button';
 
@@ -706,8 +719,11 @@ const addSetForm = () => {
   };
 
   // Add everything to the form
+  li.appendChild(liNameLabel);
   li.appendChild(liName);
+  li.appendChild(liValueName);
   li.appendChild(liValue);
+  li.appendChild(liTimestampName);
   li.appendChild(liTimestamp);
   li.appendChild(liGetBtn);
   li.appendChild(liAddBtn);

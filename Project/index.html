@@ -5,17 +5,19 @@
   <meta charset="utf-8">
   <meta name="theme-color" content="#252831">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="Description" content="A Master Thesis project for a topic: Offline caching in web applications for AntidoteDB. Author: Server Khalilov">
+  <link rel="manifest" href="/manifest.json">
   <!-- Normalize.css for better cross-browser consistency -->
   <link rel="stylesheet" src="//normalize-css.googlecode.com/svn/trunk/normalize.css" />
   <link rel="stylesheet" href="styles.css">
-  <title>AntidoteDB Web-Client</title>
+  <title>WebCache: a client for AntidoteDB</title>
 </head>
 
 <body>
   <header>
     <nav>
       <h1>
-        <a href="/">AntidoteDB Web-Client</a>
+        <a href="/">WebCache: a client for AntidoteDB</a>
       </h1>
     </nav>
   </header>
@@ -42,11 +44,11 @@
   </main>
 
   <script type="text/javascript" src="/main.js"></script>
-  <script type="text/javascript" src="/logger.js"></script>
   <script type="text/javascript" src="/dbhelper.js"></script>
   <script type="text/javascript" src="/idb.js"></script>
-  <script type="text/javascript" src=" /CRDTs/SetCRDT.js "></script>
-  <script type="text/javascript" src=" /CRDTs/CounterCRDT.js "></script>
+  <script type="text/javascript" src=" /CRDTs/SetCRDT.js" defer></script>
+  <script type="text/javascript" src=" /CRDTs/CounterCRDT.js" defer></script>
+  <script type="text/javascript" src="/logger.js" defer></script>
 
   <footer id="footer">
     Copyright (c) 2018
