@@ -17,7 +17,8 @@ describe('Set Offline', function() {
             type,
             key + '/timestamp',
             {
-              timestamp: { data: timestamp }
+              timestamp: { data: timestamp },
+              update_clock: false
             },
             function(result) {
               expect(result.cont).toEqual(item.calculateState());
@@ -45,7 +46,8 @@ describe('Set Offline', function() {
             type,
             key + '/timestamp',
             {
-              timestamp: { data: timestamp }
+              timestamp: { data: timestamp },
+              update_clock: false
             },
             function(result) {
               expect(result.cont).toEqual(item.calculateState());
@@ -59,14 +61,14 @@ describe('Set Offline', function() {
                   TestHelper.checkPut(
                     type,
                     key + '/timestamp',
-                    { timestamp: { data: timestamp } },
+                    { timestamp: { data: timestamp }, update_clock: false },
                     function(result) {
                       expect(result.cont).toEqual(item.calculateState());
                       expect(result.lastCommitTimestamp).toEqual(timestamp);
                       TestHelper.checkPut(
                         type,
                         key + '/timestamp',
-                        { timestamp: { data: newTimestamp } },
+                        { timestamp: { data: newTimestamp }, update_clock: false },
                         function(result) {
                           expect(result.lastCommitTimestamp).toEqual(newTimestamp);
                           TestHelper.checkGet(type, key, ['a', 'b'], done);
@@ -100,7 +102,8 @@ describe('Set Offline', function() {
                   type,
                   key + '/timestamp',
                   {
-                    timestamp: { data: timestamp }
+                    timestamp: { data: timestamp },
+                    update_clock: false
                   },
                   function(result) {
                     expect(result.cont).toEqual(item.calculateState());
@@ -114,14 +117,14 @@ describe('Set Offline', function() {
                         TestHelper.checkPut(
                           type,
                           key + '/timestamp',
-                          { timestamp: { data: timestamp } },
+                          { timestamp: { data: timestamp }, update_clock: false },
                           function(result) {
                             expect(result.cont).toEqual(item.calculateState());
                             expect(result.lastCommitTimestamp).toEqual(timestamp);
                             TestHelper.checkPut(
                               type,
                               key + '/timestamp',
-                              { timestamp: { data: newTimestamp } },
+                              { timestamp: { data: newTimestamp }, update_clock: false },
                               function(result) {
                                 expect(result.lastCommitTimestamp).toEqual(newTimestamp);
                                 TestHelper.checkGet(type, key, [], done);

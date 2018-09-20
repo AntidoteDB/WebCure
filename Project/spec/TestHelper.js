@@ -12,29 +12,51 @@ class TestHelper {
     });
   }
 
-  static checkGet(type, id, value, callback) {
+  static checkGet(type, id, value, callback, element) {
+    if (!element) {
+      element = { update_clock: true, timestamp: { data: 'null' } };
+    }
+
     if (type === 'counter') {
-      request.get(endpoint + '/api/count/' + id, function(error, response) {
-        expect(response).toBeDefined();
-        let result = JSON.parse(response.body);
-        expect(result.status).toEqual('OK');
-        expect(result.cont).toEqual(value);
-        expect(result.lastCommitTimestamp).not.toEqual(null);
-        expect(result.lastCommitTimestamp).not.toEqual('');
-        expect(response.statusCode).toEqual(200);
-        callback(result);
-      });
+      request.put(
+        {
+          url: endpoint + '/api/count/' + id + '/timestamp',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify(element)
+        },
+        function(error, response) {
+          expect(response).toBeDefined();
+          let result = JSON.parse(response.body);
+          expect(result.status).toEqual('OK');
+          expect(result.cont).toEqual(value);
+          expect(result.lastCommitTimestamp).not.toEqual(null);
+          expect(result.lastCommitTimestamp).not.toEqual('');
+          expect(response.statusCode).toEqual(200);
+          callback(result);
+        }
+      );
     } else if (type === 'set') {
-      request.get(endpoint + '/api/set/' + id, function(error, response) {
-        expect(response).toBeDefined();
-        let result = JSON.parse(response.body);
-        expect(result.status).toEqual('OK');
-        expect(result.cont).toEqual(value);
-        expect(result.lastCommitTimestamp).not.toEqual(null);
-        expect(result.lastCommitTimestamp).not.toEqual('');
-        expect(response.statusCode).toEqual(200);
-        callback(result);
-      });
+      request.put(
+        {
+          url: endpoint + '/api/set/' + id + '/timestamp',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify(element)
+        },
+        function(error, response) {
+          expect(response).toBeDefined();
+          let result = JSON.parse(response.body);
+          expect(result.status).toEqual('OK');
+          expect(result.cont).toEqual(value);
+          expect(result.lastCommitTimestamp).not.toEqual(null);
+          expect(result.lastCommitTimestamp).not.toEqual('');
+          expect(response.statusCode).toEqual(200);
+          callback(result);
+        }
+      );
     }
   }
 

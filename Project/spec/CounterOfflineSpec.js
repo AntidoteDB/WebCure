@@ -17,7 +17,8 @@ describe('Counter Offline', function() {
             type,
             key + '/timestamp',
             {
-              timestamp: { data: timestamp }
+              timestamp: { data: timestamp },
+              update_clock: false
             },
             function(result) {
               expect(result.cont).toEqual(item.state);
@@ -45,7 +46,8 @@ describe('Counter Offline', function() {
             type,
             key + '/timestamp',
             {
-              timestamp: { data: timestamp }
+              timestamp: { data: timestamp },
+              update_clock: false
             },
             function(result) {
               expect(result.cont).toEqual(item.state);
@@ -57,14 +59,14 @@ describe('Counter Offline', function() {
                 TestHelper.checkPut(
                   type,
                   key + '/timestamp',
-                  { timestamp: { data: timestamp } },
+                  { timestamp: { data: timestamp }, update_clock: false },
                   function(result) {
                     expect(result.cont).toEqual(item.state);
                     expect(result.lastCommitTimestamp).toEqual(timestamp);
                     TestHelper.checkPut(
                       type,
                       key + '/timestamp',
-                      { timestamp: { data: newTimestamp } },
+                      { timestamp: { data: newTimestamp }, update_clock: false },
                       function(result) {
                         expect(result.lastCommitTimestamp).toEqual(newTimestamp);
                         TestHelper.checkGet(type, key, 2, done);
@@ -95,7 +97,8 @@ describe('Counter Offline', function() {
             type,
             key + '/timestamp',
             {
-              timestamp: { data: timestamp }
+              timestamp: { data: timestamp },
+              update_clock: false
             },
             function(result) {
               expect(result.cont).toEqual(item.state);
@@ -107,14 +110,14 @@ describe('Counter Offline', function() {
                 TestHelper.checkPut(
                   type,
                   key + '/timestamp',
-                  { timestamp: { data: timestamp } },
+                  { timestamp: { data: timestamp }, update_clock: false },
                   function(result) {
                     expect(result.cont).toEqual(item.state);
                     expect(result.lastCommitTimestamp).toEqual(timestamp);
                     TestHelper.checkPut(
                       type,
                       key + '/timestamp',
-                      { timestamp: { data: newTimestamp } },
+                      { timestamp: { data: newTimestamp }, update_clock: false },
                       function(result) {
                         expect(result.lastCommitTimestamp).toEqual(newTimestamp);
                         TestHelper.checkGet(type, key, -2, done);
