@@ -153,7 +153,7 @@ function pushSetChangesToTheServer() {
           .then(function(db) {
             if (!db) return;
             var index = db.transaction('crdt-timestamps').objectStore('crdt-timestamps');
-            return index.get(0).then(function(timestamp) {
+            return index.get(1).then(function(timestamp) {
               if (objects) {
                 objects.forEach(object => {
                   if (object.operations && object.operations.length > 0) {

@@ -149,104 +149,85 @@ const addCounterForm = () => {
   liGetBtn.appendChild(getBtn);
 
   getBtn.onclick = function() {
+    const byTimestamp = timestamp.value !== '';
     log(`Getting ${name.value}`);
-
-    var fetchCounter = function() {
-      if (timestamp.value === '') {
-        return fetch(`${DBHelper.SERVER_URL}/api/count/${name.value}`, {
+    DBHelper.crdtDBPromise.then(function(db) {
+      if (!db) return;
+      var index = db.transaction('crdt-timestamps').objectStore('crdt-timestamps');
+      return index.get(0).then(function(storedTimestamp) {
+        fetch(`${DBHelper.SERVER_URL}/api/count/${name.value}/timestamp`, {
           headers: {
             'Content-Type': 'application/json; charset=utf-8'
-          }
-        });
-      } else {
-        return fetch(`${DBHelper.SERVER_URL}/api/count/${name.value}/timestamp`, {
+          },
           method: 'PUT',
           body: JSON.stringify({
-            timestamp: {
-              data: timestamp.value
-            }
-          }),
-          headers: {
-            'Content-Type': 'application/json; charset=utf-8'
-          }
-        });
-      }
-    };
-
-    fetchCounter()
-      .then(function(response) {
-        return response.json();
-      })
-      .then(function(json) {
-        DBHelper.crdtDBPromise
-          .then(function(db) {
-            if (!db) return;
-
-            var tx = db.transaction('crdt-states', 'readwrite');
-            var store = tx.objectStore('crdt-states');
-
-            var item = new CounterCRDT(name.value, json.cont);
-
-            store.put(item);
-
-            let setSelector = document.getElementById('set-name-field');
-            fillSelectsEls([name, setSelector]);
-            return tx.complete;
+            update_clock: !byTimestamp,
+            timestamp: byTimestamp
+              ? { data: timestamp.value }
+              : storedTimestamp
+                ? storedTimestamp
+                : { data: 'null' }
           })
-          .then(function() {
-            DBHelper.crdtDBPromise.then(function(db) {
-              if (!db) return;
+        })
+          .then(function(response) {
+            return response.json();
+          })
+          .then(function(json) {
+            DBHelper.crdtDBPromise
+              .then(function(db) {
+                if (!db || byTimestamp) return;
 
-              var tx = db.transaction('crdt-timestamps', 'readwrite');
-              var store = tx.objectStore('crdt-timestamps');
-              var temp = json.lastCommitTimestamp;
+                var tx = db.transaction('crdt-states', 'readwrite');
+                var store = tx.objectStore('crdt-states');
 
-              if (temp) {
-                log(`Timestamp: ${temp}`);
-                store.put({ id: 0, data: temp });
-              }
+                var item = new CounterCRDT(name.value, json.cont);
 
-              return tx.complete;
-            });
+                store.put(item);
 
-            //     TODO       cleaning operations;
-            /*             DBHelper.crdtDBPromise
+                let setSelector = document.getElementById('set-name-field');
+                fillSelectsEls([name, setSelector]);
+                return tx.complete;
+              })
+              .then(function() {
+                DBHelper.crdtDBPromise.then(function(db) {
+                  if (!db || byTimestamp) return;
+
+                  var tx = db.transaction('crdt-timestamps', 'readwrite');
+                  var store = tx.objectStore('crdt-timestamps');
+                  var temp = json.lastCommitTimestamp;
+
+                  if (temp) {
+                    log(`Timestamp: ${temp}`);
+                    store.put({ id: 0, data: temp });
+                  }
+
+                  return tx.complete;
+                });
+              });
+            log(`The value of ${name.value} is: ${json.cont}`);
+          })
+          .catch(function() {
+            // TODO add the functionality when the key is not created yet and don't forget to recreate the select element
+            DBHelper.crdtDBPromise
               .then(function(db) {
                 if (!db) return;
 
-                var tx = db.transaction('crdt-operations', 'readwrite');
-                var store = tx.objectStore('crdt-operations');
+                var index = db.transaction('crdt-states').objectStore('crdt-states');
 
-                return store.openCursor();
+                return index.get(name.value).then(function(state) {
+                  if (state) {
+                    Object.setPrototypeOf(state, CounterCRDT.prototype);
+
+                    log(`[Offline] The value of ${name.value} is: ${state.calculateState()}`);
+                  }
+                });
               })
-              .then(function cleanOperationsDB(cursor) {
-                if (!cursor) return;
-                cursor.delete(cursor.value);
-                return cursor.continue().then(cleanOperationsDB);
-              }); */
-          });
-        log(`The value of ${name.value} is: ${json.cont}`);
-      })
-      .catch(function() {
-        // TODO add the functionality when the key is not created yet and don't forget to recreate the select element
-        DBHelper.crdtDBPromise
-          .then(function(db) {
-            if (!db) return;
-
-            var index = db.transaction('crdt-states').objectStore('crdt-states');
-
-            return index.get(name.value).then(function(state) {
-              if (state) {
-                Object.setPrototypeOf(state, CounterCRDT.prototype);
-
-                log(`[Offline] The value of ${name.value} is: ${state.calculateState()}`);
-              }
-            });
-          })
-          .catch(function() {
-            // TODO throw an error
+              .catch(function() {
+                // TODO throw an error
+              });
           });
       });
+    });
   };
 
   /**
@@ -478,103 +459,85 @@ const addSetForm = () => {
   liGetBtn.appendChild(getBtn);
 
   getBtn.onclick = function() {
+    const byTimestamp = timestamp.value !== '';
     log(`Getting ${name.value} set`);
 
-    var fetchSet = function() {
-      if (timestamp.value === '') {
-        return fetch(`${DBHelper.SERVER_URL}/api/set/${name.value}`, {
+    DBHelper.crdtDBPromise.then(function(db) {
+      if (!db) return;
+      var index = db.transaction('crdt-timestamps').objectStore('crdt-timestamps');
+      return index.get(0).then(function(storedTimestamp) {
+        fetch(`${DBHelper.SERVER_URL}/api/set/${name.value}/timestamp`, {
           headers: {
             'Content-Type': 'application/json; charset=utf-8'
-          }
-        });
-      } else {
-        return fetch(`${DBHelper.SERVER_URL}/api/set/${name.value}/timestamp`, {
+          },
           method: 'PUT',
           body: JSON.stringify({
-            timestamp: {
-              data: timestamp.value
-            }
-          }),
-          headers: {
-            'Content-Type': 'application/json; charset=utf-8'
-          }
-        });
-      }
-    };
-
-    fetchSet()
-      .then(function(response) {
-        return response.json();
-      })
-      .then(function(json) {
-        DBHelper.crdtDBPromise
-          .then(function(db) {
-            if (!db) return;
-
-            var tx = db.transaction('crdt-states', 'readwrite');
-            var store = tx.objectStore('crdt-states');
-
-            var item = new SetCRDT(name.value, json.cont);
-
-            store.put(item);
-            let counterSelector = document.getElementById('counter-name-field');
-            fillSelectsEls([name, counterSelector]);
-            return tx.complete;
+            update_clock: !byTimestamp,
+            timestamp: byTimestamp
+              ? { data: timestamp.value }
+              : storedTimestamp
+                ? storedTimestamp
+                : { data: 'null' }
           })
-          .then(function() {
-            DBHelper.crdtDBPromise.then(function(db) {
-              if (!db) return;
+        })
+          .then(function(response) {
+            return response.json();
+          })
+          .then(function(json) {
+            DBHelper.crdtDBPromise
+              .then(function(db) {
+                if (!db || byTimestamp) return;
 
-              var tx = db.transaction('crdt-timestamps', 'readwrite');
-              var store = tx.objectStore('crdt-timestamps');
-              var temp = json.lastCommitTimestamp;
+                var tx = db.transaction('crdt-states', 'readwrite');
+                var store = tx.objectStore('crdt-states');
 
-              if (temp) {
-                log(`Timestamp: ${temp}`);
-                store.put({ id: 1, data: temp });
-              }
+                var item = new SetCRDT(name.value, json.cont);
 
-              return tx.complete;
-            });
+                store.put(item);
+                let counterSelector = document.getElementById('counter-name-field');
+                fillSelectsEls([name, counterSelector]);
+                return tx.complete;
+              })
+              .then(function() {
+                DBHelper.crdtDBPromise.then(function(db) {
+                  if (!db || byTimestamp) return;
 
-            // TODO
-            /*             DBHelper.crdtDBPromise
+                  var tx = db.transaction('crdt-timestamps', 'readwrite');
+                  var store = tx.objectStore('crdt-timestamps');
+                  var temp = json.lastCommitTimestamp;
+
+                  if (temp) {
+                    log(`Timestamp: ${temp}`);
+                    store.put({ id: 1, data: temp });
+                  }
+
+                  return tx.complete;
+                });
+              });
+            log(`The value of ${name.value} is: [ ${json.cont} ]`);
+          })
+          .catch(function() {
+            // TODO add the functionality when the key is not created yet and don't forget to recreate the select element
+            DBHelper.crdtDBPromise
               .then(function(db) {
                 if (!db) return;
 
-                var tx = db.transaction('crdt-operations', 'readwrite');
-                var store = tx.objectStore('crdt-operations');
+                var index = db.transaction('crdt-states').objectStore('crdt-states');
 
-                return store.openCursor();
+                return index.get(name.value).then(function(state) {
+                  if (state) {
+                    Object.setPrototypeOf(state, SetCRDT.prototype);
+                    log(`[Offline] The value of ${name.value} is: [ ${state.calculateState()} ]`);
+                  }
+                });
               })
-              .then(function cleanOperationsDB(cursor) {
-                if (!cursor) return;
-                cursor.delete(cursor.value);
-                return cursor.continue().then(cleanOperationsDB);
-              }); */
-          });
-        log(`The value of ${name.value} is: [ ${json.cont} ]`);
-      })
-      .catch(function() {
-        // TODO add the functionality when the key is not created yet and don't forget to recreate the select element
-        DBHelper.crdtDBPromise
-          .then(function(db) {
-            if (!db) return;
 
-            var index = db.transaction('crdt-states').objectStore('crdt-states');
-
-            return index.get(name.value).then(function(state) {
-              if (state) {
-                Object.setPrototypeOf(state, SetCRDT.prototype);
-                log(`[Offline] The value of ${name.value} is: [ ${state.calculateState()} ]`);
-              }
-            });
-          })
-
-          .catch(function() {
-            // TODO throw an error
+              .catch(function() {
+                // TODO throw an error
+              });
           });
       });
+    });
   };
 
   /**
