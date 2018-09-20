@@ -36,15 +36,6 @@ var atdClient = antidote.connect(
   conf.antidote.host
 );
 
-/* Static web page routing. */
-var staticRouter = express.Router();
-
-staticRouter.get('/', function(req, res) {
-  res.sendFile(__dirname + '/index.html');
-});
-
-app.use('/', staticRouter);
-
 /* API routing. */
 var apiRouter = express.Router();
 

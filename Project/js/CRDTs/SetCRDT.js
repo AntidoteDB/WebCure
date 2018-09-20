@@ -67,6 +67,7 @@ class SetCRDT {
   }
 }
 
+/* istanbul ignore if  */
 if (typeof module === 'object' && module.exports) {
   module.exports = SetCRDT;
 }

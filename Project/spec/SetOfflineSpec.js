@@ -143,4 +143,29 @@ describe('Set Offline', function() {
       });
     });
   });
+
+  it('Get set, create offline operations, test sync and check that the value is the same', function(done) {
+    const key = 'set_offline4';
+    let timestamp;
+    let item;
+    TestHelper.checkGet(type, key, [], function(result) {
+      item = new SetCRDT(key, result.cont);
+      timestamp = result.lastCommitTimestamp;
+      item.add('a');
+      item.add('b');
+      item.add('c');
+      item.remove('a');
+      TestHelper.checkSync(
+        type,
+        key,
+        {
+          lastCommitTimestamp: timestamp,
+          updates: item.operations
+        },
+        function() {
+          TestHelper.checkGet(type, key, ['b', 'c'], done);
+        }
+      );
+    });
+  });
 });

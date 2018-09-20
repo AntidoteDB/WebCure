@@ -132,4 +132,29 @@ describe('Counter Offline', function() {
       });
     });
   });
+
+  it('Get counter, create offline operations, test sync and check that the value is the same', function(done) {
+    const key = 'counter_offline4';
+    let timestamp;
+    let item;
+    TestHelper.checkGet(type, key, 0, function(result) {
+      item = new CounterCRDT(key, result.cont);
+      timestamp = result.lastCommitTimestamp;
+      item.inc();
+      item.inc();
+      item.inc();
+      item.dec();
+      TestHelper.checkSync(
+        type,
+        key,
+        {
+          lastCommitTimestamp: timestamp,
+          updates: item.operations
+        },
+        function() {
+          TestHelper.checkGet(type, key, 2, done);
+        }
+      );
+    });
+  });
 });

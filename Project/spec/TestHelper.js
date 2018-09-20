@@ -4,8 +4,8 @@ const endpoint = 'http://localhost:3001';
 
 class TestHelper {
   /* eslint-enable  no-unused-vars */
-  static checkAppAvailability(callback) {
-    request.get(endpoint, function(error, response) {
+  static checkAppAvailability(page, callback) {
+    request.get(endpoint + (page ? '/index.html' : ''), function(error, response) {
       console.log('Response StatusCode: ', response.statusCode);
       expect(response.statusCode).toEqual(200);
       callback();
@@ -128,6 +128,44 @@ class TestHelper {
           expect(response).toBeDefined();
           let result = JSON.parse(response.body);
           expect(result.status).toEqual('OK');
+          callback(result);
+        }
+      );
+    }
+  }
+
+  static checkSync(type, id, element, callback) {
+    if (type === 'counter') {
+      request.put(
+        {
+          url: endpoint + '/api/count_sync/' + id,
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify(element)
+        },
+        function(error, response) {
+          expect(response).toBeDefined();
+          let result = JSON.parse(response.body);
+          expect(result.status).toEqual('OK');
+          expect(response.statusCode).toEqual(200);
+          callback(result);
+        }
+      );
+    } else if (type === 'set') {
+      request.put(
+        {
+          url: endpoint + '/api/set_sync/' + id,
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify(element)
+        },
+        function(error, response) {
+          expect(response).toBeDefined();
+          let result = JSON.parse(response.body);
+          expect(result.status).toEqual('OK');
+          expect(response.statusCode).toEqual(200);
           callback(result);
         }
       );
