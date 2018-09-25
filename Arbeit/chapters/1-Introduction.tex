@@ -3,16 +3,16 @@
 
 In this chapter we are going to discuss the motivation, research questions and the scope of this thesis.
 
-o Problem context (What is the broader context of this work?) 
-o Problem description (What is the specific problem or challenge addressed by this work?) 
-o Research question(s) (What are the actual questions that should be answered by this research? Why are they interesting? To whom? Why is there no obvious answer? If this is getting too much, then details of discussion can be deferred until later, e.g., to the methodology section.) 
-o Summary of results and contributions (What is the outcome of this work in simple terms?) 
-o Structure of the thesis (Introduce briefly the remaining chapters.)
-
 \section{Motivation}
 
-The motivation of this thesis is to explore the possibillities of implementing 
-a web-client for the AntidoteDB with a support of caching and by utilizing the main features of the AntidoteDB.
+AntidoteDB is a planet scale, highly available, transactional database. It accepts parallel updates that are geo-distributed near users. As well as that, it is available under partition, efficient and responsive. At the same time, AntidoteDB avoides anomalies, thanks to the following features: it merges concurrent operations according to their semantics, it groups related operations into atomic transactions, delivers updates in causal order. The main motivation of this thesis is to explore the possibillities of implementing a web-client for the AntidoteDB with a support of caching and by utilizing the main features of the database. As AntidoteDB is already known for its use in the development of applications, it would dramatically improve the user-experience if offline work with the database is going to be reached. I am going to explore the best ways to develop such an application, design it and implement. Here and from now on, we will call such an application by the name of WebCache.
+
+
+The motivation of this thesis is to show you the functionalities of AntidoteDB. Therefore, it is not to demonstrate some brand new-idea in terms of application. But it is to show that it is possible to build an application based on Antidote-DB that works offline and online.
+
+%Nowadays, there are many fields, where distributed databases are used. The scenarios could be different, but to name some of them, it could be booking tickets for the flights and concerts, watching video streaming services (e.g. Netflix) and other examples. There are two main types of the distributed databases: strongly consisted and eventually consistent. However, each of those has its own drawbacks. Thus,   
+%(Antidote is a geo-distributed cloud database that is highly responsive and available under partition, it offers strong guarantees to applications. )
+% A database side is strongly consistent, though. 
 
 \section{Research questions}
 
@@ -31,7 +31,7 @@ The following research questions are going to be addressed in this thesis:
 
 \section{The structure}
 
-The structure of this thesis will be divided into the following subsections: 
+Here, I am going to briefly sketch the structure of this thesis and briefly explain the contents of each chapter. 
 
 \begin{itemize}
     \item Description of the main requirements of the application;

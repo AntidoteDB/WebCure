@@ -7,3 +7,24 @@ This is always the first chapter of the thesis. The chapter should be short (up 
 
 \section{Summary}
 \section{Future Work}
+
+- Automatic synchonization of updates;
+
+\subsection*{Idempotence of updates}
+
+- wrote about this part in the notes to the architecture pdf
+
+In case a client is sending an update to the server and does not receive an acknowledgement, what could have happened?
+
+There are possibilities:
+\begin{itemize}
+    \item {The update was applied on the server, but the connection failed when the acknowledgement was about to be sent;}
+    \item {The update was not applied on the server and the client did not receive an acknowledgement;}
+\end{itemize}
+However, the client does not know which of these situations happened. Therefore, we have to find a general solution for such kind of behaviour. 
+
+One of the solutions could be the following: it does not matter, whether the update was applied or not. A client will just send the update again, till it does not recieve an acknowledgement, regardless of what happens on the server's side.
+
+The other one is: the client sends an update to the server, which should send a message back that it received an update. Afterwards, a client removes this update from the temporary database and sends back a message to the server that it is possible to apply the update.
+
+However, the implementation of the solution for this problem is beyond the scope of this Master thesis. Therefore, these thoughts are going to be included in a section, where future impovements will be discussed.

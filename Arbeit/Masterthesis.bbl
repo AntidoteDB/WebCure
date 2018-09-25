@@ -1,3 +1,36 @@
-\begin{thebibliography}{}
+\begin{thebibliography}{4}
+\providecommand{\natexlab}[1]{#1}
+\providecommand{\url}[1]{\texttt{#1}}
+\expandafter\ifx\csname urlstyle\endcsname\relax
+  \providecommand{\doi}[1]{doi: #1}\else
+  \providecommand{\doi}{doi: \begingroup \urlstyle{rm}\Url}\fi
+
+\bibitem[ant(2018 (accessed September 25, 2018))]{antidote-website}
+Antidotedb.
+\newblock \url{https://www.antidotedb.eu/}, 2018 (accessed September 25, 2018).
+
+\bibitem[Shapiro et~al.(2011)Shapiro, Pregui, Baquero, and
+  Zawirski]{Shapiro2011}
+Marc Shapiro, Nuno Pregui, Carlos Baquero, and Marek Zawirski.
+\newblock {Replicated Data Types: A comprehensive study of Convergent and
+  Commutative Replicated Data Types}.
+\newblock \penalty0 (RR-7506):\penalty0 50, 2011.
+\newblock URL \url{http://hal.inria.fr/inria-00555588}.
+
+\bibitem[Pregui{\c{c}}a et~al.(2018)Pregui{\c{c}}a, Baquero, and
+  Shapiro]{Preguica2018}
+Nuno Pregui{\c{c}}a, Carlos Baquero, and Marc Shapiro.
+\newblock \emph{Conflict-Free Replicated Data Types CRDTs}, pages 1--10.
+\newblock Springer International Publishing, Cham, 2018.
+\newblock ISBN 978-3-319-63962-8.
+\newblock \doi{10.1007/978-3-319-63962-8_185-1}.
+\newblock URL \url{https://doi.org/10.1007/978-3-319-63962-8_185-1}.
+
+\bibitem[Gaunt(2018 (accessed September 14, 2018))]{Gaunt:2018:Online}
+Matt Gaunt.
+\newblock Service workers: an introduction.
+\newblock
+  \url{https://developers.google.com/web/fundamentals/primers/service-workers/},
+  2018 (accessed September 14, 2018).
 
 \end{thebibliography}

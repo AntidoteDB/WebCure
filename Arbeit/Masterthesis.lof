@@ -3,10 +3,15 @@
 \addvspace {10\p@ }
 \addvspace {10\p@ }
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {\relax 4.1}{\ignorespaces An overview of the system's design.\relax }}{7}{figure.caption.2}
+\contentsline {figure}{\numberline {\relax 4.1}{\ignorespaces The way a client receives a key-value update from the server.\relax }}{8}{figure.caption.2}
+\contentsline {figure}{\numberline {\relax 4.2}{\ignorespaces The way a client sends a write operation to the server.\relax }}{8}{figure.caption.3}
+\contentsline {figure}{\numberline {\relax 4.3}{\ignorespaces Graphical representation over a possible communicaton between two clients and a server.\relax }}{9}{figure.caption.5}
+\contentsline {figure}{\numberline {\relax 4.4}{\ignorespaces An overview of the system's design.\relax }}{10}{figure.caption.6}
+\contentsline {figure}{\numberline {\relax 4.5}{\ignorespaces Successful request of state from the local database -- Sequence diagram.\relax }}{12}{figure.caption.7}
+\contentsline {figure}{\numberline {\relax 4.6}{\ignorespaces Successful storing of an operation in the local database -- Sequence diagram.\relax }}{13}{figure.caption.8}
 \addvspace {10\p@ }
 \addvspace {10\p@ }
-\addvspace {10\p@ }
+\contentsline {figure}{\numberline {\relax 6.1}{\ignorespaces A look at the server-client architecture with a RESTful interface.\relax }}{19}{figure.caption.9}
 \addvspace {10\p@ }
 \addvspace {10\p@ }
 \addvspace {10\p@ }

@@ -1,5 +1,7 @@
 This is BibTeX, Version 0.99dThe top-level auxiliary file: Masterthesis.aux
-The style file: alphaurl.bst
-I found no \citation commands---while reading file Masterthesis.aux
+The style file: unsrtnat.bst
 Database file #1: bibliography/references.bib
-(There was 1 error message)
+Warning--empty journal in Shapiro2011
+Warning--there's a number but no volume in Shapiro2011
+Warning--can't use both author and editor fields in Preguica2018
+(There were 3 warnings)

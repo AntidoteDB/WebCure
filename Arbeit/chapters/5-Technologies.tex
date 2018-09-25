@@ -1,0 +1,52 @@
+\chapter{Technologies}
+\label{Technologies}
+
+This chapter consists of detailed description of used technologies to accomplish thesis goal.
+I believe that the implementation of the web-client for the AntidoteDB with a cache support would require the following components:
+`
+\begin{itemize}
+\item{A service worker, in order to control requests coming from the client.}
+\item{A Cache API for storing assets and make the application available offline.}
+\item{A database to store the data locally}.
+
+\end{itemize}
+
+\section{Service Workers}
+
+A service worker\cite{Gaunt:2018:Online} is a JavaScript file that sits between the application and network requests. As well as that, it runs separately from the page. It has the following properties:
+
+\begin{itemize}
+\item{It is not visible to the user.}
+\item{It cannot access the DOM, but it does control pages.}
+\item{It can intercept requests as the browser makes them.}
+\begin{itemize}
+\item{it can just let requests go to the network as usual.}
+\item{it can skip the network and redirect the request to a cache.}
+\item{or it is possible to perform any combination of these things.}
+
+\end{itemize}
+\end{itemize}
+
+A service worker will be used in order to intercept the network traffic. In situations, when there are problems with network, we are going to get content from cache (which consists of the last content, which we were able to get from the network). However, we will have to wait for the network to fail, before showing the cache-content. And here the problem arises: if the connection is slow, the user would still get frustrating hard-time of waiting for the response. Therefore, we will have to introduce offline-first approach: it means that we will try to get as much information from the cache as possible. 
+
+We might still go to the network, but we are not going to wait for it by updating the information simultaneously from the cache. Afterwards, if we get some new content from the network, we can update the data again. Once we get this new information from the network, we can update the view and, as well as that, we can store that information into the cache for the next time. If we can't get the data from the network, then we will stick with what we've got. Taking such approach makes the user satisfied offline, online and even on slow-connections. It will make the user care less about the connectivity. 
+
+\section{IndexDB database}
+
+When the user opens an application, we want to show the latest data the device received. Then we make the web-socket connection ( a web-socket bypassses both the service worker and the HTTP cache), and we start receiving new data records. When we recieve it, we want to update the application state, taking new data into account. But apart from that, we would like to add new data to already stored one in the cache. We might also think about removing the data, which is too old to keep (depends on the user case). 
+
+The database API we can use in this case is IndexedDB. It allows to create multiple databases with a custom name. Each database contains multiple object stores -- one for each kind of thing we want to store. An object store contains multiple values - JS objects, strings, numbers, dates, arrays. Items in the object stores can have a separate primary key, which should be unique in the particular store, to identify an object. There are multiple operations that can be done to items in object stores: get, set, add, remove, iterate. All read or write operations in IndexedDB must be a part of a transaction: this means that if we create a transaction for a series of steps and one of those fails -- none of them are going to be applied. The browser support of IndexedDB is good, because every major browser supports it. 
+
+In case the user wants to make a change to the data, there are two cases to handle. 
+
+\begin{itemize}
+\item{The request to the server is succesfull: in this case, the request would end up changing the data on the server's side, while the client will just update its own cache once it gets a response from the server.}
+\item{The request to the server is not succesfull: here, it is going to be a bit more interesting. We will have to wait for an error message and store the data in a temporary database for the updates that are not sent to the server's side just yet. Afterwards, I think it would be logical to have a timer, which will check the connection with the server. Once it is back, every transaction again is going to be sent to the server. After all the data is sent, this temporary database can be cleaned. }
+
+\end{itemize}
+
+Several problems could arise, however, which we will adrress in the architecture chapter.
+
+\section{Cache API}
+
+If we want to store somewhere the HTML, the CSS and the JavaScript, as well as such assets as images, web fonts, then there is a place for all of it -- Cache API. It allows conveniently manage the content for the offline use. 

@@ -18,7 +18,7 @@
 \gdef\HyperFirstAtBeginDocument#1{#1}
 \providecommand\HyField@AuxAddToFields[1]{}
 \providecommand\HyField@AuxAddToCoFields[2]{}
-\bibstyle{alphaurl}
+\bibstyle{unsrtnat}
 \babel@aux{ngerman}{}
 \newlabel{part:Introduction}{{}{1}{}{chapter*.1}{}}
 \@writefile{toc}{\contentsline {chapter}{\numberline {1}Introduction}{1}{chapter.1}}
@@ -30,6 +30,9 @@
 \@writefile{toc}{\contentsline {section}{\numberline {1.1}Motivation}{1}{section.1.1}}
 \@writefile{toc}{\contentsline {section}{\numberline {1.2}Research questions}{1}{section.1.2}}
 \@writefile{toc}{\contentsline {section}{\numberline {1.3}The structure}{2}{section.1.3}}
+\citation{antidote-website}
+\citation{Shapiro2011}
+\citation{Preguica2018}
 \newlabel{part:Background}{{1.3}{3}{The structure}{section.1.3}{}}
 \@writefile{toc}{\contentsline {chapter}{\numberline {2}Background}{3}{chapter.2}}
 \@writefile{lof}{\addvspace {10\p@ }}
@@ -37,8 +40,11 @@
 \@writefile{loc}{\addvspace {10\p@ }}
 \@writefile{lol}{\addvspace {10\p@ }}
 \newlabel{Background}{{2}{3}{Background}{chapter.2}{}}
-\@writefile{toc}{\contentsline {section}{\numberline {2.1}Related Work}{3}{section.2.1}}
-\newlabel{part:Requirements}{{2.1}{5}{Related Work}{section.2.1}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {2.1}Theoretical background}{3}{section.2.1}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {2.1.1}Operation-based replication approach}{3}{subsection.2.1.1}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {2.1.2}CRDTs}{3}{subsection.2.1.2}}
+\@writefile{toc}{\contentsline {section}{\numberline {2.2}Related Work}{3}{section.2.2}}
+\newlabel{part:Requirements}{{2.2}{5}{Related Work}{section.2.2}{}}
 \@writefile{toc}{\contentsline {chapter}{\numberline {3}Requirements}{5}{chapter.3}}
 \@writefile{lof}{\addvspace {10\p@ }}
 \@writefile{lot}{\addvspace {10\p@ }}
@@ -53,70 +59,81 @@
 \@writefile{loc}{\addvspace {10\p@ }}
 \@writefile{lol}{\addvspace {10\p@ }}
 \newlabel{Design}{{4}{7}{Design}{chapter.4}{}}
-\@writefile{toc}{\contentsline {section}{\numberline {4.1}Main components}{7}{section.4.1}}
-\@writefile{lof}{\contentsline {figure}{\numberline {\relax 4.1}{\ignorespaces An overview of the system's design.\relax }}{7}{figure.caption.2}}
+\@writefile{toc}{\contentsline {section}{\numberline {4.1}Overview of the protocol}{7}{section.4.1}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.1.1}The way of exchaning the data}{7}{subsection.4.1.1}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.1.2}A client receives an update from the server}{8}{subsection.4.1.2}}
+\@writefile{lof}{\contentsline {figure}{\numberline {\relax 4.1}{\ignorespaces The way a client receives a key-value update from the server.\relax }}{8}{figure.caption.2}}
 \providecommand*\caption@xref[2]{\@setref\relax\@undefined{#1}}
-\newlabel{fig:design1}{{\relax 4.1}{7}{An overview of the system's design.\relax }{figure.caption.2}{}}
-\@writefile{loc}{\contentsline {codelisting}{\numberline {4.1}{\ignorespaces A prototype for the start function.}}{9}{codelisting.4.1}}
-\@writefile{lol}{\contentsline {lstlisting}{jslistings/start\textunderscore offline.js}{9}{lstlisting.4.-1}}
-\newlabel{codelst:lst1}{{4.1}{9}{A prototype for the start function}{lstnumber.-1.11}{}}
-\@writefile{loc}{\contentsline {codelisting}{\numberline {4.2}{\ignorespaces A prototype for the read function.}}{10}{codelisting.4.2}}
-\@writefile{lol}{\contentsline {lstlisting}{jslistings/read\textunderscore offline.js}{10}{lstlisting.4.-2}}
-\newlabel{codelst:lst2}{{4.2}{10}{A prototype for the read function}{lstnumber.-2.14}{}}
-\@writefile{loc}{\contentsline {codelisting}{\numberline {4.3}{\ignorespaces A prototype for the update function.}}{11}{codelisting.4.3}}
-\@writefile{lol}{\contentsline {lstlisting}{jslistings/update\textunderscore offline.js}{11}{lstlisting.4.-3}}
-\newlabel{codelst:lst3}{{4.3}{11}{A prototype for the update function}{lstnumber.-3.11}{}}
-\newlabel{part:Technologies}{{4.1}{13}{A database layer}{lstnumber.-3.11}{}}
-\@writefile{toc}{\contentsline {chapter}{\numberline {5}Technologies}{13}{chapter.5}}
+\newlabel{fig:design2}{{\relax 4.1}{8}{The way a client receives a key-value update from the server.\relax }{figure.caption.2}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.1.3}A client sends an update to the server}{8}{subsection.4.1.3}}
+\@writefile{lof}{\contentsline {figure}{\numberline {\relax 4.2}{\ignorespaces The way a client sends a write operation to the server.\relax }}{8}{figure.caption.3}}
+\newlabel{fig:design3}{{\relax 4.2}{8}{The way a client sends a write operation to the server.\relax }{figure.caption.3}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.1.4}Two clients interact with a server.}{9}{subsection.4.1.4}}
+\@writefile{lof}{\contentsline {figure}{\numberline {\relax 4.3}{\ignorespaces Graphical representation over a possible communicaton between two clients and a server.\relax }}{9}{figure.caption.5}}
+\newlabel{fig:design4}{{\relax 4.3}{9}{Graphical representation over a possible communicaton between two clients and a server.\relax }{figure.caption.5}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {4.2}System's main components}{9}{section.4.2}}
+\@writefile{lof}{\contentsline {figure}{\numberline {\relax 4.4}{\ignorespaces An overview of the system's design.\relax }}{10}{figure.caption.6}}
+\newlabel{fig:design5}{{\relax 4.4}{10}{An overview of the system's design.\relax }{figure.caption.6}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.2.1}Web Application}{10}{subsection.4.2.1}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.2.2}Server}{11}{subsection.4.2.2}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.2.3}A database layer}{11}{subsection.4.2.3}}
+\@writefile{toc}{\contentsline {section}{\numberline {4.3}Offline functionality}{11}{section.4.3}}
+\@writefile{lof}{\contentsline {figure}{\numberline {\relax 4.5}{\ignorespaces Successful request of state from the local database -- Sequence diagram.\relax }}{12}{figure.caption.7}}
+\newlabel{fig:design6}{{\relax 4.5}{12}{Successful request of state from the local database -- Sequence diagram.\relax }{figure.caption.7}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {4.4}Online functionality}{12}{section.4.4}}
+\@writefile{toc}{\contentsline {section}{\numberline {4.5}The transition between offline and online modes}{12}{section.4.5}}
+\@writefile{lof}{\contentsline {figure}{\numberline {\relax 4.6}{\ignorespaces Successful storing of an operation in the local database -- Sequence diagram.\relax }}{13}{figure.caption.8}}
+\newlabel{fig:design7}{{\relax 4.6}{13}{Successful storing of an operation in the local database -- Sequence diagram.\relax }{figure.caption.8}{}}
+\citation{Gaunt:2018:Online}
+\newlabel{part:Technologies}{{4.5}{15}{The transition between offline and online modes}{section.4.5}{}}
+\@writefile{toc}{\contentsline {chapter}{\numberline {5}Technologies}{15}{chapter.5}}
 \@writefile{lof}{\addvspace {10\p@ }}
 \@writefile{lot}{\addvspace {10\p@ }}
 \@writefile{loc}{\addvspace {10\p@ }}
 \@writefile{lol}{\addvspace {10\p@ }}
-\newlabel{Technologies}{{5}{13}{Technologies}{chapter.5}{}}
-\@writefile{toc}{\contentsline {section}{\numberline {5.1}Service Workers}{13}{section.5.1}}
-\@writefile{toc}{\contentsline {section}{\numberline {5.2}IndexDB database}{13}{section.5.2}}
-\newlabel{part:Architecture}{{5.2}{15}{IndexDB database}{section.5.2}{}}
-\@writefile{toc}{\contentsline {chapter}{\numberline {6}Architecture}{15}{chapter.6}}
+\newlabel{Technologies}{{5}{15}{Technologies}{chapter.5}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {5.1}Service Workers}{15}{section.5.1}}
+\@writefile{toc}{\contentsline {section}{\numberline {5.2}IndexDB database}{16}{section.5.2}}
+\@writefile{toc}{\contentsline {section}{\numberline {5.3}Cache API}{17}{section.5.3}}
+\newlabel{part:Implementation}{{5.3}{19}{Cache API}{section.5.3}{}}
+\@writefile{toc}{\contentsline {chapter}{\numberline {6}Implementation}{19}{chapter.6}}
 \@writefile{lof}{\addvspace {10\p@ }}
 \@writefile{lot}{\addvspace {10\p@ }}
 \@writefile{loc}{\addvspace {10\p@ }}
 \@writefile{lol}{\addvspace {10\p@ }}
-\newlabel{Architecture}{{6}{15}{Architecture}{chapter.6}{}}
-\@writefile{toc}{\contentsline {section}{\numberline {6.1}General overview of the architecture}{15}{section.6.1}}
-\@writefile{toc}{\contentsline {section}{\numberline {6.2}Communication protocol description}{15}{section.6.2}}
-\newlabel{part:Implementation}{{6.2}{17}{Communication protocol description}{section.6.2}{}}
-\@writefile{toc}{\contentsline {chapter}{\numberline {7}Implementation}{17}{chapter.7}}
+\newlabel{Implementation}{{6}{19}{Implementation}{chapter.6}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {\relax 6.1}{\ignorespaces A look at the server-client architecture with a RESTful interface.\relax }}{19}{figure.caption.9}}
+\newlabel{fig:design1}{{\relax 6.1}{19}{A look at the server-client architecture with a RESTful interface.\relax }{figure.caption.9}{}}
+\newlabel{part:Evaluation}{{6}{21}{Implementation}{figure.caption.9}{}}
+\@writefile{toc}{\contentsline {chapter}{\numberline {7}Evaluation}{21}{chapter.7}}
 \@writefile{lof}{\addvspace {10\p@ }}
 \@writefile{lot}{\addvspace {10\p@ }}
 \@writefile{loc}{\addvspace {10\p@ }}
 \@writefile{lol}{\addvspace {10\p@ }}
-\newlabel{Implementation}{{7}{17}{Implementation}{chapter.7}{}}
-\newlabel{part:Evaluation}{{7}{19}{Implementation}{chapter.7}{}}
-\@writefile{toc}{\contentsline {chapter}{\numberline {8}Evaluation}{19}{chapter.8}}
+\newlabel{Evaluation}{{7}{21}{Evaluation}{chapter.7}{}}
+\newlabel{part:Conclusion}{{7}{23}{Evaluation}{chapter.7}{}}
+\@writefile{toc}{\contentsline {chapter}{\numberline {8}Conclusion}{23}{chapter.8}}
 \@writefile{lof}{\addvspace {10\p@ }}
 \@writefile{lot}{\addvspace {10\p@ }}
 \@writefile{loc}{\addvspace {10\p@ }}
 \@writefile{lol}{\addvspace {10\p@ }}
-\newlabel{Evaluation}{{8}{19}{Evaluation}{chapter.8}{}}
-\newlabel{part:Conclusion}{{8}{21}{Evaluation}{chapter.8}{}}
-\@writefile{toc}{\contentsline {chapter}{\numberline {9}Conclusion}{21}{chapter.9}}
-\@writefile{lof}{\addvspace {10\p@ }}
-\@writefile{lot}{\addvspace {10\p@ }}
-\@writefile{loc}{\addvspace {10\p@ }}
-\@writefile{lol}{\addvspace {10\p@ }}
-\newlabel{Conclusion}{{9}{21}{Conclusion}{chapter.9}{}}
-\@writefile{toc}{\contentsline {section}{\numberline {9.1}Summary}{21}{section.9.1}}
-\@writefile{toc}{\contentsline {section}{\numberline {9.2}Future Work}{21}{section.9.2}}
-\@writefile{toc}{\contentsline {chapter}{\nonumberline List of Figures}{23}{chapter*.6}}
-\@writefile{toc}{\contentsline {chapter}{\nonumberline List of Tables}{25}{chapter*.7}}
-\@writefile{toc}{\contentsline {chapter}{\nonumberline List of Code}{27}{chapter*.8}}
+\newlabel{Conclusion}{{8}{23}{Conclusion}{chapter.8}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {8.1}Summary}{23}{section.8.1}}
+\@writefile{toc}{\contentsline {section}{\numberline {8.2}Future Work}{23}{section.8.2}}
+\@writefile{toc}{\contentsline {chapter}{\nonumberline List of Figures}{25}{chapter*.11}}
+\@writefile{toc}{\contentsline {chapter}{\nonumberline List of Tables}{27}{chapter*.12}}
+\@writefile{toc}{\contentsline {chapter}{\nonumberline List of Code}{29}{chapter*.13}}
 \bibdata{bibliography/references}
-\@writefile{toc}{\contentsline {chapter}{\nonumberline Bibliography}{29}{chapter*.9}}
+\bibcite{antidote-website}{{1}{2018 (accessed September 25, 2018}{{ant}}{{)}}}
+\bibcite{Shapiro2011}{{2}{2011}{{Shapiro et~al.}}{{Shapiro, Pregui, Baquero, and Zawirski}}}
+\bibcite{Preguica2018}{{3}{2018}{{Pregui{\c {c}}a et~al.}}{{Pregui{\c {c}}a, Baquero, and Shapiro}}}
+\bibcite{Gaunt:2018:Online}{{4}{2018 (accessed September 14, 2018}{{Gaunt}}{{)}}}
+\@writefile{toc}{\contentsline {chapter}{\nonumberline Bibliography}{31}{chapter*.14}}
 \@writefile{lof}{\addvspace {10\p@ }}
 \@writefile{lot}{\addvspace {10\p@ }}
 \@writefile{loc}{\addvspace {10\p@ }}
 \@writefile{lol}{\addvspace {10\p@ }}
 \global\@namedef{scr@dte@chapter@lastmaxnumwidth}{10.79993pt}
 \global\@namedef{scr@dte@section@lastmaxnumwidth}{19.79993pt}
-\global\@namedef{scr@dte@codelisting@lastmaxnumwidth}{19.79993pt}
+\global\@namedef{scr@dte@subsection@lastmaxnumwidth}{28.79993pt}
 \global\@namedef{scr@dte@figure@lastmaxnumwidth}{19.79993pt}

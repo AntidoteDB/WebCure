@@ -1,6 +1,18 @@
 \chapter{Background}
 \label{Background}
 
+\section{Theoretical background}
+
+For this thesis, one of the core parts in the architecture belongs to the database called AntidoteDB\cite{antidote-website}. It it geo-distributed, which means that the datacenters of AntidoteDB could be spread across anywhere in the world. Moreover, due to its features, it is efficient and effective. AntidoteDB groups related operations into atomic transactions, delivers updates in a causal order and know how to merge concurrent operations. The last is possible because of CRDT-datatype, which is used in Antidote. The main concept of CRDTs is to merge data without additional interaction of the programmer, which makes it possible to avoid the problems that are common for other databases. 
+
+\subsection{Operation-based replication approach}
+
+Replication is a fundamental concept of distributed systems, well studied by the distributed algorithms community\cite{Shapiro2011}. In this thesis, we are going to use the operation-based replication approach, which originally means that replicas converge by propagating operations to every other replica\cite{Preguica2018}. Once an operation is received in a replica, it is applied locally. 
+
+\subsection{CRDTs}
+
+In this thesis, we are going to use 
+
 
 
 \section{Related Work}
@@ -10,4 +22,3 @@ This chapter is needed, if the thesis is somewhat research-oriented. (This shoul
 Maybe you can mention SwiftCloud here.
 
 https://github.com/SyncFree/SwiftCloud
-

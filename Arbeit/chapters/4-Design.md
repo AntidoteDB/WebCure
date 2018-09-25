@@ -28,3 +28,31 @@ It is a configured AntidoteDB server that supports the following scenarios:
 - applying received operations on the server;
 - sending back to the client the state of requested CRDT-object / objects according to their state on the server;
 - sending back states of all stored CRDT-objects, if a specific object was not asked for; 
+
+
+
+
+
+
+
+
+Please see the listing ~\ref{codelst:lst1} for the example behaviour of the function, which should run at the start of the application.
+
+\begin{codelisting}[!h]  
+    \caption[A prototype for the start function.]{The example behaviour for the function, which should run at the start of the application.}
+    \label{codelst:lst1}
+    \lstinputlisting[language=JavaScript]{jslistings/start_offline.js}
+\end{codelisting}
+
+Above you can look at the function, which should run at the starting point of the application. 
+
+\begin{codelisting}[!h]   
+    \caption[A prototype for the read function.]{The example behaviour for the function, which should run at the read time.}
+    \lstinputlisting[language=JavaScript]{jslistings/read_offline.js}
+    \label{codelst:lst2}
+\end{codelisting}
+\begin{codelisting}[!h]   
+    \caption[A prototype for the update function.]{The example behaviour for the function, which should run at the update time.}
+    \lstinputlisting[language=JavaScript]{jslistings/update_offline.js}
+    \label{codelst:lst3}
+\end{codelisting}
