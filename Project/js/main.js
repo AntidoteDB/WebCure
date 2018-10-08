@@ -208,23 +208,21 @@ const addCounterForm = () => {
           })
           .catch(function() {
             // TODO add the functionality when the key is not created yet and don't forget to recreate the select element
-            DBHelper.crdtDBPromise
-              .then(function(db) {
-                if (!db) return;
+            DBHelper.crdtDBPromise.then(function(db) {
+              if (!db) return;
 
-                var index = db.transaction('crdt-states').objectStore('crdt-states');
+              var index = db.transaction('crdt-states').objectStore('crdt-states');
 
-                return index.get(name.value).then(function(state) {
-                  if (state) {
-                    Object.setPrototypeOf(state, CounterCRDT.prototype);
+              return index.get(name.value).then(function(state) {
+                if (state) {
+                  Object.setPrototypeOf(state, CounterCRDT.prototype);
 
-                    log(`[Offline] The value of ${name.value} is: ${state.calculateState()}`);
-                  }
-                });
-              })
-              .catch(function() {
-                // TODO throw an error
+                  log(`[Offline] The value of ${name.value} is: ${state.calculateState()}`);
+                } else {
+                  log('[Offline] Selected key is not available offline.');
+                }
               });
+            });
           });
       });
     });
@@ -367,6 +365,61 @@ const addCounterForm = () => {
       });
   };
 
+  /**
+   * Creating the 'remove' button:
+   */
+
+  const liDelBtn = document.createElement('li');
+
+  const delBtn = document.createElement('button');
+  delBtn.id = 'delbtn-counter';
+  delBtn.innerHTML = 'Delete selected id from cache!';
+  delBtn.type = 'button';
+
+  const labelDelBtn = document.createElement('label');
+  labelDelBtn.setAttribute('for', delBtn.id);
+
+  liDelBtn.appendChild(labelDelBtn);
+  liDelBtn.appendChild(document.createElement('br'));
+  liDelBtn.appendChild(delBtn);
+
+  delBtn.onclick = function() {
+    var decision = confirm(
+      `Are you sure you want to remove the value of a key ${name.value} from the cache?`
+    );
+
+    if (decision) {
+      log(`Removing the requested key - ${name.value} - of a counter from the cache...`);
+      DBHelper.crdtDBPromise
+        .then(function(db) {
+          if (!db) return;
+
+          var index = db.transaction('crdt-states').objectStore('crdt-states');
+
+          return index.get(name.value).then(function(val) {
+            if (val) {
+              var tx = db.transaction('crdt-states', 'readwrite');
+              var store = tx.objectStore('crdt-states');
+              store.delete(name.value);
+              log(`The key ${name.value} of a counter was successfully removed from the cache.`);
+              return tx.complete;
+            } else {
+              log(`The requested key - ${name.value} - was not found in the cache`);
+            }
+          });
+        })
+        .catch(function() {
+          log(
+            `Error! Unfortunately, it was not possible to remove the requested id - ${
+              name.value
+            } - of a counter from the cache.`
+          );
+        });
+    } else {
+      log('Removal cancelled');
+    }
+  };
+
   // Add everything to the form
   li.appendChild(liNameLabel);
   li.appendChild(liName);
@@ -375,6 +428,7 @@ const addCounterForm = () => {
   li.appendChild(liGetBtn);
   li.appendChild(liIncBtn);
   li.appendChild(liDecBtn);
+  li.appendChild(liDelBtn);
   form.appendChild(li);
   mainContainer.appendChild(form);
 };
@@ -518,23 +572,20 @@ const addSetForm = () => {
           })
           .catch(function() {
             // TODO add the functionality when the key is not created yet and don't forget to recreate the select element
-            DBHelper.crdtDBPromise
-              .then(function(db) {
-                if (!db) return;
+            DBHelper.crdtDBPromise.then(function(db) {
+              if (!db) return;
 
-                var index = db.transaction('crdt-states').objectStore('crdt-states');
+              var index = db.transaction('crdt-states').objectStore('crdt-states');
 
-                return index.get(name.value).then(function(state) {
-                  if (state) {
-                    Object.setPrototypeOf(state, SetCRDT.prototype);
-                    log(`[Offline] The value of ${name.value} is: [ ${state.calculateState()} ]`);
-                  }
-                });
-              })
-
-              .catch(function() {
-                // TODO throw an error
+              return index.get(name.value).then(function(state) {
+                if (state) {
+                  Object.setPrototypeOf(state, SetCRDT.prototype);
+                  log(`[Offline] The value of ${name.value} is: [ ${state.calculateState()} ]`);
+                } else {
+                  log('[Offline] Selected key is not available offline.');
+                }
               });
+            });
           });
       });
     });
@@ -681,6 +732,61 @@ const addSetForm = () => {
     }
   };
 
+  /**
+   * Creating the 'remove' button:
+   */
+
+  const liDelBtn = document.createElement('li');
+
+  const delBtn = document.createElement('button');
+  delBtn.id = 'delbtn-set';
+  delBtn.innerHTML = 'Delete selected id from cache!';
+  delBtn.type = 'button';
+
+  const labelDelBtn = document.createElement('label');
+  labelDelBtn.setAttribute('for', delBtn.id);
+
+  liDelBtn.appendChild(labelDelBtn);
+  liDelBtn.appendChild(document.createElement('br'));
+  liDelBtn.appendChild(delBtn);
+
+  delBtn.onclick = function() {
+    var decision = confirm(
+      `Are you sure you want to remove the value of a key ${name.value} from the cache?`
+    );
+
+    if (decision) {
+      log(`Removing the requested key - ${name.value} - of a set from the cache...`);
+      DBHelper.crdtDBPromise
+        .then(function(db) {
+          if (!db) return;
+
+          var index = db.transaction('crdt-states').objectStore('crdt-states');
+
+          return index.get(name.value).then(function(val) {
+            if (val) {
+              var tx = db.transaction('crdt-states', 'readwrite');
+              var store = tx.objectStore('crdt-states');
+              store.delete(name.value);
+              log(`The key ${name.value} of a set was successfully removed from the cache.`);
+              return tx.complete;
+            } else {
+              log(`The requested key - ${name.value} - was not found in the cache`);
+            }
+          });
+        })
+        .catch(function() {
+          log(
+            `Error! Unfortunately, it was not possible to remove the requested id - ${
+              name.value
+            } - of a set from the cache.`
+          );
+        });
+    } else {
+      log('Removal cancelled');
+    }
+  };
+
   // Add everything to the form
   li.appendChild(liNameLabel);
   li.appendChild(liName);
@@ -691,6 +797,7 @@ const addSetForm = () => {
   li.appendChild(liGetBtn);
   li.appendChild(liAddBtn);
   li.appendChild(liDecBtn);
+  li.appendChild(liDelBtn);
   form.appendChild(li);
   mainContainer.appendChild(form);
 };
