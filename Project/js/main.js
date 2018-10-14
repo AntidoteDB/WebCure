@@ -562,7 +562,7 @@ const addSetForm = () => {
 
                   if (temp) {
                     log(`Timestamp: ${temp}`);
-                    store.put({ id: 1, data: temp });
+                    store.put({ id: 0, data: temp });
                   }
 
                   return tx.complete;
