@@ -43,7 +43,8 @@ video {
 }
 
 #counter-container,
-#set_aw-container {
+#set_aw-container,
+#mvr-container {
   width: 100%;
 }
 
@@ -145,7 +146,8 @@ li input:focus {
 }
 
 #counter-title,
-#set-title {
+#set-title,
+#mvr-title {
   width: 100%;
   text-align: center;
   background-color: #c3c3c3;
@@ -153,12 +155,14 @@ li input:focus {
 }
 
 #counter-options,
-#set_aw-options {
+#set_aw-options,
+#mvr-options {
   margin: auto;
   width: 20%;
 }
 
 #counter-container,
-#set_aw-container {
+#set_aw-container,
+#mvr-container {
   background-color: whitesmoke;
 }

@@ -1,4 +1,4 @@
-/*global DBHelper CounterCRDT SetCRDT:true*/
+/*global DBHelper CounterCRDT SetCRDT MVRegisterCRDT:true*/
 
 var CACHES_NAME = 'web-antidotedb-v1';
 
@@ -18,6 +18,7 @@ self.addEventListener('install', function(event) {
     // js CRDTs
     '/CRDTs/CounterCRDT.js',
     '/CRDTs/SetCRDT.js',
+    '/CRDTs/MVRegisterCRDT.js',
     // css
     '/styles.css',
     // images
@@ -50,6 +51,8 @@ self.addEventListener('sync', function(event) {
     event.waitUntil(pushCounterChangesToTheServer());
   } else if (event.tag === 'syncSetChanges') {
     event.waitUntil(pushSetChangesToTheServer());
+  } else if (event.tag === 'syncMVRChanges') {
+    event.waitUntil(pushMVRChangesToTheServer());
   }
 });
 
@@ -153,7 +156,7 @@ function pushSetChangesToTheServer() {
           .then(function(db) {
             if (!db) return;
             var index = db.transaction('crdt-timestamps').objectStore('crdt-timestamps');
-            return index.get(1).then(function(timestamp) {
+            return index.get(0).then(function(timestamp) {
               if (objects) {
                 objects.forEach(object => {
                   if (object.operations && object.operations.length > 0) {
@@ -192,6 +195,83 @@ function pushSetChangesToTheServer() {
                   objects.forEach(object => {
                     var temp = object;
                     Object.setPrototypeOf(temp, SetCRDT.prototype);
+                    temp.processSentOperations();
+                    store.put(temp);
+                  });
+                }
+                console.log('Success! Promise all');
+                return tx.complete;
+              });
+            });
+          })
+          .catch(function(error) {
+            throw 'Silenced Exception! ' + error;
+          });
+      });
+  });
+}
+
+function pushMVRChangesToTheServer() {
+  if (
+    typeof idb === 'undefined' ||
+    typeof DBHelper === 'undefined' ||
+    typeof MVRegisterCRDT === 'undefined'
+  ) {
+    self.importScripts('js/dbhelper.js', 'js/idb.js', 'js/CRDTs/MVRegisterCRDT.js');
+  }
+
+  let promiseArray = [];
+
+  DBHelper.getDB();
+  DBHelper.crdtDBPromise.then(function(db) {
+    var index = db.transaction('crdt-states').objectStore('crdt-states');
+
+    return index
+      .getAll()
+      .then(function(objects) {
+        DBHelper.crdtDBPromise
+          .then(function(db) {
+            if (!db) return;
+            var index = db.transaction('crdt-timestamps').objectStore('crdt-timestamps');
+            return index.get(0).then(function(timestamp) {
+              if (objects) {
+                objects.forEach(object => {
+                  if (object.operations && object.operations.length > 0) {
+                    fetch(`${DBHelper.SERVER_URL}/api/mvr_sync/${object.id}`, {
+                      method: 'PUT',
+                      body: JSON.stringify({
+                        lastCommitTimestamp: timestamp ? timestamp : undefined,
+                        updates: object.operations
+                      }),
+                      headers: {
+                        'Content-Type': 'application/json; charset=utf-8'
+                      }
+                    }).then(response => response.json());
+                  }
+                });
+              }
+            });
+          })
+          .catch(function() {
+            // TODO throw an error
+          });
+      })
+      .then(function() {
+        return Promise.all(promiseArray)
+          .then(function() {
+            DBHelper.crdtDBPromise.then(function(db) {
+              if (!db) return;
+
+              var index = db.transaction('crdt-states').objectStore('crdt-states');
+
+              return index.getAll().then(function(objects) {
+                var tx = db.transaction('crdt-states', 'readwrite');
+                var store = tx.objectStore('crdt-states');
+
+                if (objects) {
+                  objects.forEach(object => {
+                    var temp = object;
+                    Object.setPrototypeOf(temp, MVRegisterCRDT.prototype);
                     temp.processSentOperations();
                     store.put(temp);
                   });

@@ -257,6 +257,134 @@ apiRouter
     }
   });
 
+// MVR API
+apiRouter.route('/mvr/:mvr_id/timestamp').put(async function(req, res, next) {
+  try {
+    var mvrId = req.params.mvr_id;
+    var timestamp = req.body.timestamp;
+    var update_clock = req.body.update_clock;
+
+    setTheTimestamp(timestamp, update_clock);
+
+    let tx = await atdClient.startTransaction();
+
+    let mvr = tx.multiValueRegister(mvrId);
+    let val = await mvr.read();
+    await tx.commit();
+
+    if (!update_clock) {
+      atdClient.update_clock = true;
+    }
+
+    res.json({
+      status: 'OK',
+      cont: val,
+      lastCommitTimestamp: atdClient.getLastCommitTimestamp().toBase64()
+    });
+  } catch (error) {
+    next(error);
+  }
+});
+
+apiRouter.route('/mvr_sync/:mvr_id').put(async function(req, res, next) {
+  try {
+    var mvrId = req.params.mvr_id;
+    var lastCommitTimestamp = req.body.lastCommitTimestamp;
+    var updates = req.body.updates;
+
+    console.log(updates);
+    console.log(lastCommitTimestamp);
+    setTheTimestamp(lastCommitTimestamp, false);
+    let tx = await atdClient.startTransaction();
+    let mvr = tx.multiValueRegister(mvrId);
+
+    var antidoteUpdates = [];
+
+    updates.forEach(element => {
+      if (element.type === 'assign') {
+        antidoteUpdates.push(mvr.set(element.value));
+      } else if (element.type === 'reset') {
+        antidoteUpdates.push(mvr.set());
+      }
+    });
+
+    await tx.update(antidoteUpdates);
+    await tx.commit();
+    atdClient.update_clock = true;
+
+    res.json({
+      status: 'OK',
+      lastCommitTimestamp: atdClient.getLastCommitTimestamp().toBase64()
+    });
+  } catch (error) {
+    next(error);
+  }
+});
+
+apiRouter
+  .route('/mvr/:mvr_id')
+  .put(async function(req, res, next) {
+    try {
+      var mvrId = req.params.mvr_id;
+      var lastCommitTimestamp = req.body.lastCommitTimestamp;
+      setTheTimestamp(lastCommitTimestamp, false);
+
+      var value = req.body.value;
+
+      let tx = await atdClient.startTransaction();
+      let mvr = tx.multiValueRegister(mvrId);
+
+      await tx.update(mvr.set(value));
+      await tx.commit();
+      atdClient.update_clock = true;
+      res.json({
+        status: 'OK',
+        lastCommitTimestamp: atdClient.getLastCommitTimestamp().toBase64()
+      });
+    } catch (error) {
+      next(error);
+    }
+  })
+  .delete(async function(req, res, next) {
+    try {
+      var mvrId = req.params.mvr_id;
+      var lastCommitTimestamp = req.body.lastCommitTimestamp;
+      setTheTimestamp(lastCommitTimestamp, false);
+
+      let tx = await atdClient.startTransaction();
+      let mvr = tx.multiValueRegister(mvrId);
+
+      await tx.update(mvr.set());
+      await tx.commit();
+      atdClient.update_clock = true;
+      res.json({
+        status: 'OK',
+        lastCommitTimestamp: atdClient.getLastCommitTimestamp().toBase64()
+      });
+    } catch (error) {
+      next(error);
+    }
+  });
+
+/*the below route will have the functionality to respond with a list of requested values to specific keys*/
+/* apiRouter.route('/readAll').get(async function(req, res, next) {
+  try {
+    console.log('test');
+
+    let counter1 = atdClient.counter('a');
+    let counter2 = atdClient.counter('b');
+    let r = atdClient.readBatch([counter1, counter2]);
+    r.then(list => {
+      res.json({
+        status: 'OK',
+        result: list
+      });
+    });
+  } catch (error) {
+    next(error);
+  }
+}); */
+
 app.use('/api', apiRouter);
 
 module.exports = app;
