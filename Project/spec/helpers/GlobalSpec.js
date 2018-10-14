@@ -21,7 +21,7 @@ var runDocker = function(callback) {
   setTimeout(function() {
     console.log('##################### Docker-container restarted ...');
     callback();
-  }, 5000);
+  }, 10000);
 };
 
 beforeAll(function(done) {
