@@ -5,34 +5,36 @@
 \contentsline {section}{\numberline {1.3}The structure}{2}{section.1.3}
 \contentsline {chapter}{\numberline {2}Background}{3}{chapter.2}
 \contentsline {section}{\numberline {2.1}Theoretical background}{3}{section.2.1}
-\contentsline {subsection}{\numberline {2.1.1}Operation-based replication approach}{3}{subsection.2.1.1}
-\contentsline {subsection}{\numberline {2.1.2}CRDTs}{3}{subsection.2.1.2}
-\contentsline {section}{\numberline {2.2}Related Work}{3}{section.2.2}
-\contentsline {chapter}{\numberline {3}Requirements}{5}{chapter.3}
-\contentsline {section}{\numberline {3.1}Problem Description}{5}{section.3.1}
-\contentsline {chapter}{\numberline {4}Design}{7}{chapter.4}
-\contentsline {section}{\numberline {4.1}Overview of the protocol}{7}{section.4.1}
-\contentsline {subsection}{\numberline {4.1.1}The way of exchaning the data}{7}{subsection.4.1.1}
-\contentsline {subsection}{\numberline {4.1.2}A client receives an update from the server}{8}{subsection.4.1.2}
-\contentsline {subsection}{\numberline {4.1.3}A client sends an update to the server}{8}{subsection.4.1.3}
-\contentsline {subsection}{\numberline {4.1.4}Two clients interact with a server.}{9}{subsection.4.1.4}
-\contentsline {section}{\numberline {4.2}System's main components}{9}{section.4.2}
-\contentsline {subsection}{\numberline {4.2.1}Web Application}{10}{subsection.4.2.1}
-\contentsline {subsection}{\numberline {4.2.2}Server}{11}{subsection.4.2.2}
-\contentsline {subsection}{\numberline {4.2.3}A database layer}{11}{subsection.4.2.3}
-\contentsline {section}{\numberline {4.3}Offline functionality}{11}{section.4.3}
-\contentsline {section}{\numberline {4.4}Online functionality}{12}{section.4.4}
-\contentsline {section}{\numberline {4.5}The transition between offline and online modes}{12}{section.4.5}
-\contentsline {chapter}{\numberline {5}Technologies}{15}{chapter.5}
-\contentsline {section}{\numberline {5.1}Service Workers}{15}{section.5.1}
-\contentsline {section}{\numberline {5.2}IndexDB database}{16}{section.5.2}
-\contentsline {section}{\numberline {5.3}Cache API}{17}{section.5.3}
-\contentsline {chapter}{\numberline {6}Implementation}{19}{chapter.6}
-\contentsline {chapter}{\numberline {7}Evaluation}{21}{chapter.7}
-\contentsline {chapter}{\numberline {8}Conclusion}{23}{chapter.8}
-\contentsline {section}{\numberline {8.1}Summary}{23}{section.8.1}
-\contentsline {section}{\numberline {8.2}Future Work}{23}{section.8.2}
-\contentsline {chapter}{\nonumberline List of Figures}{25}{chapter*.11}
-\contentsline {chapter}{\nonumberline List of Tables}{27}{chapter*.12}
-\contentsline {chapter}{\nonumberline List of Code}{29}{chapter*.13}
-\contentsline {chapter}{\nonumberline Bibliography}{31}{chapter*.14}
+\contentsline {subsection}{\numberline {2.1.1}AntidoteDB}{3}{subsection.2.1.1}
+\contentsline {subsection}{\numberline {2.1.2}Main concepts}{3}{subsection.2.1.2}
+\contentsline {subsection}{\numberline {2.1.3}Conflict-Free Replicated Datatypes}{3}{subsection.2.1.3}
+\contentsline {section}{\numberline {2.2}Related Work}{4}{section.2.2}
+\contentsline {chapter}{\numberline {3}Requirements}{7}{chapter.3}
+\contentsline {section}{\numberline {3.1}Problem Description}{7}{section.3.1}
+\contentsline {chapter}{\numberline {4}Design}{9}{chapter.4}
+\contentsline {section}{\numberline {4.1}Overview of the protocol}{9}{section.4.1}
+\contentsline {subsection}{\numberline {4.1.1}The way of exchaning the data}{9}{subsection.4.1.1}
+\contentsline {subsection}{\numberline {4.1.2}A client receives an update from the server}{10}{subsection.4.1.2}
+\contentsline {subsection}{\numberline {4.1.3}A client sends an update to the server}{10}{subsection.4.1.3}
+\contentsline {subsection}{\numberline {4.1.4}Two clients interact with a server.}{11}{subsection.4.1.4}
+\contentsline {section}{\numberline {4.2}System's main components}{11}{section.4.2}
+\contentsline {subsection}{\numberline {4.2.1}Web Application}{12}{subsection.4.2.1}
+\contentsline {subsection}{\numberline {4.2.2}Server}{13}{subsection.4.2.2}
+\contentsline {subsection}{\numberline {4.2.3}A database layer}{13}{subsection.4.2.3}
+\contentsline {section}{\numberline {4.3}Offline functionality}{13}{section.4.3}
+\contentsline {section}{\numberline {4.4}Online functionality}{14}{section.4.4}
+\contentsline {section}{\numberline {4.5}The transition between offline and online modes}{14}{section.4.5}
+\contentsline {chapter}{\numberline {5}Technologies}{17}{chapter.5}
+\contentsline {section}{\numberline {5.1}Service Workers}{17}{section.5.1}
+\contentsline {section}{\numberline {5.2}IndexDB database}{18}{section.5.2}
+\contentsline {section}{\numberline {5.3}Cache API}{19}{section.5.3}
+\contentsline {chapter}{\numberline {6}Implementation}{21}{chapter.6}
+\contentsline {section}{\numberline {6.1}Optimization}{21}{section.6.1}
+\contentsline {chapter}{\numberline {7}Evaluation}{23}{chapter.7}
+\contentsline {chapter}{\numberline {8}Conclusion}{25}{chapter.8}
+\contentsline {section}{\numberline {8.1}Summary}{25}{section.8.1}
+\contentsline {section}{\numberline {8.2}Future Work}{25}{section.8.2}
+\contentsline {chapter}{\nonumberline List of Figures}{27}{chapter*.13}
+\contentsline {chapter}{\nonumberline List of Tables}{29}{chapter*.14}
+\contentsline {chapter}{\nonumberline List of Code}{31}{chapter*.15}
+\contentsline {chapter}{\nonumberline Bibliography}{33}{chapter*.16}

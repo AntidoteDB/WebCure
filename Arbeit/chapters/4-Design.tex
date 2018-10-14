@@ -2,7 +2,7 @@
 \label{Design}
 
 As we specified the requirements, we can go further into the design part of the system, and that is what we are going to explain in this chapter. 
-First of all, we will define the protocol of the system. Moreover, secondly, we will describe the client- and server- sides of it.
+First of all, we will define the protocol of the system. And, secondly, we will describe the client- and server- sides of it.
 
 \section{Overview of the protocol}
 
@@ -16,9 +16,11 @@ The fundamental part of the WebCache will be its protocol design. We need to exa
 
 \subsection{The way of exchaning the data}
 
-Because the AntidoteDB is using CRDT datatypes, the following options are possible to update the database: state-based and operation-based. Due to the time constraints and the amount of work, this thesis will consider only the operation-based approach, which was described in the theoretical background chapter. Therefore, whenever a client wants to update the database, it will send to the server a list of operations. However, whenever it wants to read the value, it will receive the current state of the object from the database.
+Because the AntidoteDB is using CRDT datatypes, the following options are possible to update the database: state-based and operation-based. Due to the time constraints and the amount of work, this thesis will consider only the operation-based approach, which was described in the \chapref*{Background}. Therefore, whenever a client wants to update the database, it will send to the server a list of operations. However, whenever it wants to read the value, it will receive the current state of the object from the database.
 
-For this thesis, we are going to use such datatypes as counters and sets. As was already mentioned in the Introduction chapter, the counter is a number datatype, which allows incrementing and decrementing the value. Reading a counter will return the aggregated value of all performed operations. 
+For this thesis, we are going to use such datatypes as counters and sets. As was already mentioned in the \chapref*{Introduction}, the counter is a number datatype, which allows incrementing and decrementing the value. Reading a counter will return the aggregated value of all performed operations.  
+
+<INCLUDE brief description of sets and reference to the chapter one>
 
 
 
@@ -27,25 +29,27 @@ For this thesis, we are going to use such datatypes as counters and sets. As was
 Let us say that a client requests an update from the server. In this case, if the request is successful, the server is going to respond with a value for the requested key and the timestamp of the last write -- \textit{t\textsubscript{0}}.
 
 \begin{figure}[!htb]
-    \setlength{\fboxsep}{4pt}%
-    \setlength{\fboxrule}{1pt}%
-    \fbox{\includegraphics[width=\linewidth]{images/architecture/read1.png}}
-    \caption{The way a client receives a key-value update from the server.}
+    \begin{center}
+    \def\svgwidth{\linewidth}
+    \input{images/architecture/read.pdf_tex}
+    \caption {The way a client receives a key-value update from the server.}
     \label{fig:design2}
+\end{center}
 \end{figure}
 
-In case a client receives an update from the server, and that update has an earlier timestamp than the one, which is already stored in the client's cache, then a client skips it and can try later for fresher updates. The implementation of this will be explained later in the chapter of implementation.
+In case a client receives an update from the server, and that update has an earlier timestamp than the one, which is already stored in the client's cache, then a client skips it and can tries later for fresher updates. The implementation of this will be explained later in the chapter of implementation.
 
 \subsection{A client sends an update to the server}
 
 In the case of writing the information to the server, a client has to send a key with an operation to the server. Then the acknowledgment with a timestamp is going to be sent back to the client.
 
 \begin{figure}[!htb]
-    \setlength{\fboxsep}{4pt}%
-    \setlength{\fboxrule}{1pt}%
-    \fbox{\includegraphics[width=\linewidth]{images/architecture/write.png}}
-    \caption{The way a client sends a write operation to the server.}
+    \begin{center}
+    \def\svgwidth{\linewidth}
+    \input{images/architecture/write.pdf_tex}
+    \caption {The way a client sends a write operation to the server.}
     \label{fig:design3}
+\end{center}
 \end{figure}
 
 \subsection*{Several updates on a client while offline}
@@ -55,11 +59,12 @@ The client is capable of performing updates when offline. These updates will tak
 \subsection{Two clients interact with a server.}
 
 \begin{figure}[!htb]
-    \setlength{\fboxsep}{4pt}%
-    \setlength{\fboxrule}{1pt}%
-    \fbox{\includegraphics[width=\linewidth]{images/architecture/twoclients.png}}
-    \caption{Graphical representation over a possible communicaton between two clients and a server.}
+    \begin{center}
+    \def\svgwidth{\linewidth}
+    \input{images/architecture/twoClients.pdf_tex}
+    \caption {Graphical representation over a possible communicaton between two clients and a server.}
     \label{fig:design4}
+\end{center}
 \end{figure}
 
 Let us assume that initially, the server has the key-value pair \textit{(k, v)} at the timestamp \textit{t\textsubscript{0}}. Therefore, after both clients receive updates from the server, they consist of the \textit{(k, v)} pair at the timestamp \textit{t\textsubscript{0}}. In case clients change the value under mentioned key to something else, they will have to get an acknowledgement from the server in order to receive a unique timestamp related to the change. At the representation above, a \textit{Client 1} is acting first and getting an acknowledgement of its change at the time \textit{t\textsubscript{1}}, while Client \textit{Client 2} makes the change later at time \textit{t\textsubscript{2}}. That makes \textit{Client 1} receive a new value \textit{v''}, when it reads the information from the server again.
@@ -69,12 +74,14 @@ Let us assume that initially, the server has the key-value pair \textit{(k, v)} 
 
 As the protocol is explained, we can start designing the system. Let us have a look at the main components of it:
 
+
 \begin{figure}[!htb]
     \begin{center}
-    \setlength{\fboxsep}{4pt}%
-    \setlength{\fboxrule}{1pt}%
-    \fbox{\includegraphics[width=\linewidth]{images/design/diagram2.png}}%
-    \caption {An overview of the system's design.}
+        \setlength{\fboxsep}{15pt}%
+        \setlength{\fboxrule}{1pt}%
+    \def\svgwidth{\linewidth}
+    \fbox{\input{images/design/Main.pdf_tex}}
+    \caption {A top-level view of the system's design.}
     \label{fig:design5}
 \end{center}
 \end{figure}
@@ -121,9 +128,9 @@ When a user performs \textit{read} by \textit{key} operation from the cache, the
 In this section, we are going to describe the offline functionality of the system.
 
 Initially, the database is empty. Therefore, if the user is offline from the very beginning, he should be able to add the data into the database himself. 
-The system represented in \textbf{Figure \ref{fig:design5}} will change by having only the Web Application and the database. However, whenever the connection is established with the server, the operations, which were stored in local database while offline, will be sent to the server. 
+The system represented in \figref*{fig:design5} will change by having only the Web Application and the database. However, whenever the connection is established with the server, the operations, which were stored in local database while offline, will be sent to the server. 
 
-At the \textbf{Figure \ref{fig:design6}}, the sequence of getting the data from the local database is shown. This case describes the scenario, when the server is unavailable and the application continues its work in an offline mode.
+At the \figref*{fig:design6}, the sequence of getting the data from the local database is shown. This case describes the scenario, when the server is unavailable and the application has to read the value from the local database. 
  
 \begin{figure}[!htb]
     \begin{center}
@@ -134,15 +141,17 @@ At the \textbf{Figure \ref{fig:design6}}, the sequence of getting the data from 
 \end{center}
 \end{figure}
 
+
 \begin{figure}[!htb]
     \begin{center}
-    \includegraphics[width=\linewidth]{images/design/offlineProtocol_send.png}%
+    \def\svgwidth{\columnwidth}
+    \input{images/design/offlineStore.pdf_tex}
     \caption {Successful storing of an operation in the local database -- Sequence diagram.}
     \label{fig:design7}
 \end{center}
 \end{figure}
 
-At the \textbf{Figure \ref{fig:design7}}, the sequence of storing the data locally is shown. This case describes the scenario, when the server is unavailable and the application continues its work in an offline mode.
+At the \textbf{Figure \ref{fig:design7}}, the sequence of storing the data locally is shown. When the connection is not there, the application will store in the database all offline-performed operations by the user. Afterwards, once the connection is re-established, that data will be sent back to the server. At the point when we read the state again from the server, the data, which is stored locally could be easily removed due to be pointless to hold on it. 
 
 
 \section {Online functionality}

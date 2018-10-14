@@ -46,6 +46,12 @@
 \usepackage{url}
 \usepackage{stackengine}
 
+\usepackage{xparse,nameref}
+\NewDocumentCommand{\chapref}{s m}{\textbf{Chapter \textcolor{blue}{~\ref{#2}}}\IfBooleanF{#1}{ \nameref{#2}}}
+\NewDocumentCommand{\figref}{s m}{\textbf{Figure \textcolor{blue}{~\ref{#2}}}\IfBooleanF{#1}{ \nameref{#2}}}
+
+
+
 %\makeatletter 
 %\g@addto@macro\UrlBreaks{ 
 %  \do\a\do\b\do\c\do\d\do\e\do\f\do\g\do\h\do\i\do\j 
@@ -133,7 +139,7 @@
  %% allow rotations
  \usepackage{rotating}
  %% use pdftex version of hyperref
- \usepackage[pdftex,colorlinks=true,linkcolor=black,citecolor=black,%
+ \usepackage[pdftex,colorlinks=true,linkcolor=blue,citecolor=black,%
  anchorcolor=black,urlcolor=black,bookmarks=true,%
  bookmarksopen=true,bookmarksopenlevel=0,plainpages=false,%
  bookmarksnumbered=true,hyperindex=false,pdfstartview=%

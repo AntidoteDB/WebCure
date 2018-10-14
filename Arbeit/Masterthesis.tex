@@ -70,7 +70,9 @@
 	%%%%% Inhaltsverzeichnis
 	\cleardoubleoddplainpage
 	\pdfbookmark[1]{Contents}{toc}
+	{\hypersetup{linkcolor=black}
 	\tableofcontents
+	}
 	
 	%%%%% Alle anderen Kapitel, Anhang und Verzeichnisse
 	\mainmatter
@@ -107,11 +109,13 @@
 		\label{part:Conclusion}
 		\input{chapters/10-ConclusionandFutureWork}
 
+		{\hypersetup{linkcolor=black}
 		\listoffigures
 		\listoftables
 		\listoftoc{loc}
+		}
 		\cleardoubleoddplainpage
 		\bibliography{bibliography/references}
-	
+		
 
 \end{document}

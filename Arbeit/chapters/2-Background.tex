@@ -3,22 +3,56 @@
 
 \section{Theoretical background}
 
-For this thesis, one of the core parts in the architecture belongs to the database called AntidoteDB\cite{antidote-website}. It it geo-distributed, which means that the datacenters of AntidoteDB could be spread across anywhere in the world. Moreover, due to its features, it is efficient and effective. AntidoteDB groups related operations into atomic transactions, delivers updates in a causal order and know how to merge concurrent operations. The last is possible because of CRDT-datatype, which is used in Antidote. The main concept of CRDTs is to merge data without additional interaction of the programmer, which makes it possible to avoid the problems that are common for other databases. 
+To make the reader more comfortable with the content, we are going to introduce the background knowledge, which is a prerequisite to have the understanding of the paper.
 
-\subsection{Operation-based replication approach}
+\subsection{AntidoteDB}
 
-Replication is a fundamental concept of distributed systems, well studied by the distributed algorithms community\cite{Shapiro2011}. In this thesis, we are going to use the operation-based replication approach, which originally means that replicas converge by propagating operations to every other replica\cite{Preguica2018}. Once an operation is received in a replica, it is applied locally. 
+For this thesis, one of the core parts in the architecture of the WebCache belongs to the database called AntidoteDB\cite{4}. It is geo-distributed, which means that the datacenters of AntidoteDB could be spread across anywhere in the world. Moreover, due to its features, it is efficient and effective. AntidoteDB groups related operations into atomic transactions\cite{9}, delivers updates in a causal order and merges concurrent operations. The last is possible because of Conflict-Free Replicated Datatypes (CRDTs) \cite{2}, which is used in AntidoteDB. The usage of CRDTs allows the programmer to avoid problems that are common for other databases. Especially, it is realted to the concept of concurrent updates.
 
-\subsection{CRDTs}
+\subsection{Main concepts}
 
-In this thesis, we are going to use 
+A \textit{transaction} is a basic unit of computing, which consits of sequence of operations that are exuted atomically on a database \cite{11}.
+
+Now, let us introduce different consistency guarantees and the one we will try to follow in the designing of our application. 
+\\
+First of all, let's define consistency. It is 
 
 
+
+As stated in \citet{10}, 
+
+
+
+\subsection{Conflict-Free Replicated Datatypes}
+
+As it is stated in \citet{3}, a conflict-free replicated datatype (CRDT) is an abstract datatype, which is designed for a possibility to be replicated among replicas and possesses the following properties:
+
+
+    \begin{itemize}
+        \item {The data at any replica could be modified independently of other replicas}
+        \item {Replicas deterministically converge at the same state in case they received the same updates}
+    \end{itemize}
+
+Replication is a fundamental concept of distributed systems, well studied by the distributed algorithms community\cite{2}. There are two models of replication that are considered (PUT a citation): state-based and operation-based. Eventually, we are going to use the operation-based approach. However, we are going to introduce our reader to both of them below. 
+
+\subsection*{Operation-based replication approach}
+
+In this thesis, we are going to use the operation-based replication approach, which originally means that replicas converge by propagating operations to every other replica\cite{3}. Once an operation is received in a replica, it is applied locally. That means, replicas don't exchange states with each other and as sometimes the full state could be a lot of data, it improves the efficiency. 
+
+- MAYBE INCLUDE GRAPH AND EXPLANATION BASED ON IT
+
+\subsection*{State-based replication approach}
+
+The idea of this approach is kind of opposite to the operation-based one. Here, every replica, when receives an update, it first applies it locally. Afterwards, it sends it to other replicas. That means, that every replica sends its current full state to other replicas. When that happens, the merge function is happening between a local state and a received stated. The important thing is that every update eventually is going to appear at every other replica in the system. 
+
+- MAYBE INCLUDE GRAPH AND EXPLANATION BASED ON IT
 
 \section{Related Work}
 
-This chapter is needed, if the thesis is somewhat research-oriented. (This should be usually the case.) In some cases though, the thesis may also be more application- or implementation-oriented, in which case a designated related work chapter may not be necessary, but instead citations are just used appropriately throughout the thesis, but specifically in the chapters Introduction and Background. Literature search could be based on DBLP.
+In the following paragraphs. we are going to mention the researches, which influenced our work.
 
-Maybe you can mention SwiftCloud here.
+Geo-replication of data into several data centers (DC) across the world is used in cloud platforms in order to improve availability and latency\cite{6}. This goal could be achieved even to a greater extent by storing some part of the data or even by replicating all of it at client machines. Thus, caching could be useful in terms of increasing availability of systems.
 
-https://github.com/SyncFree/SwiftCloud
+One of such systems that integrates client- and server-side storage is called SwiftCloud, where the idea is to cache a subset of the objects from the DCs, and if the appropriate objects are in cache, then responsiveness is improved and the operation without an internet connection is possible\cite{5}. The authors of the SwiftCloud state that it improves latency and throughput if it is compared to general geo-replication techniques. That is possible to due to availability during faults thanks to automatic switch of DC when the current one does not respond. Apart from that, the system also maintains consistency guarantees \cite{7}.
+
+A framework named Legion shows another interesting approach how to address availability and scalability issues by using cache at the client-side. The idea is to avoid a concept of a centralized infrastracture for mediating user interactions, as it causes unnecessarily high latency and hinders fault-tolerance and scalability\cite{8}. As an alternative, authors of Legion suggest client web applications to securely replicate data from servers and afterwards synchonize the data among the clients. This change makes the system less dependent on the server and, moreover, it reduces the latency of interactions among clients. The guarantee of convergence between all of the replicas is possible due to CRDTs. 

@@ -1,32 +1,94 @@
-\begin{thebibliography}{4}
+\begin{thebibliography}{11}
 \providecommand{\natexlab}[1]{#1}
 \providecommand{\url}[1]{\texttt{#1}}
 \expandafter\ifx\csname urlstyle\endcsname\relax
   \providecommand{\doi}[1]{doi: #1}\else
   \providecommand{\doi}{doi: \begingroup \urlstyle{rm}\Url}\fi
 
-\bibitem[ant(2018 (accessed September 25, 2018))]{antidote-website}
+\bibitem[4(2018 (accessed September 25, 2018))]{4}
 Antidotedb.
 \newblock \url{https://www.antidotedb.eu/}, 2018 (accessed September 25, 2018).
 
-\bibitem[Shapiro et~al.(2011)Shapiro, Pregui, Baquero, and
-  Zawirski]{Shapiro2011}
+\bibitem[Lampson(1981)]{9}
+Butler~W. Lampson.
+\newblock Atomic transactions.
+\newblock In \emph{Distributed Systems - Architecture and Implementation, An
+  Advanced Course}, 1981.
+\newblock ISBN 3-540-10571-9.
+\newblock URL \url{http://dl.acm.org/citation.cfm?id=647434.726386}.
+
+\bibitem[Shapiro et~al.(2011)Shapiro, Pregui, Baquero, and Zawirski]{2}
 Marc Shapiro, Nuno Pregui, Carlos Baquero, and Marek Zawirski.
 \newblock {Replicated Data Types: A comprehensive study of Convergent and
   Commutative Replicated Data Types}.
-\newblock \penalty0 (RR-7506):\penalty0 50, 2011.
+\newblock 2011.
 \newblock URL \url{http://hal.inria.fr/inria-00555588}.
 
-\bibitem[Pregui{\c{c}}a et~al.(2018)Pregui{\c{c}}a, Baquero, and
-  Shapiro]{Preguica2018}
+\bibitem[zsu and Valduriez(2011)]{11}
+M.~Tamer zsu and Patrick Valduriez.
+\newblock \emph{Principles of Distributed Database Systems}.
+\newblock Springer Publishing Company, Incorporated, 3rd edition, 2011.
+\newblock ISBN 1441988335, 9781441988331.
+
+\bibitem[Vogels(2008)]{10}
+Werner Vogels.
+\newblock Eventually consistent.
+\newblock \emph{Queue}, 6\penalty0 (6):\penalty0 14--19, October 2008.
+\newblock ISSN 1542-7730.
+\newblock \doi{10.1145/1466443.1466448}.
+\newblock URL \url{http://doi.acm.org/10.1145/1466443.1466448}.
+
+\bibitem[Pregui{\c{c}}a et~al.(2018)Pregui{\c{c}}a, Baquero, and Shapiro]{3}
 Nuno Pregui{\c{c}}a, Carlos Baquero, and Marc Shapiro.
-\newblock \emph{Conflict-Free Replicated Data Types CRDTs}, pages 1--10.
-\newblock Springer International Publishing, Cham, 2018.
+\newblock \emph{Conflict-Free Replicated Data Types CRDTs}.
+\newblock Springer International Publishing, 2018.
 \newblock ISBN 978-3-319-63962-8.
 \newblock \doi{10.1007/978-3-319-63962-8_185-1}.
 \newblock URL \url{https://doi.org/10.1007/978-3-319-63962-8_185-1}.
 
-\bibitem[Gaunt(2018 (accessed September 14, 2018))]{Gaunt:2018:Online}
+\bibitem[Sovran et~al.(2011)Sovran, Power, Aguilera, and Li]{6}
+Yair Sovran, Russell Power, Marcos~K. Aguilera, and Jinyang Li.
+\newblock Transactional storage for geo-replicated systems.
+\newblock In \emph{Proceedings of the Twenty-Third ACM Symposium on Operating
+  Systems Principles}, SOSP '11, 2011.
+\newblock ISBN 978-1-4503-0977-6.
+\newblock \doi{10.1145/2043556.2043592}.
+\newblock URL \url{http://doi.acm.org/10.1145/2043556.2043592}.
+
+\bibitem[Pregui\c{c}a et~al.(2014)Pregui\c{c}a, Zawirski, Bieniusa, Duarte,
+  Balegas, Baquero, and Shapiro]{5}
+Nuno Pregui\c{c}a, Marek Zawirski, Annette Bieniusa, S{\'e}rgio Duarte, Valter
+  Balegas, Carlos Baquero, and Marc Shapiro.
+\newblock Swiftcloud: Fault-tolerant geo-replication integrated all the way to
+  the client machine.
+\newblock In \emph{Proceedings of the 2014 IEEE 33rd International Symposium on
+  Reliable Distributed Systems Workshops}, SRDSW '14, 2014.
+\newblock ISBN 978-1-4799-7361-3.
+\newblock \doi{10.1109/SRDSW.2014.33}.
+\newblock URL \url{https://doi.org/10.1109/SRDSW.2014.33}.
+
+\bibitem[Zawirski et~al.(2015)Zawirski, Pregui\c{c}a, Duarte, Bieniusa,
+  Balegas, and Shapiro]{7}
+Marek Zawirski, Nuno Pregui\c{c}a, S{\'e}rgio Duarte, Annette Bieniusa, Valter
+  Balegas, and Marc Shapiro.
+\newblock Write fast, read in the past: Causal consistency for client-side
+  applications.
+\newblock In \emph{Proceedings of the 16th Annual Middleware Conference},
+  Middleware '15, 2015.
+\newblock ISBN 978-1-4503-3618-5.
+\newblock \doi{10.1145/2814576.2814733}.
+\newblock URL \url{http://doi.acm.org/10.1145/2814576.2814733}.
+
+\bibitem[van~der Linde et~al.(2017)van~der Linde, Fouto, Leit{\~{a}}o,
+  Pregui{\c{c}}a, Casti{\~{n}}eira, and Bieniusa]{8}
+Albert van~der Linde, Pedro Fouto, Jo{\~{a}}o Leit{\~{a}}o, Nuno
+  Pregui{\c{c}}a, Santiago Casti{\~{n}}eira, and Annette Bieniusa.
+\newblock {Legion: Enriching Internet Services with Peer-to-Peer Interactions}.
+\newblock \emph{Proceedings of the 26th International Conference on World Wide
+  Web}, 2017.
+\newblock \doi{10.1145/3038912.3052673}.
+
+\bibitem[Gaunt(2018 (accessed September 14, 2018))]{1}
 Matt Gaunt.
 \newblock Service workers: an introduction.
 \newblock
