@@ -147,7 +147,8 @@ li input:focus {
 
 #counter-title,
 #set-title,
-#mvr-title {
+#mvr-title,
+#map-title {
   width: 100%;
   text-align: center;
   background-color: #c3c3c3;
@@ -156,13 +157,15 @@ li input:focus {
 
 #counter-options,
 #set_aw-options,
-#mvr-options {
+#mvr-options,
+#map-options {
   margin: auto;
   width: 20%;
 }
 
 #counter-container,
 #set_aw-container,
-#mvr-container {
+#mvr-container,
+#map-container {
   background-color: whitesmoke;
 }
