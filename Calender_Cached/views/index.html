@@ -1,0 +1,360 @@
+<!DOCTYPE HTML>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Implementation of a calendar app on a weakly consistent data store</title>
+    <script src="../js/jquery.js"></script>
+    <script src="../js/popper.min.js"></script>
+    <link type="text/css" href="../css/bootstrap.min.css" rel="stylesheet">
+    <link type="text/css" href="../css/bootstrap-tour-standalone.min.css" rel="stylesheet">
+    <link rel='stylesheet' type="text/css" href='../css/fullcalendar.css' />
+    <link rel='stylesheet' type="text/css" href="../css/calendarLayout.css" />
+    <link rel='stylesheet' type="text/css" href="../css/appStyle.css" />
+	<link rel='stylesheet' type="text/css" href="../css/appointment.css" />
+    <script type="application/javascript" src="../js/client.js"></script>
+    <script type="application/javascript" src="../js/organizer.js"></script>
+    <script type="application/javascript" src='../js/moment.min.js'></script>
+    <script type="application/javascript" src='../js/fullcalendar.js'></script>
+    <script type="application/javascript" src='../js/appoinmentPopup.js'></script>
+	
+	<style>
+	#lblConnectMsg{
+		visibility:hidden;
+	}
+	</style>
+</head>
+
+<body>
+    <div class="container-full row">
+        <div class="col-md-6">
+		<div class="input-group" id="calendar1TopGroup">
+                    Name:
+                    <select id="cbNames-1" onchange="onChangeCbNames(this)"></select>
+                    <input type="button" class="btn btn-info" id="removeParticipant-1" value="Remove" onclick="onRemoveParticipants(this)" /> Calendar View:
+                    <label class="text-success" id="cbCalendars-1">Business</label>
+                    <input type="button" class="btn btn-info" id="update-1" value="Update" onclick="getUpdates(this)" />
+					<input type="button" class="btn btn-info" id="addAppointment-1" value="new appoinment" onclick="openModel(this)"/>
+					</div>
+					<!--Model pop code for calendar 1-->
+					<div id="modelPop-1" class="model">
+						<div class="model-content">
+							<span id = "close-1" class="close">&times;</span>
+							<span class="label label-info">Appointment properties 1</span>
+							<div id="appInputForm-1">
+                                    
+                                    <table class="table table-bordered table-striped">
+                                        <tr>
+                                            <th>Description</th>
+                                            <th>Value</th>
+                                        </tr>
+                                        <tr>
+                                            <td>Title</td>
+                                            <td>
+                                                <input id="iname-1" class="form-control" type="text" placeholder="Titel" />
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>Description</td>
+                                            <td>
+                                                <input id="idesc-1" class="form-control" type="text" placeholder="desc..." />
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>Start</td>
+                                            <td>
+                                                <input type="datetime-local" id="istartDate-1" />
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>End</td>
+                                            <td>
+                                                <div>
+                                                    <input type="checkbox" id="iallDay-1" onclick='onAllDayClick(this)' />Allday?
+                                                </div>
+                                                <input type="datetime-local" id="iendDate-1" />
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>Participants</td>
+                                            <td>
+                                                <ul id="iSelParticipants-1" />
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>Priority</td>
+                                            <td>
+                                                <input id="ipriority-1" type="number" value="1" min="1" max="10">
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>Comments and Changelog</ul>
+                                            </td>
+                                            <td>
+                                                <input type="text"  class="form-control" id="iCommentInput-1" placeholder="insert comment here" onKeyPress="onEnterComment(event)" />
+                                                <ul id="iCommentBox-1" />
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <input id="iadd-1" class="btn btn-info" type="submit" value="add" onclick="addAppointment(this)" />
+                                                <input id="iedit-1" class="btn btn-info" type="submit" value="edit" onclick="editAppointment(this)" />
+                                                <input id="idelete-1" class="btn btn-info" type="submit" value="delete" onclick="removeAppointment(this)" />
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </div>
+                                <div id="appChooseForm-1" style="display: none;">
+                                    <Label>Please solve conflict by choosing between values</Label>
+                                    <table  class="table table-bordered table-striped">
+                                        <tr>
+                                            <th>Description</th>
+                                            <th>Value</th>
+                                        </tr>
+                                        <tr>
+                                            <td>Title</td>
+                                            <td>
+                                                <select id="cname-1"  class="form-control" type="text" />
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>Description</td>
+                                            <td>
+                                                <select id="cdesc-1"  class="form-control" type="text" placeholder="desc..." />
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>Start</td>
+                                            <td>
+                                                <select name="start" id="cstartDate-1" />
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>End</td>
+                                            <td>
+                                                <select name="end" id="cendDate-1" />
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>Priority</td>
+                                            <td>
+                                                <select id="cpriority-1" type="number" value="1" min="1" max="10" />
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <input id="add-1" class="btn btn-info btn-sm" type="submit" value="solve conflict" onclick="solveAppointment(this)" />
+                                        </tr>
+                                    </table>
+                                </div>
+						</div>
+					</div>
+					<!--End of Model pop code for calendar 1-->
+					
+            <div id="part1">
+                <div id="calendar1">
+				<hr>
+                    <table class="table-bordered">
+                        <tr>
+                            <th><span>Calendar 1</span>
+                                <div id="calInfoGlobal-1" hidden="hidden">
+                                    <label class="bluetext">: Business</label>. Changes are disabled for global calendars</div>
+                            </th>
+                        </tr>
+                        <tr>
+                            <td valign="top">
+                                <div id='calendar-1'></div>
+                                <div>
+
+                                </div>
+                            </td>
+                            
+                               
+                        
+                        </tr>
+                    </table>
+					 
+					
+					<div class="input-group" id="calendar1BottomGroup">
+						<input type="text" class="form-control" id="newParticipant-1" placeholder="insert name here" onKeyPress="onEnterNewParticipant(event)" />
+						<span class="input-group-btn">
+							<input type="button" class="btn btn-info" id="btnNewParticipant-1" value="add new participant" onclick="addNewParticipant(event)" />
+                        </span>
+						
+                    </div>    
+					<div class="input-group">
+                        <input type="button" class="btn btn-info" id="btnBreakConnection" value="Disconnect" onclick="disableConnection(this)"/>
+                        <input type="button" class="btn btn-info" id="btnReestablishConnection" value="Connect" onclick="enableConnection(this)"/>	
+						<div><span id="lblConnectMsg">Danger Label</span></div>		
+			</div>						
+			   </div>
+            </div>
+            <!--
+                <div class="col-md-12">
+                    <textarea rows="20" cols="100" id="console-1"></textarea>
+                </div>
+            -->
+        </div>
+        <div class="col-md-6">
+			<div class="input-group" id="calendar2TopGroup">
+                Name:
+                <select id="cbNames-2" onchange="onChangeCbNames(this)"></select>
+                <input type="button" class="btn btn-info" id="removeParticipant-2" value="Remove" onclick="onRemoveParticipants(this)" /> Calendar View:
+                <label class="text-success" id="cbCalendars-2">Business</label>
+                <input type="button" class="btn btn-info" id="update-2" value="Update" onclick="getUpdates(this)" />
+				<input type="button" class="btn btn-info" id="addAppointment-2" value="new appoinment" onclick="openModel(this)"/>
+			</div>
+				<!--Model pop code for calendar 2-->
+					<div id="modelPop-2" class="model">
+						<div class="model-content">
+							<span id = "close-2" class="close">&times;</span>
+							<span class="label label-info">Appointment properties 2</span>
+							<div id="appInputForm-2">
+                                    <table class="table table-bordered table-striped">
+                                        <tr>
+                                            <th>Description</th>
+                                            <th>Value</th>
+                                        </tr>
+                                        <tr>
+                                            <td>Title</td>
+                                            <td>
+                                                <input id="iname-2"  class="form-control" type="text" placeholder="Titel" />
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>Description</td>
+                                            <td>
+                                                <input id="idesc-2"  class="form-control" type="text" placeholder="desc..." />
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>Start</td>
+                                            <td>
+                                                <input type="datetime-local" id="istartDate-2" />
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>End</td>
+                                            <td>
+                                                <div>
+                                                    <input type="checkbox" id="iallDay-2" onclick='onAllDayClick(this)' />Allday?
+                                                </div>
+                                                <input type="datetime-local" id="iendDate-2" />
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>Participants</td>
+                                            <td>
+                                                <ul id="iSelParticipants-2" />
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>Priority</td>
+                                            <td>
+                                                <input id="ipriority-2" type="number" value="1" min="1" max="10">
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>Comments and Changelog</ul>
+                                            </td>
+                                            <td>
+                                                <input type="text"  class="form-control" id="iCommentInput-2" placeholder="insert comment here" onKeyPress="onEnterComment(event)" />
+                                                <ul id="iCommentBox-2" />
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <input id="iadd-2" class="btn btn-info" type="submit" value="add" onclick="addAppointment(this)" />
+                                                <input id="iedit-2" class="btn btn-info" type="submit" value="edit" onclick="editAppointment(this)" />
+                                                <input id="idelete-2" class="btn btn-info" type="submit" value="delete" onclick="removeAppointment(this)" />
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </div>
+                                <div id="appChooseForm-2" style="display: none">
+                                    <Label>Please solve conflict by choosing between values</Label>
+                                    <table class="table table-bordered table-striped">
+                                        <tr>
+                                            <th>Description</th>
+                                            <th>Value</th>
+                                        </tr>
+                                        <tr>
+                                            <td>Title</td>
+                                            <td>
+                                                <select id="cname-2"  class="form-control" type="text" />
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>Description</td>
+                                            <td>
+                                                <select id="cdesc-2"  class="form-control" type="text" placeholder="desc..." />
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>Start</td>
+                                            <td>
+                                                <select name="start" id="cstartDate-2" />
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>End</td>
+                                            <td>
+                                                <select name="end" id="cendDate-2" />
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>Priority</td>
+                                            <td>
+                                                <select id="cpriority-2" type="number" value="1" min="1" max="10" />
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <input id="add-2" class="btn btn-info" type="submit" value="solve conflict" onclick="solveAppointment(this)" />
+                                        </tr>
+                                    </table>
+                                </div>
+						</div>
+					</div>
+					<!--End of Model pop code for calendar 2-->
+					
+            <div id="part2">
+                <div id="calendar2">
+				<hr>
+                    <table class="table-bordered">
+                        <tr>
+                            <th><span>Calendar 2</span>
+                                <div id="calInfoGlobal-2" hidden="hidden">
+                                    <label class="bluetext">: Business</label>. Changes are disabled for global calendars</div>
+                            </th>
+                        </tr>
+                        <tr>
+                            <td valign="top">
+                                <div id='calendar-2'></div>
+                                <div>
+
+                                </div>
+                            </td>     
+                        </tr>
+                    </table>
+					<div class="input-group" id="calendar2BottomGroup">
+						<input type="text" class="form-control" id="newParticipant-2" placeholder="insert name here" onKeyPress="onEnterNewParticipant(event)" />
+						<span class="input-group-btn">
+							<input type="button" class="btn btn-info" id="btnNewParticipant-2" value="add new participant" onclick="addNewParticipant(event)" />
+						<span>
+					</div>
+                </div>
+            </div>
+            <!--
+                <div class="col-md-12">
+                    <textarea rows="20" cols="100" id="console-2"></textarea>
+                </div>
+            -->
+        </div>
+    </div>
+    <script src="../js/bootstrap.min.js"></script>
+    <script src="../js/bootstrap-tour-standalone.min.js"></script>
+</body>
+
+</html>

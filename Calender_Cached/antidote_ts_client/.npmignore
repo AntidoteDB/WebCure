@@ -1,0 +1,6 @@
+src/
+*.log
+*.tgz
+.idea/
+generate-pb-types.sh
+docs/

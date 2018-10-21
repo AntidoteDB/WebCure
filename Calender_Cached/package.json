@@ -1,0 +1,43 @@
+{
+  "name": "rest",
+  "description": "test mit rest._.",
+  "author": "Tim Dellmann",
+  "dependencies": {
+    "bluebird": "^3.5.1",
+    "body-parser": "~1.18.2",
+    "compression": "^1.7.1",
+    "cookie-parser": "~1.4.3",
+    "debug": "~2.6.9",
+    "express": "~4.15.5",
+    "helmet": "^3.11.0",
+    "morgan": "~1.9.0",
+    "node-restful": "^0.2.5",
+    "pkill": "^2.0.0",
+    "pug": "2.0.0-beta11",
+    "serve-favicon": "~2.4.5",
+    "socket.io": "*"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.18.0",
+    "babel-core": "^6.18.2",
+    "babel-loader": "^6.2.7",
+    "babel-plugin-transform-es2015-modules-commonjs": "^6.18.0",
+    "babel-plugin-transform-react-jsx": "^6.8.0",
+    "babel-preset-es2017": "^6.16.0",
+    "babel-preset-react": "^6.16.0"
+  },
+  "scripts": {
+    "start": "node ./bin/www",
+    "test-cov": "./runTest.sh",
+    "test": "./runTestCoverage.sh"
+  },
+  "babel": {
+    "presets": [
+      "es2017"
+    ],
+    "plugins": [
+      "transform-react-jsx",
+      "transform-es2015-modules-commonjs"
+    ]
+  }
+}
