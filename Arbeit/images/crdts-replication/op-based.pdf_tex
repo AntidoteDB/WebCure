@@ -1,0 +1,99 @@
+%% Creator: Inkscape inkscape 0.92.3, www.inkscape.org
+%% PDF/EPS/PS + LaTeX output extension by Johan Engelen, 2010
+%% Accompanies image file 'images/crdts-replication/op-based.pdf' (pdf, eps, ps)
+%%
+%% To include the image in your LaTeX document, write
+%%   \input{<filename>.pdf_tex}
+%%  instead of
+%%   \includegraphics{<filename>.pdf}
+%% To scale the image, write
+%%   \def\svgwidth{<desired width>}
+%%   \input{<filename>.pdf_tex}
+%%  instead of
+%%   \includegraphics[width=<desired width>]{<filename>.pdf}
+%%
+%% Images with a different path to the parent latex file can
+%% be accessed with the `import' package (which may need to be
+%% installed) using
+%%   \usepackage{import}
+%% in the preamble, and then including the image with
+%%   \import{<path to file>}{<filename>.pdf_tex}
+%% Alternatively, one can specify
+%%   \graphicspath{{<path to file>/}}
+%% 
+%% For more information, please see info/svg-inkscape on CTAN:
+%%   http://tug.ctan.org/tex-archive/info/svg-inkscape
+%%
+\begingroup%
+  \makeatletter%
+  \providecommand\color[2][]{%
+    \errmessage{(Inkscape) Color is used for the text in Inkscape, but the package 'color.sty' is not loaded}%
+    \renewcommand\color[2][]{}%
+  }%
+  \providecommand\transparent[1]{%
+    \errmessage{(Inkscape) Transparency is used (non-zero) for the text in Inkscape, but the package 'transparent.sty' is not loaded}%
+    \renewcommand\transparent[1]{}%
+  }%
+  \providecommand\rotatebox[2]{#2}%
+  \newcommand*\fsize{\dimexpr\f@size pt\relax}%
+  \newcommand*\lineheight[1]{\fontsize{\fsize}{#1\fsize}\selectfont}%
+  \ifx\svgwidth\undefined%
+    \setlength{\unitlength}{251.19958022bp}%
+    \ifx\svgscale\undefined%
+      \relax%
+    \else%
+      \setlength{\unitlength}{\unitlength * \real{\svgscale}}%
+    \fi%
+  \else%
+    \setlength{\unitlength}{\svgwidth}%
+  \fi%
+  \global\let\svgwidth\undefined%
+  \global\let\svgscale\undefined%
+  \makeatother%
+  \begin{picture}(1,0.3630579)%
+    \lineheight{1}%
+    \setlength\tabcolsep{0pt}%
+    \put(0,0){\includegraphics[width=\unitlength,page=1]{images/crdts-replication/op-based.pdf}}%
+    \put(0.34972387,0.3056329){\color[rgb]{0.01568627,0.2,1}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}\textit{f}\textit{(}\textit{x}\end{tabular}}}}%
+    \put(0.38755035,0.30270296){\color[rgb]{0.01568627,0.2,1}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}\textit{\textsubscript{1}}\end{tabular}}}}%
+    \put(0.40082664,0.3056329){\color[rgb]{0.01568627,0.2,1}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}\textit{)}\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=2]{images/crdts-replication/op-based.pdf}}%
+    \put(0.33469997,0.21483264){\color[rgb]{0.66666667,0.4745098,0.25882353}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}\textit{g}\textit{(}\textit{x}\end{tabular}}}}%
+    \put(0.37847788,0.2119027){\color[rgb]{0.66666667,0.4745098,0.25882353}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}\textit{\textsubscript{2}}\end{tabular}}}}%
+    \put(0.39175417,0.21483264){\color[rgb]{0.66666667,0.4745098,0.25882353}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}\textit{)}\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=3]{images/crdts-replication/op-based.pdf}}%
+    \put(0.7319178,0.05073213){\color[rgb]{1,1,1}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}\textbf{D}\end{tabular}}}}%
+    \put(0.72125696,0.09692644){\color[rgb]{0.4745098,0.4745098,0.4745098}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}\textit{f}\textit{(}\textit{x}\end{tabular}}}}%
+    \put(0.75908343,0.0939965){\color[rgb]{0.4745098,0.4745098,0.4745098}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}\textit{\textsubscript{3}}\end{tabular}}}}%
+    \put(0.77235574,0.09692644){\color[rgb]{0.4745098,0.4745098,0.4745098}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}\textit{)}\end{tabular}}}}%
+    \put(0.7550468,0.30254771){\color[rgb]{0.4745098,0.4745098,0.4745098}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}\textit{g}\textit{(}\textit{x}\end{tabular}}}}%
+    \put(0.79882472,0.29961777){\color[rgb]{0.4745098,0.4745098,0.4745098}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}\textit{\textsubscript{1}}\end{tabular}}}}%
+    \put(0.81210101,0.30254771){\color[rgb]{0.4745098,0.4745098,0.4745098}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}\textit{)}\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=4]{images/crdts-replication/op-based.pdf}}%
+    \put(0.76068774,0.26266311){\color[rgb]{1,1,1}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}\textbf{D}\end{tabular}}}}%
+    \put(0.50653536,0.09692644){\color[rgb]{0.4745098,0.4745098,0.4745098}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}\textit{g}\textit{(}\textit{x}\end{tabular}}}}%
+    \put(0.55031328,0.0939965){\color[rgb]{0.4745098,0.4745098,0.4745098}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}\textit{\textsubscript{3}}\end{tabular}}}}%
+    \put(0.56358559,0.09692644){\color[rgb]{0.4745098,0.4745098,0.4745098}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}\textit{)}\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=5]{images/crdts-replication/op-based.pdf}}%
+    \put(0.52963253,0.05073213){\color[rgb]{1,1,1}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}\textbf{D}\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=6]{images/crdts-replication/op-based.pdf}}%
+    \put(0.35844921,0.16552128){\color[rgb]{1,1,1}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}\textbf{S}\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=7]{images/crdts-replication/op-based.pdf}}%
+    \put(0.35853678,0.26242824){\color[rgb]{1,1,1}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}\textbf{S}\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=8]{images/crdts-replication/op-based.pdf}}%
+    \put(0.86249121,0.16538195){\color[rgb]{1,1,1}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}\textbf{D}\end{tabular}}}}%
+    \put(0.84387255,0.20839155){\color[rgb]{0.4745098,0.4745098,0.4745098}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}\textit{f}\textit{(}\textit{x}\end{tabular}}}}%
+    \put(0.88169504,0.20546161){\color[rgb]{0.4745098,0.4745098,0.4745098}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}\textit{\textsubscript{2}}\end{tabular}}}}%
+    \put(0.89496735,0.20839155){\color[rgb]{0.4745098,0.4745098,0.4745098}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}\textit{)}\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=9]{images/crdts-replication/op-based.pdf}}%
+    \put(0.0952371,0.04763498){\color[rgb]{1,0.57254902,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}\textit{x}\end{tabular}}}}%
+    \put(0.11154683,0.04470504){\color[rgb]{1,0.57254902,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}\textit{\textsubscript{3}}\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=10]{images/crdts-replication/op-based.pdf}}%
+    \put(0.0952371,0.25146086){\color[rgb]{0,0.21176471,0.28627451}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}\textit{x}\end{tabular}}}}%
+    \put(0.11154683,0.24853092){\color[rgb]{0,0.21176471,0.28627451}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}\textit{\textsubscript{1}}\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=11]{images/crdts-replication/op-based.pdf}}%
+    \put(0.0952371,0.14694243){\color[rgb]{0.66666667,0.4745098,0.25882353}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}\textit{x}\end{tabular}}}}%
+    \put(0.11154683,0.14401249){\color[rgb]{0.66666667,0.4745098,0.25882353}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}\textit{\textsubscript{2}}\end{tabular}}}}%
+    \put(0.02228717,0.28967349){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}\textit{x}\end{tabular}}}}%
+  \end{picture}%
+\endgroup%

@@ -1,13 +1,57 @@
-\begin{thebibliography}{11}
+\begin{thebibliography}{15}
 \providecommand{\natexlab}[1]{#1}
 \providecommand{\url}[1]{\texttt{#1}}
 \expandafter\ifx\csname urlstyle\endcsname\relax
   \providecommand{\doi}[1]{doi: #1}\else
   \providecommand{\doi}{doi: \begingroup \urlstyle{rm}\Url}\fi
 
+\bibitem[zsu and Valduriez(2011)]{11}
+M.~Tamer zsu and Patrick Valduriez.
+\newblock \emph{Principles of Distributed Database Systems}.
+\newblock Springer Publishing Company, Incorporated, 3rd edition, 2011.
+\newblock ISBN 1441988335, 9781441988331.
+
+\bibitem[Bailis(2014 (accessed October 24, 2018))]{13}
+Peter Bailis.
+\newblock Linearizability versus serializability.
+\newblock
+  \url{http://www.bailis.org/blog/linearizability-versus-serializability/},
+  2014 (accessed October 24, 2018).
+
+\bibitem[Zhang(2015 (accessed October 23, 2018))]{12}
+Irene~Y. Zhang.
+\newblock Consistency should be more consistent!
+\newblock \url{https://irenezhang.net/blog/2015/02/01/consistency.html}, 2015
+  (accessed October 23, 2018).
+
+\bibitem[Shapiro(2011 (accessed October 23, 2018))]{10}
+Marc Shapiro.
+\newblock Strong eventual consistency and conflict-free replicated data types.
+\newblock
+  \url{https://www.microsoft.com/en-us/research/video/strong-eventual-consistency-and-conflict-free-replicated-data-types/},
+  2011 (accessed October 23, 2018).
+
+\bibitem[Zawirski et~al.(2015)Zawirski, Pregui\c{c}a, Duarte, Bieniusa,
+  Balegas, and Shapiro]{7}
+Marek Zawirski, Nuno Pregui\c{c}a, S{\'e}rgio Duarte, Annette Bieniusa, Valter
+  Balegas, and Marc Shapiro.
+\newblock Write fast, read in the past: Causal consistency for client-side
+  applications.
+\newblock In \emph{Proceedings of the 16th Annual Middleware Conference},
+  Middleware '15, 2015.
+\newblock ISBN 978-1-4503-3618-5.
+\newblock \doi{10.1145/2814576.2814733}.
+\newblock URL \url{http://doi.acm.org/10.1145/2814576.2814733}.
+
 \bibitem[4(2018 (accessed September 25, 2018))]{4}
 Antidotedb.
 \newblock \url{https://www.antidotedb.eu/}, 2018 (accessed September 25, 2018).
+
+\bibitem[Deepthi Devaki~Akkoorath(2016)]{14}
+Annette~Bieniusa Deepthi Devaki~Akkoorath.
+\newblock Antidote: the highly-available geo-replicated database with strongest
+  guarantees.
+\newblock \emph{SyncFree Technology White Paper}, 2016.
 
 \bibitem[Lampson(1981)]{9}
 Butler~W. Lampson.
@@ -24,19 +68,15 @@ Marc Shapiro, Nuno Pregui, Carlos Baquero, and Marek Zawirski.
 \newblock 2011.
 \newblock URL \url{http://hal.inria.fr/inria-00555588}.
 
-\bibitem[zsu and Valduriez(2011)]{11}
-M.~Tamer zsu and Patrick Valduriez.
-\newblock \emph{Principles of Distributed Database Systems}.
-\newblock Springer Publishing Company, Incorporated, 3rd edition, 2011.
-\newblock ISBN 1441988335, 9781441988331.
-
-\bibitem[Vogels(2008)]{10}
-Werner Vogels.
-\newblock Eventually consistent.
-\newblock \emph{Queue}, 6\penalty0 (6):\penalty0 14--19, October 2008.
-\newblock ISSN 1542-7730.
-\newblock \doi{10.1145/1466443.1466448}.
-\newblock URL \url{http://doi.acm.org/10.1145/1466443.1466448}.
+\bibitem[Akkoorath et~al.(2016)Akkoorath, Tomsic, Bravo, Li, Crain, Bieniusa,
+  Preguica, and Shapiro]{15}
+Deepthi~Devaki Akkoorath, Alejandro~Z. Tomsic, Manuel Bravo, Zhongmiao Li,
+  Tyler Crain, Annette Bieniusa, Nuno Preguica, and Marc Shapiro.
+\newblock {Cure: Strong Semantics Meets High Availability and Low Latency}.
+\newblock \emph{Proceedings - International Conference on Distributed Computing
+  Systems}, 2016.
+\newblock ISSN 1063-6927.
+\newblock \doi{10.1109/ICDCS.2016.98}.
 
 \bibitem[Pregui{\c{c}}a et~al.(2018)Pregui{\c{c}}a, Baquero, and Shapiro]{3}
 Nuno Pregui{\c{c}}a, Carlos Baquero, and Marc Shapiro.
@@ -45,6 +85,13 @@ Nuno Pregui{\c{c}}a, Carlos Baquero, and Marc Shapiro.
 \newblock ISBN 978-3-319-63962-8.
 \newblock \doi{10.1007/978-3-319-63962-8_185-1}.
 \newblock URL \url{https://doi.org/10.1007/978-3-319-63962-8_185-1}.
+
+\bibitem[Gaunt(2018 (accessed September 14, 2018))]{1}
+Matt Gaunt.
+\newblock Service workers: an introduction.
+\newblock
+  \url{https://developers.google.com/web/fundamentals/primers/service-workers/},
+  2018 (accessed September 14, 2018).
 
 \bibitem[Sovran et~al.(2011)Sovran, Power, Aguilera, and Li]{6}
 Yair Sovran, Russell Power, Marcos~K. Aguilera, and Jinyang Li.
@@ -67,18 +114,6 @@ Nuno Pregui\c{c}a, Marek Zawirski, Annette Bieniusa, S{\'e}rgio Duarte, Valter
 \newblock \doi{10.1109/SRDSW.2014.33}.
 \newblock URL \url{https://doi.org/10.1109/SRDSW.2014.33}.
 
-\bibitem[Zawirski et~al.(2015)Zawirski, Pregui\c{c}a, Duarte, Bieniusa,
-  Balegas, and Shapiro]{7}
-Marek Zawirski, Nuno Pregui\c{c}a, S{\'e}rgio Duarte, Annette Bieniusa, Valter
-  Balegas, and Marc Shapiro.
-\newblock Write fast, read in the past: Causal consistency for client-side
-  applications.
-\newblock In \emph{Proceedings of the 16th Annual Middleware Conference},
-  Middleware '15, 2015.
-\newblock ISBN 978-1-4503-3618-5.
-\newblock \doi{10.1145/2814576.2814733}.
-\newblock URL \url{http://doi.acm.org/10.1145/2814576.2814733}.
-
 \bibitem[van~der Linde et~al.(2017)van~der Linde, Fouto, Leit{\~{a}}o,
   Pregui{\c{c}}a, Casti{\~{n}}eira, and Bieniusa]{8}
 Albert van~der Linde, Pedro Fouto, Jo{\~{a}}o Leit{\~{a}}o, Nuno
@@ -87,12 +122,5 @@ Albert van~der Linde, Pedro Fouto, Jo{\~{a}}o Leit{\~{a}}o, Nuno
 \newblock \emph{Proceedings of the 26th International Conference on World Wide
   Web}, 2017.
 \newblock \doi{10.1145/3038912.3052673}.
-
-\bibitem[Gaunt(2018 (accessed September 14, 2018))]{1}
-Matt Gaunt.
-\newblock Service workers: an introduction.
-\newblock
-  \url{https://developers.google.com/web/fundamentals/primers/service-workers/},
-  2018 (accessed September 14, 2018).
 
 \end{thebibliography}

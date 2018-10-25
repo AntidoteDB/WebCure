@@ -1,0 +1,10 @@
+\chapter{Related Work}
+\label{RelatedWork}
+
+In the following paragraphs. we are going to mention the researches, which influenced our work.
+
+Geo-replication of data into several data centers (DC) across the world is used in cloud platforms in order to improve availability and latency\cite{6}. This goal could be achieved even to a greater extent by storing some part of the data or even by replicating all of it at client machines. Thus, caching could be useful in terms of increasing availability of systems.
+
+One of such systems that integrates client- and server-side storage is called SwiftCloud, where the idea is to cache a subset of the objects from the DCs, and if the appropriate objects are in cache, then responsiveness is improved and the operation without an internet connection is possible\cite{5}. The authors of the SwiftCloud state that it improves latency and throughput if it is compared to general geo-replication techniques. That is possible to due to availability during faults thanks to automatic switch of DC when the current one does not respond. Apart from that, the system also maintains consistency guarantees \cite{7}.
+
+A framework named Legion shows another interesting approach how to address availability and scalability issues by using cache at the client-side. The idea is to avoid a concept of a centralized infrastracture for mediating user interactions, as it causes unnecessarily high latency and hinders fault-tolerance and scalability\cite{8}. As an alternative, authors of Legion suggest client web applications to securely replicate data from servers and afterwards synchonize the data among the clients. This change makes the system less dependent on the server and, moreover, it reduces the latency of interactions among clients. The guarantee of convergence between all of the replicas is possible due to CRDTs. 
