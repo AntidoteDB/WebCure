@@ -43,13 +43,15 @@
 \usepackage{caption}
 \usepackage{jslistings}
 
+\lstset{aboveskip=20pt,belowskip=20pt}
+
 \usepackage{url}
 \usepackage{stackengine}
 
 \usepackage{xparse,nameref}
-\NewDocumentCommand{\chapref}{s m}{\textbf{Chapter \textcolor{blue}{~\ref{#2}}}\IfBooleanF{#1}{ \nameref{#2}}}
-\NewDocumentCommand{\figref}{s m}{\textbf{Figure \textcolor{blue}{~\ref{#2}}}\IfBooleanF{#1}{ \nameref{#2}}}
-
+\NewDocumentCommand{\chapref}{s m}{\textbf{Chapter\textcolor{blue}{~\ref{#2}}}\IfBooleanF{#1}{ \nameref{#2}}}
+\NewDocumentCommand{\figref}{s m}{\textbf{Figure\textcolor{blue}{~\ref{#2}}}\IfBooleanF{#1}{ \nameref{#2}}}
+\NewDocumentCommand{\lstref}{s m}{\textbf{Listing\textcolor{blue}{~\ref{#2}}}\IfBooleanF{#1}{ \nameref{#2}}}
 
 
 %\makeatletter 

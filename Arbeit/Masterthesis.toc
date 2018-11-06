@@ -6,7 +6,7 @@
 \contentsline {chapter}{\numberline {2}Theoretical background}{3}{chapter.2}
 \contentsline {section}{\numberline {2.1}Main concepts}{3}{section.2.1}
 \contentsline {section}{\numberline {2.2}AntidoteDB}{4}{section.2.2}
-\contentsline {section}{\numberline {2.3}Conflict-Free Replicated Datatypes}{4}{section.2.3}
+\contentsline {section}{\numberline {2.3}Conflict-Free Replicated Datatypes}{5}{section.2.3}
 \contentsline {chapter}{\numberline {3}Requirements}{7}{chapter.3}
 \contentsline {section}{\numberline {3.1}Problem Description}{7}{section.3.1}
 \contentsline {chapter}{\numberline {4}Design}{9}{chapter.4}
@@ -30,10 +30,14 @@
 \contentsline {section}{\numberline {6.1}Optimization}{21}{section.6.1}
 \contentsline {chapter}{\numberline {7}Evaluation}{23}{chapter.7}
 \contentsline {chapter}{\numberline {8}Related Work}{25}{chapter.8}
-\contentsline {chapter}{\numberline {9}Conclusion}{27}{chapter.9}
-\contentsline {section}{\numberline {9.1}Summary}{27}{section.9.1}
-\contentsline {section}{\numberline {9.2}Future Work}{27}{section.9.2}
-\contentsline {chapter}{\nonumberline List of Figures}{29}{chapter*.15}
-\contentsline {chapter}{\nonumberline List of Tables}{31}{chapter*.16}
-\contentsline {chapter}{\nonumberline List of Code}{33}{chapter*.17}
-\contentsline {chapter}{\nonumberline Bibliography}{35}{chapter*.18}
+\contentsline {section}{\numberline {8.1}SwiftCloud: a transactional system that brings geo-replication to the client}{25}{section.8.1}
+\contentsline {section}{\numberline {8.2}Legion: a framework, which enriches web applications}{25}{section.8.2}
+\contentsline {section}{\numberline {8.3}Developing web and mobile applications with offline usage experience}{26}{section.8.3}
+\contentsline {chapter}{\numberline {9}Conclusion}{33}{chapter.9}
+\contentsline {section}{\numberline {9.1}Summary}{33}{section.9.1}
+\contentsline {section}{\numberline {9.2}Future Work}{33}{section.9.2}
+\contentsline {chapter}{\nonumberline List of Figures}{35}{chapter*.21}
+\contentsline {chapter}{\nonumberline List of Tables}{37}{chapter*.22}
+\contentsline {chapter}{\nonumberline List of Code}{39}{chapter*.23}
+\contentsline {chapter}{\nonumberline Listings}{41}{chapter*.24}
+\contentsline {chapter}{\nonumberline Bibliography}{43}{chapter*.25}

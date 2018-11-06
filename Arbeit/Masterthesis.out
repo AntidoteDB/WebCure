@@ -30,10 +30,14 @@
 \BOOKMARK [1][-]{section.6.1}{6.1 Optimization}{chapter.6}% 30
 \BOOKMARK [0][-]{chapter.7}{7 Evaluation}{}% 31
 \BOOKMARK [0][-]{chapter.8}{8 Related Work}{}% 32
-\BOOKMARK [0][-]{chapter.9}{9 Conclusion}{}% 33
-\BOOKMARK [1][-]{section.9.1}{9.1 Summary}{chapter.9}% 34
-\BOOKMARK [1][-]{section.9.2}{9.2 Future Work}{chapter.9}% 35
-\BOOKMARK [0][-]{chapter*.15}{List of Figures}{}% 36
-\BOOKMARK [0][-]{chapter*.16}{List of Tables}{}% 37
-\BOOKMARK [0][-]{chapter*.17}{List of Code}{}% 38
-\BOOKMARK [0][-]{chapter*.18}{Bibliography}{}% 39
+\BOOKMARK [1][-]{section.8.1}{8.1 SwiftCloud: a transactional system that brings geo-replication to the client}{chapter.8}% 33
+\BOOKMARK [1][-]{section.8.2}{8.2 Legion: a framework, which enriches web applications}{chapter.8}% 34
+\BOOKMARK [1][-]{section.8.3}{8.3 Developing web and mobile applications with offline usage experience}{chapter.8}% 35
+\BOOKMARK [0][-]{chapter.9}{9 Conclusion}{}% 36
+\BOOKMARK [1][-]{section.9.1}{9.1 Summary}{chapter.9}% 37
+\BOOKMARK [1][-]{section.9.2}{9.2 Future Work}{chapter.9}% 38
+\BOOKMARK [0][-]{chapter*.21}{List of Figures}{}% 39
+\BOOKMARK [0][-]{chapter*.22}{List of Tables}{}% 40
+\BOOKMARK [0][-]{chapter*.23}{List of Code}{}% 41
+\BOOKMARK [0][-]{chapter*.24}{Listings}{}% 42
+\BOOKMARK [0][-]{chapter*.25}{Bibliography}{}% 43

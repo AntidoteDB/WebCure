@@ -1,8 +1,8 @@
 \babel@toc {ngerman}{}
 \addvspace {10\p@ }
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {\relax 2.1}{\ignorespaces Operation-based approach.\relax }}{5}{figure.caption.3}
-\contentsline {figure}{\numberline {\relax 2.2}{\ignorespaces State-based approach.\relax }}{6}{figure.caption.5}
+\contentsline {figure}{\numberline {\relax 2.1}{\ignorespaces Operation-based approach. <<S>> stands for source replicas and <<D>> for downstream replicas. \relax }}{5}{figure.caption.3}
+\contentsline {figure}{\numberline {\relax 2.2}{\ignorespaces State-based approach. <<S>> stands for source replicas and <<M>> for merging stages.\relax }}{6}{figure.caption.5}
 \addvspace {10\p@ }
 \addvspace {10\p@ }
 \contentsline {figure}{\numberline {\relax 4.1}{\ignorespaces The way a client receives a key-value update from the server.\relax }}{10}{figure.caption.6}
@@ -14,6 +14,7 @@
 \addvspace {10\p@ }
 \addvspace {10\p@ }
 \contentsline {figure}{\numberline {\relax 6.1}{\ignorespaces A look at the server-client architecture with a RESTful interface.\relax }}{21}{figure.caption.13}
+\addvspace {10\p@ }
 \addvspace {10\p@ }
 \addvspace {10\p@ }
 \addvspace {10\p@ }

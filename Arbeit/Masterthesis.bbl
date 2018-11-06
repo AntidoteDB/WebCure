@@ -1,4 +1,4 @@
-\begin{thebibliography}{15}
+\begin{thebibliography}{26}
 \providecommand{\natexlab}[1]{#1}
 \providecommand{\url}[1]{\texttt{#1}}
 \expandafter\ifx\csname urlstyle\endcsname\relax
@@ -61,13 +61,6 @@ Butler~W. Lampson.
 \newblock ISBN 3-540-10571-9.
 \newblock URL \url{http://dl.acm.org/citation.cfm?id=647434.726386}.
 
-\bibitem[Shapiro et~al.(2011)Shapiro, Pregui, Baquero, and Zawirski]{2}
-Marc Shapiro, Nuno Pregui, Carlos Baquero, and Marek Zawirski.
-\newblock {Replicated Data Types: A comprehensive study of Convergent and
-  Commutative Replicated Data Types}.
-\newblock 2011.
-\newblock URL \url{http://hal.inria.fr/inria-00555588}.
-
 \bibitem[Akkoorath et~al.(2016)Akkoorath, Tomsic, Bravo, Li, Crain, Bieniusa,
   Preguica, and Shapiro]{15}
 Deepthi~Devaki Akkoorath, Alejandro~Z. Tomsic, Manuel Bravo, Zhongmiao Li,
@@ -77,6 +70,13 @@ Deepthi~Devaki Akkoorath, Alejandro~Z. Tomsic, Manuel Bravo, Zhongmiao Li,
   Systems}, 2016.
 \newblock ISSN 1063-6927.
 \newblock \doi{10.1109/ICDCS.2016.98}.
+
+\bibitem[Shapiro et~al.(2011)Shapiro, Pregui, Baquero, and Zawirski]{2}
+Marc Shapiro, Nuno Pregui, Carlos Baquero, and Marek Zawirski.
+\newblock {Replicated Data Types: A comprehensive study of Convergent and
+  Commutative Replicated Data Types}.
+\newblock 2011.
+\newblock URL \url{http://hal.inria.fr/inria-00555588}.
 
 \bibitem[Pregui{\c{c}}a et~al.(2018)Pregui{\c{c}}a, Baquero, and Shapiro]{3}
 Nuno Pregui{\c{c}}a, Carlos Baquero, and Marc Shapiro.
@@ -122,5 +122,69 @@ Albert van~der Linde, Pedro Fouto, Jo{\~{a}}o Leit{\~{a}}o, Nuno
 \newblock \emph{Proceedings of the 26th International Conference on World Wide
   Web}, 2017.
 \newblock \doi{10.1145/3038912.3052673}.
+
+\bibitem[16(2018 (accessed October 29, 2018))]{16}
+What are web components?
+\newblock
+  \url{https://www.webcomponents.org/introduction#what-are-web-components-},
+  2018 (accessed October 29, 2018).
+
+\bibitem[18(2016 (accessed October 29, 2018))]{18}
+Offline caching with service worker precache.
+\newblock \url{https://www.polymer-project.org/1.0/toolbox/service-worker},
+  2016 (accessed October 29, 2018).
+
+\bibitem[17(2018 (accessed October 29, 2018))]{17}
+Who's using polymer?
+\newblock \url{https://github.com/Polymer/polymer/wiki/Who's-using-Polymer%3F},
+  2018 (accessed October 29, 2018).
+
+\bibitem[Bidelman(2018 (accessed October 30, 2018))]{20}
+Eric Bidelman.
+\newblock A beginner's guide to using the application cache.
+\newblock \url{https://www.html5rocks.com/en/tutorials/appcache/beginner/},
+  2018 (accessed October 30, 2018).
+
+\bibitem[21(2018 (accessed October 30, 2018))]{21}
+Using the application cache.
+\newblock
+  \url{https://developer.mozilla.org/en-US/docs/Web/HTML/Using_the_application_cache},
+  2018 (accessed October 30, 2018).
+
+\bibitem[van Kesteren(2008 (accessed October 29, 2018))]{19}
+Anne van Kesteren.
+\newblock Offline web applications.
+\newblock \url{https://www.w3.org/TR/offline-webapps/}, 2008 (accessed October
+  29, 2018).
+
+\bibitem[23(accessed November 4, 2018)]{23}
+hood.ie intro.
+\newblock \url{http://hood.ie/intro/}, accessed November 4, 2018.
+
+\bibitem[Peyser(2017 (accessed November 4, 2018))]{24}
+Jake Peyser.
+\newblock Intro to hoodie and react.
+\newblock \url{https://css-tricks.com/intro-hoodie-react/}, 2017 (accessed
+  November 4, 2018).
+
+\bibitem[West(2013 (accessed November 4, 2018))]{25}
+Matt West.
+\newblock Using localforage for offline data storage.
+\newblock
+  \url{https://blog.teamtreehouse.com/using-localforage-offline-data-storage},
+  2013 (accessed November 4, 2018).
+
+\bibitem[Lehnardt(2013 (accessed November 4, 2018))]{26}
+Jan Lehnardt.
+\newblock Understanding couchdb conflicts.
+\newblock
+  \url{https://writing.jan.io/2013/12/19/understanding-couchdb-conflicts.html},
+  2013 (accessed November 4, 2018).
+
+\bibitem[22(2018 (accessed October 30, 2018))]{22}
+Conflict resolution.
+\newblock
+  \url{https://docs.realm.io/platform/self-hosted/customize/conflict-resolution},
+  2018 (accessed October 30, 2018).
 
 \end{thebibliography}
