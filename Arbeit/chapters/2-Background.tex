@@ -5,15 +5,13 @@ In this chapter, we are going to introduce the reader to the theoretical concept
 
 \section{Main concepts}
 
-\textit{Distributed database} is ``a collection of multiple, logically interrelated databases distributed over a computer network''\cite{11}. When we talk about \textit{geo-distributed databases}, however, we mean collections of data that are placed into different geographical locations.
-
-Working with such a database, whenever the data is needed to be read or changed in any way, a transaction should be started, executed and closed . A \textit{transaction} is a basic unit of computing, which consists of sequence of operations that are exuted atomically on a database. Transactions transform a consistent database state to another consistent database state, even when they are executed concurrently. A transaction is considered to be \textit{correct}, if it obeys the integrity rules, specified on the database. As long as each transaction is correct, a database guarantees that concurrent execution of user transactions will not violate database consistency \cite{11}. \textit{Consistency} requires transactions to change the data only according to the specified rules.
+\textit{Distributed database} is ``a collection of multiple, logically interrelated databases distributed over a computer network''\cite{11}. A \textit{geo-distributed database}, in its turn, is a database, which is spread across two or more geographically distinct locations and runs without experiencing performance delays in executing transactions. Working with such a database, whenever the data is needed to be read or changed in any way, a transaction should be started, executed and closed. A \textit{transaction} is a basic unit of computing, which consists of sequence of operations that are applied atomically on a database. Transactions transform a consistent database state to another consistent database state. A transaction is considered to be \textit{correct}, if it obeys the rules, specified on the database. As long as each transaction is correct, a database guarantees that concurrent execution of user transactions will not violate database consistency \cite{11}. \textit{Consistency} requires transactions to change the data only according to the specified rules. An example of consistency rule can be the following: let us say that in a bank database the bank account number should only consist of integer numbers. If an employee tries to create an account that contains something other than integer numbers in it, then the database consistency rule will disallow it. Consistency rules are important as they control the incoming data and reject the information, which does not fit.
 
 Two other terms we will need are \textit{linearizability} and \textit{serializability}. Linearizability defines a guarantee about single operations on single objects \cite{13}. It guarantees that the same operations are applied in the same order to every replica of the data item\cite{12}. Serializability is a guarantee about transactions, that they are executed serially on every set of the data items\cite{12}.
 
-Now, let us introduce different consistency models and the one we will try to follow in the designing of our application. 
+Now, let us introduce different consistency models and the one we will follow in the designing part of WebCache. 
 
-As stated by \citet{10}, ``\textit{strong consistency} model could be described in the following way: whenever the update is performed, everyone knows about it immediately''. It means that there is a total order of updates and if there are two different clients that perform the same update, those updates will get some order and everyone will see the same order. The advantage of strong consistency is that it is good for fault tolerance and disadvantages are bad performance and it is problematic to scale.
+As stated by \citet{10}, ``\textit{strong consistency} model could be described in the following way: whenever the update is performed, everyone knows about it immediately''. It means that there is a total order of updates and if there are two different clients that perform the same update, those updates will get some order and both clients will see the same order. The advantage of strong consistency is that it is good for fault tolerance and disadvantages are bad performance and it is problematic to scale.
 
 On the other hand, there are some weaker consistency models that allow better scaling and improve performance. However, it creates problems on the fault tolerance side. In this thesis, we will try to stick with partial \textit{causal consistency}. As it is stated in \citet{7}, causal consistency is the strongest available and convergent model. They continue their statement saying that under causal consistency, every process observes a monotonically non-decreasing set of updates that includes its own updates, in an order that respects the causality between operations.
 
@@ -33,15 +31,15 @@ Apart from that, to replicate the data Antidote uses \textit{Cure}\cite{15}. It 
 
 \section{Conflict-Free Replicated Datatypes}
 
-As it is stated in \citet{3}, a conflict-free replicated datatype (CRDT) is an abstract datatype, which is designed for a possibility to be replicated among replicas and possesses the following properties:
+As it is stated in the work of \citet{3}, a conflict-free replicated datatype (CRDT) is an abstract datatype, which is designed for a possibility to be replicated among replicas and possesses the following properties:
 
 
     \begin{itemize}
-        \item {The data at any replica could be modified independently of other replicas}
-        \item {Replicas deterministically converge at the same state in case they received the same updates}
+        \item {The data at any replica can be modified independently of other replicas}
+        \item {Replicas deterministically converge to the same state when they received the same updates}
     \end{itemize}
 
-Replication is a fundamental concept of distributed systems, well studied by the distributed algorithms community\cite{2}. There are two models of replication that are considered: state-based and operation-based. Eventually, we are going to use the operation-based approach. However, we are going to introduce our reader to both of them below. 
+Replication is a fundamental concept of distributed systems, well studied by the distributed algorithms community\cite{2}. There are two models of replication that are considered: state-based and operation-based. We are going to introduce our reader to both of them below. 
 
 \subsection*{Operation-based replication approach}
 
@@ -49,16 +47,14 @@ Replication is a fundamental concept of distributed systems, well studied by the
     \begin{center}
     \def\svgwidth{\linewidth}
     \input{images/crdts-replication/op-based.pdf_tex}
-      {\scriptsize%
-     Source: The figure is taken from \cite{2}}
-    \caption {Operation-based approach. <<S>> stands for source replicas and <<D>> for downstream replicas. }
+    \caption {Operation-based approach\cite{2}. <<S>> stands for source replicas and <<D>> for downstream replicas. }
     \label{fig:theory1}
 \end{center}
 \end{figure}
 
 
 
-In this thesis, we are going to use the operation-based replication approach, which originally means that replicas converge by propagating operations to every other replica\cite{3}, as you can see at the \figref*{fig:theory1}. Once an operation is received in a replica, it is applied locally. Afterwards, all replicas would possess all of the updates. This replication approach infers that replicas do not exchange full states with each other, which is a positive in terms of efficiency.
+In this thesis, we are going to use the operation-based replication approach, where replicas converge by propagating operations to every other replica\cite{3}, as you can see at the \figref*{fig:theory1}. Once an operation is received in a replica, it is applied locally. Afterwards, all replicas would possess all of the updates. This replication approach infers that replicas do not exchange full states with each other, which is a positive in terms of efficiency.
 
 \subsection*{State-based replication approach}
 
@@ -66,11 +62,9 @@ In this thesis, we are going to use the operation-based replication approach, wh
     \begin{center}
     \def\svgwidth{\linewidth}
     \input{images/crdts-replication/state-based.pdf_tex}
-      {\scriptsize%
-     Source: The figure is taken from \cite{2}}
-    \caption {State-based approach. <<S>> stands for source replicas and <<M>> for merging stages.}
+    \caption {State-based approach\cite{2}. <<S>> stands for source replicas and <<M>> for merging stages.}
     \label{fig:theory2}
 \end{center}
 \end{figure}
 
-The idea of this approach is kind of opposite to the operation-based one. Here, every replica, when receives an update, first applies it locally. Afterwards, it sends that update to other replicas. Following this way, every replica sends its current full state to other replicas. Afterwards, the merge function is taking place between a local state and a received state, and every update eventually is going to appear at every other replica in the system. 
+The idea of this approach is kind of opposite to the operation-based one. Here, every replica, when it receives an update, first applies it locally. Afterwards, it sends its new state to other replicas. Following this way, every replica sends its current full state to other replicas. Afterwards, the merge function is applied between a local state and a received state, and every update eventually is going to appear at every other replica in the system. 
