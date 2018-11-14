@@ -1,15 +1,19 @@
 \chapter{Technologies}
 \label{Technologies}
 
-This chapter consists of detailed description of used technologies to accomplish thesis goal.
-I believe that the implementation of the web-client for the AntidoteDB with a cache support would require the following components:
-`
+This chapter consists of a detailed description of used technologies to implement the design we introduced our reader to in the previous chapter. To give an overview, we believe that the implementation of WebCache's design requires the following components.
+
 \begin{itemize}
-\item{A service worker, in order to control requests coming from the client.}
 \item{A Cache API for storing assets and make the application available offline.}
+\item{A service worker, in order to control requests coming from the client.}
 \item{A database to store the data locally}.
 
 \end{itemize}
+
+\section{Cache API}
+
+If we want to store somewhere the HTML, the CSS and the JavaScript, as well as such assets as images, web fonts, then there is a place for all of it -- Cache API. It allows conveniently manage the content for the offline use. 
+
 
 \section{Service Workers}
 
@@ -46,7 +50,3 @@ In case the user wants to make a change to the data, there are two cases to hand
 \end{itemize}
 
 Several problems could arise, however, which we will adrress in the architecture chapter.
-
-\section{Cache API}
-
-If we want to store somewhere the HTML, the CSS and the JavaScript, as well as such assets as images, web fonts, then there is a place for all of it -- Cache API. It allows conveniently manage the content for the offline use. 

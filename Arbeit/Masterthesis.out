@@ -23,9 +23,9 @@
 \BOOKMARK [1][-]{section.4.4}{4.4 Online functionality}{chapter.4}% 23
 \BOOKMARK [1][-]{section.4.5}{4.5 The transition between offline and online modes}{chapter.4}% 24
 \BOOKMARK [0][-]{chapter.5}{5 Technologies}{}% 25
-\BOOKMARK [1][-]{section.5.1}{5.1 Service Workers}{chapter.5}% 26
-\BOOKMARK [1][-]{section.5.2}{5.2 IndexDB database}{chapter.5}% 27
-\BOOKMARK [1][-]{section.5.3}{5.3 Cache API}{chapter.5}% 28
+\BOOKMARK [1][-]{section.5.1}{5.1 Cache API}{chapter.5}% 26
+\BOOKMARK [1][-]{section.5.2}{5.2 Service Workers}{chapter.5}% 27
+\BOOKMARK [1][-]{section.5.3}{5.3 IndexDB database}{chapter.5}% 28
 \BOOKMARK [0][-]{chapter.6}{6 Implementation}{}% 29
 \BOOKMARK [1][-]{section.6.1}{6.1 Optimization}{chapter.6}% 30
 \BOOKMARK [0][-]{chapter.7}{7 Evaluation}{}% 31
@@ -36,8 +36,8 @@
 \BOOKMARK [0][-]{chapter.9}{9 Conclusion}{}% 36
 \BOOKMARK [1][-]{section.9.1}{9.1 Summary}{chapter.9}% 37
 \BOOKMARK [1][-]{section.9.2}{9.2 Future Work}{chapter.9}% 38
-\BOOKMARK [0][-]{chapter*.21}{List of Figures}{}% 39
-\BOOKMARK [0][-]{chapter*.22}{List of Tables}{}% 40
-\BOOKMARK [0][-]{chapter*.23}{List of Code}{}% 41
-\BOOKMARK [0][-]{chapter*.24}{Listings}{}% 42
-\BOOKMARK [0][-]{chapter*.25}{Bibliography}{}% 43
+\BOOKMARK [0][-]{chapter*.22}{List of Figures}{}% 39
+\BOOKMARK [0][-]{chapter*.23}{List of Tables}{}% 40
+\BOOKMARK [0][-]{chapter*.24}{List of Code}{}% 41
+\BOOKMARK [0][-]{chapter*.25}{Listings}{}% 42
+\BOOKMARK [0][-]{chapter*.26}{Bibliography}{}% 43

@@ -1,4 +1,4 @@
-\begin{thebibliography}{26}
+\begin{thebibliography}{28}
 \providecommand{\natexlab}[1]{#1}
 \providecommand{\url}[1]{\texttt{#1}}
 \expandafter\ifx\csname urlstyle\endcsname\relax
@@ -11,12 +11,14 @@ M.~Tamer zsu and Patrick Valduriez.
 \newblock Springer Publishing Company, Incorporated, 3rd edition, 2011.
 \newblock ISBN 1441988335, 9781441988331.
 
-\bibitem[Bailis(2014 (accessed October 24, 2018))]{13}
-Peter Bailis.
-\newblock Linearizability versus serializability.
-\newblock
-  \url{http://www.bailis.org/blog/linearizability-versus-serializability/},
-  2014 (accessed October 24, 2018).
+\bibitem[Attiya and Welch(1994)]{27}
+Hagit Attiya and Jennifer~L. Welch.
+\newblock Sequential consistency versus linearizability.
+\newblock \emph{ACM Trans. Comput. Syst.}, 12\penalty0 (2):\penalty0 91--122,
+  May 1994.
+\newblock ISSN 0734-2071.
+\newblock \doi{10.1145/176575.176576}.
+\newblock URL \url{http://doi.acm.org/10.1145/176575.176576}.
 
 \bibitem[Zhang(2015 (accessed October 23, 2018))]{12}
 Irene~Y. Zhang.
@@ -30,6 +32,24 @@ Marc Shapiro.
 \newblock
   \url{https://www.microsoft.com/en-us/research/video/strong-eventual-consistency-and-conflict-free-replicated-data-types/},
   2011 (accessed October 23, 2018).
+
+\bibitem[Gilbert and Lynch(2012)]{29}
+S.~Gilbert and N.~Lynch.
+\newblock Perspectives on the cap theorem.
+\newblock \emph{Computer}, 45\penalty0 (2):\penalty0 30--36, Feb 2012.
+\newblock ISSN 0018-9162.
+\newblock \doi{10.1109/MC.2011.389}.
+
+\bibitem[Casti\~{n}eira and Bieniusa(2015)]{28}
+Santiago~J. Casti\~{n}eira and Annette Bieniusa.
+\newblock Collaborative offline web applications using conflict-free replicated
+  data types.
+\newblock In \emph{Proceedings of the First Workshop on Principles and Practice
+  of Consistency for Distributed Data}, PaPoC '15, pages 5:1--5:4, New York,
+  NY, USA, 2015. ACM.
+\newblock ISBN 978-1-4503-3537-9.
+\newblock \doi{10.1145/2745947.2745952}.
+\newblock URL \url{http://doi.acm.org/10.1145/2745947.2745952}.
 
 \bibitem[Zawirski et~al.(2015)Zawirski, Pregui\c{c}a, Duarte, Bieniusa,
   Balegas, and Shapiro]{7}

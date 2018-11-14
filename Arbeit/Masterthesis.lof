@@ -1,19 +1,22 @@
 \babel@toc {ngerman}{}
 \addvspace {10\p@ }
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {\relax 2.1}{\ignorespaces Operation-based approach\cite {2}. <<S>> stands for source replicas and <<D>> for downstream replicas. \relax }}{5}{figure.caption.3}
-\contentsline {figure}{\numberline {\relax 2.2}{\ignorespaces State-based approach\cite {2}. <<S>> stands for source replicas and <<M>> for merging stages.\relax }}{6}{figure.caption.5}
+\contentsline {figure}{\numberline {\relax 2.1}{\ignorespaces An example of how a causally consistent behaviour (a) and the one that is not (b) could work in a social network.\relax }}{5}{figure.caption.2}
+\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {}}}{5}{subfigure.1.1}
+\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {}}}{5}{subfigure.1.2}
+\contentsline {figure}{\numberline {\relax 2.2}{\ignorespaces Operation-based approach\cite {2}. <<S>> stands for source replicas and <<D>> for downstream replicas. \relax }}{7}{figure.caption.4}
+\contentsline {figure}{\numberline {\relax 2.3}{\ignorespaces State-based approach\cite {2}. <<S>> stands for source replicas and <<M>> for merging stages.\relax }}{8}{figure.caption.6}
 \addvspace {10\p@ }
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {\relax 4.1}{\ignorespaces The way a client receives a key-value update from the server.\relax }}{10}{figure.caption.6}
-\contentsline {figure}{\numberline {\relax 4.2}{\ignorespaces The way a client sends a write operation to the server.\relax }}{10}{figure.caption.7}
-\contentsline {figure}{\numberline {\relax 4.3}{\ignorespaces Graphical representation over a possible communicaton between two clients and a server.\relax }}{11}{figure.caption.9}
-\contentsline {figure}{\numberline {\relax 4.4}{\ignorespaces A top-level view of the system's design.\relax }}{12}{figure.caption.10}
-\contentsline {figure}{\numberline {\relax 4.5}{\ignorespaces Successful request of state from the local database -- Sequence diagram.\relax }}{14}{figure.caption.11}
-\contentsline {figure}{\numberline {\relax 4.6}{\ignorespaces Successful storing of an operation in the local database -- Sequence diagram.\relax }}{15}{figure.caption.12}
+\contentsline {figure}{\numberline {\relax 4.1}{\ignorespaces The way a client receives a key-value update from the server.\relax }}{12}{figure.caption.7}
+\contentsline {figure}{\numberline {\relax 4.2}{\ignorespaces The way a client sends a write operation to the server.\relax }}{12}{figure.caption.8}
+\contentsline {figure}{\numberline {\relax 4.3}{\ignorespaces Graphical representation over a possible communicaton between two clients and a server.\relax }}{13}{figure.caption.10}
+\contentsline {figure}{\numberline {\relax 4.4}{\ignorespaces A top-level view of the system's design.\relax }}{14}{figure.caption.11}
+\contentsline {figure}{\numberline {\relax 4.5}{\ignorespaces Successful request of state from the local database -- Sequence diagram.\relax }}{16}{figure.caption.12}
+\contentsline {figure}{\numberline {\relax 4.6}{\ignorespaces Successful storing of an operation in the local database -- Sequence diagram.\relax }}{17}{figure.caption.13}
 \addvspace {10\p@ }
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {\relax 6.1}{\ignorespaces A look at the server-client architecture with a RESTful interface.\relax }}{21}{figure.caption.13}
+\contentsline {figure}{\numberline {\relax 6.1}{\ignorespaces A look at the server-client architecture with a RESTful interface.\relax }}{23}{figure.caption.14}
 \addvspace {10\p@ }
 \addvspace {10\p@ }
 \addvspace {10\p@ }
