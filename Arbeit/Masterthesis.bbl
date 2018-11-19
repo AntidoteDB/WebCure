@@ -1,4 +1,4 @@
-\begin{thebibliography}{28}
+\begin{thebibliography}{30}
 \providecommand{\natexlab}[1]{#1}
 \providecommand{\url}[1]{\texttt{#1}}
 \expandafter\ifx\csname urlstyle\endcsname\relax
@@ -112,6 +112,18 @@ Matt Gaunt.
 \newblock
   \url{https://developers.google.com/web/fundamentals/primers/service-workers/},
   2018 (accessed September 14, 2018).
+
+\bibitem[30(2018 (accessed November 15, 2018))]{30}
+Web workers api.
+\newblock
+  \url{https://developer.mozilla.org/en-US/docs/Web/API/Web_Workers_API}, 2018
+  (accessed November 15, 2018).
+
+\bibitem[32(2018 (accessed November 18, 2018))]{32}
+Introduction to service worker.
+\newblock
+  \url{https://developers.google.com/web/ilt/pwa/introduction-to-service-worker},
+  2018 (accessed November 18, 2018).
 
 \bibitem[Sovran et~al.(2011)Sovran, Power, Aguilera, and Li]{6}
 Yair Sovran, Russell Power, Marcos~K. Aguilera, and Jinyang Li.

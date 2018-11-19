@@ -23,21 +23,22 @@
 \contentsline {section}{\numberline {4.4}Online functionality}{16}{section.4.4}
 \contentsline {section}{\numberline {4.5}The transition between offline and online modes}{16}{section.4.5}
 \contentsline {chapter}{\numberline {5}Technologies}{19}{chapter.5}
-\contentsline {section}{\numberline {5.1}Cache API}{19}{section.5.1}
-\contentsline {section}{\numberline {5.2}Service Workers}{19}{section.5.2}
-\contentsline {section}{\numberline {5.3}IndexDB database}{20}{section.5.3}
-\contentsline {chapter}{\numberline {6}Implementation}{23}{chapter.6}
-\contentsline {section}{\numberline {6.1}Optimization}{23}{section.6.1}
-\contentsline {chapter}{\numberline {7}Evaluation}{25}{chapter.7}
-\contentsline {chapter}{\numberline {8}Related Work}{27}{chapter.8}
-\contentsline {section}{\numberline {8.1}SwiftCloud: a transactional system that brings geo-replication to the client}{27}{section.8.1}
-\contentsline {section}{\numberline {8.2}Legion: a framework, which enriches web applications}{27}{section.8.2}
-\contentsline {section}{\numberline {8.3}Developing web and mobile applications with offline usage experience}{28}{section.8.3}
-\contentsline {chapter}{\numberline {9}Conclusion}{35}{chapter.9}
-\contentsline {section}{\numberline {9.1}Summary}{35}{section.9.1}
-\contentsline {section}{\numberline {9.2}Future Work}{35}{section.9.2}
-\contentsline {chapter}{\nonumberline List of Figures}{37}{chapter*.22}
-\contentsline {chapter}{\nonumberline List of Tables}{39}{chapter*.23}
-\contentsline {chapter}{\nonumberline List of Code}{41}{chapter*.24}
-\contentsline {chapter}{\nonumberline Listings}{43}{chapter*.25}
-\contentsline {chapter}{\nonumberline Bibliography}{45}{chapter*.26}
+\contentsline {section}{\numberline {5.1}Service Worker}{19}{section.5.1}
+\contentsline {subsection}{\numberline {5.1.1}Service worker lifecycle}{20}{subsection.5.1.1}
+\contentsline {section}{\numberline {5.2}Cache API}{23}{section.5.2}
+\contentsline {section}{\numberline {5.3}IndexDB database}{23}{section.5.3}
+\contentsline {chapter}{\numberline {6}Implementation}{25}{chapter.6}
+\contentsline {section}{\numberline {6.1}Optimization}{25}{section.6.1}
+\contentsline {chapter}{\numberline {7}Evaluation}{27}{chapter.7}
+\contentsline {chapter}{\numberline {8}Related Work}{29}{chapter.8}
+\contentsline {section}{\numberline {8.1}SwiftCloud: a transactional system that brings geo-replication to the client}{29}{section.8.1}
+\contentsline {section}{\numberline {8.2}Legion: a framework, which enriches web applications}{29}{section.8.2}
+\contentsline {section}{\numberline {8.3}Developing web and mobile applications with offline usage experience}{30}{section.8.3}
+\contentsline {chapter}{\numberline {9}Conclusion}{37}{chapter.9}
+\contentsline {section}{\numberline {9.1}Summary}{37}{section.9.1}
+\contentsline {section}{\numberline {9.2}Future Work}{37}{section.9.2}
+\contentsline {chapter}{\nonumberline List of Figures}{39}{chapter*.26}
+\contentsline {chapter}{\nonumberline List of Tables}{41}{chapter*.27}
+\contentsline {chapter}{\nonumberline List of Code}{43}{chapter*.28}
+\contentsline {chapter}{\nonumberline Listings}{45}{chapter*.29}
+\contentsline {chapter}{\nonumberline Bibliography}{47}{chapter*.30}

@@ -1,39 +1,97 @@
 \chapter{Technologies}
 \label{Technologies}
 
-This chapter consists of a detailed description of used technologies to implement the design we introduced our reader to in the previous chapter. To give an overview, we believe that the implementation of WebCache's design requires the following components.
+This chapter consists of a description of used technologies to implement the design we introduced our reader to in the \chapref*{Design}. To give an overview, we believe that the implementation of WebCache's design requires the following components:
 
 \begin{itemize}
-\item{A Cache API for storing assets and make the application available offline.}
-\item{A service worker, in order to control requests coming from the client.}
-\item{A database to store the data locally}.
+\item{A service worker, in order to control requests coming from the client;}
+\item{A Cache API for storing assets and to make the application available offline;}
+\item{A database to store the data locally;}
 
 \end{itemize}
+
+\section{Service Worker}
+
+Service worker\cite{1} is a web worker\footnote{Web Workers make it possible to run a script operation in a background thread separate from the main execution thread of a web application\cite{30}}, which actually is a JavaScript file, which lies in the middle, between the web application and network requests. Service worker runs independently from the web-page and has the following features: 
+
+\begin{itemize}
+\item{For the user, it is sort of invisible;}
+\item{It does not have an access to the DOM\footnote{DOM or \textbf{D}ocument \textbf{O}bject \textbf{M}odel of the page defines HTML elements as objects, as well as their properties, methods and events.}, but it has the control over pages (not just a specific one);}
+\item{When the application is not active, a service worker still can receive push-notifications from the server\cite{32}, which lets improve the user experience of the application and make it ``closer'' to native mobile applications;}
+\item{It offers a possibility to intercept requests as the browser makes them and has the following options:}
+\begin{itemize}
+\item{to let requests go to the network as usual;}
+\item{to skip the network and redirect requests to get the data from cache;}
+\item{to perform any combination of the above;}
+\end{itemize}
+\end{itemize}
+
+\begin{figure}[!htb]
+    \begin{center}
+    \def\svgwidth{0.7\linewidth}
+    \input{images/technologies/sw.pdf_tex}
+    \caption {An overview of service worker providing the application experience of both online and offline modes.}
+    \label{fig:sw_interact}
+\end{center}
+\end{figure}
+
+We are going to use a service worker in order to intercept the network traffic. For example, as can be seen at \figref*{fig:sw_interact}, in situations when there are problems happening with a network once a request is  in processing, we will get the data from the cache. At the moments, when the internet connection could not be established, the cache content can be easily displayed without forcing user to wait, which dramatically improves performance and user experience. And when the internet connection is present, the data can be received from the actual network. 
+
+\subsection{Service worker lifecycle}
+
+In this subsection, we will introduce the steps through which service worker goes through. These steps are registration, installation and activation. Each of them we are going to describe below in more details.
+
+\subsection*{Registration}
+
+Before one can use service worker features, it should be registered in the JavaScript code. The registration helps the browser to locate a service worker and, afterwards, start its installation in the background. The example of how the registration could be done is shown at~\lstref*{lst:tech1}:
+
+\begin{lstlisting}[caption={An example code, which demonstrates the registration of serivce worker.}, label={lst:tech1}]
+if ('serviceWorker' in navigator) {
+  navigator.serviceWorker.register('/service-worker.js')
+  .then(function(registration) {
+    console.log('Registration successful, scope is:', registration.scope);
+  })
+  .catch(function(error) {
+    console.log('Service worker registration failed, error:', error);
+  });
+}
+\end{lstlisting}
+
+This code starts by checking for browser support by examining navigator.serviceWorker. The service worker is then registered with navigator.serviceWorker.register, which returns a promise that resolves when the service worker has been successfully registered. The scope of the service worker is then logged with registration.scope.
+
+The scope of the service worker determines which files the service worker controls, in other words, from which path the service worker will intercept requests. The default scope is the location of the service worker file, and extends to all directories below. So if service-worker.js is located in the root directory, the service worker will control requests from all files at this domain.
+
+You can also set an arbitrary scope by passing in an additional parameter when registering. For example:
+
+In this case we are setting the scope of the service worker to /app/, which means the service worker will control requests from pages like /app/, /app/lower/ and /app/lower/lower, but not from pages like /app or /, which are higher.
+
+If the service worker is already installed, navigator.serviceWorker.register returns the registration object of the currently active service worker.
+
+
+
+\subsection*{Installation}
+
+Once the the browser registers a service worker, installation can be attempted. This occurs if the service worker is considered to be new by the browser, either because the site currently doesn't have a registered service worker, or because there is a byte difference between the new service worker and the previously installed one.
+
+A service worker installation triggers an install event in the installing service worker. We can include an install event listener in the service worker to perform some task when the service worker installs. For instance, during the install, service workers can precache parts of a web app so that it loads instantly the next time a user opens it (see caching the application shell). So, after that first load, you're going to benefit from instant repeat loads and your time to interactivity is going to be even better in those cases. An example of an installation event listener looks like this:
+
+\subsection*{Activation}
+
+
+Once a service worker has successfully installed, it transitions into the activation stage. If there are any open pages controlled by the previous service worker, the new service worker enters a waiting state. The new service worker only activates when there are no longer any pages loaded that are still using the old service worker. This ensures that only one version of the service worker is running at any given time.
+
+When the new service worker activates, an activate event is triggered in the activating service worker. This event listener is a good place to clean up outdated caches (see the Offline Cookbook for an example).
+
+Once activated, the service worker controls all pages that load within its scope, and starts listening for events from those pages. However, pages in your app that were loaded before the service worker activation will not be under service worker control. The new service worker will only take over when you close and reopen your app, or if the service worker calls clients.claim(). Until then, requests from this page will not be intercepted by the new service worker. This is intentional as a way to ensure consistency in your site.
+
+Service workers are event driven. Both the installation and activation processes trigger corresponding install and activate events to which the service workers can respond. There are also message events, where the service worker can receive information from other scripts, and functional events such as fetch, push, and sync.
 
 \section{Cache API}
 
+
+
+
 If we want to store somewhere the HTML, the CSS and the JavaScript, as well as such assets as images, web fonts, then there is a place for all of it -- Cache API. It allows conveniently manage the content for the offline use. 
-
-
-\section{Service Workers}
-
-A service worker\cite{1} is a JavaScript file that sits between the application and network requests. As well as that, it runs separately from the page. It has the following properties:
-
-\begin{itemize}
-\item{It is not visible to the user.}
-\item{It cannot access the DOM, but it does control pages.}
-\item{It can intercept requests as the browser makes them.}
-\begin{itemize}
-\item{it can just let requests go to the network as usual.}
-\item{it can skip the network and redirect the request to a cache.}
-\item{or it is possible to perform any combination of these things.}
-
-\end{itemize}
-\end{itemize}
-
-A service worker will be used in order to intercept the network traffic. In situations, when there are problems with network, we are going to get content from cache (which consists of the last content, which we were able to get from the network). However, we will have to wait for the network to fail, before showing the cache-content. And here the problem arises: if the connection is slow, the user would still get frustrating hard-time of waiting for the response. Therefore, we will have to introduce offline-first approach: it means that we will try to get as much information from the cache as possible. 
-
-We might still go to the network, but we are not going to wait for it by updating the information simultaneously from the cache. Afterwards, if we get some new content from the network, we can update the data again. Once we get this new information from the network, we can update the view and, as well as that, we can store that information into the cache for the next time. If we can't get the data from the network, then we will stick with what we've got. Taking such approach makes the user satisfied offline, online and even on slow-connections. It will make the user care less about the connectivity. 
 
 \section{IndexDB database}
 
