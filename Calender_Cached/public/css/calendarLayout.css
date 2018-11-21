@@ -1,0 +1,40 @@
+#calendar-1, #calendar-2 {
+    width: 640px;
+}
+
+.container-full {
+  margin-left: 100px auto;
+  width: 100%;
+}
+
+th {
+    background-color: #20A1C1;
+    color: white;
+	font-weight: bold;
+} 
+
+
+.input-group {
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+}
+
+#btnBreakConnection,
+#btnReestablishConnection,
+.input-group-btn {
+    width: 25%;
+}
+
+#btnNewParticipant-1,
+#btnNewParticipant-2 {
+    width: 100%;
+}
+
+.btn {
+    margin: 5px !important;
+}
+
+#newParticipant-1 {
+    width: 60%;
+}

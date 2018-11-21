@@ -1,0 +1,686 @@
+{
+    "package": "AntidotePB",
+    "options": {
+        "java_package": "com.basho.riak.protobuf",
+        "java_outer_classname": "AntidotePB"
+    },
+    "messages": [
+        {
+            "name": "ApbErrorResp",
+            "fields": [
+                {
+                    "rule": "required",
+                    "type": "bytes",
+                    "name": "errmsg",
+                    "id": 1
+                },
+                {
+                    "rule": "required",
+                    "type": "uint32",
+                    "name": "errcode",
+                    "id": 2
+                }
+            ]
+        },
+        {
+            "name": "ApbCounterUpdate",
+            "fields": [
+                {
+                    "rule": "optional",
+                    "type": "sint64",
+                    "name": "inc",
+                    "id": 1
+                }
+            ]
+        },
+        {
+            "name": "ApbGetCounterResp",
+            "fields": [
+                {
+                    "rule": "required",
+                    "type": "sint32",
+                    "name": "value",
+                    "id": 1
+                }
+            ]
+        },
+        {
+            "name": "ApbSetUpdate",
+            "fields": [
+                {
+                    "rule": "required",
+                    "type": "SetOpType",
+                    "name": "optype",
+                    "id": 1
+                },
+                {
+                    "rule": "repeated",
+                    "type": "bytes",
+                    "name": "adds",
+                    "id": 2
+                },
+                {
+                    "rule": "repeated",
+                    "type": "bytes",
+                    "name": "rems",
+                    "id": 3
+                }
+            ],
+            "enums": [
+                {
+                    "name": "SetOpType",
+                    "values": [
+                        {
+                            "name": "ADD",
+                            "id": 1
+                        },
+                        {
+                            "name": "REMOVE",
+                            "id": 2
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "ApbGetSetResp",
+            "fields": [
+                {
+                    "rule": "repeated",
+                    "type": "bytes",
+                    "name": "value",
+                    "id": 1
+                }
+            ]
+        },
+        {
+            "name": "ApbRegUpdate",
+            "fields": [
+                {
+                    "rule": "required",
+                    "type": "bytes",
+                    "name": "value",
+                    "id": 1
+                }
+            ]
+        },
+        {
+            "name": "ApbGetRegResp",
+            "fields": [
+                {
+                    "rule": "required",
+                    "type": "bytes",
+                    "name": "value",
+                    "id": 1
+                }
+            ]
+        },
+        {
+            "name": "ApbGetMVRegResp",
+            "fields": [
+                {
+                    "rule": "repeated",
+                    "type": "bytes",
+                    "name": "values",
+                    "id": 1
+                }
+            ]
+        },
+        {
+            "name": "ApbMapKey",
+            "fields": [
+                {
+                    "rule": "required",
+                    "type": "bytes",
+                    "name": "key",
+                    "id": 1
+                },
+                {
+                    "rule": "required",
+                    "type": "CRDT_type",
+                    "name": "type",
+                    "id": 2
+                }
+            ]
+        },
+        {
+            "name": "ApbMapUpdate",
+            "fields": [
+                {
+                    "rule": "repeated",
+                    "type": "ApbMapNestedUpdate",
+                    "name": "updates",
+                    "id": 1
+                },
+                {
+                    "rule": "repeated",
+                    "type": "ApbMapKey",
+                    "name": "removedKeys",
+                    "id": 2
+                }
+            ]
+        },
+        {
+            "name": "ApbMapNestedUpdate",
+            "fields": [
+                {
+                    "rule": "required",
+                    "type": "ApbMapKey",
+                    "name": "key",
+                    "id": 1
+                },
+                {
+                    "rule": "required",
+                    "type": "ApbUpdateOperation",
+                    "name": "update",
+                    "id": 2
+                }
+            ]
+        },
+        {
+            "name": "ApbGetMapResp",
+            "fields": [
+                {
+                    "rule": "repeated",
+                    "type": "ApbMapEntry",
+                    "name": "entries",
+                    "id": 1
+                }
+            ]
+        },
+        {
+            "name": "ApbMapEntry",
+            "fields": [
+                {
+                    "rule": "required",
+                    "type": "ApbMapKey",
+                    "name": "key",
+                    "id": 1
+                },
+                {
+                    "rule": "required",
+                    "type": "ApbReadObjectResp",
+                    "name": "value",
+                    "id": 2
+                }
+            ]
+        },
+        {
+            "name": "ApbFlagUpdate",
+            "fields": [
+                {
+                    "rule": "required",
+                    "type": "bool",
+                    "name": "value",
+                    "id": 1
+                }
+            ]
+        },
+        {
+            "name": "ApbGetFlagResp",
+            "fields": [
+                {
+                    "rule": "required",
+                    "type": "bool",
+                    "name": "value",
+                    "id": 1
+                }
+            ]
+        },
+        {
+            "name": "ApbCrdtReset",
+            "fields": []
+        },
+        {
+            "name": "ApbOperationResp",
+            "fields": [
+                {
+                    "rule": "required",
+                    "type": "bool",
+                    "name": "success",
+                    "id": 1
+                },
+                {
+                    "rule": "optional",
+                    "type": "uint32",
+                    "name": "errorcode",
+                    "id": 2
+                }
+            ]
+        },
+        {
+            "name": "ApbTxnProperties",
+            "fields": [
+                {
+                    "rule": "optional",
+                    "type": "uint32",
+                    "name": "read_write",
+                    "id": 1
+                },
+                {
+                    "rule": "optional",
+                    "type": "uint32",
+                    "name": "red_blue",
+                    "id": 2
+                },
+                {
+                    "rule": "optional",
+                    "type": "bool",
+                    "name": "update_snapshot",
+                    "id": 3
+                }
+            ]
+        },
+        {
+            "name": "ApbBoundObject",
+            "fields": [
+                {
+                    "rule": "required",
+                    "type": "bytes",
+                    "name": "key",
+                    "id": 1
+                },
+                {
+                    "rule": "required",
+                    "type": "CRDT_type",
+                    "name": "type",
+                    "id": 2
+                },
+                {
+                    "rule": "required",
+                    "type": "bytes",
+                    "name": "bucket",
+                    "id": 3
+                }
+            ]
+        },
+        {
+            "name": "ApbReadObjects",
+            "fields": [
+                {
+                    "rule": "repeated",
+                    "type": "ApbBoundObject",
+                    "name": "boundobjects",
+                    "id": 1
+                },
+                {
+                    "rule": "required",
+                    "type": "bytes",
+                    "name": "transaction_descriptor",
+                    "id": 2
+                }
+            ]
+        },
+        {
+            "name": "ApbUpdateOp",
+            "fields": [
+                {
+                    "rule": "required",
+                    "type": "ApbBoundObject",
+                    "name": "boundobject",
+                    "id": 1
+                },
+                {
+                    "rule": "required",
+                    "type": "ApbUpdateOperation",
+                    "name": "operation",
+                    "id": 2
+                }
+            ]
+        },
+        {
+            "name": "ApbUpdateOperation",
+            "fields": [
+                {
+                    "rule": "optional",
+                    "type": "ApbCounterUpdate",
+                    "name": "counterop",
+                    "id": 1
+                },
+                {
+                    "rule": "optional",
+                    "type": "ApbSetUpdate",
+                    "name": "setop",
+                    "id": 2
+                },
+                {
+                    "rule": "optional",
+                    "type": "ApbRegUpdate",
+                    "name": "regop",
+                    "id": 3
+                },
+                {
+                    "rule": "optional",
+                    "type": "ApbMapUpdate",
+                    "name": "mapop",
+                    "id": 5
+                },
+                {
+                    "rule": "optional",
+                    "type": "ApbCrdtReset",
+                    "name": "resetop",
+                    "id": 6
+                },
+                {
+                    "rule": "optional",
+                    "type": "ApbFlagUpdate",
+                    "name": "flagop",
+                    "id": 7
+                }
+            ]
+        },
+        {
+            "name": "ApbUpdateObjects",
+            "fields": [
+                {
+                    "rule": "repeated",
+                    "type": "ApbUpdateOp",
+                    "name": "updates",
+                    "id": 1
+                },
+                {
+                    "rule": "required",
+                    "type": "bytes",
+                    "name": "transaction_descriptor",
+                    "id": 2
+                }
+            ]
+        },
+        {
+            "name": "ApbStartTransaction",
+            "fields": [
+                {
+                    "rule": "optional",
+                    "type": "bytes",
+                    "name": "timestamp",
+                    "id": 1
+                },
+                {
+                    "rule": "optional",
+                    "type": "ApbTxnProperties",
+                    "name": "properties",
+                    "id": 2
+                }
+            ]
+        },
+        {
+            "name": "ApbAbortTransaction",
+            "fields": [
+                {
+                    "rule": "required",
+                    "type": "bytes",
+                    "name": "transaction_descriptor",
+                    "id": 1
+                }
+            ]
+        },
+        {
+            "name": "ApbCommitTransaction",
+            "fields": [
+                {
+                    "rule": "required",
+                    "type": "bytes",
+                    "name": "transaction_descriptor",
+                    "id": 1
+                }
+            ]
+        },
+        {
+            "name": "ApbStaticUpdateObjects",
+            "fields": [
+                {
+                    "rule": "required",
+                    "type": "ApbStartTransaction",
+                    "name": "transaction",
+                    "id": 1
+                },
+                {
+                    "rule": "repeated",
+                    "type": "ApbUpdateOp",
+                    "name": "updates",
+                    "id": 2
+                }
+            ]
+        },
+        {
+            "name": "ApbStaticReadObjects",
+            "fields": [
+                {
+                    "rule": "required",
+                    "type": "ApbStartTransaction",
+                    "name": "transaction",
+                    "id": 1
+                },
+                {
+                    "rule": "repeated",
+                    "type": "ApbBoundObject",
+                    "name": "objects",
+                    "id": 2
+                }
+            ]
+        },
+        {
+            "name": "ApbStartTransactionResp",
+            "fields": [
+                {
+                    "rule": "required",
+                    "type": "bool",
+                    "name": "success",
+                    "id": 1
+                },
+                {
+                    "rule": "optional",
+                    "type": "bytes",
+                    "name": "transaction_descriptor",
+                    "id": 2
+                },
+                {
+                    "rule": "optional",
+                    "type": "uint32",
+                    "name": "errorcode",
+                    "id": 3
+                }
+            ]
+        },
+        {
+            "name": "ApbReadObjectResp",
+            "fields": [
+                {
+                    "rule": "optional",
+                    "type": "ApbGetCounterResp",
+                    "name": "counter",
+                    "id": 1
+                },
+                {
+                    "rule": "optional",
+                    "type": "ApbGetSetResp",
+                    "name": "set",
+                    "id": 2
+                },
+                {
+                    "rule": "optional",
+                    "type": "ApbGetRegResp",
+                    "name": "reg",
+                    "id": 3
+                },
+                {
+                    "rule": "optional",
+                    "type": "ApbGetMVRegResp",
+                    "name": "mvreg",
+                    "id": 4
+                },
+                {
+                    "rule": "optional",
+                    "type": "ApbGetMapResp",
+                    "name": "map",
+                    "id": 6
+                },
+                {
+                    "rule": "optional",
+                    "type": "ApbGetFlagResp",
+                    "name": "flag",
+                    "id": 7
+                }
+            ]
+        },
+        {
+            "name": "ApbReadObjectsResp",
+            "fields": [
+                {
+                    "rule": "required",
+                    "type": "bool",
+                    "name": "success",
+                    "id": 1
+                },
+                {
+                    "rule": "repeated",
+                    "type": "ApbReadObjectResp",
+                    "name": "objects",
+                    "id": 2
+                },
+                {
+                    "rule": "optional",
+                    "type": "uint32",
+                    "name": "errorcode",
+                    "id": 3
+                }
+            ]
+        },
+        {
+            "name": "ApbCommitResp",
+            "fields": [
+                {
+                    "rule": "required",
+                    "type": "bool",
+                    "name": "success",
+                    "id": 1
+                },
+                {
+                    "rule": "optional",
+                    "type": "bytes",
+                    "name": "commit_time",
+                    "id": 2
+                },
+                {
+                    "rule": "optional",
+                    "type": "uint32",
+                    "name": "errorcode",
+                    "id": 3
+                }
+            ]
+        },
+        {
+            "name": "ApbStaticReadObjectsResp",
+            "fields": [
+                {
+                    "rule": "required",
+                    "type": "ApbReadObjectsResp",
+                    "name": "objects",
+                    "id": 1
+                },
+                {
+                    "rule": "required",
+                    "type": "ApbCommitResp",
+                    "name": "committime",
+                    "id": 2
+                }
+            ]
+        },
+        {
+            "name": "ApbCreateDC",
+            "fields": [
+                {
+                    "rule": "repeated",
+                    "type": "string",
+                    "name": "nodes",
+                    "id": 1
+                }
+            ]
+        },
+        {
+            "name": "ApbGetConnectionDescriptor",
+            "fields": []
+        },
+        {
+            "name": "ApbGetConnectionDescriptorResponse",
+            "fields": [
+                {
+                    "rule": "required",
+                    "type": "bool",
+                    "name": "success",
+                    "id": 1
+                },
+                {
+                    "rule": "optional",
+                    "type": "bytes",
+                    "name": "descriptor",
+                    "id": 2
+                },
+                {
+                    "rule": "optional",
+                    "type": "uint32",
+                    "name": "errorcode",
+                    "id": 3
+                }
+            ]
+        },
+        {
+            "name": "ApbConnectToDcs",
+            "fields": [
+                {
+                    "rule": "repeated",
+                    "type": "bytes",
+                    "name": "descriptors",
+                    "id": 1
+                }
+            ]
+        }
+    ],
+    "enums": [
+        {
+            "name": "CRDT_type",
+            "values": [
+                {
+                    "name": "COUNTER",
+                    "id": 3
+                },
+                {
+                    "name": "ORSET",
+                    "id": 4
+                },
+                {
+                    "name": "LWWREG",
+                    "id": 5
+                },
+                {
+                    "name": "MVREG",
+                    "id": 6
+                },
+                {
+                    "name": "GMAP",
+                    "id": 8
+                },
+                {
+                    "name": "RWSET",
+                    "id": 10
+                },
+                {
+                    "name": "RRMAP",
+                    "id": 11
+                },
+                {
+                    "name": "FATCOUNTER",
+                    "id": 12
+                },
+                {
+                    "name": "FLAG_EW",
+                    "id": 13
+                },
+                {
+                    "name": "FLAG_DW",
+                    "id": 14
+                }
+            ]
+        }
+    ]
+}
