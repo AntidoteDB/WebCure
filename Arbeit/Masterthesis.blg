@@ -3,4 +3,5 @@ The style file: unsrtnat.bst
 Database file #1: bibliography/references.bib
 Warning--empty journal in 2
 Warning--empty chapter and pages in 3
-(There were 2 warnings)
+Warning--can't use both author and editor fields in 33
+(There were 3 warnings)

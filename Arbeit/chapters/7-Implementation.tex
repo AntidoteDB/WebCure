@@ -1,9 +1,9 @@
 \chapter{Implementation}
 \label{Implementation}
 
-In this chapter, we are going to explain the major problems that we encountered during the implementation phase.
+In this chapter, we are going to explain the major problems that we encountered during the development phase.
 
-Addressing the client, we will name the frameworks and techniques that we are going to use in the implementation phase. Concerning the server, which is going to provide the RESTful interface, though, we will cover the use cases.
+Addressing the client, in the \chapref*{Technologies} we already named the key frameworks and techniques that we are going to use in the implementation phase. Concerning the server, which is going to provide the RESTful interface, we will cover the use cases.
 
 \begin{figure}[!htb]
     \begin{center}
@@ -17,4 +17,30 @@ Addressing the client, we will name the frameworks and techniques that we are go
 \end{center}
 \end{figure}
 
+\section{Server}
+
+\section{Client}
+
+
+
+
+
+
+
+
+
+
+
+
 \section{Optimization}
+
+
+
+
+\begin{itemize}
+    \item{The request to the server is succesfull: in this case, the request would end up changing the data on the server's side, while the client will just update its own cache once it gets a response from the server.}
+    \item{The request to the server is not succesfull: here, it is going to be a bit more interesting. We will have to wait for an error message and store the data in a temporary database for the updates that are not sent to the server's side just yet. Afterwards, I think it would be logical to have a timer, which will check the connection with the server. Once it is back, every transaction again is going to be sent to the server. After all the data is sent, this temporary database can be cleaned. }
+    
+    \end{itemize}
+    
+    Several problems could arise, however, which we will adrress in the architecture chapter.

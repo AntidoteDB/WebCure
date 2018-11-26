@@ -11,7 +11,7 @@ Working with such a distributed database, whenever the data is needed to be read
 
 \textit{Sequential consistency} and \textit{linearizability} are two consistency conditions that are well-known. Sequential consistency requires that all of the data operations appear to have executed atomically (i.e. independently), in some sequential order. When this order must also preserve the global ordering of non-overlapping operations, this consistency is called linearizability\cite{27}. Linearizability guarantees that the same operations are applied in the same order to every replica of the data item\cite{12}. Serializability is a guarantee about transactions, that they are executed serially (i.e. without overlapping in time) on every set of the data items\cite{12}. Serializability is more strict than sequential consistency, as the granularity of sequential consistency is a single operation, while for serializability it is a transaction. As a result, when serializability is satisfied, the sequential consistency is also satisfied, but not vice versa.
 
-Now, let us introduce different consistency models and the one we will follow in the designing part of WebCache. 
+Now, let us introduce different consistency models and the one we will follow in the designing part of WebCure. 
 
 As stated by \citet{10}, ``\textit{strong consistency} model could be described in the following way: whenever the update is performed, everyone knows about it''. It means that there is a total order of updates and reads are guaranteed to return the latest data, irregardless of which replica is the source of the response. The advantage of strong consistency is that the database is always in a consistent state and to disadvantages we can add low latency, as there is a delay for making sure that all the replicas are in a consistent state before any other read / write requests could be processed. The latency point is a huge drawback for the performance, especially if strong consistency model is considered to be used as a solution for the web, where users usually expect high responsiveness and availability. 
 
@@ -34,7 +34,7 @@ The main point of replicating data is to improve such aspects as reliability, av
 
 \section{AntidoteDB}
 
-For this thesis, one of the core parts in the architecture of the WebCache belongs to the database called AntidoteDB\cite{4}. It helps programmers to write correct applications and has the same performance and horizontal scalability as AP / NoSQL\cite{14}, while it also:
+For this thesis, one of the core parts in the architecture of the WebCure belongs to the database called AntidoteDB\cite{4}. It helps programmers to write correct applications and has the same performance and horizontal scalability as AP / NoSQL\cite{14}, while it also:
 
 \begin{itemize}
 \item {is geo-distributed, which means that the datacenters of AntidoteDB could be spread across anywhere in the world;}

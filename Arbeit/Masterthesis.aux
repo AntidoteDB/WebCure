@@ -114,6 +114,7 @@
 \citation{1}
 \citation{30}
 \citation{32}
+\citation{33}
 \newlabel{part:Technologies}{{4.5}{19}{The transition between offline and online modes}{section.4.5}{}}
 \@writefile{toc}{\contentsline {chapter}{\numberline {5}Technologies}{19}{chapter.5}}
 \@writefile{lof}{\addvspace {10\p@ }}
@@ -122,89 +123,132 @@
 \@writefile{lol}{\addvspace {10\p@ }}
 \newlabel{Technologies}{{5}{19}{Technologies}{chapter.5}{}}
 \@writefile{toc}{\contentsline {section}{\numberline {5.1}Service Worker}{19}{section.5.1}}
-\@writefile{lof}{\contentsline {figure}{\numberline {\relax 5.1}{\ignorespaces An overview of service worker providing the application experience of both online and offline modes.\relax }}{20}{figure.caption.14}}
-\newlabel{fig:sw_interact}{{\relax 5.1}{20}{An overview of service worker providing the application experience of both online and offline modes.\relax }{figure.caption.14}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {5.1.1}Service worker lifecycle}{20}{subsection.5.1.1}}
-\newlabel{lst:tech1}{{5.1}{21}{An example code, which demonstrates the registration of serivce worker}{lstlisting.5.1}{}}
-\@writefile{lol}{\contentsline {lstlisting}{\numberline {5.1}An example code, which demonstrates the registration of serivce worker.}{21}{lstlisting.5.1}}
+\@writefile{lof}{\contentsline {figure}{\numberline {\relax 5.1}{\ignorespaces An overview of the service worker being able to provide the application experience of both online and offline modes.\relax }}{20}{figure.caption.14}}
+\newlabel{fig:sw_interact}{{\relax 5.1}{20}{An overview of the service worker being able to provide the application experience of both online and offline modes.\relax }{figure.caption.14}{}}
+\citation{32}
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.1.1}Service worker lifecycle}{21}{subsection.5.1.1}}
+\newlabel{lst:tech1}{{5.1}{21}{An example code, which demonstrates how to register a service worker\cite {32}}{lstlisting.5.1}{}}
+\@writefile{lol}{\contentsline {lstlisting}{\numberline {5.1}An example code, which demonstrates how to register a service worker\cite  {32}.}{21}{lstlisting.5.1}}
+\citation{32}
+\citation{32}
+\newlabel{lst:tech2}{{5.2}{22}{An example code, which demonstrates how to set a custom scope when registering a service worker\cite {32}}{lstlisting.5.2}{}}
+\@writefile{lol}{\contentsline {lstlisting}{\numberline {5.2}An example code, which demonstrates how to set a custom scope when registering a service worker\cite  {32}.}{22}{lstlisting.5.2}}
+\newlabel{lst:tech3}{{5.3}{22}{An example code, which demonstates a listener for the \textit {install} service worker's event\cite {32}}{lstlisting.5.3}{}}
+\@writefile{lol}{\contentsline {lstlisting}{\numberline {5.3}An example code, which demonstates a listener for the \textit  {install} service worker's event\cite  {32}.}{22}{lstlisting.5.3}}
+\citation{32}
+\citation{34}
+\newlabel{lst:tech4}{{5.4}{23}{An example code, which demonstates a listener for the \textit {activation} service worker's event\cite {32}}{lstlisting.5.4}{}}
+\@writefile{lol}{\contentsline {lstlisting}{\numberline {5.4}An example code, which demonstates a listener for the \textit  {activation} service worker's event\cite  {32}.}{23}{lstlisting.5.4}}
 \@writefile{toc}{\contentsline {section}{\numberline {5.2}Cache API}{23}{section.5.2}}
-\@writefile{toc}{\contentsline {section}{\numberline {5.3}IndexDB database}{23}{section.5.3}}
-\newlabel{part:Implementation}{{5.3}{25}{IndexDB database}{section.5.3}{}}
-\@writefile{toc}{\contentsline {chapter}{\numberline {6}Implementation}{25}{chapter.6}}
+\newlabel{lst:tech5}{{5.5}{23}{An example code, which demonstrates how one can check the support for Cache API\cite {34}}{lstlisting.5.5}{}}
+\@writefile{lol}{\contentsline {lstlisting}{\numberline {5.5}An example code, which demonstrates how one can check the support for Cache API\cite  {34}.}{23}{lstlisting.5.5}}
+\citation{34}
+\citation{37}
+\citation{35}
+\newlabel{lst:tech6}{{5.6}{24}{An example code, which demonstrates how one can create cache storage called \textit {test-cache}\cite {34}}{lstlisting.5.6}{}}
+\@writefile{lol}{\contentsline {lstlisting}{\numberline {5.6}An example code, which demonstrates how one can create cache storage called \textit  {test-cache}\cite  {34}.}{24}{lstlisting.5.6}}
+\citation{35}
+\@writefile{toc}{\contentsline {section}{\numberline {5.3}IndexedDB}{25}{section.5.3}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.3.1}IndexedDB terms}{25}{subsection.5.3.1}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.3.2}IndexedDB Promised}{25}{subsection.5.3.2}}
+\newlabel{lst:tech7}{{5.7}{25}{An example code, which demonstrates how one can check the support for IndexedDB API\cite {35}}{lstlisting.5.7}{}}
+\@writefile{lol}{\contentsline {lstlisting}{\numberline {5.7}An example code, which demonstrates how one can check the support for IndexedDB API\cite  {35}.}{25}{lstlisting.5.7}}
+\citation{36}
+\citation{38}
+\citation{38}
+\@writefile{toc}{\contentsline {section}{\numberline {5.4}Background Sync}{26}{section.5.4}}
+\newlabel{lst:tech8}{{5.8}{26}{An example code, which demonstrates how to register a sync (\textit {myFirstSync} here) event for the service worker\cite {38}}{lstlisting.5.8}{}}
+\@writefile{lol}{\contentsline {lstlisting}{\numberline {5.8}An example code, which demonstrates how to register a sync (\textit  {myFirstSync} here) event for the service worker\cite  {38}.}{26}{lstlisting.5.8}}
+\citation{38}
+\newlabel{lst:tech9}{{5.9}{27}{An example code, which demonstates that a function \textit {doSomeStuff} called, when the \textit {sync} event happened\cite {38}}{lstlisting.5.9}{}}
+\@writefile{lol}{\contentsline {lstlisting}{\numberline {5.9}An example code, which demonstates that a function \textit  {doSomeStuff} called, when the \textit  {sync} event happened\cite  {38}.}{27}{lstlisting.5.9}}
+\newlabel{part:Implementation}{{5.4}{29}{Background Sync}{lstnumber.5.9.5}{}}
+\@writefile{toc}{\contentsline {chapter}{\numberline {6}Implementation}{29}{chapter.6}}
 \@writefile{lof}{\addvspace {10\p@ }}
 \@writefile{lot}{\addvspace {10\p@ }}
 \@writefile{loc}{\addvspace {10\p@ }}
 \@writefile{lol}{\addvspace {10\p@ }}
-\newlabel{Implementation}{{6}{25}{Implementation}{chapter.6}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {\relax 6.1}{\ignorespaces A look at the server-client architecture with a RESTful interface.\relax }}{25}{figure.caption.18}}
-\newlabel{fig:design1}{{\relax 6.1}{25}{A look at the server-client architecture with a RESTful interface.\relax }{figure.caption.18}{}}
-\@writefile{toc}{\contentsline {section}{\numberline {6.1}Optimization}{25}{section.6.1}}
-\newlabel{part:Evaluation}{{6.1}{27}{Optimization}{section.6.1}{}}
-\@writefile{toc}{\contentsline {chapter}{\numberline {7}Evaluation}{27}{chapter.7}}
+\newlabel{Implementation}{{6}{29}{Implementation}{chapter.6}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {\relax 6.1}{\ignorespaces A look at the server-client architecture with a RESTful interface.\relax }}{29}{figure.caption.18}}
+\newlabel{fig:design1}{{\relax 6.1}{29}{A look at the server-client architecture with a RESTful interface.\relax }{figure.caption.18}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {6.1}Client}{29}{section.6.1}}
+\@writefile{toc}{\contentsline {section}{\numberline {6.2}Server}{29}{section.6.2}}
+\@writefile{toc}{\contentsline {section}{\numberline {6.3}Optimization}{29}{section.6.3}}
+\newlabel{part:Evaluation}{{6.3}{31}{Optimization}{section.6.3}{}}
+\@writefile{toc}{\contentsline {chapter}{\numberline {7}Evaluation}{31}{chapter.7}}
 \@writefile{lof}{\addvspace {10\p@ }}
 \@writefile{lot}{\addvspace {10\p@ }}
 \@writefile{loc}{\addvspace {10\p@ }}
 \@writefile{lol}{\addvspace {10\p@ }}
-\newlabel{Evaluation}{{7}{27}{Evaluation}{chapter.7}{}}
+\newlabel{Evaluation}{{7}{31}{Evaluation}{chapter.7}{}}
 \citation{6}
 \citation{5}
 \citation{7}
 \citation{8}
-\newlabel{part:RelatedWork}{{7}{29}{Evaluation}{chapter.7}{}}
-\@writefile{toc}{\contentsline {chapter}{\numberline {8}Related Work}{29}{chapter.8}}
+\newlabel{part:RelatedWork}{{7}{33}{Evaluation}{chapter.7}{}}
+\@writefile{toc}{\contentsline {chapter}{\numberline {8}Related Work}{33}{chapter.8}}
 \@writefile{lof}{\addvspace {10\p@ }}
 \@writefile{lot}{\addvspace {10\p@ }}
 \@writefile{loc}{\addvspace {10\p@ }}
 \@writefile{lol}{\addvspace {10\p@ }}
-\newlabel{RelatedWork}{{8}{29}{Related Work}{chapter.8}{}}
-\@writefile{toc}{\contentsline {section}{\numberline {8.1}SwiftCloud: a transactional system that brings geo-replication to the client}{29}{section.8.1}}
-\@writefile{toc}{\contentsline {section}{\numberline {8.2}Legion: a framework, which enriches web applications}{29}{section.8.2}}
+\newlabel{RelatedWork}{{8}{33}{Related Work}{chapter.8}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {8.1}SwiftCloud: a transactional system that brings geo-replication to the client}{33}{section.8.1}}
+\@writefile{toc}{\contentsline {section}{\numberline {8.2}Legion: a framework, which enriches web applications}{33}{section.8.2}}
 \citation{16}
 \citation{18}
 \citation{17}
 \citation{20}
 \citation{21}
 \citation{19}
-\@writefile{toc}{\contentsline {section}{\numberline {8.3}Developing web and mobile applications with offline usage experience}{30}{section.8.3}}
+\@writefile{toc}{\contentsline {section}{\numberline {8.3}Developing web and mobile applications with offline usage experience}{34}{section.8.3}}
 \citation{23}
 \citation{24}
 \citation{25}
 \citation{26}
-\newlabel{lst:rwork1}{{8.1}{32}{A typical result of retrieving the item \textit {document} stored in CouchDB}{lstlisting.8.1}{}}
-\@writefile{lol}{\contentsline {lstlisting}{\numberline {8.1}A typical result of retrieving the item \textit  {document} stored in CouchDB.}{32}{lstlisting.8.1}}
-\newlabel{lst:rwork2}{{8.2}{32}{Updating the value of item \textit {document} by adding \textit {b} into it}{lstlisting.8.2}{}}
-\@writefile{lol}{\contentsline {lstlisting}{\numberline {8.2}Updating the value of item \textit  {document} by adding \textit  {b} into it.}{32}{lstlisting.8.2}}
-\newlabel{lst:rwork3}{{8.3}{32}{The result of requesting the updated version of \textit {document}}{lstlisting.8.3}{}}
-\@writefile{lol}{\contentsline {lstlisting}{\numberline {8.3}The result of requesting the updated version of \textit  {document}}{32}{lstlisting.8.3}}
-\newlabel{lst:rwork4}{{8.4}{33}{Updating the value of item \textit {document} by adding \textit {d} into it}{lstlisting.8.4}{}}
-\@writefile{lol}{\contentsline {lstlisting}{\numberline {8.4}Updating the value of item \textit  {document} by adding \textit  {d} into it.}{33}{lstlisting.8.4}}
-\newlabel{lst:rwork5}{{8.5}{33}{The result of requesting the \textit {document} from CouchDB-1}{lstlisting.8.5}{}}
-\@writefile{lol}{\contentsline {lstlisting}{\numberline {8.5}The result of requesting the \textit  {document} from CouchDB-1.}{33}{lstlisting.8.5}}
-\newlabel{lst:rwork6}{{8.6}{33}{The result of requesting the \textit {document} from CouchDB-2}{lstlisting.8.6}{}}
-\@writefile{lol}{\contentsline {lstlisting}{\numberline {8.6}The result of requesting the \textit  {document} from CouchDB-2.}{33}{lstlisting.8.6}}
-\newlabel{lst:rwork7}{{8.7}{34}{Updating the value of item \textit {document} by adding element \textit {e} and removing previously added element \textit {d}}{lstlisting.8.7}{}}
-\@writefile{lol}{\contentsline {lstlisting}{\numberline {8.7}Updating the value of item \textit  {document} by adding element \textit  {e} and removing previously added element \textit  {d}}{34}{lstlisting.8.7}}
-\newlabel{lst:rwork8}{{8.8}{34}{The demonstration of a conflict situation happening, when the \textit {\_rev} of sent operation and the one at the server do not match}{lstlisting.8.8}{}}
-\@writefile{lol}{\contentsline {lstlisting}{\numberline {8.8}The demonstration of a conflict situation happening, when the \textit  {\_rev} of sent operation and the one at the server do not match.}{34}{lstlisting.8.8}}
-\newlabel{lst:rwork9}{{8.9}{34}{Updating the value of item \textit {document} by adding element \textit {e} and removing previously added element \textit {d} after receiving the new \textit {\_rev} from the second CouchDB server}{lstlisting.8.9}{}}
-\@writefile{lol}{\contentsline {lstlisting}{\numberline {8.9}Updating the value of item \textit  {document} by adding element \textit  {e} and removing previously added element \textit  {d} after receiving the new \textit  {\_rev} from the second CouchDB server.}{34}{lstlisting.8.9}}
+\newlabel{lst:rwork1}{{8.1}{36}{A typical result of retrieving the item \textit {document} stored in CouchDB}{lstlisting.8.1}{}}
+\@writefile{lol}{\contentsline {lstlisting}{\numberline {8.1}A typical result of retrieving the item \textit  {document} stored in CouchDB.}{36}{lstlisting.8.1}}
+\newlabel{lst:rwork2}{{8.2}{36}{Updating the value of item \textit {document} by adding \textit {b} into it}{lstlisting.8.2}{}}
+\@writefile{lol}{\contentsline {lstlisting}{\numberline {8.2}Updating the value of item \textit  {document} by adding \textit  {b} into it.}{36}{lstlisting.8.2}}
+\newlabel{lst:rwork3}{{8.3}{36}{The result of requesting the updated version of \textit {document}}{lstlisting.8.3}{}}
+\@writefile{lol}{\contentsline {lstlisting}{\numberline {8.3}The result of requesting the updated version of \textit  {document}}{36}{lstlisting.8.3}}
+\newlabel{lst:rwork4}{{8.4}{37}{Updating the value of item \textit {document} by adding \textit {d} into it}{lstlisting.8.4}{}}
+\@writefile{lol}{\contentsline {lstlisting}{\numberline {8.4}Updating the value of item \textit  {document} by adding \textit  {d} into it.}{37}{lstlisting.8.4}}
+\newlabel{lst:rwork5}{{8.5}{37}{The result of requesting the \textit {document} from CouchDB-1}{lstlisting.8.5}{}}
+\@writefile{lol}{\contentsline {lstlisting}{\numberline {8.5}The result of requesting the \textit  {document} from CouchDB-1.}{37}{lstlisting.8.5}}
+\newlabel{lst:rwork6}{{8.6}{37}{The result of requesting the \textit {document} from CouchDB-2}{lstlisting.8.6}{}}
+\@writefile{lol}{\contentsline {lstlisting}{\numberline {8.6}The result of requesting the \textit  {document} from CouchDB-2.}{37}{lstlisting.8.6}}
+\newlabel{lst:rwork7}{{8.7}{38}{Updating the value of item \textit {document} by adding element \textit {e} and removing previously added element \textit {d}}{lstlisting.8.7}{}}
+\@writefile{lol}{\contentsline {lstlisting}{\numberline {8.7}Updating the value of item \textit  {document} by adding element \textit  {e} and removing previously added element \textit  {d}}{38}{lstlisting.8.7}}
+\newlabel{lst:rwork8}{{8.8}{38}{The demonstration of a conflict situation happening, when the \textit {\_rev} of sent operation and the one at the server do not match}{lstlisting.8.8}{}}
+\@writefile{lol}{\contentsline {lstlisting}{\numberline {8.8}The demonstration of a conflict situation happening, when the \textit  {\_rev} of sent operation and the one at the server do not match.}{38}{lstlisting.8.8}}
+\newlabel{lst:rwork9}{{8.9}{38}{Updating the value of item \textit {document} by adding element \textit {e} and removing previously added element \textit {d} after receiving the new \textit {\_rev} from the second CouchDB server}{lstlisting.8.9}{}}
+\@writefile{lol}{\contentsline {lstlisting}{\numberline {8.9}Updating the value of item \textit  {document} by adding element \textit  {e} and removing previously added element \textit  {d} after receiving the new \textit  {\_rev} from the second CouchDB server.}{38}{lstlisting.8.9}}
 \citation{22}
 \citation{22}
-\newlabel{part:Conclusion}{{8.3}{37}{Realm Mobile}{section*.24}{}}
-\@writefile{toc}{\contentsline {chapter}{\numberline {9}Conclusion}{37}{chapter.9}}
+\newlabel{part:Conclusion}{{8.3}{41}{Realm Mobile}{section*.24}{}}
+\@writefile{toc}{\contentsline {chapter}{\numberline {9}Conclusion}{41}{chapter.9}}
 \@writefile{lof}{\addvspace {10\p@ }}
 \@writefile{lot}{\addvspace {10\p@ }}
 \@writefile{loc}{\addvspace {10\p@ }}
 \@writefile{lol}{\addvspace {10\p@ }}
-\newlabel{Conclusion}{{9}{37}{Conclusion}{chapter.9}{}}
-\@writefile{toc}{\contentsline {section}{\numberline {9.1}Summary}{37}{section.9.1}}
-\@writefile{toc}{\contentsline {section}{\numberline {9.2}Future Work}{37}{section.9.2}}
+\newlabel{Conclusion}{{9}{41}{Conclusion}{chapter.9}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {9.1}Summary}{41}{section.9.1}}
+\@writefile{toc}{\contentsline {section}{\numberline {9.2}Future Work}{41}{section.9.2}}
 \citation{2}
 \citation{2}
-\@writefile{toc}{\contentsline {chapter}{\nonumberline List of Figures}{39}{chapter*.26}}
-\@writefile{toc}{\contentsline {chapter}{\nonumberline List of Tables}{41}{chapter*.27}}
-\@writefile{toc}{\contentsline {chapter}{\nonumberline List of Code}{43}{chapter*.28}}
-\@writefile{toc}{\contentsline {chapter}{\nonumberline Listings}{45}{chapter*.29}}
+\@writefile{toc}{\contentsline {chapter}{\nonumberline List of Figures}{43}{chapter*.26}}
+\@writefile{toc}{\contentsline {chapter}{\nonumberline List of Tables}{45}{chapter*.27}}
+\@writefile{toc}{\contentsline {chapter}{\nonumberline List of Code}{47}{chapter*.28}}
+\citation{32}
+\citation{32}
+\citation{32}
+\citation{32}
+\citation{34}
+\citation{34}
+\citation{35}
+\citation{38}
+\citation{38}
+\@writefile{toc}{\contentsline {chapter}{\nonumberline Listings}{49}{chapter*.29}}
 \@writefile{lof}{\addvspace {10\p@ }}
 \@writefile{lot}{\addvspace {10\p@ }}
 \@writefile{loc}{\addvspace {10\p@ }}
@@ -218,7 +262,7 @@
 \bibcite{28}{{6}{2015}{{Casti\~{n}eira and Bieniusa}}{{}}}
 \bibcite{7}{{7}{2015}{{Zawirski et~al.}}{{Zawirski, Pregui\c {c}a, Duarte, Bieniusa, Balegas, and Shapiro}}}
 \bibcite{4}{{8}{2018 (accessed September 25, 2018}{{4}}{{)}}}
-\@writefile{toc}{\contentsline {chapter}{\nonumberline Bibliography}{47}{chapter*.30}}
+\@writefile{toc}{\contentsline {chapter}{\nonumberline Bibliography}{51}{chapter*.30}}
 \@writefile{lof}{\addvspace {10\p@ }}
 \@writefile{lot}{\addvspace {10\p@ }}
 \@writefile{loc}{\addvspace {10\p@ }}
@@ -231,20 +275,26 @@
 \bibcite{1}{{14}{2018 (accessed September 14, 2018}{{Gaunt}}{{)}}}
 \bibcite{30}{{15}{2018 (accessed November 15, 2018}{{30}}{{)}}}
 \bibcite{32}{{16}{2018 (accessed November 18, 2018}{{32}}{{)}}}
-\bibcite{6}{{17}{2011}{{Sovran et~al.}}{{Sovran, Power, Aguilera, and Li}}}
-\bibcite{5}{{18}{2014}{{Pregui\c {c}a et~al.}}{{Pregui\c {c}a, Zawirski, Bieniusa, Duarte, Balegas, Baquero, and Shapiro}}}
-\bibcite{8}{{19}{2017}{{van~der Linde et~al.}}{{van~der Linde, Fouto, Leit{\~{a}}o, Pregui{\c {c}}a, Casti{\~{n}}eira, and Bieniusa}}}
-\bibcite{16}{{20}{2018 (accessed October 29, 2018}{{16}}{{)}}}
-\bibcite{18}{{21}{2016 (accessed October 29, 2018}{{18}}{{)}}}
-\bibcite{17}{{22}{2018 (accessed October 29, 2018}{{17}}{{)}}}
-\bibcite{20}{{23}{2018 (accessed October 30, 2018}{{Bidelman}}{{)}}}
-\bibcite{21}{{24}{2018 (accessed October 30, 2018}{{21}}{{)}}}
-\bibcite{19}{{25}{2008 (accessed October 29, 2018}{{van Kesteren}}{{)}}}
-\bibcite{23}{{26}{accessed November 4, 2018}{{23}}{{}}}
-\bibcite{24}{{27}{2017 (accessed November 4, 2018}{{Peyser}}{{)}}}
-\bibcite{25}{{28}{2013 (accessed November 4, 2018}{{West}}{{)}}}
-\bibcite{26}{{29}{2013 (accessed November 4, 2018}{{Lehnardt}}{{)}}}
-\bibcite{22}{{30}{2018 (accessed October 30, 2018}{{22}}{{)}}}
+\bibcite{33}{{17}{2005}{{Desmedt}}{{}}}
+\bibcite{34}{{18}{2018 (accessed November 22, 2018}{{Walsh}}{{)}}}
+\bibcite{37}{{19}{2018 (accessed November 23, 2018}{{37}}{{)}}}
+\bibcite{35}{{20}{2018 (accessed November 23, 2018}{{35}}{{)}}}
+\bibcite{36}{{21}{2018 (accessed November 23, 2018}{{Archibald}}{{)}}}
+\bibcite{38}{{22}{2018 (accessed November 24, 2018}{{Archibald}}{{)}}}
+\bibcite{6}{{23}{2011}{{Sovran et~al.}}{{Sovran, Power, Aguilera, and Li}}}
+\bibcite{5}{{24}{2014}{{Pregui\c {c}a et~al.}}{{Pregui\c {c}a, Zawirski, Bieniusa, Duarte, Balegas, Baquero, and Shapiro}}}
+\bibcite{8}{{25}{2017}{{van~der Linde et~al.}}{{van~der Linde, Fouto, Leit{\~{a}}o, Pregui{\c {c}}a, Casti{\~{n}}eira, and Bieniusa}}}
+\bibcite{16}{{26}{2018 (accessed October 29, 2018}{{16}}{{)}}}
+\bibcite{18}{{27}{2016 (accessed October 29, 2018}{{18}}{{)}}}
+\bibcite{17}{{28}{2018 (accessed October 29, 2018}{{17}}{{)}}}
+\bibcite{20}{{29}{2018 (accessed October 30, 2018}{{Bidelman}}{{)}}}
+\bibcite{21}{{30}{2018 (accessed October 30, 2018}{{21}}{{)}}}
+\bibcite{19}{{31}{2008 (accessed October 29, 2018}{{van Kesteren}}{{)}}}
+\bibcite{23}{{32}{accessed November 4, 2018}{{23}}{{}}}
+\bibcite{24}{{33}{2017 (accessed November 4, 2018}{{Peyser}}{{)}}}
+\bibcite{25}{{34}{2013 (accessed November 4, 2018}{{West}}{{)}}}
+\bibcite{26}{{35}{2013 (accessed November 4, 2018}{{Lehnardt}}{{)}}}
+\bibcite{22}{{36}{2018 (accessed October 30, 2018}{{22}}{{)}}}
 \global\@namedef{scr@dte@chapter@lastmaxnumwidth}{10.79993pt}
 \global\@namedef{scr@dte@section@lastmaxnumwidth}{19.79993pt}
 \global\@namedef{scr@dte@subsection@lastmaxnumwidth}{28.79993pt}

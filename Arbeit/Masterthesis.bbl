@@ -1,4 +1,4 @@
-\begin{thebibliography}{30}
+\begin{thebibliography}{36}
 \providecommand{\natexlab}[1]{#1}
 \providecommand{\url}[1]{\texttt{#1}}
 \expandafter\ifx\csname urlstyle\endcsname\relax
@@ -124,6 +124,45 @@ Introduction to service worker.
 \newblock
   \url{https://developers.google.com/web/ilt/pwa/introduction-to-service-worker},
   2018 (accessed November 18, 2018).
+
+\bibitem[Desmedt(2005)]{33}
+Yvo Desmedt.
+\newblock \emph{Man-in-the-Middle Attack}, pages 368--368.
+\newblock Springer US, Boston, MA, 2005.
+\newblock ISBN 978-0-387-23483-0.
+\newblock \doi{10.1007/0-387-23483-7_241}.
+\newblock URL \url{https://doi.org/10.1007/0-387-23483-7_241}.
+
+\bibitem[Walsh(2018 (accessed November 22, 2018))]{34}
+David Walsh.
+\newblock Cache api.
+\newblock \url{https://davidwalsh.name/cache}, 2018 (accessed November 22,
+  2018).
+
+\bibitem[37(2018 (accessed November 23, 2018))]{37}
+Promise.
+\newblock
+  \url{https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise},
+  2018 (accessed November 23, 2018).
+
+\bibitem[35(2018 (accessed November 23, 2018))]{35}
+Working with indexeddb.
+\newblock
+  \url{https://developers.google.com/web/ilt/pwa/working-with-indexeddb}, 2018
+  (accessed November 23, 2018).
+
+\bibitem[Archibald(2018 (accessed November 23, 2018))]{36}
+Jake Archibald.
+\newblock Indexeddb promised.
+\newblock \url{https://github.com/jakearchibald/idb}, 2018 (accessed November
+  23, 2018).
+
+\bibitem[Archibald(2018 (accessed November 24, 2018))]{38}
+Jake Archibald.
+\newblock Introducing background sync.
+\newblock
+  \url{https://developers.google.com/web/updates/2015/12/background-sync}, 2018
+  (accessed November 24, 2018).
 
 \bibitem[Sovran et~al.(2011)Sovran, Power, Aguilera, and Li]{6}
 Yair Sovran, Russell Power, Marcos~K. Aguilera, and Jinyang Li.

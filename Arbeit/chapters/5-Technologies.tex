@@ -1,27 +1,30 @@
 \chapter{Technologies}
 \label{Technologies}
 
-This chapter consists of a description of used technologies to implement the design we introduced our reader to in the \chapref*{Design}. To give an overview, we believe that the implementation of WebCache's design requires the following components:
+This chapter consists of a description of used technologies to implement the design we introduced our reader to in the \chapref*{Design}. To give an overview, we believe that the implementation of WebCure's design demands the following components:
 
 \begin{itemize}
 \item{A service worker, in order to control requests coming from the client;}
-\item{A Cache API for storing assets and to make the application available offline;}
+\item{A Cache API to store assets and to make the application available offline;}
 \item{A database to store the data locally;}
+\item{Background Sync for deferring the actions conducted offline until the connection is stable;}
 
 \end{itemize}
 
 \section{Service Worker}
 
-Service worker\cite{1} is a web worker\footnote{Web Workers make it possible to run a script operation in a background thread separate from the main execution thread of a web application\cite{30}}, which actually is a JavaScript file, which lies in the middle, between the web application and network requests. Service worker runs independently from the web-page and has the following features: 
+Service worker\cite{1} is a web worker\footnote{Web Workers make it possible to run a script operation in a background thread separate from the main execution thread of a web application\cite{30}}, which is a JavaScript file, which lies in the middle, between the web application and network requests. Service worker runs independently from the web-page and has the following characteristics: 
 
 \begin{itemize}
-\item{For the user, it is sort of invisible;}
-\item{It does not have an access to the DOM\footnote{DOM or \textbf{D}ocument \textbf{O}bject \textbf{M}odel of the page defines HTML elements as objects, as well as their properties, methods and events.}, but it has the control over pages (not just a specific one);}
-\item{When the application is not active, a service worker still can receive push-notifications from the server\cite{32}, which lets improve the user experience of the application and make it ``closer'' to native mobile applications;}
+\item{For the user, it is invisible;}
+\item{It does not have access to the DOM\footnote{DOM, or \textbf{D}ocument \textbf{O}bject \textbf{M}odel of the page defines HTML elements as objects, as well as their properties, methods, and events.}, however, it has the control over pages (not just a specific one);}
+\item{When the application is not running, a service worker still can receive push-notifications from the server\cite{32}, which let us improve the user experience of the application and makes it ``closer'' to native mobile applications;}
+
+\item{It runs over HTTPS, as for the projects using a service worker, the ``man-in-the-middle''\footnote{In computer security, this is a type of attack, where a third party secretly alters the communication between two parties, while they believe they are directly ``talking'' to each other\cite{33}} attacks could represent a real threat;}
 \item{It offers a possibility to intercept requests as the browser makes them and has the following options:}
 \begin{itemize}
 \item{to let requests go to the network as usual;}
-\item{to skip the network and redirect requests to get the data from cache;}
+\item{to skip the network and redirect requests to get the data from the cache;}
 \item{to perform any combination of the above;}
 \end{itemize}
 \end{itemize}
@@ -30,22 +33,22 @@ Service worker\cite{1} is a web worker\footnote{Web Workers make it possible to 
     \begin{center}
     \def\svgwidth{0.7\linewidth}
     \input{images/technologies/sw.pdf_tex}
-    \caption {An overview of service worker providing the application experience of both online and offline modes.}
+    \caption {An overview of the service worker being able to provide the application experience of both online and offline modes.}
     \label{fig:sw_interact}
 \end{center}
 \end{figure}
 
-We are going to use a service worker in order to intercept the network traffic. For example, as can be seen at \figref*{fig:sw_interact}, in situations when there are problems happening with a network once a request is  in processing, we will get the data from the cache. At the moments, when the internet connection could not be established, the cache content can be easily displayed without forcing user to wait, which dramatically improves performance and user experience. And when the internet connection is present, the data can be received from the actual network. 
+We are going to use a service worker in order to intercept the network traffic. For example, as can be seen at \figref*{fig:sw_interact}, in circumstances when problems are happening with a network when a request is in processing, we will get the data from the cache. At times, when the internet connection could not be established, the cache content can be easily displayed without forcing a user to wait, which dramatically improves performance and user experience. Also, when the internet connection is present, the data can be received from the actual network. 
 
 \subsection{Service worker lifecycle}
 
-In this subsection, we will introduce the steps through which service worker goes through. These steps are registration, installation and activation. Each of them we are going to describe below in more details.
+In this subsection, we will introduce the steps through which a service worker goes. These steps are registration, installation, and activation. All of them we are going to describe below in more details.
 
 \subsection*{Registration}
 
-Before one can use service worker features, it should be registered in the JavaScript code. The registration helps the browser to locate a service worker and, afterwards, start its installation in the background. The example of how the registration could be done is shown at~\lstref*{lst:tech1}:
+Before one can use service worker features, a developer has to register the corresponding script in the JavaScript code. The registration helps the browser to find a service worker and, afterward, start its installation in the environment.
 
-\begin{lstlisting}[caption={An example code, which demonstrates the registration of serivce worker.}, label={lst:tech1}]
+\begin{lstlisting}[caption={An example code, which demonstrates how to register a service worker\cite{32}.}, label={lst:tech1}]
 if ('serviceWorker' in navigator) {
   navigator.serviceWorker.register('/service-worker.js')
   .then(function(registration) {
@@ -57,54 +60,121 @@ if ('serviceWorker' in navigator) {
 }
 \end{lstlisting}
 
-This code starts by checking for browser support by examining navigator.serviceWorker. The service worker is then registered with navigator.serviceWorker.register, which returns a promise that resolves when the service worker has been successfully registered. The scope of the service worker is then logged with registration.scope.
+Looking at the \textit{line 1} of code at~\lstref*{lst:tech1}, we see that, firstly, it is necessary to check, whether the browser supports service workers by observing the property \textit{serviceWorker} of \textit{navigator}. If so, the service worker is going to be registered then, as can be seen at the \textit{line 2}, where the location of the service worker is stated as well. The \textit{navigator.serviceWorker.register} returns a promise, which resolves when the registration was successful. Afterward, the scope of the service worker is logged with \textit{registration.scope}. 
 
-The scope of the service worker determines which files the service worker controls, in other words, from which path the service worker will intercept requests. The default scope is the location of the service worker file, and extends to all directories below. So if service-worker.js is located in the root directory, the service worker will control requests from all files at this domain.
+The scope of the service workers is quite significant: it defines the paths, from which it can intercept network requests. By default, the scope of the service worker is the location, where the service worker file is stored, including all the sub-directories. For example, if the scope is root directory, then the service worker is going to regulate the requests for all files at the domain.
 
-You can also set an arbitrary scope by passing in an additional parameter when registering. For example:
+\begin{lstlisting}[caption={An example code, which demonstrates how to set a custom scope when registering a service worker\cite{32}.}, label={lst:tech2}]
+navigator.serviceWorker.register('/service-worker.js', {
+  scope: '/app/'
+});
+\end{lstlisting}
 
-In this case we are setting the scope of the service worker to /app/, which means the service worker will control requests from pages like /app/, /app/lower/ and /app/lower/lower, but not from pages like /app or /, which are higher.
-
-If the service worker is already installed, navigator.serviceWorker.register returns the registration object of the currently active service worker.
-
-
+When registering, it is also possible to use a custom scope. ~\lstref*{lst:tech2} demonstrates that the service worker is going to have a scope of \textit{/app/}. It indicates that it will control requests from all the pages like \textit{/app/} and deeper. Worth mentioning that when the service worker is already installed, \textit{navigator.serviceWorker.register} returns the object of the currently active service worker.
 
 \subsection*{Installation}
 
-Once the the browser registers a service worker, installation can be attempted. This occurs if the service worker is considered to be new by the browser, either because the site currently doesn't have a registered service worker, or because there is a byte difference between the new service worker and the previously installed one.
+After the registration, the browser might attempt installation of a service worker, if it is considered as a new one, which happens in the following situations: 
 
-A service worker installation triggers an install event in the installing service worker. We can include an install event listener in the service worker to perform some task when the service worker installs. For instance, during the install, service workers can precache parts of a web app so that it loads instantly the next time a user opens it (see caching the application shell). So, after that first load, you're going to benefit from instant repeat loads and your time to interactivity is going to be even better in those cases. An example of an installation event listener looks like this:
+\begin{itemize}
+\item{when the site does not have a registered service worker yet;}
+\item{when there is a difference between the previously installed service worker and the new one;}
+\end{itemize}
+
+Installation triggers service worker's \textit{install} event. There is a probability of having a listener for it in order to assign a specific task (depends on the use case), which follows the installation on success. The way to set up this listener is shown at~\lstref*{lst:tech3}.
+
+\begin{lstlisting}[caption={An example code, which demonstates a listener for the \textit{install} service worker's event\cite{32}.}, label={lst:tech3}]
+// Listen for install event, set callback
+self.addEventListener('install', function(event) {
+    // Perform some task
+});
+\end{lstlisting}
 
 \subsection*{Activation}
 
+After the installation, a service worker has to be activated. In case there are open pages, which are controlled by the previous version of a service worker, then the recently installed service worker will be waiting. The activation of a new service worker takes place only when there are no other pages, controlled by the old version of a service worker. That provides a guarantee that only one version of service worker manages the pages of its scope at any time.
 
-Once a service worker has successfully installed, it transitions into the activation stage. If there are any open pages controlled by the previous service worker, the new service worker enters a waiting state. The new service worker only activates when there are no longer any pages loaded that are still using the old service worker. This ensures that only one version of the service worker is running at any given time.
+Similar to the installation, activation phase also has its event that gets triggered once the service worker is activating, as we can see at~\lstref*{lst:tech4}. For example, at this point, it might be a good idea to clean the previously stored old cached data.
 
-When the new service worker activates, an activate event is triggered in the activating service worker. This event listener is a good place to clean up outdated caches (see the Offline Cookbook for an example).
-
-Once activated, the service worker controls all pages that load within its scope, and starts listening for events from those pages. However, pages in your app that were loaded before the service worker activation will not be under service worker control. The new service worker will only take over when you close and reopen your app, or if the service worker calls clients.claim(). Until then, requests from this page will not be intercepted by the new service worker. This is intentional as a way to ensure consistency in your site.
-
-Service workers are event driven. Both the installation and activation processes trigger corresponding install and activate events to which the service workers can respond. There are also message events, where the service worker can receive information from other scripts, and functional events such as fetch, push, and sync.
+\begin{lstlisting}[caption={An example code, which demonstates a listener for the \textit{activation} service worker's event\cite{32}.}, label={lst:tech4}]
+self.addEventListener('activate', function(event) {
+  // Perform some task
+});
+\end{lstlisting}
 
 \section{Cache API}
 
+For the best offline experience, the web application should store somewhere HTML, CSS, JavaScript code, as well as images, fonts. There is a place for all of it called Cache API, which we are going to use for WebCure. 
 
+\begin{lstlisting}[caption={An example code, which demonstrates how one can check the support for Cache API\cite{34}.}, label={lst:tech5}]
+if('caches' in window) {
+  // Has support!
+}
+\end{lstlisting}
 
+First of all, before one can start working with Cache API, the support of the browser for it should be checked. It can be done with a simple \textit{if} condition, as shown at~\lstref*{lst:tech5}.
 
-If we want to store somewhere the HTML, the CSS and the JavaScript, as well as such assets as images, web fonts, then there is a place for all of it -- Cache API. It allows conveniently manage the content for the offline use. 
+\begin{lstlisting}[caption={An example code, which demonstrates how one can create cache storage called \textit{test-cache}\cite{34}.}, label={lst:tech6}]
+caches.open('test-cache').then(function(cache) {
+  // Cache is created and accessible
+});
+\end{lstlisting}
 
-\section{IndexDB database}
+Afterward, when the support for caching is discovered, it is possible to create a cache with a specific name. At~\lstref*{lst:tech6} we see an example code of how a cache with a name \textit{test-cache} is created. If the operation is performed successfully, then a promise\footnote{JavaScript Promise is an object, which represents the eventual completion or failure of an asynchronous operation.\cite{37}} resolves and one is going to get access either to a newly created cache or to the one, which existed before the call of \textit{open} method.
 
-When the user opens an application, we want to show the latest data the device received. Then we make the web-socket connection ( a web-socket bypassses both the service worker and the HTTP cache), and we start receiving new data records. When we recieve it, we want to update the application state, taking new data into account. But apart from that, we would like to add new data to already stored one in the cache. We might also think about removing the data, which is too old to keep (depends on the user case). 
+That covers the main functionality of the API. After creating a cache, it is possible to manipulate it in many ways. 
 
-The database API we can use in this case is IndexedDB. It allows to create multiple databases with a custom name. Each database contains multiple object stores -- one for each kind of thing we want to store. An object store contains multiple values - JS objects, strings, numbers, dates, arrays. Items in the object stores can have a separate primary key, which should be unique in the particular store, to identify an object. There are multiple operations that can be done to items in object stores: get, set, add, remove, iterate. All read or write operations in IndexedDB must be a part of a transaction: this means that if we create a transaction for a series of steps and one of those fails -- none of them are going to be applied. The browser support of IndexedDB is good, because every major browser supports it. 
+Let us now introduce one of the operations -- adding to the cache. A developer can provide a string for the URL that will be fetched and stored in a cache object. Whenever the data is received from the cache, the browser will return a particular object according to the URL that was stored in the cache. 
 
-In case the user wants to make a change to the data, there are two cases to handle. 
+Apart from adding to the cache object, it is also possible to remove stored URLs, check the current list of cached requests, delete a cache object, and other operations.
 
-\begin{itemize}
-\item{The request to the server is succesfull: in this case, the request would end up changing the data on the server's side, while the client will just update its own cache once it gets a response from the server.}
-\item{The request to the server is not succesfull: here, it is going to be a bit more interesting. We will have to wait for an error message and store the data in a temporary database for the updates that are not sent to the server's side just yet. Afterwards, I think it would be logical to have a timer, which will check the connection with the server. Once it is back, every transaction again is going to be sent to the server. After all the data is sent, this temporary database can be cleaned. }
+\section{IndexedDB}
 
-\end{itemize}
+As the protocol we introduced in the \chapref*{Design} clearly describes that there is a necessity to have a client-side storage system, we are going to use for that purpose IndexedDB. It is a large-scale, NoSQL storage system\cite{35} or, in other words, it is a robust database, which lets us store any data in the user's browser. Apart from that, it supports transactions and achieves a high-performance search due to the usage of indexes. 
 
-Several problems could arise, however, which we will adrress in the architecture chapter.
+\subsection{IndexedDB terms}
+
+In order to properly understand how IndexedDB works, it is quite useful to understand the concepts that are used in the database. First of all, each \textit{IndexedDB database} contains \textit{Object stores}. Those object stores, in its turn, are similar to tables in traditional databases. Usually, the practice is to have one object store for each type of data. This data could be anything: custom objects, strings, numbers, arrays, and other. It is possible to create more than one database, which could contain various object stores, but usually, it goes in the way of having one database per application, which normally should have one object store for each type of data stored. To expedite the way of identifying objects in object stores, the latter have \textit{primary keys}, which should be unique in the particular object stores. Primary keys are defined by the developer and are very useful regarding searching the data.
+
+All read and write operations in IndexedDB should be wrapped into a \textit{transaction}, which guarantees the database integrity. The critical point is that if one operation within a transaction fails, then none of the other operations are going to be applied. 
+
+\subsection{IndexedDB Promised}
+
+As IndexedDB is relatively a new API, it is not supported by all the web browsers yet and, therefore, the support for it should be checked before any further development, as it is shown at~\lstref*{lst:tech7}. However, all the recent versions of the major web browsers are compatible with it. 
+
+\begin{lstlisting}[caption={An example code, which demonstrates how one can check the support for IndexedDB API\cite{35}.}, label={lst:tech7}]
+if (!('indexedDB' in window)) {
+  console.log('This browser doesn\'t support IndexedDB');
+  return;
+}
+\end{lstlisting}
+
+Nevertheless, one of the most significant problems with IndexedDB is using it in the development. Its API is too complicated and ambiguous seldom, which makes it hard for the developers to maintain their code. Therefore, in the design of WebCure, we are going to use a wrapper over the IndexedDB API -- IndexedDB Promised\cite{36}. It is a tiny library, written by Jake Archibald from Google, which makes the use of JavaScript promises and simplifies the development process with IndexedDB.
+
+\section{Background Sync}
+
+People use their mobile devices quite a lot these days. However, that does not change the reality that it is not always possible to be online all the time, even if someone wanted to. Sometimes, there is no network connection at all, or it could be that abysmal that it could be hard to do anything under such conditions. Therefore, the scenario when someone could do his or her work offline and then, when the connection is re-established again, this work will go online, is useful. Nowadays, thanks to \textit{Background Sync}\cite{38} from Google it is possible to do in web applications. 
+
+\begin{lstlisting}[caption={An example code, which demonstrates how to register a sync (\textit{myFirstSync} here) event for the service worker\cite{38}.}, label={lst:tech8}]
+// Register your service worker:
+navigator.serviceWorker.register('/sw.js');
+
+// Then later, request a one-off sync:
+navigator.serviceWorker.ready.then(function(swRegistration) {
+  return swRegistration.sync.register('myFirstSync');
+});
+\end{lstlisting} 
+
+For this feature to work, the web application has to use a service worker. First of all, it should be registered and, afterward, a unique tag should be registered as well, which is going to be responsible for the background call of the method. Let us show an example: at~\lstref*{lst:tech8}, we can observe that a synchronization tag \textit{myFirstSync} is registered.
+
+\begin{lstlisting}[caption={An example code, which demonstates that a function \textit{doSomeStuff} called, when the \textit{sync} event happened\cite{38}.}, label={lst:tech9}]
+self.addEventListener('sync', function(event) {
+  if (event.tag == 'myFirstSync') {
+    event.waitUntil(doSomeStuff());
+  }
+});
+\end{lstlisting} 
+
+Afterward, when a page controlled by the service worker is going back online, a \textit{sync} event is triggered. There, it is possible to perform a distinct action, depending on the registered earlier tag. For instance, at~\lstref*{lst:tech9} we can see that a function \textit{doSomeStuff} is called once the connection is back, after \textit{sync} event occurred. 
+
+Background synchronization is an advantageous feature, which can be used in different scenarios. It could be, for example, sending the e-mails or any other type of messages, after having failed to send it when the connection was poor. However, in our case, in WebCure we are going to use it for sending the operations conducted offline back to the AndidoteDB server for further synchronization.

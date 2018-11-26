@@ -15,9 +15,9 @@
 \contentsline {figure}{\numberline {\relax 4.5}{\ignorespaces Successful request of state from the local database -- Sequence diagram.\relax }}{16}{figure.caption.12}
 \contentsline {figure}{\numberline {\relax 4.6}{\ignorespaces Successful storing of an operation in the local database -- Sequence diagram.\relax }}{17}{figure.caption.13}
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {\relax 5.1}{\ignorespaces An overview of service worker providing the application experience of both online and offline modes.\relax }}{20}{figure.caption.14}
+\contentsline {figure}{\numberline {\relax 5.1}{\ignorespaces An overview of the service worker being able to provide the application experience of both online and offline modes.\relax }}{20}{figure.caption.14}
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {\relax 6.1}{\ignorespaces A look at the server-client architecture with a RESTful interface.\relax }}{25}{figure.caption.18}
+\contentsline {figure}{\numberline {\relax 6.1}{\ignorespaces A look at the server-client architecture with a RESTful interface.\relax }}{29}{figure.caption.18}
 \addvspace {10\p@ }
 \addvspace {10\p@ }
 \addvspace {10\p@ }
