@@ -18,7 +18,7 @@ window.addEventListener('load', () => {
   addCounterForm();
   addSetForm();
   addMVRegisterForm();
-  addMapForm();
+  //addMapForm();
 });
 
 /*
@@ -77,9 +77,9 @@ const requestMapSync = () => {
     });
 };
 
-/* 
- * Fill in the select elements 
-*/
+/*
+ * Fill in the select elements
+ */
 
 const fillSelectsEls = elementDoms => {
   elementDoms.forEach(elementDom => {
@@ -195,8 +195,8 @@ const addCounterForm = () => {
             timestamp: byTimestamp
               ? { data: timestamp.value }
               : storedTimestamp
-                ? storedTimestamp
-                : { data: 'null' }
+              ? storedTimestamp
+              : { data: 'null' }
           })
         })
           .then(function(response) {
@@ -560,8 +560,8 @@ const addSetForm = () => {
             timestamp: byTimestamp
               ? { data: timestamp.value }
               : storedTimestamp
-                ? storedTimestamp
-                : { data: 'null' }
+              ? storedTimestamp
+              : { data: 'null' }
           })
         })
           .then(function(response) {
@@ -929,8 +929,8 @@ const addMVRegisterForm = () => {
             timestamp: byTimestamp
               ? { data: timestamp.value }
               : storedTimestamp
-                ? storedTimestamp
-                : { data: 'null' }
+              ? storedTimestamp
+              : { data: 'null' }
           })
         })
           .then(function(response) {
@@ -1328,8 +1328,8 @@ const addMapForm = () => {
             timestamp: byTimestamp
               ? { data: timestamp.value }
               : storedTimestamp
-                ? storedTimestamp
-                : { data: 'null' }
+              ? storedTimestamp
+              : { data: 'null' }
           })
         })
           .then(function(response) {

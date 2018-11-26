@@ -367,7 +367,7 @@ apiRouter
   });
 
 // Map API
-apiRouter.route('/map/:map_id/timestamp').put(async function(req, res, next) {
+/* apiRouter.route('/map/:map_id/timestamp').put(async function(req, res, next) {
   try {
     var mapId = req.params.map_id;
     var timestamp = req.body.timestamp;
@@ -393,9 +393,9 @@ apiRouter.route('/map/:map_id/timestamp').put(async function(req, res, next) {
   } catch (error) {
     next(error);
   }
-});
+}); */
 
-apiRouter.route('/map_sync/:map_id').put(async function(req, res, next) {
+/* apiRouter.route('/map_sync/:map_id').put(async function(req, res, next) {
   try {
     var mapId = req.params.map_id;
     var lastCommitTimestamp = req.body.lastCommitTimestamp;
@@ -410,13 +410,13 @@ apiRouter.route('/map_sync/:map_id').put(async function(req, res, next) {
     var antidoteUpdates = [];
 
     // TODO REDO
-/*     updates.forEach(element => {
+     updates.forEach(element => {
       if (element.type === 'assign') {
         antidoteUpdates.push(mvr.set(element.value));
       } else if (element.type === 'reset') {
         antidoteUpdates.push(mvr.set());
       }
-    }); */
+    }); 
 
     await tx.update(antidoteUpdates);
     await tx.commit();
@@ -429,9 +429,9 @@ apiRouter.route('/map_sync/:map_id').put(async function(req, res, next) {
   } catch (error) {
     next(error);
   }
-});
+}); */
 
-apiRouter
+/* apiRouter
   .route('/map/:map_id')
   .put(async function(req, res, next) {
     try {
@@ -474,7 +474,7 @@ apiRouter
     } catch (error) {
       next(error);
     }
-  });
+  }); */
 
 /*the below route will have the functionality to respond with a list of requested values to specific keys*/
 /* apiRouter.route('/readAll').get(async function(req, res, next) {

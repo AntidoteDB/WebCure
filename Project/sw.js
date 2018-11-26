@@ -1,4 +1,4 @@
-/*global DBHelper CounterCRDT SetCRDT MVRegisterCRDT MapCRDT:true*/
+/*global DBHelper CounterCRDT SetCRDT MVRegisterCRDT:true*/
 
 var CACHES_NAME = 'web-antidotedb-v1';
 
@@ -54,9 +54,9 @@ self.addEventListener('sync', function(event) {
     event.waitUntil(pushSetChangesToTheServer());
   } else if (event.tag === 'syncMVRChanges') {
     event.waitUntil(pushMVRChangesToTheServer());
-  } else if (event.tag === 'syncMapChanges') {
+  } /*  else if (event.tag === 'syncMapChanges') {
     event.waitUntil(pushMapChangesToTheServer());
-  }
+  } */
 });
 
 function pushCounterChangesToTheServer() {
@@ -291,7 +291,7 @@ function pushMVRChangesToTheServer() {
   });
 }
 
-function pushMapChangesToTheServer() {
+/* function pushMapChangesToTheServer() {
   if (
     typeof idb === 'undefined' ||
     typeof DBHelper === 'undefined' ||
@@ -366,4 +366,4 @@ function pushMapChangesToTheServer() {
           });
       });
   });
-}
+} */
