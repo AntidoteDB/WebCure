@@ -3,7 +3,7 @@
 
 In this chapter, we are going to explain the major problems that we encountered during the development phase.
 
-Addressing the client, in the \chapref*{Technologies} we already named the key frameworks and techniques that we are going to use in the implementation phase. Concerning the server, which is going to provide the RESTful interface, we will cover the use cases.
+Addressing the client, in the \chapref*{Technologies} we already named the key frameworks and techniques that we used in the implementation. Concerning the server, which is going to provide to the client the RESTful interface, we will cover the use cases.
 
 \begin{figure}[!htb]
     \begin{center}
@@ -17,7 +17,22 @@ Addressing the client, in the \chapref*{Technologies} we already named the key f
 \end{center}
 \end{figure}
 
+To demonstrate the functionality of the WebCure, we covered three different types of CRDTs: a counter, a set and a multi-value register. We managed to support each of these data types on the server and the client as well.idb.js
+
+\begin{figure}[!htb]
+    \begin{center}
+    \def\svgwidth{\linewidth}
+    \input{images/implementation/3tier.pdf_tex}
+    \caption {3-Tier architecture.}
+    \label{fig:dev1}
+\end{center}
+\end{figure}
+
+
+
 \section{Server}
+
+This part is an important part of the WebCure, as it provides the interface for the client and operates with the database layer as well. 
 
 \section{Client}
 

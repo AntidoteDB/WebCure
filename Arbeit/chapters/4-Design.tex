@@ -18,7 +18,7 @@ The fundamental part of the WebCure will be its protocol design. We need to exam
 
 Because the AntidoteDB is using CRDT datatypes, the following options are possible to update the database: state-based and operation-based. Due to the time constraints and the amount of work, this thesis will consider only the operation-based approach, which was described in the \chapref*{Background}. Therefore, whenever a client wants to update the database, it will send to the server a list of operations. However, whenever it wants to read the value, it will receive the current state of the object from the database.
 
-For this thesis, we are going to use such datatypes as counters and sets. As was already mentioned in the \chapref*{Introduction}, the counter is a number datatype, which allows incrementing and decrementing the value. Reading a counter will return the aggregated value of all performed operations.  
+For this thesis, we are going to use such datatypes as Counters, Sets and Multi-Value Registers. As was already mentioned in the \chapref*{Introduction}, the counter is a number datatype, which allows incrementing and decrementing the value. Reading a counter will return the aggregated value of all performed operations.  
 
 <INCLUDE brief description of sets and reference to the chapter one>
 

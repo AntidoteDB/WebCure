@@ -91,3 +91,17 @@ This replication approach infers that replicas do not exchange full states with 
 The idea of this approach is kind of opposite to the operation-based one. Here, every replica, when it receives an update, first applies it locally. Afterwards, it sends its updated state to other replicas. Following this way, every replica sends its current full state to other replicas. Afterwards, the merge function is applied between a local state and a received state, and every update eventually is going to appear at every other replica in the system. You can see this it at the \figref*{fig:theory2}, where \textit{x\textsubscript{i}} stands for replicas, \textit{f(x\textsubscript{i})}, \textit{g(x\textsubscript{i})} stands for the functions that apply updates locally at source replicas before sending a new full state for a follow-up merges to other replicas in the system.
 
 %What are the requirements for the state-based CRDTs to work correctly?
+
+There are different types of CRDTs, however, in this thesis, we will consider three of them: counters, sets and multi-value registers. We will give a brief description to each of the mentioned datatypes below.
+
+\subsection*{Counter}
+
+This is a datatype, which keeps track on its state, which is an integer number. The value of the Counter could be modified by the operations \textit{inc} and \textit{dec} that increases or decreases the state by one unit, accordingly\cite{3}. The concurrency semantics for this datatype is that a final state of the object reflects all the performed operations on it. In other words, to calculate the state of the Counter, it is needed to count the number of increments and substract the number of decrements. 
+
+\subsection*{Add-wins Set}
+
+Add-wins Set\footnote{for the simplicity of reading, later it goes as Set} datatype represents a collection of objects with a specific handling of concurrent updates performed over them. In case of concurrent updates on the same object, \textit{add} operations in Set win against \textit{remove} operations. If, for example, there is an empty set \textit{} and two concurrent operations applied to it -- \textit{add a} and \textit{remove a}, then the result is going to be \textit{\{a\}}, as \textit{add} operation wins. A \textit{remove} operation will ``overwrite'' an \textit{add} operation only when it happens after it\cite{3}. 
+
+\subsection*{Multi-value Register}
+
+This datatype maintains a value and provides a \textit{write} operation of updating that value. The interesting part about Multi-value Registers is their concurrency semantics. In case of two or more updates happening at the same time, all values are kept. Thus, the state of the register will consist of all the concurrently written updates for a further processing. However, any additional single \textit{write} operation will overwrite the previous state of the register, even if it consisted of multiple values\cite{39}.

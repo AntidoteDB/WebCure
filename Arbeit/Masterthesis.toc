@@ -7,43 +7,43 @@
 \contentsline {section}{\numberline {2.1}Main concepts}{3}{section.2.1}
 \contentsline {section}{\numberline {2.2}AntidoteDB}{5}{section.2.2}
 \contentsline {section}{\numberline {2.3}Conflict-Free Replicated Datatypes}{6}{section.2.3}
-\contentsline {chapter}{\numberline {3}Requirements}{9}{chapter.3}
-\contentsline {section}{\numberline {3.1}Problem Description}{9}{section.3.1}
-\contentsline {chapter}{\numberline {4}Design}{11}{chapter.4}
-\contentsline {section}{\numberline {4.1}Overview of the protocol}{11}{section.4.1}
-\contentsline {subsection}{\numberline {4.1.1}The way of exchaning the data}{11}{subsection.4.1.1}
-\contentsline {subsection}{\numberline {4.1.2}A client receives an update from the server}{12}{subsection.4.1.2}
-\contentsline {subsection}{\numberline {4.1.3}A client sends an update to the server}{12}{subsection.4.1.3}
-\contentsline {subsection}{\numberline {4.1.4}Two clients interact with a server.}{13}{subsection.4.1.4}
-\contentsline {section}{\numberline {4.2}System's main components}{13}{section.4.2}
-\contentsline {subsection}{\numberline {4.2.1}Web Application}{14}{subsection.4.2.1}
-\contentsline {subsection}{\numberline {4.2.2}Server}{15}{subsection.4.2.2}
-\contentsline {subsection}{\numberline {4.2.3}A database layer}{15}{subsection.4.2.3}
-\contentsline {section}{\numberline {4.3}Offline functionality}{15}{section.4.3}
-\contentsline {section}{\numberline {4.4}Online functionality}{16}{section.4.4}
-\contentsline {section}{\numberline {4.5}The transition between offline and online modes}{16}{section.4.5}
-\contentsline {chapter}{\numberline {5}Technologies}{19}{chapter.5}
-\contentsline {section}{\numberline {5.1}Service Worker}{19}{section.5.1}
-\contentsline {subsection}{\numberline {5.1.1}Service worker lifecycle}{21}{subsection.5.1.1}
-\contentsline {section}{\numberline {5.2}Cache API}{23}{section.5.2}
-\contentsline {section}{\numberline {5.3}IndexedDB}{25}{section.5.3}
-\contentsline {subsection}{\numberline {5.3.1}IndexedDB terms}{25}{subsection.5.3.1}
-\contentsline {subsection}{\numberline {5.3.2}IndexedDB Promised}{25}{subsection.5.3.2}
-\contentsline {section}{\numberline {5.4}Background Sync}{26}{section.5.4}
-\contentsline {chapter}{\numberline {6}Implementation}{29}{chapter.6}
-\contentsline {section}{\numberline {6.1}Client}{29}{section.6.1}
-\contentsline {section}{\numberline {6.2}Server}{29}{section.6.2}
-\contentsline {section}{\numberline {6.3}Optimization}{29}{section.6.3}
-\contentsline {chapter}{\numberline {7}Evaluation}{31}{chapter.7}
-\contentsline {chapter}{\numberline {8}Related Work}{33}{chapter.8}
-\contentsline {section}{\numberline {8.1}SwiftCloud: a transactional system that brings geo-replication to the client}{33}{section.8.1}
-\contentsline {section}{\numberline {8.2}Legion: a framework, which enriches web applications}{33}{section.8.2}
-\contentsline {section}{\numberline {8.3}Developing web and mobile applications with offline usage experience}{34}{section.8.3}
-\contentsline {chapter}{\numberline {9}Conclusion}{41}{chapter.9}
-\contentsline {section}{\numberline {9.1}Summary}{41}{section.9.1}
-\contentsline {section}{\numberline {9.2}Future Work}{41}{section.9.2}
-\contentsline {chapter}{\nonumberline List of Figures}{43}{chapter*.26}
-\contentsline {chapter}{\nonumberline List of Tables}{45}{chapter*.27}
-\contentsline {chapter}{\nonumberline List of Code}{47}{chapter*.28}
-\contentsline {chapter}{\nonumberline Listings}{49}{chapter*.29}
-\contentsline {chapter}{\nonumberline Bibliography}{51}{chapter*.30}
+\contentsline {chapter}{\numberline {3}Requirements}{11}{chapter.3}
+\contentsline {section}{\numberline {3.1}Problem Description}{11}{section.3.1}
+\contentsline {chapter}{\numberline {4}Design}{13}{chapter.4}
+\contentsline {section}{\numberline {4.1}Overview of the protocol}{13}{section.4.1}
+\contentsline {subsection}{\numberline {4.1.1}The way of exchaning the data}{13}{subsection.4.1.1}
+\contentsline {subsection}{\numberline {4.1.2}A client receives an update from the server}{14}{subsection.4.1.2}
+\contentsline {subsection}{\numberline {4.1.3}A client sends an update to the server}{14}{subsection.4.1.3}
+\contentsline {subsection}{\numberline {4.1.4}Two clients interact with a server.}{15}{subsection.4.1.4}
+\contentsline {section}{\numberline {4.2}System's main components}{15}{section.4.2}
+\contentsline {subsection}{\numberline {4.2.1}Web Application}{16}{subsection.4.2.1}
+\contentsline {subsection}{\numberline {4.2.2}Server}{17}{subsection.4.2.2}
+\contentsline {subsection}{\numberline {4.2.3}A database layer}{17}{subsection.4.2.3}
+\contentsline {section}{\numberline {4.3}Offline functionality}{17}{section.4.3}
+\contentsline {section}{\numberline {4.4}Online functionality}{18}{section.4.4}
+\contentsline {section}{\numberline {4.5}The transition between offline and online modes}{18}{section.4.5}
+\contentsline {chapter}{\numberline {5}Technologies}{21}{chapter.5}
+\contentsline {section}{\numberline {5.1}Service Worker}{21}{section.5.1}
+\contentsline {subsection}{\numberline {5.1.1}Service worker lifecycle}{23}{subsection.5.1.1}
+\contentsline {section}{\numberline {5.2}Cache API}{25}{section.5.2}
+\contentsline {section}{\numberline {5.3}IndexedDB}{27}{section.5.3}
+\contentsline {subsection}{\numberline {5.3.1}IndexedDB terms}{27}{subsection.5.3.1}
+\contentsline {subsection}{\numberline {5.3.2}IndexedDB Promised}{27}{subsection.5.3.2}
+\contentsline {section}{\numberline {5.4}Background Sync}{28}{section.5.4}
+\contentsline {chapter}{\numberline {6}Implementation}{31}{chapter.6}
+\contentsline {section}{\numberline {6.1}Server}{31}{section.6.1}
+\contentsline {section}{\numberline {6.2}Client}{32}{section.6.2}
+\contentsline {section}{\numberline {6.3}Optimization}{32}{section.6.3}
+\contentsline {chapter}{\numberline {7}Evaluation}{33}{chapter.7}
+\contentsline {chapter}{\numberline {8}Related Work}{35}{chapter.8}
+\contentsline {section}{\numberline {8.1}SwiftCloud: a transactional system that brings geo-replication to the client}{35}{section.8.1}
+\contentsline {section}{\numberline {8.2}Legion: a framework, which enriches web applications}{35}{section.8.2}
+\contentsline {section}{\numberline {8.3}Developing web and mobile applications with offline usage experience}{36}{section.8.3}
+\contentsline {chapter}{\numberline {9}Conclusion}{43}{chapter.9}
+\contentsline {section}{\numberline {9.1}Summary}{43}{section.9.1}
+\contentsline {section}{\numberline {9.2}Future Work}{43}{section.9.2}
+\contentsline {chapter}{\nonumberline List of Figures}{45}{chapter*.30}
+\contentsline {chapter}{\nonumberline List of Tables}{47}{chapter*.31}
+\contentsline {chapter}{\nonumberline List of Code}{49}{chapter*.32}
+\contentsline {chapter}{\nonumberline Listings}{51}{chapter*.33}
+\contentsline {chapter}{\nonumberline Bibliography}{53}{chapter*.34}
