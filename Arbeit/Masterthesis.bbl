@@ -1,4 +1,4 @@
-\begin{thebibliography}{37}
+\begin{thebibliography}{41}
 \providecommand{\natexlab}[1]{#1}
 \providecommand{\url}[1]{\texttt{#1}}
 \expandafter\ifx\csname urlstyle\endcsname\relax
@@ -111,6 +111,12 @@ Datatypes in antidote.
 \newblock \url{https://antidotedb.gitbook.io/documentation/api/datatypes}, 2018
   (accessed November 26, 2018).
 
+\bibitem[41(2018 (accessed November 28, 2018))]{41}
+Caching files with service worker.
+\newblock
+  \url{https://developers.google.com/web/ilt/pwa/caching-files-with-service-worker},
+  2018 (accessed November 28, 2018).
+
 \bibitem[Gaunt(2018 (accessed September 14, 2018))]{1}
 Matt Gaunt.
 \newblock Service workers: an introduction.
@@ -137,6 +143,17 @@ Yvo Desmedt.
 \newblock ISBN 978-0-387-23483-0.
 \newblock \doi{10.1007/0-387-23483-7_241}.
 \newblock URL \url{https://doi.org/10.1007/0-387-23483-7_241}.
+
+\bibitem[43(2018 (accessed November 28, 2018))]{43}
+The navigator object.
+\newblock \url{https://www.w3schools.com/jsref/obj_navigator.asp}, 2018
+  (accessed November 28, 2018).
+
+\bibitem[42(2018 (accessed November 28, 2018))]{42}
+Service worker api.
+\newblock
+  \url{https://developer.mozilla.org/en-US/docs/Web/API/Service_Worker_API},
+  2018 (accessed November 28, 2018).
 
 \bibitem[Walsh(2018 (accessed November 22, 2018))]{34}
 David Walsh.
@@ -168,6 +185,13 @@ Jake Archibald.
 \newblock
   \url{https://developers.google.com/web/updates/2015/12/background-sync}, 2018
   (accessed November 24, 2018).
+
+\bibitem[Long(2018 (accessed November 27, 2018))]{40}
+Lauren Long.
+\newblock What restful actually means.
+\newblock
+  \url{https://codewords.recurse.com/issues/five/what-restful-actually-means},
+  2018 (accessed November 27, 2018).
 
 \bibitem[Sovran et~al.(2011)Sovran, Power, Aguilera, and Li]{6}
 Yair Sovran, Russell Power, Marcos~K. Aguilera, and Jinyang Li.

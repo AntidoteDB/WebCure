@@ -1,8 +1,75 @@
 \chapter{Design}
 \label{Design}
 
-As we specified the requirements, we can go further into the design part of the system, and that is what we are going to explain in this chapter. 
-First of all, we will define the protocol of the system. And, secondly, we will describe the client- and server- sides of it.
+In this chapter, we are going to, firstly, introduce the requirements for the WebCure. Having set them, afterwards, we will in details describe the design of the solution.
+
+\section{Requirements}
+\label{Requirements}
+
+We listed the functional requirements of the WebCure at \tableref*{table:req1} and non-functional requirements at \tableref*{table:req2}.
+
+\begin{table}[!htb]
+\centering
+\caption{Functional requirements.}
+\label{table:req1}
+\begin{tabular}{|p{1cm}|p{12cm}|}
+\hline
+R1 & Retrieval, increment and decrement of the Counter CRDT should be possible.                         \\ \hline
+R2 & Retrieval, adding and removing elemets from the Set CRDT should be possible.                       \\ \hline
+R3 & Retrieval, assigning and resetting the Multi-Value Register CRDT should be possible.               \\ \hline
+R4 & Retrieval elements of any supported CRDTs should be possible according to the passed timestamp. \\ \hline
+R5 & Do not store the element's values in the cache, if they were requested at specific timestamp (for the matter of having only latest data on the client's side). \\ \hline
+R6 & The user should be able to remove from the client storage any element of supported CRDTs. \\ \hline
+R7 & It should not be possible to create elements of different CRDTs with the same name (due to described limitations of AntidoteDB) \\ \hline
+R8 & When offline, it should be possible to perform operations on supported CRDTs. \\ \hline
+R9 & Any operations performed offline, once the connection is restored, should be sent to the server immediately. \\ \hline
+R10 & When the connection is re-established after having data changes in offline mode, the client data should be updated with relation to current client's changes, as well as with relation to the changes made on the server. \\ \hline
+\end{tabular}
+\caption*{}
+\end{table}
+
+\begin{table}[!htb]
+\centering
+\caption{Non-functional requirements.}
+\label{table:req2}
+\begin{tabular}{|p{1cm}|p{12cm}|}
+\hline
+NFR1 & The web application should be available online and offline (except of the functionality with timestamp-related updates). \\ \hline
+NFR2 & The web application should be available with a poor internet connection. \\ \hline
+\end{tabular}
+\caption*{}
+\end{table}
+
+As we specified the requirements, we can go further into the design and design the protocol of the system.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 \section{Overview of the protocol}
 
@@ -16,13 +83,7 @@ The fundamental part of the WebCure will be its protocol design. We need to exam
 
 \subsection{The way of exchaning the data}
 
-Because the AntidoteDB is using CRDT datatypes, the following options are possible to update the database: state-based and operation-based. Due to the time constraints and the amount of work, this thesis will consider only the operation-based approach, which was described in the \chapref*{Background}. Therefore, whenever a client wants to update the database, it will send to the server a list of operations. However, whenever it wants to read the value, it will receive the current state of the object from the database.
-
-For this thesis, we are going to use such datatypes as Counters, Sets and Multi-Value Registers. As was already mentioned in the \chapref*{Introduction}, the counter is a number datatype, which allows incrementing and decrementing the value. Reading a counter will return the aggregated value of all performed operations.  
-
-<INCLUDE brief description of sets and reference to the chapter one>
-
-
+As we already know from the \chapref*{Background}, because the AntidoteDB is using CRDT datatypes, the following options are possible to update the database: state-based and operation-based. Due to the time constraints and the amount of work, this thesis will consider only the operation-based approach. Therefore, whenever a client wants to update the database, it will send to the server a list of operations. However, whenever it wants to read the value, it will receive the current state of the object from the database. For this thesis, we are going to use such datatypes as Counters, Sets and Multi-Value Registers, to which the reader was introduced in the \chapref*{Introduction}.
 
 \subsection{A client receives an update from the server}
 
@@ -37,7 +98,7 @@ Let us say that a client requests an update from the server. In this case, if th
 \end{center}
 \end{figure}
 
-In case a client receives an update from the server, and that update has an earlier timestamp than the one, which is already stored in the client's cache, then a client skips it and can tries later for fresher updates. The implementation of this will be explained later in the chapter of implementation.
+In case a client receives an update from the server, and that update has an earlier timestamp than the one, which is already stored in the client's cache, then a client skips it and tries later for fresher updates. The implementation of this will be explained later in the chapter of implementation.
 
 \subsection{A client sends an update to the server}
 
@@ -68,60 +129,6 @@ The client is capable of performing updates when offline. These updates will tak
 \end{figure}
 
 Let us assume that initially, the server has the key-value pair \textit{(k, v)} at the timestamp \textit{t\textsubscript{0}}. Therefore, after both clients receive updates from the server, they consist of the \textit{(k, v)} pair at the timestamp \textit{t\textsubscript{0}}. In case clients change the value under mentioned key to something else, they will have to get an acknowledgement from the server in order to receive a unique timestamp related to the change. At the representation above, a \textit{Client 1} is acting first and getting an acknowledgement of its change at the time \textit{t\textsubscript{1}}, while Client \textit{Client 2} makes the change later at time \textit{t\textsubscript{2}}. That makes \textit{Client 1} receive a new value \textit{v''}, when it reads the information from the server again.
-
-\section{System's main components}
-
-
-As the protocol is explained, we can start designing the system. Let us have a look at the main components of it:
-
-
-\begin{figure}[!htb]
-    \begin{center}
-        \setlength{\fboxsep}{15pt}%
-        \setlength{\fboxrule}{1pt}%
-    \def\svgwidth{\linewidth}
-    \fbox{\input{images/design/Main.pdf_tex}}
-    \caption {A top-level view of the system's design.}
-    \label{fig:design5}
-\end{center}
-\end{figure}
-
-\subsection{Web Application}
-
-First of all, in order for the user to be able to communicate with an AntidoteDB server, we are going to have a running web application that serves as a client. It runs in the web-browser, supports various commands from the user and sits on top of the local database layer. 
-
-\vspace{5mm}These are the supported commands:
-
-\begin{itemize}
-    \item \textit{read(key)} -- an asynchronous function that pulls database changes concerning the \textit{key} that the user passed.
-    \item \textit{update(key, op)}  -- an asynchronous function that processes user-made updates.
-     \begin{itemize}
-         \item \textit{key}: a key, which is going to be updated;
-         \item \textit{op}: an operation, which is going to be performed on the key;
-     \end{itemize}
-  \end{itemize}
-
-\subsection{Server}
-
-It is a configured AntidoteDB server that supports the following scenarios:
-
-\begin{itemize}
-    \item receiving an operations or an array of operations performed on a CRDT-object, according to the key, and applying them on the server;
-    \item sending back to the client the state of requested CRDT-object / objects according to their state on the server;
-    %\item sending back states of all stored CRDT-objects, if a specific object was not asked for; 
-\end{itemize}
-
-\subsection{A database layer}
-
-This layer should consist of the database, which is going to store the actual states of CRDT-objects, as well as user-added operations performed on the states.
-When a user performs \textit{read} by \textit{key} operation from the cache, the following actions are taking place:
-
-\begin{itemize}
-\item Firstly, the state of the object \textit{\textbf{O}} is going to be found by \textit{\textbf{key}} in the database
-\item Next, operations \textit{\textbf{o}} performed on the object \textit{\textbf{O}} are selected
-\item Afterwards, selected operations \textit{\textbf{o}} applied on the object \textit{\textbf{O}}.
-\item Finally, the object from the previous step is returned back as a response to the application.
-\end{itemize} 
 
 \section{Offline functionality}
 
