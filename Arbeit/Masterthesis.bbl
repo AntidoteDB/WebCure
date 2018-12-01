@@ -1,4 +1,4 @@
-\begin{thebibliography}{41}
+\begin{thebibliography}{47}
 \providecommand{\natexlab}[1]{#1}
 \providecommand{\url}[1]{\texttt{#1}}
 \expandafter\ifx\csname urlstyle\endcsname\relax
@@ -111,6 +111,11 @@ Datatypes in antidote.
 \newblock \url{https://antidotedb.gitbook.io/documentation/api/datatypes}, 2018
   (accessed November 26, 2018).
 
+\bibitem[49(2018 (accessed November 29, 2018))]{49}
+Black box model.
+\newblock \url{https://www.investopedia.com/terms/b/blackbox.asp}, 2018
+  (accessed November 29, 2018).
+
 \bibitem[41(2018 (accessed November 28, 2018))]{41}
 Caching files with service worker.
 \newblock
@@ -155,11 +160,12 @@ Service worker api.
   \url{https://developer.mozilla.org/en-US/docs/Web/API/Service_Worker_API},
   2018 (accessed November 28, 2018).
 
-\bibitem[Walsh(2018 (accessed November 22, 2018))]{34}
-David Walsh.
-\newblock Cache api.
-\newblock \url{https://davidwalsh.name/cache}, 2018 (accessed November 22,
-  2018).
+\bibitem[Scales(2018 (accessed November 28, 2018))]{34}
+Mat Scales.
+\newblock Using the cache api.
+\newblock
+  \url{https://developers.google.com/web/fundamentals/instant-and-offline/web-storage/cache-api},
+  2018 (accessed November 28, 2018).
 
 \bibitem[37(2018 (accessed November 23, 2018))]{37}
 Promise.
@@ -179,12 +185,43 @@ Jake Archibald.
 \newblock \url{https://github.com/jakearchibald/idb}, 2018 (accessed November
   23, 2018).
 
+\bibitem[48(2018 (accessed November 29, 2018))]{48}
+Lab: Indexeddb.
+\newblock \url{https://developers.google.com/web/ilt/pwa/lab-indexeddb}, 2018
+  (accessed November 29, 2018).
+
+\bibitem[47(2018 (accessed November 29, 2018))]{47}
+Browser storage limits and eviction criteria.
+\newblock
+  \url{https://developer.mozilla.org/en-US/docs/Web/API/IndexedDB_API/Browser_storage_limits_and_eviction_criteria#LRU_policy},
+  2018 (accessed November 29, 2018).
+
+\bibitem[Wilson(2018 (accessed November 28, 2018))]{45}
+Chris Wilson.
+\newblock Persistent storage.
+\newblock
+  \url{https://developers.google.com/web/updates/2016/06/persistent-storage},
+  2018 (accessed November 28, 2018).
+
+\bibitem[Hume(2017 (accessed November 28, 2018))]{46}
+Dean Hume.
+\newblock Persistent storage api: Building for the offline web.
+\newblock
+  \url{https://deanhume.com/persistent-storage-api-building-for-the-offline-web/},
+  2017 (accessed November 28, 2018).
+
 \bibitem[Archibald(2018 (accessed November 24, 2018))]{38}
 Jake Archibald.
 \newblock Introducing background sync.
 \newblock
   \url{https://developers.google.com/web/updates/2015/12/background-sync}, 2018
   (accessed November 24, 2018).
+
+\bibitem[Josh~Karlin(2018 (accessed November 28, 2018))]{44}
+Marijn~Kruisselbrink Josh~Karlin.
+\newblock Web background synchronization.
+\newblock \url{https://wicg.github.io/BackgroundSync/spec/#online}, 2018
+  (accessed November 28, 2018).
 
 \bibitem[Long(2018 (accessed November 27, 2018))]{40}
 Lauren Long.

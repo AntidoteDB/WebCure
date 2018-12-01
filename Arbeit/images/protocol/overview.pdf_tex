@@ -1,6 +1,6 @@
 %% Creator: Inkscape inkscape 0.92.3, www.inkscape.org
 %% PDF/EPS/PS + LaTeX output extension by Johan Engelen, 2010
-%% Accompanies image file 'read.pdf' (pdf, eps, ps)
+%% Accompanies image file 'overview.pdf' (pdf, eps, ps)
 %%
 %% To include the image in your LaTeX document, write
 %%   \input{<filename>.pdf_tex}
@@ -36,9 +36,9 @@
   }%
   \providecommand\rotatebox[2]{#2}%
   \newcommand*\fsize{\dimexpr\f@size pt\relax}%
-  \newcommand*\lineheight[1]{\fontsize{0.8\fsize}{#1\fsize}\selectfont}%
+  \newcommand*\lineheight[1]{\fontsize{\fsize}{#1\fsize}\selectfont}%
   \ifx\svgwidth\undefined%
-    \setlength{\unitlength}{455.74071299bp}%
+    \setlength{\unitlength}{278.25bp}%
     \ifx\svgscale\undefined%
       \relax%
     \else%
@@ -50,17 +50,14 @@
   \global\let\svgwidth\undefined%
   \global\let\svgscale\undefined%
   \makeatother%
-  \begin{picture}(1,0.21930516)%
+  \begin{picture}(1,0.32614555)%
     \lineheight{1}%
     \setlength\tabcolsep{0pt}%
-    \put(0,0){\includegraphics[width=\unitlength,page=1]{images/architecture/read.pdf}}%
-    \put(0.02823357,0.03706942){\color[rgb]{0,0,0}\makebox(0,0)[t]{\lineheight{1.25}\smash{\begin{tabular}[t]{c}Server\end{tabular}}}}%
-    \put(0.02494223,0.17201457){\color[rgb]{0,0,0}\makebox(0,0)[t]{\lineheight{1.25}\smash{\begin{tabular}[t]{c}Client\end{tabular}}}}%
-    \put(0,0){\includegraphics[width=\unitlength,page=2]{images/architecture/read.pdf}}%
-    \put(0.26356475,0.09137661){\color[rgb]{0,0,0}\makebox(0,0)[t]{\lineheight{1.25}\smash{\begin{tabular}[t]{c}\textit{read(id)}\end{tabular}}}}%
-    \put(0.68979395,0.09137661){\color[rgb]{0,0,0}\makebox(0,0)[t]{\lineheight{1.25}\smash{\begin{tabular}[t]{c}\textit{respond(value, t\textsubscript{0})}\end{tabular}}}}%
-    \put(0.83790449,0.20492802){\color[rgb]{0,0,0}\makebox(0,0)[t]{\lineheight{1.25}\smash{\begin{tabular}[t]{c}\textit{(id, value, t\textsubscript{0})}\end{tabular}}}}%
-    \put(0,0){\includegraphics[width=\unitlength,page=3]{images/architecture/read.pdf}}%
-    \put(0.1648244,0.00415597){\color[rgb]{0,0,0}\makebox(0,0)[t]{\lineheight{1.25}\smash{\begin{tabular}[t]{c}\textit{(id, value, t\textsubscript{0})}\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=1]{images/protocol/overview.pdf}}%
+    \put(0.16172507,0.14824798){\color[rgb]{0,0,0}\makebox(0,0)[t]{\lineheight{1.25}\smash{\begin{tabular}[t]{c}Client\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=2]{images/protocol/overview.pdf}}%
+    \put(0.48787062,0.11859838){\color[rgb]{0,0,0}\makebox(0,0)[t]{\lineheight{1.25}\smash{\begin{tabular}[t]{c}data\\exchange\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=3]{images/protocol/overview.pdf}}%
+    \put(0.82210243,0.14824798){\color[rgb]{0,0,0}\makebox(0,0)[t]{\lineheight{1.25}\smash{\begin{tabular}[t]{c}Server\end{tabular}}}}%
   \end{picture}%
 \endgroup%

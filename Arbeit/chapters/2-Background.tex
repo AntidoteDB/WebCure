@@ -33,6 +33,7 @@ The main point of replicating data is to improve such aspects as reliability, av
 
 
 \section{AntidoteDB}
+\label{2-antidotedb}
 
 For this thesis, one of the core parts in the architecture of the WebCure belongs to the database called AntidoteDB\cite{4}. It helps programmers to write correct applications and has the same performance and horizontal scalability as AP / NoSQL\cite{14}, while it also:
 
@@ -48,7 +49,8 @@ Apart from that, to replicate the data AntidoteDB implements the \textit{Cure}\c
 
 To ensure the guarantees it offers, AntidoteDB uses timestamps, indicating the time after the transaction. Timestamps are considered to be unique, totally ordered, and consistent with causal order, which means that if \textit{operation 1} happened before \textit{operation 2}, then the timestamp related to the \textit{operation 2} is greater than the one related to the \textit{operation 1}\cite{2}.Whenever the update operation has to be applied, it is also possible to provide a minimum time from what that update should be performed. This information is useful, when a client is working with a server, which is based on AntidoteDB. In such cases, when one data center stops working, the client can reconnect to another one. As a client can remember the latest timestamp for the data it has worked on, the failover to another data center is possible without any additional efforts, as the timestamp information will help the client to request only the data, which has timestamps greater than the one, which is already stored at the client.
 
-\section{Conflict-Free Replicated Datatypes}
+\section{Conflict-Free Replicated Datatypes (CRDTs)}
+\label{2-crdts}
 
 As it is stated in the work of \citet{3}, a conflict-free replicated datatype (CRDT) is an abstract datatype, which is designed for a possibility to be replicated at multiple processes and possesses the following properties:
 

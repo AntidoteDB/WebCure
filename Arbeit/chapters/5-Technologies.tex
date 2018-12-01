@@ -106,24 +106,26 @@ self.addEventListener('activate', function(event) {
 \end{lstlisting}
 
 \section{Cache API}
+\label{CacheAPI}
 
-For the best offline experience, the web application should store somewhere HTML, CSS, JavaScript code, as well as images, fonts. There is a place for all of it called Cache API, which we are going to use for WebCure. 
+For the best offline experience, the web application should store somewhere HTML, CSS, JavaScript code, as well as images, fonts. There is a place for all of it called Cache API, which we are going to use for WebCure. With Cache API it is possible to store network requests associated with corresponding requests.
 
-\begin{lstlisting}[caption={An example code, which demonstrates how one can create cache storage called \textit{test-cache}\cite{34}.}, label={lst:tech6}]
-caches.open('test-cache').then(function(cache) {
-  // Cache is created and accessible
+\begin{lstlisting}[caption={An example code, which demonstrates how one can create cache storage called \textit{my-cache}\cite{34}.}, label={lst:tech6}]
+caches.open('my-cache').then((cache) => {
+  // do something with cache...
 });
 \end{lstlisting}
 
-At~\lstref*{lst:tech6} we see an example code of how a cache with a name \textit{test-cache} is created. If the operation is performed successfully, then a promise\footnote{JavaScript Promise is an object, which represents the eventual completion or failure of an asynchronous operation\cite{37}.} resolves and one is going to get access either to a newly created cache or to the one, which existed before the call of \textit{open} method.
+At~\lstref*{lst:tech6} we see an example code of how a cache with a name \textit{my-cache} is created. If the operation is performed successfully, then a promise\footnote{JavaScript Promise is an object, which represents the eventual completion or failure of an asynchronous operation\cite{37}.} resolves and one is going to get access either to a newly created cache or to the one, which existed before the call of \textit{open} method.
 
 That covers the main functionality of the API. After creating a cache, it is possible to manipulate it in many ways. 
 
-Let us now introduce one of the operations -- adding elements to the cache. A developer can provide a string for the URL that will be fetched and stored in a cache object. Whenever the data is received from the cache, the browser will return a particular object according to the URL that was stored in the cache. 
+Let us now introduce one of the operations -- adding elements to the cache. A developer can provide a string for the URL that will be fetched and stored in a cache object. Whenever the data is received from the cache, the browser will return a particular object according to the URL that was stored in the cache. More details on how long the data could be stored in the cache are given in \secref*{persistentstorage}.
 
-Apart from adding to the cache object, it is also possible to remove stored URLs, check the current list of cached requests, delete a cache object, and other operations.
+Apart from adding to the cache object, it is also possible to remove stored URLs, check the current list of cached requests, delete a cache object, and other operations. 
 
 \section{IndexedDB}
+\label{IndexedDB}
 
 As the protocol we introduced in the \chapref*{Design} clearly describes that there is a necessity to have a client-side storage system, we are going to use for that purpose IndexedDB\cite{35}. It is a large-scale, NoSQL database, which lets us store any data in the user's browser. Apart from that, it supports transactions and achieves a high-performance search due to the usage of indexes. 
 
@@ -144,7 +146,12 @@ if (!('indexedDB' in window)) {
 }
 \end{lstlisting}
 
-Nevertheless, one of the most significant problems with IndexedDB is using it in the development. Its API is too complicated and ambiguous, which makes it hard for the developers to maintain their code. Therefore, in the design of WebCure, we are going to use a wrapper over the IndexedDB API -- IndexedDB Promised\cite{36}. It is a tiny library, written by Jake Archibald from Google, which makes the use of JavaScript promises and simplifies the development process with IndexedDB.
+Nevertheless, one of the most significant problems with IndexedDB is using it in the development. It has an asynchronous API, which is using events. That makes developers produce a complex code, which is hard to maintain. Therefore, in the design of WebCure, we are going to use a wrapper over the IndexedDB API -- IndexedDB Promised\cite{36, 48}. It is a tiny library, written by Jake Archibald from Google, which makes the use of JavaScript promises and simplifies the development process with IndexedDB, while keeping its functionality.
+
+\section{Persistent Storage}
+\label{persistentstorage}
+
+Both Cache API and IndexedDB database mentioned in \secref*{CacheAPI} and \secref*{IndexedDB} are taking the place at the local machine. However, when the local machine is running out of storage space, user agents will clear it automatically on an LRU policy\footnote{In the systems with LRU or least recently used caching policy, the least frequently used data will be cleared first.}\cite{47}. This is not something that suits an application, which promises to provide offline experience. And in the worst case scenario, if the data was not synced with the server, it is going to be lost. The solution for this problem is to use a Persistent Storage API\cite{45, 46}, which guarantees that cached data is not going to be cleared if the browser comes under pressure.
 
 \section{Background Sync}
 
@@ -170,6 +177,6 @@ self.addEventListener('sync', function(event) {
 });
 \end{lstlisting} 
 
-Afterwards, when a page controlled by the service worker is going back online, a \textit{sync} event is triggered. There, it is possible to perform a distinct action, depending on the registered earlier tag. For instance, at~\lstref*{lst:tech9} we can see that a function \textit{doSomeStuff} is called once the connection is back, after a \textit{sync} event occurred. 
+Afterwards, when a page controlled by the service worker is going back online (which is when the user agent has established a network connection\cite{44}), a \textit{sync} event is triggered. There, it is possible to perform a distinct action, depending on the registered earlier tag. For instance, at~\lstref*{lst:tech9} we can see that a function \textit{doSomeStuff} is called once the connection is back, after a \textit{sync} event occurred. This function has to return a promise, which could be successful or not. In the latter case, another sync will be scheduled to try when there is a connectivity\cite{38}. 
 
-Background synchronization is an advantageous feature, which can be used in different scenarios. It could be, for example, sending the e-mails or any other type of messages, after having failed to send it when the connection was poor. However, in our case, in WebCure we are going to use it for sending the operations conducted offline back to the AntidoteDB server for further synchronization. Moreover, if there was a use case with a requirement to get the latest changes of the data from the server after the re-connection to the network, it is possible to implement it using the background synchronization feature.
+Background synchronization is an advantageous feature, which can be used in different scenarios. It could be, for example, sending the e-mails or any other type of messages, after having failed to send it when the connection was poor. However, in our case, in WebCure we are going to use it for sending the operations conducted offline back to the AntidoteDB server for further synchronization. Moreover, if there was a use case with a requirement to get the most recent data from the server after the re-connection to the network, it is possible to implement it using the background synchronization feature.

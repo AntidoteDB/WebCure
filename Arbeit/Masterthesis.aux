@@ -58,11 +58,13 @@
 \@writefile{lof}{\contentsline {subfigure}{\numberline{(a)}{\ignorespaces {}}}{5}{subfigure.1.1}}
 \@writefile{lof}{\contentsline {subfigure}{\numberline{(b)}{\ignorespaces {}}}{5}{subfigure.1.2}}
 \@writefile{toc}{\contentsline {section}{\numberline {2.2}AntidoteDB}{5}{section.2.2}}
+\newlabel{2-antidotedb}{{2.2}{5}{AntidoteDB}{section.2.2}{}}
 \citation{15}
 \citation{2}
 \citation{3}
 \citation{2}
-\@writefile{toc}{\contentsline {section}{\numberline {2.3}Conflict-Free Replicated Datatypes}{6}{section.2.3}}
+\@writefile{toc}{\contentsline {section}{\numberline {2.3}Conflict-Free Replicated Datatypes (CRDTs)}{6}{section.2.3}}
+\newlabel{2-crdts}{{2.3}{6}{Conflict-Free Replicated Datatypes (CRDTs)}{section.2.3}{}}
 \citation{2}
 \citation{2}
 \citation{3}
@@ -83,164 +85,185 @@
 \@writefile{lol}{\addvspace {10\p@ }}
 \newlabel{Design}{{3}{11}{Design}{chapter.3}{}}
 \@writefile{toc}{\contentsline {section}{\numberline {3.1}Requirements}{11}{section.3.1}}
-\newlabel{Requirements}{{3.1}{11}{Requirements}{section.3.1}{}}
-\@writefile{toc}{\contentsline {section}{\numberline {3.2}Overview of the protocol}{11}{section.3.2}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {3.2.1}The way of exchaning the data}{11}{subsection.3.2.1}}
+\newlabel{4-Requirements}{{3.1}{11}{Requirements}{section.3.1}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {3.2}Assumptions}{11}{section.3.2}}
 \@writefile{lot}{\contentsline {table}{\numberline {\relax 3.1}{\ignorespaces Functional requirements.\relax }}{12}{table.caption.10}}
 \newlabel{table:req1}{{\relax 3.1}{12}{Functional requirements.\relax }{table.caption.10}{}}
 \@writefile{lot}{\contentsline {table}{\numberline {\relax 3.2}{\ignorespaces Non-functional requirements.\relax }}{12}{table.caption.11}}
 \newlabel{table:req2}{{\relax 3.2}{12}{Non-functional requirements.\relax }{table.caption.11}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {3.2.2}A client receives an update from the server}{13}{subsection.3.2.2}}
-\@writefile{lof}{\contentsline {figure}{\numberline {\relax 3.1}{\ignorespaces The way a client receives a key-value update from the server.\relax }}{13}{figure.caption.12}}
-\newlabel{fig:design2}{{\relax 3.1}{13}{The way a client receives a key-value update from the server.\relax }{figure.caption.12}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {3.2.3}A client sends an update to the server}{13}{subsection.3.2.3}}
-\@writefile{lof}{\contentsline {figure}{\numberline {\relax 3.2}{\ignorespaces The way a client sends a write operation to the server.\relax }}{13}{figure.caption.13}}
-\newlabel{fig:design3}{{\relax 3.2}{13}{The way a client sends a write operation to the server.\relax }{figure.caption.13}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {3.2.4}Two clients interact with a server.}{14}{subsection.3.2.4}}
-\@writefile{lof}{\contentsline {figure}{\numberline {\relax 3.3}{\ignorespaces Graphical representation over a possible communicaton between two clients and a server.\relax }}{14}{figure.caption.15}}
-\newlabel{fig:design4}{{\relax 3.3}{14}{Graphical representation over a possible communicaton between two clients and a server.\relax }{figure.caption.15}{}}
-\@writefile{toc}{\contentsline {section}{\numberline {3.3}Offline functionality}{14}{section.3.3}}
-\@writefile{lof}{\contentsline {figure}{\numberline {\relax 3.4}{\ignorespaces Successful request of state from the local database -- Sequence diagram.\relax }}{15}{figure.caption.16}}
-\newlabel{fig:design6}{{\relax 3.4}{15}{Successful request of state from the local database -- Sequence diagram.\relax }{figure.caption.16}{}}
-\@writefile{toc}{\contentsline {section}{\numberline {3.4}Online functionality}{15}{section.3.4}}
-\@writefile{lof}{\contentsline {figure}{\numberline {\relax 3.5}{\ignorespaces Successful storing of an operation in the local database -- Sequence diagram.\relax }}{16}{figure.caption.17}}
-\newlabel{fig:design7}{{\relax 3.5}{16}{Successful storing of an operation in the local database -- Sequence diagram.\relax }{figure.caption.17}{}}
-\@writefile{toc}{\contentsline {section}{\numberline {3.5}The transition between offline and online modes}{16}{section.3.5}}
+\citation{49}
+\@writefile{toc}{\contentsline {section}{\numberline {3.3}Protocol}{13}{section.3.3}}
+\newlabel{4-protocol}{{3.3}{13}{Protocol}{section.3.3}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.3.1}Data transmission}{13}{subsection.3.3.1}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.3.2}Description}{13}{subsection.3.3.2}}
+\@writefile{lof}{\contentsline {figure}{\numberline {\relax 3.1}{\ignorespaces An overview of the communication protocol.\relax }}{14}{figure.caption.12}}
+\newlabel{fig:protocol1}{{\relax 3.1}{14}{An overview of the communication protocol.\relax }{figure.caption.12}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {\relax 3.2}{\ignorespaces An overview of notations used in the following chapters for the protocol explanation.\relax }}{14}{figure.caption.14}}
+\newlabel{fig:notations}{{\relax 3.2}{14}{An overview of notations used in the following chapters for the protocol explanation.\relax }{figure.caption.14}{}}
+\@writefile{lof}{\contentsline {subfigure}{\numberline{(a)}{\ignorespaces {}}}{14}{subfigure.2.1}}
+\@writefile{lof}{\contentsline {subfigure}{\numberline{(b)}{\ignorespaces {}}}{14}{subfigure.2.2}}
+\@writefile{lof}{\contentsline {subfigure}{\numberline{(c)}{\ignorespaces {}}}{14}{subfigure.2.3}}
+\@writefile{lof}{\contentsline {subfigure}{\numberline{(d)}{\ignorespaces {}}}{14}{subfigure.2.4}}
+\@writefile{lof}{\contentsline {figure}{\numberline {\relax 3.3}{\ignorespaces The way a client receives a key-value update from the server.\relax }}{15}{figure.caption.16}}
+\newlabel{fig:design2}{{\relax 3.3}{15}{The way a client receives a key-value update from the server.\relax }{figure.caption.16}{}}
+\newlabel{lst:read1}{{3.1}{15}{A pseudocode for requesting the data on a client's side}{lstlisting.3.1}{}}
+\@writefile{lol}{\contentsline {lstlisting}{\numberline {3.1}A pseudocode for requesting the data on a client's side.}{15}{lstlisting.3.1}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.3.3}A client sends an update to the server}{16}{subsection.3.3.3}}
+\@writefile{lof}{\contentsline {figure}{\numberline {\relax 3.4}{\ignorespaces The way a client sends a write operation to the server.\relax }}{16}{figure.caption.17}}
+\newlabel{fig:design3}{{\relax 3.4}{16}{The way a client sends a write operation to the server.\relax }{figure.caption.17}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.3.4}Two clients interact with a server.}{17}{subsection.3.3.4}}
+\@writefile{lof}{\contentsline {figure}{\numberline {\relax 3.5}{\ignorespaces Graphical representation over a possible communicaton between two clients and a server.\relax }}{17}{figure.caption.19}}
+\newlabel{fig:design4}{{\relax 3.5}{17}{Graphical representation over a possible communicaton between two clients and a server.\relax }{figure.caption.19}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {3.4}Offline functionality}{18}{section.3.4}}
+\@writefile{lof}{\contentsline {figure}{\numberline {\relax 3.6}{\ignorespaces Successful request of state from the local database -- Sequence diagram.\relax }}{18}{figure.caption.20}}
+\newlabel{fig:design6}{{\relax 3.6}{18}{Successful request of state from the local database -- Sequence diagram.\relax }{figure.caption.20}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {\relax 3.7}{\ignorespaces Successful storing of an operation in the local database -- Sequence diagram.\relax }}{19}{figure.caption.21}}
+\newlabel{fig:design7}{{\relax 3.7}{19}{Successful storing of an operation in the local database -- Sequence diagram.\relax }{figure.caption.21}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {3.5}Online functionality}{19}{section.3.5}}
+\@writefile{toc}{\contentsline {section}{\numberline {3.6}The transition between offline and online modes}{19}{section.3.6}}
 \citation{41}
 \citation{1}
 \citation{30}
 \citation{32}
 \citation{33}
-\newlabel{part:Technologies}{{3.5}{17}{The transition between offline and online modes}{section.3.5}{}}
-\@writefile{toc}{\contentsline {chapter}{\numberline {4}Technologies}{17}{chapter.4}}
+\newlabel{part:Technologies}{{3.6}{21}{The transition between offline and online modes}{section.3.6}{}}
+\@writefile{toc}{\contentsline {chapter}{\numberline {4}Technologies}{21}{chapter.4}}
 \@writefile{lof}{\addvspace {10\p@ }}
 \@writefile{lot}{\addvspace {10\p@ }}
 \@writefile{loc}{\addvspace {10\p@ }}
 \@writefile{lol}{\addvspace {10\p@ }}
-\newlabel{Technologies}{{4}{17}{Technologies}{chapter.4}{}}
-\@writefile{toc}{\contentsline {section}{\numberline {4.1}Service Worker}{17}{section.4.1}}
-\@writefile{lof}{\contentsline {figure}{\numberline {\relax 4.1}{\ignorespaces An overview of the service worker being able to provide the application experience of both online and offline modes.\relax }}{18}{figure.caption.18}}
-\newlabel{fig:sw_interact}{{\relax 4.1}{18}{An overview of the service worker being able to provide the application experience of both online and offline modes.\relax }{figure.caption.18}{}}
+\newlabel{Technologies}{{4}{21}{Technologies}{chapter.4}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {4.1}Service Worker}{21}{section.4.1}}
+\@writefile{lof}{\contentsline {figure}{\numberline {\relax 4.1}{\ignorespaces An overview of the service worker being able to provide the application experience of both online and offline modes.\relax }}{22}{figure.caption.22}}
+\newlabel{fig:sw_interact}{{\relax 4.1}{22}{An overview of the service worker being able to provide the application experience of both online and offline modes.\relax }{figure.caption.22}{}}
 \citation{32}
 \citation{43}
 \citation{42}
-\@writefile{toc}{\contentsline {subsection}{\numberline {4.1.1}Service worker lifecycle}{19}{subsection.4.1.1}}
-\newlabel{lst:tech1}{{4.1}{19}{An example code, which demonstrates how to register a service worker\cite {32}}{lstlisting.4.1}{}}
-\@writefile{lol}{\contentsline {lstlisting}{\numberline {4.1}An example code, which demonstrates how to register a service worker\cite  {32}.}{19}{lstlisting.4.1}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.1.1}Service worker lifecycle}{23}{subsection.4.1.1}}
+\newlabel{lst:tech1}{{4.1}{23}{An example code, which demonstrates how to register a service worker\cite {32}}{lstlisting.4.1}{}}
+\@writefile{lol}{\contentsline {lstlisting}{\numberline {4.1}An example code, which demonstrates how to register a service worker\cite  {32}.}{23}{lstlisting.4.1}}
 \citation{32}
-\newlabel{lst:tech2}{{4.2}{20}{An example code, which demonstrates how to set a custom scope when registering a service worker\cite {32}}{lstlisting.4.2}{}}
-\@writefile{lol}{\contentsline {lstlisting}{\numberline {4.2}An example code, which demonstrates how to set a custom scope when registering a service worker\cite  {32}.}{20}{lstlisting.4.2}}
+\newlabel{lst:tech2}{{4.2}{24}{An example code, which demonstrates how to set a custom scope when registering a service worker\cite {32}}{lstlisting.4.2}{}}
+\@writefile{lol}{\contentsline {lstlisting}{\numberline {4.2}An example code, which demonstrates how to set a custom scope when registering a service worker\cite  {32}.}{24}{lstlisting.4.2}}
 \citation{32}
 \citation{32}
-\newlabel{lst:tech3}{{4.3}{21}{An example code, which demonstates a listener for the \textit {install} service worker's event\cite {32}}{lstlisting.4.3}{}}
-\@writefile{lol}{\contentsline {lstlisting}{\numberline {4.3}An example code, which demonstates a listener for the \textit  {install} service worker's event\cite  {32}.}{21}{lstlisting.4.3}}
-\newlabel{lst:tech4}{{4.4}{21}{An example code, which demonstates a listener for the \textit {activation} service worker's event\cite {32}}{lstlisting.4.4}{}}
-\@writefile{lol}{\contentsline {lstlisting}{\numberline {4.4}An example code, which demonstates a listener for the \textit  {activation} service worker's event\cite  {32}.}{21}{lstlisting.4.4}}
-\@writefile{toc}{\contentsline {section}{\numberline {4.2}Cache API}{21}{section.4.2}}
+\newlabel{lst:tech3}{{4.3}{25}{An example code, which demonstates a listener for the \textit {install} service worker's event\cite {32}}{lstlisting.4.3}{}}
+\@writefile{lol}{\contentsline {lstlisting}{\numberline {4.3}An example code, which demonstates a listener for the \textit  {install} service worker's event\cite  {32}.}{25}{lstlisting.4.3}}
+\newlabel{lst:tech4}{{4.4}{25}{An example code, which demonstates a listener for the \textit {activation} service worker's event\cite {32}}{lstlisting.4.4}{}}
+\@writefile{lol}{\contentsline {lstlisting}{\numberline {4.4}An example code, which demonstates a listener for the \textit  {activation} service worker's event\cite  {32}.}{25}{lstlisting.4.4}}
+\@writefile{toc}{\contentsline {section}{\numberline {4.2}Cache API}{25}{section.4.2}}
+\newlabel{CacheAPI}{{4.2}{25}{Cache API}{section.4.2}{}}
 \citation{34}
 \citation{37}
 \citation{35}
-\newlabel{lst:tech6}{{4.5}{22}{An example code, which demonstrates how one can create cache storage called \textit {test-cache}\cite {34}}{lstlisting.4.5}{}}
-\@writefile{lol}{\contentsline {lstlisting}{\numberline {4.5}An example code, which demonstrates how one can create cache storage called \textit  {test-cache}\cite  {34}.}{22}{lstlisting.4.5}}
-\@writefile{toc}{\contentsline {section}{\numberline {4.3}IndexedDB}{22}{section.4.3}}
+\newlabel{lst:tech6}{{4.5}{26}{An example code, which demonstrates how one can create cache storage called \textit {my-cache}\cite {34}}{lstlisting.4.5}{}}
+\@writefile{lol}{\contentsline {lstlisting}{\numberline {4.5}An example code, which demonstrates how one can create cache storage called \textit  {my-cache}\cite  {34}.}{26}{lstlisting.4.5}}
+\@writefile{toc}{\contentsline {section}{\numberline {4.3}IndexedDB}{26}{section.4.3}}
+\newlabel{IndexedDB}{{4.3}{26}{IndexedDB}{section.4.3}{}}
 \citation{35}
-\citation{36}
-\@writefile{toc}{\contentsline {subsection}{\numberline {4.3.1}IndexedDB terms}{23}{subsection.4.3.1}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {4.3.2}IndexedDB Promised}{23}{subsection.4.3.2}}
-\newlabel{lst:tech7}{{4.6}{23}{An example code, which demonstrates how one can check the support for IndexedDB API\cite {35}}{lstlisting.4.6}{}}
-\@writefile{lol}{\contentsline {lstlisting}{\numberline {4.6}An example code, which demonstrates how one can check the support for IndexedDB API\cite  {35}.}{23}{lstlisting.4.6}}
+\citation{36,48}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.3.1}IndexedDB terms}{27}{subsection.4.3.1}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.3.2}IndexedDB Promised}{27}{subsection.4.3.2}}
+\newlabel{lst:tech7}{{4.6}{27}{An example code, which demonstrates how one can check the support for IndexedDB API\cite {35}}{lstlisting.4.6}{}}
+\@writefile{lol}{\contentsline {lstlisting}{\numberline {4.6}An example code, which demonstrates how one can check the support for IndexedDB API\cite  {35}.}{27}{lstlisting.4.6}}
+\citation{47}
+\citation{45,46}
 \citation{38}
 \citation{38}
+\@writefile{toc}{\contentsline {section}{\numberline {4.4}Persistent Storage}{28}{section.4.4}}
+\newlabel{persistentstorage}{{4.4}{28}{Persistent Storage}{section.4.4}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {4.5}Background Sync}{28}{section.4.5}}
+\newlabel{lst:tech8}{{4.7}{28}{An example code, which demonstrates how to register a sync (\textit {myFirstSync} here) event for the service worker\cite {38}}{lstlisting.4.7}{}}
+\@writefile{lol}{\contentsline {lstlisting}{\numberline {4.7}An example code, which demonstrates how to register a sync (\textit  {myFirstSync} here) event for the service worker\cite  {38}.}{28}{lstlisting.4.7}}
 \citation{38}
-\@writefile{toc}{\contentsline {section}{\numberline {4.4}Background Sync}{24}{section.4.4}}
-\newlabel{lst:tech8}{{4.7}{24}{An example code, which demonstrates how to register a sync (\textit {myFirstSync} here) event for the service worker\cite {38}}{lstlisting.4.7}{}}
-\@writefile{lol}{\contentsline {lstlisting}{\numberline {4.7}An example code, which demonstrates how to register a sync (\textit  {myFirstSync} here) event for the service worker\cite  {38}.}{24}{lstlisting.4.7}}
-\newlabel{lst:tech9}{{4.8}{24}{An example code, which demonstates that a function \textit {doSomeStuff} called, when the \textit {sync} event happened\cite {38}}{lstlisting.4.8}{}}
-\@writefile{lol}{\contentsline {lstlisting}{\numberline {4.8}An example code, which demonstates that a function \textit  {doSomeStuff} called, when the \textit  {sync} event happened\cite  {38}.}{24}{lstlisting.4.8}}
+\citation{44}
+\citation{38}
+\newlabel{lst:tech9}{{4.8}{29}{An example code, which demonstates that a function \textit {doSomeStuff} called, when the \textit {sync} event happened\cite {38}}{lstlisting.4.8}{}}
+\@writefile{lol}{\contentsline {lstlisting}{\numberline {4.8}An example code, which demonstates that a function \textit  {doSomeStuff} called, when the \textit  {sync} event happened\cite  {38}.}{29}{lstlisting.4.8}}
 \citation{40}
-\newlabel{part:Implementation}{{4.4}{27}{Background Sync}{lstnumber.4.8.5}{}}
-\@writefile{toc}{\contentsline {chapter}{\numberline {5}Implementation}{27}{chapter.5}}
+\newlabel{part:Implementation}{{4.5}{31}{Background Sync}{lstnumber.4.8.5}{}}
+\@writefile{toc}{\contentsline {chapter}{\numberline {5}Implementation}{31}{chapter.5}}
 \@writefile{lof}{\addvspace {10\p@ }}
 \@writefile{lot}{\addvspace {10\p@ }}
 \@writefile{loc}{\addvspace {10\p@ }}
 \@writefile{lol}{\addvspace {10\p@ }}
-\newlabel{Implementation}{{5}{27}{Implementation}{chapter.5}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {\relax 5.1}{\ignorespaces A look at the server-client architecture with a RESTful interface.\relax }}{27}{figure.caption.22}}
-\newlabel{fig:design1}{{\relax 5.1}{27}{A look at the server-client architecture with a RESTful interface.\relax }{figure.caption.22}{}}
-\@writefile{toc}{\contentsline {section}{\numberline {5.1}System's main components}{28}{section.5.1}}
-\@writefile{lof}{\contentsline {figure}{\numberline {\relax 5.2}{\ignorespaces A top-level view of the system's design.\relax }}{28}{figure.caption.23}}
-\newlabel{fig:design5}{{\relax 5.2}{28}{A top-level view of the system's design.\relax }{figure.caption.23}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {5.1.1}Web Application}{28}{subsection.5.1.1}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {5.1.2}Server}{29}{subsection.5.1.2}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {5.1.3}A database layer}{29}{subsection.5.1.3}}
-\@writefile{lof}{\contentsline {figure}{\numberline {\relax 5.3}{\ignorespaces 3-Tier architecture.\relax }}{30}{figure.caption.24}}
-\newlabel{fig:dev1}{{\relax 5.3}{30}{3-Tier architecture.\relax }{figure.caption.24}{}}
-\@writefile{toc}{\contentsline {section}{\numberline {5.2}Optimization}{30}{section.5.2}}
-\newlabel{part:Evaluation}{{5.2}{31}{Optimization}{section.5.2}{}}
-\@writefile{toc}{\contentsline {chapter}{\numberline {6}Evaluation}{31}{chapter.6}}
+\newlabel{Implementation}{{5}{31}{Implementation}{chapter.5}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {\relax 5.1}{\ignorespaces A look at the server-client architecture with a RESTful interface.\relax }}{31}{figure.caption.26}}
+\newlabel{fig:design1}{{\relax 5.1}{31}{A look at the server-client architecture with a RESTful interface.\relax }{figure.caption.26}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {5.1}System's main components}{32}{section.5.1}}
+\@writefile{lof}{\contentsline {figure}{\numberline {\relax 5.2}{\ignorespaces A top-level view of the system's design.\relax }}{32}{figure.caption.27}}
+\newlabel{fig:design5}{{\relax 5.2}{32}{A top-level view of the system's design.\relax }{figure.caption.27}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.1.1}Web Application}{32}{subsection.5.1.1}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.1.2}Server}{33}{subsection.5.1.2}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.1.3}A database layer}{33}{subsection.5.1.3}}
+\@writefile{lof}{\contentsline {figure}{\numberline {\relax 5.3}{\ignorespaces 3-Tier architecture.\relax }}{34}{figure.caption.28}}
+\newlabel{fig:dev1}{{\relax 5.3}{34}{3-Tier architecture.\relax }{figure.caption.28}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {5.2}Optimization}{34}{section.5.2}}
+\newlabel{part:Evaluation}{{5.2}{35}{Optimization}{section.5.2}{}}
+\@writefile{toc}{\contentsline {chapter}{\numberline {6}Evaluation}{35}{chapter.6}}
 \@writefile{lof}{\addvspace {10\p@ }}
 \@writefile{lot}{\addvspace {10\p@ }}
 \@writefile{loc}{\addvspace {10\p@ }}
 \@writefile{lol}{\addvspace {10\p@ }}
-\newlabel{Evaluation}{{6}{31}{Evaluation}{chapter.6}{}}
+\newlabel{Evaluation}{{6}{35}{Evaluation}{chapter.6}{}}
 \citation{6}
 \citation{5}
 \citation{7}
 \citation{8}
-\newlabel{part:RelatedWork}{{6}{33}{Evaluation}{chapter.6}{}}
-\@writefile{toc}{\contentsline {chapter}{\numberline {7}Related Work}{33}{chapter.7}}
+\newlabel{part:RelatedWork}{{6}{37}{Evaluation}{chapter.6}{}}
+\@writefile{toc}{\contentsline {chapter}{\numberline {7}Related Work}{37}{chapter.7}}
 \@writefile{lof}{\addvspace {10\p@ }}
 \@writefile{lot}{\addvspace {10\p@ }}
 \@writefile{loc}{\addvspace {10\p@ }}
 \@writefile{lol}{\addvspace {10\p@ }}
-\newlabel{RelatedWork}{{7}{33}{Related Work}{chapter.7}{}}
-\@writefile{toc}{\contentsline {section}{\numberline {7.1}SwiftCloud: a transactional system that brings geo-replication to the client}{33}{section.7.1}}
-\@writefile{toc}{\contentsline {section}{\numberline {7.2}Legion: a framework, which enriches web applications}{33}{section.7.2}}
+\newlabel{RelatedWork}{{7}{37}{Related Work}{chapter.7}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {7.1}SwiftCloud: a transactional system that brings geo-replication to the client}{37}{section.7.1}}
+\@writefile{toc}{\contentsline {section}{\numberline {7.2}Legion: a framework, which enriches web applications}{37}{section.7.2}}
 \citation{16}
 \citation{18}
 \citation{17}
 \citation{20}
 \citation{21}
 \citation{19}
-\@writefile{toc}{\contentsline {section}{\numberline {7.3}Developing web and mobile applications with offline usage experience}{34}{section.7.3}}
+\@writefile{toc}{\contentsline {section}{\numberline {7.3}Developing web and mobile applications with offline usage experience}{38}{section.7.3}}
 \citation{23}
 \citation{24}
 \citation{25}
 \citation{26}
-\newlabel{lst:rwork1}{{7.1}{36}{A typical result of retrieving the item \textit {document} stored in CouchDB}{lstlisting.7.1}{}}
-\@writefile{lol}{\contentsline {lstlisting}{\numberline {7.1}A typical result of retrieving the item \textit  {document} stored in CouchDB.}{36}{lstlisting.7.1}}
-\newlabel{lst:rwork2}{{7.2}{36}{Updating the value of item \textit {document} by adding \textit {b} into it}{lstlisting.7.2}{}}
-\@writefile{lol}{\contentsline {lstlisting}{\numberline {7.2}Updating the value of item \textit  {document} by adding \textit  {b} into it.}{36}{lstlisting.7.2}}
-\newlabel{lst:rwork3}{{7.3}{36}{The result of requesting the updated version of \textit {document}}{lstlisting.7.3}{}}
-\@writefile{lol}{\contentsline {lstlisting}{\numberline {7.3}The result of requesting the updated version of \textit  {document}}{36}{lstlisting.7.3}}
-\newlabel{lst:rwork4}{{7.4}{37}{Updating the value of item \textit {document} by adding \textit {d} into it}{lstlisting.7.4}{}}
-\@writefile{lol}{\contentsline {lstlisting}{\numberline {7.4}Updating the value of item \textit  {document} by adding \textit  {d} into it.}{37}{lstlisting.7.4}}
-\newlabel{lst:rwork5}{{7.5}{37}{The result of requesting the \textit {document} from CouchDB-1}{lstlisting.7.5}{}}
-\@writefile{lol}{\contentsline {lstlisting}{\numberline {7.5}The result of requesting the \textit  {document} from CouchDB-1.}{37}{lstlisting.7.5}}
-\newlabel{lst:rwork6}{{7.6}{37}{The result of requesting the \textit {document} from CouchDB-2}{lstlisting.7.6}{}}
-\@writefile{lol}{\contentsline {lstlisting}{\numberline {7.6}The result of requesting the \textit  {document} from CouchDB-2.}{37}{lstlisting.7.6}}
-\newlabel{lst:rwork7}{{7.7}{38}{Updating the value of item \textit {document} by adding element \textit {e} and removing previously added element \textit {d}}{lstlisting.7.7}{}}
-\@writefile{lol}{\contentsline {lstlisting}{\numberline {7.7}Updating the value of item \textit  {document} by adding element \textit  {e} and removing previously added element \textit  {d}}{38}{lstlisting.7.7}}
-\newlabel{lst:rwork8}{{7.8}{38}{The demonstration of a conflict situation happening, when the \textit {\_rev} of sent operation and the one at the server do not match}{lstlisting.7.8}{}}
-\@writefile{lol}{\contentsline {lstlisting}{\numberline {7.8}The demonstration of a conflict situation happening, when the \textit  {\_rev} of sent operation and the one at the server do not match.}{38}{lstlisting.7.8}}
-\newlabel{lst:rwork9}{{7.9}{38}{Updating the value of item \textit {document} by adding element \textit {e} and removing previously added element \textit {d} after receiving the new \textit {\_rev} from the second CouchDB server}{lstlisting.7.9}{}}
-\@writefile{lol}{\contentsline {lstlisting}{\numberline {7.9}Updating the value of item \textit  {document} by adding element \textit  {e} and removing previously added element \textit  {d} after receiving the new \textit  {\_rev} from the second CouchDB server.}{38}{lstlisting.7.9}}
+\newlabel{lst:rwork1}{{7.1}{40}{A typical result of retrieving the item \textit {document} stored in CouchDB}{lstlisting.7.1}{}}
+\@writefile{lol}{\contentsline {lstlisting}{\numberline {7.1}A typical result of retrieving the item \textit  {document} stored in CouchDB.}{40}{lstlisting.7.1}}
+\newlabel{lst:rwork2}{{7.2}{40}{Updating the value of item \textit {document} by adding \textit {b} into it}{lstlisting.7.2}{}}
+\@writefile{lol}{\contentsline {lstlisting}{\numberline {7.2}Updating the value of item \textit  {document} by adding \textit  {b} into it.}{40}{lstlisting.7.2}}
+\newlabel{lst:rwork3}{{7.3}{40}{The result of requesting the updated version of \textit {document}}{lstlisting.7.3}{}}
+\@writefile{lol}{\contentsline {lstlisting}{\numberline {7.3}The result of requesting the updated version of \textit  {document}}{40}{lstlisting.7.3}}
+\newlabel{lst:rwork4}{{7.4}{41}{Updating the value of item \textit {document} by adding \textit {d} into it}{lstlisting.7.4}{}}
+\@writefile{lol}{\contentsline {lstlisting}{\numberline {7.4}Updating the value of item \textit  {document} by adding \textit  {d} into it.}{41}{lstlisting.7.4}}
+\newlabel{lst:rwork5}{{7.5}{41}{The result of requesting the \textit {document} from CouchDB-1}{lstlisting.7.5}{}}
+\@writefile{lol}{\contentsline {lstlisting}{\numberline {7.5}The result of requesting the \textit  {document} from CouchDB-1.}{41}{lstlisting.7.5}}
+\newlabel{lst:rwork6}{{7.6}{41}{The result of requesting the \textit {document} from CouchDB-2}{lstlisting.7.6}{}}
+\@writefile{lol}{\contentsline {lstlisting}{\numberline {7.6}The result of requesting the \textit  {document} from CouchDB-2.}{41}{lstlisting.7.6}}
+\newlabel{lst:rwork7}{{7.7}{42}{Updating the value of item \textit {document} by adding element \textit {e} and removing previously added element \textit {d}}{lstlisting.7.7}{}}
+\@writefile{lol}{\contentsline {lstlisting}{\numberline {7.7}Updating the value of item \textit  {document} by adding element \textit  {e} and removing previously added element \textit  {d}}{42}{lstlisting.7.7}}
+\newlabel{lst:rwork8}{{7.8}{42}{The demonstration of a conflict situation happening, when the \textit {\_rev} of sent operation and the one at the server do not match}{lstlisting.7.8}{}}
+\@writefile{lol}{\contentsline {lstlisting}{\numberline {7.8}The demonstration of a conflict situation happening, when the \textit  {\_rev} of sent operation and the one at the server do not match.}{42}{lstlisting.7.8}}
+\newlabel{lst:rwork9}{{7.9}{42}{Updating the value of item \textit {document} by adding element \textit {e} and removing previously added element \textit {d} after receiving the new \textit {\_rev} from the second CouchDB server}{lstlisting.7.9}{}}
+\@writefile{lol}{\contentsline {lstlisting}{\numberline {7.9}Updating the value of item \textit  {document} by adding element \textit  {e} and removing previously added element \textit  {d} after receiving the new \textit  {\_rev} from the second CouchDB server.}{42}{lstlisting.7.9}}
 \citation{22}
 \citation{22}
-\newlabel{part:Conclusion}{{7.3}{41}{Realm Mobile}{section*.30}{}}
-\@writefile{toc}{\contentsline {chapter}{\numberline {8}Conclusion}{41}{chapter.8}}
+\newlabel{part:Conclusion}{{7.3}{45}{Realm Mobile}{section*.34}{}}
+\@writefile{toc}{\contentsline {chapter}{\numberline {8}Conclusion}{45}{chapter.8}}
 \@writefile{lof}{\addvspace {10\p@ }}
 \@writefile{lot}{\addvspace {10\p@ }}
 \@writefile{loc}{\addvspace {10\p@ }}
 \@writefile{lol}{\addvspace {10\p@ }}
-\newlabel{Conclusion}{{8}{41}{Conclusion}{chapter.8}{}}
-\@writefile{toc}{\contentsline {section}{\numberline {8.1}Summary}{41}{section.8.1}}
-\@writefile{toc}{\contentsline {section}{\numberline {8.2}Future Work}{41}{section.8.2}}
+\newlabel{Conclusion}{{8}{45}{Conclusion}{chapter.8}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {8.1}Summary}{45}{section.8.1}}
+\@writefile{toc}{\contentsline {section}{\numberline {8.2}Future Work}{45}{section.8.2}}
 \citation{2}
 \citation{2}
-\@writefile{toc}{\contentsline {chapter}{\nonumberline List of Figures}{43}{chapter*.32}}
-\@writefile{toc}{\contentsline {chapter}{\nonumberline List of Tables}{45}{chapter*.33}}
-\@writefile{toc}{\contentsline {chapter}{\nonumberline List of Code}{47}{chapter*.34}}
+\@writefile{toc}{\contentsline {chapter}{\nonumberline List of Figures}{47}{chapter*.36}}
+\@writefile{toc}{\contentsline {chapter}{\nonumberline List of Tables}{49}{chapter*.37}}
+\@writefile{toc}{\contentsline {chapter}{\nonumberline List of Code}{51}{chapter*.38}}
 \citation{32}
 \citation{32}
 \citation{32}
@@ -249,7 +272,7 @@
 \citation{35}
 \citation{38}
 \citation{38}
-\@writefile{toc}{\contentsline {chapter}{\nonumberline Listings}{49}{chapter*.35}}
+\@writefile{toc}{\contentsline {chapter}{\nonumberline Listings}{53}{chapter*.39}}
 \@writefile{lof}{\addvspace {10\p@ }}
 \@writefile{lot}{\addvspace {10\p@ }}
 \@writefile{loc}{\addvspace {10\p@ }}
@@ -263,7 +286,7 @@
 \bibcite{28}{{6}{2015}{{Casti\~{n}eira and Bieniusa}}{{}}}
 \bibcite{7}{{7}{2015}{{Zawirski et~al.}}{{Zawirski, Pregui\c {c}a, Duarte, Bieniusa, Balegas, and Shapiro}}}
 \bibcite{4}{{8}{2018 (accessed September 25, 2018}{{4}}{{)}}}
-\@writefile{toc}{\contentsline {chapter}{\nonumberline Bibliography}{51}{chapter*.36}}
+\@writefile{toc}{\contentsline {chapter}{\nonumberline Bibliography}{55}{chapter*.40}}
 \@writefile{lof}{\addvspace {10\p@ }}
 \@writefile{lot}{\addvspace {10\p@ }}
 \@writefile{loc}{\addvspace {10\p@ }}
@@ -274,33 +297,39 @@
 \bibcite{2}{{12}{2011}{{Shapiro et~al.}}{{Shapiro, Pregui, Baquero, and Zawirski}}}
 \bibcite{3}{{13}{2018}{{Pregui{\c {c}}a et~al.}}{{Pregui{\c {c}}a, Baquero, and Shapiro}}}
 \bibcite{39}{{14}{2018 (accessed November 26, 2018}{{39}}{{)}}}
-\bibcite{41}{{15}{2018 (accessed November 28, 2018}{{41}}{{)}}}
-\bibcite{1}{{16}{2018 (accessed September 14, 2018}{{Gaunt}}{{)}}}
-\bibcite{30}{{17}{2018 (accessed November 15, 2018}{{30}}{{)}}}
-\bibcite{32}{{18}{2018 (accessed November 18, 2018}{{32}}{{)}}}
-\bibcite{33}{{19}{2005}{{Desmedt}}{{}}}
-\bibcite{43}{{20}{2018 (accessed November 28, 2018}{{43}}{{)}}}
-\bibcite{42}{{21}{2018 (accessed November 28, 2018}{{42}}{{)}}}
-\bibcite{34}{{22}{2018 (accessed November 22, 2018}{{Walsh}}{{)}}}
-\bibcite{37}{{23}{2018 (accessed November 23, 2018}{{37}}{{)}}}
-\bibcite{35}{{24}{2018 (accessed November 23, 2018}{{35}}{{)}}}
-\bibcite{36}{{25}{2018 (accessed November 23, 2018}{{Archibald}}{{)}}}
-\bibcite{38}{{26}{2018 (accessed November 24, 2018}{{Archibald}}{{)}}}
-\bibcite{40}{{27}{2018 (accessed November 27, 2018}{{Long}}{{)}}}
-\bibcite{6}{{28}{2011}{{Sovran et~al.}}{{Sovran, Power, Aguilera, and Li}}}
-\bibcite{5}{{29}{2014}{{Pregui\c {c}a et~al.}}{{Pregui\c {c}a, Zawirski, Bieniusa, Duarte, Balegas, Baquero, and Shapiro}}}
-\bibcite{8}{{30}{2017}{{van~der Linde et~al.}}{{van~der Linde, Fouto, Leit{\~{a}}o, Pregui{\c {c}}a, Casti{\~{n}}eira, and Bieniusa}}}
-\bibcite{16}{{31}{2018 (accessed October 29, 2018}{{16}}{{)}}}
-\bibcite{18}{{32}{2016 (accessed October 29, 2018}{{18}}{{)}}}
-\bibcite{17}{{33}{2018 (accessed October 29, 2018}{{17}}{{)}}}
-\bibcite{20}{{34}{2018 (accessed October 30, 2018}{{Bidelman}}{{)}}}
-\bibcite{21}{{35}{2018 (accessed October 30, 2018}{{21}}{{)}}}
-\bibcite{19}{{36}{2008 (accessed October 29, 2018}{{van Kesteren}}{{)}}}
-\bibcite{23}{{37}{accessed November 4, 2018}{{23}}{{}}}
-\bibcite{24}{{38}{2017 (accessed November 4, 2018}{{Peyser}}{{)}}}
-\bibcite{25}{{39}{2013 (accessed November 4, 2018}{{West}}{{)}}}
-\bibcite{26}{{40}{2013 (accessed November 4, 2018}{{Lehnardt}}{{)}}}
-\bibcite{22}{{41}{2018 (accessed October 30, 2018}{{22}}{{)}}}
+\bibcite{49}{{15}{2018 (accessed November 29, 2018}{{49}}{{)}}}
+\bibcite{41}{{16}{2018 (accessed November 28, 2018}{{41}}{{)}}}
+\bibcite{1}{{17}{2018 (accessed September 14, 2018}{{Gaunt}}{{)}}}
+\bibcite{30}{{18}{2018 (accessed November 15, 2018}{{30}}{{)}}}
+\bibcite{32}{{19}{2018 (accessed November 18, 2018}{{32}}{{)}}}
+\bibcite{33}{{20}{2005}{{Desmedt}}{{}}}
+\bibcite{43}{{21}{2018 (accessed November 28, 2018}{{43}}{{)}}}
+\bibcite{42}{{22}{2018 (accessed November 28, 2018}{{42}}{{)}}}
+\bibcite{34}{{23}{2018 (accessed November 28, 2018}{{Scales}}{{)}}}
+\bibcite{37}{{24}{2018 (accessed November 23, 2018}{{37}}{{)}}}
+\bibcite{35}{{25}{2018 (accessed November 23, 2018}{{35}}{{)}}}
+\bibcite{36}{{26}{2018 (accessed November 23, 2018}{{Archibald}}{{)}}}
+\bibcite{48}{{27}{2018 (accessed November 29, 2018}{{48}}{{)}}}
+\bibcite{47}{{28}{2018 (accessed November 29, 2018}{{47}}{{)}}}
+\bibcite{45}{{29}{2018 (accessed November 28, 2018}{{Wilson}}{{)}}}
+\bibcite{46}{{30}{2017 (accessed November 28, 2018}{{Hume}}{{)}}}
+\bibcite{38}{{31}{2018 (accessed November 24, 2018}{{Archibald}}{{)}}}
+\bibcite{44}{{32}{2018 (accessed November 28, 2018}{{Josh~Karlin}}{{)}}}
+\bibcite{40}{{33}{2018 (accessed November 27, 2018}{{Long}}{{)}}}
+\bibcite{6}{{34}{2011}{{Sovran et~al.}}{{Sovran, Power, Aguilera, and Li}}}
+\bibcite{5}{{35}{2014}{{Pregui\c {c}a et~al.}}{{Pregui\c {c}a, Zawirski, Bieniusa, Duarte, Balegas, Baquero, and Shapiro}}}
+\bibcite{8}{{36}{2017}{{van~der Linde et~al.}}{{van~der Linde, Fouto, Leit{\~{a}}o, Pregui{\c {c}}a, Casti{\~{n}}eira, and Bieniusa}}}
+\bibcite{16}{{37}{2018 (accessed October 29, 2018}{{16}}{{)}}}
+\bibcite{18}{{38}{2016 (accessed October 29, 2018}{{18}}{{)}}}
+\bibcite{17}{{39}{2018 (accessed October 29, 2018}{{17}}{{)}}}
+\bibcite{20}{{40}{2018 (accessed October 30, 2018}{{Bidelman}}{{)}}}
+\bibcite{21}{{41}{2018 (accessed October 30, 2018}{{21}}{{)}}}
+\bibcite{19}{{42}{2008 (accessed October 29, 2018}{{van Kesteren}}{{)}}}
+\bibcite{23}{{43}{accessed November 4, 2018}{{23}}{{}}}
+\bibcite{24}{{44}{2017 (accessed November 4, 2018}{{Peyser}}{{)}}}
+\bibcite{25}{{45}{2013 (accessed November 4, 2018}{{West}}{{)}}}
+\bibcite{26}{{46}{2013 (accessed November 4, 2018}{{Lehnardt}}{{)}}}
+\bibcite{22}{{47}{2018 (accessed October 30, 2018}{{22}}{{)}}}
 \global\@namedef{scr@dte@chapter@lastmaxnumwidth}{10.79993pt}
 \global\@namedef{scr@dte@section@lastmaxnumwidth}{19.79993pt}
 \global\@namedef{scr@dte@subsection@lastmaxnumwidth}{28.79993pt}

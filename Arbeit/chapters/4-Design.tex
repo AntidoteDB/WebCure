@@ -1,26 +1,26 @@
 \chapter{Design}
 \label{Design}
 
-In this chapter, we are going to, firstly, introduce the requirements for the WebCure. Having set them, afterwards, we will in details describe the design of the solution.
+In this chapter, we are going to, firstly, introduce the requierements and assumptions we make for the WebCure. Having set them, afterwards, we will in details describe the design of the solution.
 
 \section{Requirements}
-\label{Requirements}
+\label{4-Requirements}
 
 We listed the functional requirements of the WebCure at \tableref*{table:req1} and non-functional requirements at \tableref*{table:req2}.
 
-\begin{table}[!htb]
+\begin{table}[!htbp]
 \centering
 \caption{Functional requirements.}
 \label{table:req1}
-\begin{tabular}{|p{1cm}|p{12cm}|}
+\begin{tabular}{|p{1cm}|p{14cm}|}
 \hline
 R1 & Retrieval, increment and decrement of the Counter CRDT should be possible.                         \\ \hline
 R2 & Retrieval, adding and removing elemets from the Set CRDT should be possible.                       \\ \hline
 R3 & Retrieval, assigning and resetting the Multi-Value Register CRDT should be possible.               \\ \hline
 R4 & Retrieval elements of any supported CRDTs should be possible according to the passed timestamp. \\ \hline
 R5 & Do not store the element's values in the cache, if they were requested at specific timestamp (for the matter of having only latest data on the client's side). \\ \hline
-R6 & The user should be able to remove from the client storage any element of supported CRDTs. \\ \hline
-R7 & It should not be possible to create elements of different CRDTs with the same name (due to described limitations of AntidoteDB) \\ \hline
+R6 & The user should be able to remove from the client any stored data element. \\ \hline
+R7 & It should not be possible to create elements of different CRDTs with the same name (due to limitations of AntidoteDB) \\ \hline
 R8 & When offline, it should be possible to perform operations on supported CRDTs. \\ \hline
 R9 & Any operations performed offline, once the connection is restored, should be sent to the server immediately. \\ \hline
 R10 & When the connection is re-established after having data changes in offline mode, the client data should be updated with relation to current client's changes, as well as with relation to the changes made on the server. \\ \hline
@@ -28,11 +28,11 @@ R10 & When the connection is re-established after having data changes in offline
 \caption*{}
 \end{table}
 
-\begin{table}[!htb]
+\begin{table}[!htbp]
 \centering
 \caption{Non-functional requirements.}
 \label{table:req2}
-\begin{tabular}{|p{1cm}|p{12cm}|}
+\begin{tabular}{|p{1cm}|p{14cm}|}
 \hline
 NFR1 & The web application should be available online and offline (except of the functionality with timestamp-related updates). \\ \hline
 NFR2 & The web application should be available with a poor internet connection. \\ \hline
@@ -40,54 +40,71 @@ NFR2 & The web application should be available with a poor internet connection. 
 \caption*{}
 \end{table}
 
-As we specified the requirements, we can go further into the design and design the protocol of the system.
+\section{Assumptions}
 
+In this section, we are going to give a list of assumptions, which makes the WebCure work correctly. 
 
+\begin{enumerate}
+\item {\textbf{Timestamps}. Firstly, the database storage used for the server's side should have the concept of timestamps (like in AntidoteDB, described in \secref*{2-antidotedb}), in order for the protocol we are going to describe in the \secref*{4-protocol} to work correctly.}
+\item {\textbf{Cache is persistent}. For the WebCure to work properly online and, especially, offline, we assume that the browser's cache is safe from automatic clearing. Otherwise, if the cache could be cleared automatically depending on the browser's behaviour, it makes it impossible to support the claim that the application can work offline. To guarantee this assumption, a Persistent Storage API described in \secref*{persistentstorage} can be used.}
+\item{\textbf{Name duplicates}. We restrict the creation of different CRDT elements with the same name in the system due to limitations of AntidoteDB, as it is described by the requirement \textit{R7} in the \tableref*{table:req1}. As AntidoteDB is in the process of ongoing development, currently the database crashes when there is an attempt to create elements of different CRDTs with the same name. Thus, this condition has to be satisfied.}
+\item{\textbf{Server's database is always on}. We assume that the server's database is not going to be reset and lose its all data. As the client completely relies on the server's storage for the synchronization and only sends back operations performed offline on client's side, it will be impossible to restore the server's database from the client's storage, even if it was up to date before the server's data loss. With additional changes to the current protocol it might be possible, though, but that is not the topic we cover in this thesis. However, even in such situation, the client will be able to continue the offline work.}
+\end{enumerate}
 
+As we specified the requirements, we can go further into and design the protocol of the system.
 
+\section{Protocol}
+\label{4-protocol}
 
+The fundamental part of the WebCure will be its protocol design. We are going to describe it in an event-based way in the form of pseudo-code in the following sections. 
 
+%    \begin{itemize}
+   %     \item {A client receives an update from the server}
+      %  \item {A client sends an update to the server}
+       % \item {Two clients interact with a server}
+    %\end{itemize}
 
+\subsection{Data transmission}
 
+As we already know from the \chapref*{Background}, because the AntidoteDB is using CRDT datatypes, the following options are possible to update the database: state-based and operation-based. Due to the time constraints and the amount of work, this thesis will consider only the operation-based approach. Therefore, whenever a client wants to update the database, it will send to the server a list of operations. However, whenever it wants to read the value, it will receive the current state of the object from the database. For this thesis, we are going to use such datatypes as Counters, Sets and Multi-Value Registers, to which the reader was introduced in the \secref*{2-crdts}.
 
+\subsection{Description} 
 
+\begin{figure}[!htb]
+    \begin{center}
+    \def\svgwidth{0.6\linewidth}
+    \input{images/protocol/overview.pdf_tex}
+    \caption {An overview of the communication protocol.}
+    \label{fig:protocol1}
+\end{center}
+\end{figure}
 
+Firstly, as we would like to concentrate on the communication part between a server and a client, let us for now keep both of them as block boxes\footnote{In software engineering, a black box is a system, which can be viewed in terms of its inputs and outputs, without the understanding of its internal workings.\cite{49}}, as they are represented at \figref*{fig:protocol1}. Next, we will go through different stages of their communication and describe, how we treated these processes. 
 
+\subsection*{Graphics notations}
 
+\begin{figure}[!htb]
+    \centering
+    \def\svgwidth{0.35\linewidth}
+    \subfloat[]{{\input{images/notations/timeline.pdf_tex}}}%
+    \qquad
+    \def\svgwidth{0.35\linewidth}
+    \subfloat[]{{\input{images/notations/transmission.pdf_tex}}}%
+ \def\svgwidth{0.35\linewidth}
+    \subfloat[]{{\input{images/notations/data.pdf_tex}}}%
+    \qquad
+ \def\svgwidth{0.35\linewidth}
+    \subfloat[]{{\input{images/notations/operation.pdf_tex}}}%
+    \qquad
+    \caption{An overview of notations used in the following chapters for the protocol explanation.}%
+    \label{fig:notations}%
+\end{figure}
 
+Let us explain the notations, which are going to be used for a further protocol description. At \figref*{fig:notations} \textbf{(a)}, we can see a notation for the timeline, every point of which represents a different timestamp. Timelines will be used for the matter of showing the sequence of events happening.At \figref*{fig:notations} \textbf{(b)}, the arrow shows the transmission of data between a system \textit{A} and system \textit{B}, as well as its direction and a command. \figref*{fig:notations} \textbf{(c)} represents the state of the data at a specific point in time, while \figref*{fig:notations} \textbf{(d)} points to a timestamp, at which an operation that changes the system's storage was applied.
 
+Next, as we already mentioned, we will explain the protocol in an event-based way. 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-\section{Overview of the protocol}
-
-The fundamental part of the WebCure will be its protocol design. We need to examine the following cases, in order to specify the protocol of the application:
-
-    \begin{itemize}
-        \item {A client receives an update from the server}
-        \item {A client sends an update to the server}
-        \item {Two clients interact with a server}
-    \end{itemize}
-
-\subsection{The way of exchaning the data}
-
-As we already know from the \chapref*{Background}, because the AntidoteDB is using CRDT datatypes, the following options are possible to update the database: state-based and operation-based. Due to the time constraints and the amount of work, this thesis will consider only the operation-based approach. Therefore, whenever a client wants to update the database, it will send to the server a list of operations. However, whenever it wants to read the value, it will receive the current state of the object from the database. For this thesis, we are going to use such datatypes as Counters, Sets and Multi-Value Registers, to which the reader was introduced in the \chapref*{Introduction}.
-
-\subsection{A client receives an update from the server}
-
-Let us say that a client requests an update from the server. In this case, if the request is successful, the server is going to respond with a value for the requested key and the timestamp of the last write -- \textit{t\textsubscript{0}}.
+\subsection*{A client receives an update from the server}
 
 \begin{figure}[!htb]
     \begin{center}
@@ -97,6 +114,28 @@ Let us say that a client requests an update from the server. In this case, if th
     \label{fig:design2}
 \end{center}
 \end{figure}
+
+Let us assume that a client starts its work with an empty storage. Then, a user might want to request the actual data from the server. In this case, as can be seen at \figref*{fig:design2}, a user has to pass to the server an \textit{id} of the data to request. If the request is successful, the server is going to respond with a \textit{value} for the requested \textit{id} and the timestamp of the last write -- \textit{t\textsubscript{0}}, so the client will store this information on its own storage.
+
+\begin{lstlisting}[caption={A pseudocode for requesting the data on a client's side.}, label={lst:read1}]
+// Read function that pulls database changes
+// @param id: the id of the object, for which the update was requested;
+
+function read(id) {
+  if (ONLINE) {
+    value = fetch(id); // request the value of the data by id from the server
+    store(value, timestamp); // store the value and timestamp received from the server on a client's storage
+    show(value, timestamp); // show the value and timestamp received from the server to the user;
+  } else {
+    value = fetch(id); // Get the value of the data by id from the cache
+    show(value); // show the value to the user
+  }
+}
+
+\end{lstlisting} 
+
+The pseudocode of the logic for this \textit{read} functionality can be seen at~\lstref*{lst:read1}. If a client is online, then the value and timestamp associated with passed \textit{id} is going to be fetched from the server and, afterwards, stored on a client's storage and displayed to the user. However, if the client is offline, then the client will try to get the data from the cache for the requested id, or, if there is none, it will show the appropriate message to the user.
+
 
 In case a client receives an update from the server, and that update has an earlier timestamp than the one, which is already stored in the client's cache, then a client skips it and tries later for fresher updates. The implementation of this will be explained later in the chapter of implementation.
 
