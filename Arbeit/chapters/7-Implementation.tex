@@ -96,4 +96,44 @@ This layer should consist of the AntidoteDB database, which is going to store th
 
 
 
+\section{Offline functionality}
+
+In this section, we are going to describe the offline functionality of the system.
+
+Initially, the database is empty. Therefore, if the user is offline from the very beginning, he should be able to add the data into the database himself. 
+The system represented in \figref*{fig:design5} will change by having only the Web Application and the database. However, whenever the connection is established with the server, the operations, which were stored in local database while offline, will be sent to the server. 
+
+At the \figref*{fig:design6}, the sequence of getting the data from the local database is shown. This case describes the scenario, when the server is unavailable and the application has to read the value from the local database. 
+
+\begin{figure}[!htb]
+    \begin{center}
+    \def\svgwidth{\columnwidth}
+    \input{images/design/offlineProtocol.pdf_tex}
+    \caption {Successful request of state from the local database -- Sequence diagram.}
+    \label{fig:design6}
+\end{center}
+\end{figure}
+
+
+\begin{figure}[!htb]
+    \begin{center}
+    \def\svgwidth{\columnwidth}
+    \input{images/design/offlineStore.pdf_tex}
+    \caption {Successful storing of an operation in the local database -- Sequence diagram.}
+    \label{fig:design7}
+\end{center}
+\end{figure}
+
+At the \textbf{Figure \ref{fig:design7}}, the sequence of storing the data locally is shown. When the connection is not there, the application will store in the database all offline-performed operations by the user. Afterwards, once the connection is re-established, that data will be sent back to the server. At the point when we read the state again from the server, the data, which is stored locally could be easily removed due to be pointless to hold on it. 
+
+
+\section {Online functionality}
+
+In this section, we are going to describe the online functionality of the system.
+
+
+
+\section {The transition between offline and online modes}
+
+
 \section{Optimization}

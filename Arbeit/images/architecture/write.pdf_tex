@@ -38,7 +38,7 @@
   \newcommand*\fsize{\dimexpr\f@size pt\relax}%
   \newcommand*\lineheight[1]{\fontsize{0.8\fsize}{#1\fsize}\selectfont}%
   \ifx\svgwidth\undefined%
-    \setlength{\unitlength}{365.74071299bp}%
+    \setlength{\unitlength}{485.74071299bp}%
     \ifx\svgscale\undefined%
       \relax%
     \else%
@@ -50,17 +50,23 @@
   \global\let\svgwidth\undefined%
   \global\let\svgscale\undefined%
   \makeatother%
-  \begin{picture}(1,0.24788629)%
+  \begin{picture}(1,0.20576058)%
     \lineheight{1}%
     \setlength\tabcolsep{0pt}%
     \put(0,0){\includegraphics[width=\unitlength,page=1]{images/architecture/write.pdf}}%
-    \put(0.03518117,0.00030039){\color[rgb]{0,0,0}\makebox(0,0)[t]{\lineheight{1.25}\smash{\begin{tabular}[t]{c}Server\end{tabular}}}}%
-    \put(0.03107991,0.1684523){\color[rgb]{0,0,0}\makebox(0,0)[t]{\lineheight{1.25}\smash{\begin{tabular}[t]{c}Client\end{tabular}}}}%
+    \put(0.02648983,0.03477996){\color[rgb]{0,0,0}\makebox(0,0)[t]{\lineheight{1.25}\smash{\begin{tabular}[t]{c}Server\end{tabular}}}}%
+    \put(0.02340176,0.16139072){\color[rgb]{0,0,0}\makebox(0,0)[t]{\lineheight{1.25}\smash{\begin{tabular}[t]{c}Client\end{tabular}}}}%
     \put(0,0){\includegraphics[width=\unitlength,page=2]{images/architecture/write.pdf}}%
-    \put(0.22383942,0.22997129){\color[rgb]{0,0,0}\makebox(0,0)[t]{\lineheight{1.25}\smash{\begin{tabular}[t]{c}\textit{(key, value, t)}\end{tabular}}}}%
-    \put(0.75290275,0.06797128){\color[rgb]{0,0,0}\makebox(0,0)[t]{\lineheight{1.25}\smash{\begin{tabular}[t]{c}\textit{(value', t\textsubscript{1})}\end{tabular}}}}%
-    \put(0.77956098,0.22997129){\color[rgb]{0,0,0}\makebox(0,0)[t]{\lineheight{1.25}\smash{\begin{tabular}[t]{c}\textit{(key, value', t\textsubscript{1})}\end{tabular}}}}%
+    \put(0.09905941,0.19227139){\color[rgb]{0,0,0}\makebox(0,0)[t]{\lineheight{1.25}\smash{\begin{tabular}[t]{c}\textit{(id, value, t\textsubscript{0})}\end{tabular}}}}%
+    \put(0.89423673,0.09345324){\color[rgb]{0,0,0}\makebox(0,0)[t]{\lineheight{1.25}\smash{\begin{tabular}[t]{c}\textit{respond(value', t\textsubscript{1})}\end{tabular}}}}%
+    \put(0.8880606,0.19227139){\color[rgb]{0,0,0}\makebox(0,0)[t]{\lineheight{1.25}\smash{\begin{tabular}[t]{c}\textit{(id, value', t\textsubscript{1})}\end{tabular}}}}%
     \put(0,0){\includegraphics[width=\unitlength,page=3]{images/architecture/write.pdf}}%
-    \put(0.38378879,0.06592064){\color[rgb]{0,0,0}\makebox(0,0)[t]{\lineheight{1.25}\smash{\begin{tabular}[t]{c}\textit{(key, operation(s))}\end{tabular}}}}%
+    \put(0.14229235,0.09345324){\color[rgb]{0,0,0}\makebox(0,0)[t]{\lineheight{1.25}\smash{\begin{tabular}[t]{c}\textit{update(id, operation(s))}\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=4]{images/architecture/write.pdf}}%
+    \put(0.63329505,0.09345324){\color[rgb]{0,0,0}\makebox(0,0)[t]{\lineheight{1.25}\smash{\begin{tabular}[t]{c}\textit{read(id)}\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=5]{images/architecture/write.pdf}}%
+    \put(0.34073689,0.00389929){\color[rgb]{0,0,0}\makebox(0,0)[t]{\lineheight{1.25}\smash{\begin{tabular}[t]{c}\textit{(id, value', t\textsubscript{1})}\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=6]{images/architecture/write.pdf}}%
+    \put(0.49896412,0.09345324){\color[rgb]{0,0,0}\makebox(0,0)[t]{\lineheight{1.25}\smash{\begin{tabular}[t]{c}\textit{respond(status)}\end{tabular}}}}%
   \end{picture}%
 \endgroup%
