@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.19 (MiKTeX 2.9.6800 64-bit) (preloaded format=pdflatex 2018.8.30)  2 DEC 2018 21:15
+This is pdfTeX, Version 3.14159265-2.6-1.40.19 (MiKTeX 2.9.6800 64-bit) (preloaded format=pdflatex 2018.8.30)  2 DEC 2018 21:42
 entering extended mode
 **"c:/Users/Server/Dropbox (Server (Study))/TU Kaiserslautern/Thesis/Project/MasterThesis/Arbeit/Masterthesis.tex"
 ("c:/Users/Server/Dropbox (Server (Study))/TU Kaiserslautern/Thesis/Project/MasterThesis/Arbeit/Masterthesis.tex"
@@ -2007,13 +2007,13 @@ Package pdftex.def Info: images/architecture/twoClients.pdf , page15 used on inp
 (pdftex.def)             Requested size: 386.38849pt x 176.80685pt.
 )
 Package babel Info: Redefining ngerman shorthand "|
-(babel)             in language  on input line 218.
+(babel)             in language  on input line 217.
 Package babel Info: Redefining ngerman shorthand "~
-(babel)             in language  on input line 218.
+(babel)             in language  on input line 217.
 Package babel Info: Redefining ngerman shorthand "|
-(babel)             in language  on input line 218.
+(babel)             in language  on input line 217.
 Package babel Info: Redefining ngerman shorthand "~
-(babel)             in language  on input line 218.
+(babel)             in language  on input line 217.
  [19 <./images/architecture/twoClients.pdf> <./images/architecture/twoClients.pdf
 
 pdfTeX warning: pdflatex (file ./images/architecture/twoClients.pdf): PDF inclusion: multiple pdfs with page group included in a single page
@@ -2525,9 +2525,9 @@ Package babel Info: Redefining ngerman shorthand "|
 Package babel Info: Redefining ngerman shorthand "~
 (babel)             in language  on input line 136.
 Package babel Info: Redefining ngerman shorthand "|
-(babel)             in language  on input line 139.
+(babel)             in language  on input line 150.
 Package babel Info: Redefining ngerman shorthand "~
-(babel)             in language  on input line 139.
+(babel)             in language  on input line 150.
 )
 Package babel Info: Redefining ngerman shorthand "|
 (babel)             in language  on input line 100.
@@ -3149,7 +3149,7 @@ Here is how much of TeX's memory you used:
  1141 hyphenation exceptions out of 8191
  57i,18n,71p,9187b,2864s stack positions out of 5000i,500n,10000p,200000b,50000s
 {C:/MiKTeX/fonts/enc/dvips/base/8r.enc}<C:/MiKTeX/fonts/type1/urw/courier/ucrb8a.pfb><C:/MiKTeX/fonts/type1/urw/courier/ucrr8a.pfb><C:/MiKTeX/fonts/type1/urw/helvetic/uhvb8a.pfb><C:/MiKTeX/fonts/type1/urw/helvetic/uhvr8a.pfb><C:/MiKTeX/fonts/type1/urw/helvetic/uhvro8a.pfb><C:/MiKTeX/fonts/type1/urw/palatino/uplb8a.pfb><C:/MiKTeX/fonts/type1/urw/palatino/uplbi8a.pfb><C:/MiKTeX/fonts/type1/urw/palatino/uplr8a.pfb><C:/MiKTeX/fonts/type1/urw/palatino/uplr8a.pfb><C:/MiKTeX/fonts/type1/urw/palatino/uplri8a.pfb>
-Output written on Masterthesis.pdf (71 pages, 506213 bytes).
+Output written on Masterthesis.pdf (71 pages, 506394 bytes).
 PDF statistics:
  1340 PDF objects out of 1440 (max. 8388607)
  330 named destinations out of 1000 (max. 500000)
