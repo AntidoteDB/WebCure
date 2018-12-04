@@ -1,12 +1,12 @@
 \chapter{Design}
 \label{Design}
 
-In this chapter, we are going to, firstly, introduce the requirements and assumptions we make for the WebCure. Having set them, afterwards, we will in details describe the design of the solution.
+In this chapter, we are going to, firstly, introduce the requirements and assumptions we make for the design of WebCure. Having set them, afterwards, we will in detail describe the design of the system.
 
 \section{Requirements}
 \label{4-Requirements}
 
-We listed the functional requirements of the WebCure at \tableref*{table:req1} and non-functional requirements at \tableref*{table:req2}.
+We listed the functional requirements of the WebCure in \tableref*{table:req1} and non-functional requirements in \tableref*{table:req2}.
 
 \begin{table}[!htbp]
 \centering
@@ -48,7 +48,7 @@ In this section, we are going to give a list of assumptions we make for the WebC
 \item {\textbf{Timestamps}. Firstly, the database storage used for the server's side should have the concept of timestamps (like in AntidoteDB, described in \secref*{2-antidotedb}), in order for the protocol we are going to describe in the \secref*{4-protocol} to work correctly.}
 \item {\textbf{Cache is persistent}. For the WebCure to work online and, especially, offline, we believe that the browser's cache is safe from automatic clearing. Contrarily, if the cache could be cleared automatically depending on the browser's behaviour, it makes it impossible to support the claim that the application can work offline. To guarantee this assumption, a Persistent Storage API described in \secref*{persistentstorage} can be used.}
 \item{\textbf{Name duplicates}. We limit the creation of different CRDT elements with the same name in the system due to limitations of AntidoteDB, as the requirement \textit{R7} describes it in the \tableref*{table:req1}. As AntidoteDB is in the process of ongoing development, currently the database crashes when there is an attempt to create elements of different CRDTs with the same name. Thus, this condition has to be fulfilled.}
-\item{\textbf{Server's database is always on}. We assume that the server's database is not going to be reset and lose its all data. As the client entirely relies on the server's storage for the synchronisation and only sends back operations performed offline on client's side, it will be impossible to restore the server's database from the client's storage, even if it was up to date before the server's data loss. With additional changes to the current protocol, it might be possible, though, but that is not the topic we cover in this thesis. However, even in such a situation, the client will be able to continue the offline work.}
+\item{\textbf{Server's database is always on}. We assume that the server's database is not going to be reset and lose all its data. As the client entirely relies on the server's storage for the synchronisation and only sends back operations performed offline on client's side, it will be impossible to restore the server's database from the client's storage, even if it was up-to-date before the server's data loss. With additional changes to the current protocol, it might be possible, though, but that is not the topic we cover in this thesis. However, even in such a situation, the client will be able to continue the offline work.}
 \end{enumerate}
 
 As we specified the requirements, we can go further into and design the protocol of the system.
@@ -66,7 +66,7 @@ The fundamental part of the WebCure will be its protocol design. We are going to
 
 \subsection{Data transmission}
 
-As we already remember from the \chapref*{Background}, because the AntidoteDB is using CRDT datatypes, the following options are possible to update the database: state-based and operation-based. Due to the time constraints and the amount of work, this thesis will consider only the operation-based approach. Therefore, whenever a client wants to update the database, it will send to the server a list of operations. However, whenever it wants to read the value, it will receive the current state of the object from the database. For this thesis, we are going to use such datatypes as Counters, Sets and Multi-Value Registers, to which the reader was introduced in the \secref*{2-crdts}.
+As we already remember from the \chapref*{Background}, because AntidoteDB is using CRDT datatypes, the following options are possible to update the database: state-based and operation-based. Due to the time constraints and the amount of work, this thesis will consider only the operation-based approach. Therefore, whenever a client wants to update the database, it will send to the server a list of operations. However, whenever it wants to read the value, it will receive the current state of the object from the database. For this thesis, we are going to use such datatypes as Counters, Sets and Multi-Value Registers, to which the reader was introduced in the \secref*{2-crdts}.
 
 \subsection{Description} 
 
@@ -79,7 +79,7 @@ As we already remember from the \chapref*{Background}, because the AntidoteDB is
 \end{center}
 \end{figure}
 
-Firstly, as we would like to focus on the communication part between a server and a client, let us for now keep both of them as block boxes\footnote{In software engineering, a black box is a system, which can be viewed in terms of its inputs and outputs, without the understanding of its internal workings.\cite{49}}, as they are represented at \figref*{fig:protocol1}. Next, we will go through different stages of their communication and describe, how we handled these processes. 
+Firstly, as we would like to focus on the communication part between a server and a client, let us for now keep both of them as black boxes\footnote{In software engineering, a black box is a system, which can be viewed in terms of its inputs and outputs, without the understanding of its internal workings.\cite{49}}, as they are represented at \figref*{fig:protocol1}. Next, we will go through different stages of their communication and describe, how we handled these processes. 
 
 \subsection*{Graphics notations}
 
@@ -100,7 +100,7 @@ Firstly, as we would like to focus on the communication part between a server an
     \label{fig:notations}%
 \end{figure}
 
-Let us explain the notations, which are going to be used for a further protocol description. At \figref*{fig:notations} \textbf{(a)}, we can see a notation for the timeline, every point of which represents a different timestamp. Timelines will be used for the matter of showing the sequence of events happening.At \figref*{fig:notations} \textbf{(b)}, the arrow shows the transmission of data between a system \textit{A} and system \textit{B}, as well as its direction and a command. \figref*{fig:notations} \textbf{(c)} represents the state of the data on a system's side, while \figref*{fig:notations} \textbf{(d)} points to a timestamp, at which an operation that changes the system's storage was applied.
+Let us explain the notations, which are going to be used for a further protocol description. At \figref*{fig:notations} \textbf{(a)}, we can see a notation for the timeline, every point of which represents a different timestamp. Timelines will be used for the matter of showing the sequence of events happening.At \figref*{fig:notations} \textbf{(b)}, the arrow shows the transmission of data between a subsystem \textit{A} and subsystem \textit{B}, as well as its direction and a command. \figref*{fig:notations} \textbf{(c)} represents the state of the data on a system's side, while \figref*{fig:notations} \textbf{(d)} points to a timestamp, at which an operation that changes the system's storage was applied.
 
 Next, as we already mentioned, we will explain the protocol in an event-based way. 
 
@@ -115,9 +115,9 @@ Next, as we already mentioned, we will explain the protocol in an event-based wa
 \end{center}
 \end{figure}
 
-Let us assume that a client initiates its work with empty storage. Then, a user might want to request the actual data from the server. In this case, as can be seen at \figref*{fig:design2}, a user has to pass to the server an \textit{id} of the data to request. If the request is successful, the server is going to respond with a \textit{value} for the requested \textit{id} and the timestamp of the last write -- \textit{t\textsubscript{0}}, so the client will store this information on its own storage.
+Let us assume that a client initiates its work with an empty storage. Then, a user might want to request the actual data from the server. In this case, as can be seen at \figref*{fig:design2}, a user has to pass to the server an \textit{id} of the data to read. If the request is successful, the server is going to respond with a \textit{value} for the requested \textit{id} and the timestamp of the last write -- \textit{t\textsubscript{0}}, so the client will store this information in its own storage.
 
-\begin{lstlisting}[caption={A pseudocode for requesting the data.}, label={lst:read1}]
+\begin{lstlisting}[caption={Pseudocode for requesting the data: client.}, label={lst:read1}]
 // Read function that pulls database changes
 // @param id: the id of the object, for which the update was requested;
 
@@ -154,7 +154,7 @@ Looking at the \figref*{fig:design3}, in the case of writing the information to 
 
 So, once the client is notified that the update was applied on the server successfully, a user can get the latest changes to the client's side now. Thus, when the read request for \textit{id} is sent again, the server will send back the new value -- \textit{value'} and a new timestamp -- \textit{t\textsubscript{1}}, for the element \textit{id}.
 
-\begin{lstlisting}[caption={A pseudocode for making a request to change the data.}, label={lst:update1}]
+\begin{lstlisting}[caption={Pseudocode for making a request to change the data: client.}, label={lst:update1}]
 // Update function that processes user-made update
 // @param id: an id for the object that should be updated;
 // @param op: operation performed on the object for the specified id
@@ -186,7 +186,7 @@ Next, let us say that a client loses its network connection, so any updates made
 
 Have a look at the \figref*{fig:design4}, where appropriate markings can clearly distinguish periods when the client was offline and online. The client has an element \textit{id} with a value \textit{value'} at timestamp \textit{t\textsubscript{1}} and then makes a local change applying some operation, which changes the previous value to a new one -- \textit{value''}. Pay attention that a new value does not receive a timestamp assigned to it, while locally: to support the causal consistency claims, the responsibility for assigning timestamps should be taken by the server. Then, after some time, the connection gets back, and the client sends an immediate update message to the server with \textit{id} of an element and the applied operation. The server's side, as was already described above, applies that operation and returns an acknowledgement of success. Eventually, the client sends a \textit{read} message and gets back the \textit{value''} as well as the assigned to it timestamp \textit{t\textsubscript{2}}.
 
-\begin{lstlisting}[caption={A pseudocode for sending offline performed operations to the server.}, label={lst:offline}]
+\begin{lstlisting}[caption={Pseudocode for sending offline performed operations to the server: client.}, label={lst:offline}]
 // Update function that processes user-made updates performed offline when the connection is restored
 // @param offlineOperations: an array that contains all the operations performed on a client's side offline
 function synchronize(offlineOperations) {
@@ -213,6 +213,6 @@ Now, let us move to the point when more than one client interacts with a server,
 \end{center}
 \end{figure}
 
-Let us assume that, initially, as can be seen at the \figref*{fig:design5}, the server has a stored element \textit{(id, value)} at the timestamp \textit{t\textsubscript{0}}. Therefore, when both clients request to read the data from the server, they get that data and store it locally. At the representation above, a \textit{Client 1} is acting first and sends an update to the server changing the value of an element \textit{id} to \textit{value'} at \textit{t\textsubscript{1}}. Pay attention that a \textit{Client 1} does not request the latest data from the server and still only has its local changes. In parallel, a \textit{Client 2} makes the change later at time \textit{t\textsubscript{2}}, and an element \textit{id} is now set to \textit{value''}. Then, both clients request the updated data from the server and both receive the actual value of the element \textit{id} at the timestamp \textit{t\textsubscript{2}}, which is \textit{value''}. That being showed, we would like stress on a point that all systems - the server and both clients end up having the same data.
+Let us assume that, initially, as can be seen at the \figref*{fig:design5}, the server has a stored element \textit{(id, value)} at the timestamp \textit{t\textsubscript{0}}. Therefore, when both clients request to read the data from the server, they get that data and store it locally. At the representation above, a \textit{Client 1} is acting first and sends an update to the server changing the value of an element \textit{id} to \textit{value'} at \textit{t\textsubscript{1}}. Observe that \textit{Client 1} does not request the latest data from the server and still only has its local changes. In parallel, a \textit{Client 2} makes the change later at time \textit{t\textsubscript{2}}, and an element \textit{id} is now set to \textit{value''}. Then, both clients request the updated data from the server and both receive the actual value of the element \textit{id} at the timestamp \textit{t\textsubscript{2}}, which is \textit{value''}. We would like to stress the point that all systems - the server and both clients end up having the same data.
 
 Now we would like to give a brief overview of the next two chapters: firstly, in the \chapref*{Technologies} we will give a proper introduction into the technologies we used to implement the described protocol and, then, in the \chapref*{Implementation} we will go through its development.

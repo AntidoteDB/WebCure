@@ -17,11 +17,9 @@ Addressing the client, in the \chapref*{Technologies} we already named the key f
 \end{center}
 \end{figure}
 
-To demonstrate the functionality of the WebCure, we covered three different types of CRDTs used in AntidoteDB: a counter, a set and a multi-value register. We managed to support each of these data types on the server and the client as well.
+To demonstrate the functionality of the WebCure, we covered three different types of CRDTs used in AntidoteDB: a Counter, a Set and a Multi-value Register. We managed to support each of these data types on the server and the client as well. We will use a Set CRDT as an example for code listings introduced further.
 
 \section{System's main components}
-
-Let us have a look at the main components of the system:
 
 \begin{figure}[!htb]
     \begin{center}
@@ -30,9 +28,12 @@ Let us have a look at the main components of the system:
     \def\svgwidth{\linewidth}
     \fbox{\input{images/design/Main.pdf_tex}}
     \caption {A top-level view of the system's design.}
-    \label{fig:design5}
+    \label{fig:impl1}
 \end{center}
 \end{figure}
+
+In the chapter \chapref*{Design}, we introduced a client and a server as blackboxes, without really knowing what is happening inside each of them. However, from now on, we have a clear understanding of what the system and its main components will look like. As you can see at the \figref*{fig:impl1}, the client part of the system, which we introduced before contains a web application that has a database on its side for reading and storing the data locally. The server, on the other hand, posseses a setup with AntidoteDB and, apart from that, is able to exchange messages with a client. Regarding the exchanging of the data, as was mentioned before, the client is able to send to the server the operations performed offline, while the server is sending back to the client the current states of CRDT data.
+
 
 \subsection{Web Application}
 
