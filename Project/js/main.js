@@ -189,7 +189,7 @@ const addCounterForm = () => {
           headers: {
             'Content-Type': 'application/json; charset=utf-8'
           },
-          method: 'PUT',
+          method: 'POST',
           body: JSON.stringify({
             update_clock: !byTimestamp,
             timestamp: byTimestamp
@@ -497,7 +497,7 @@ const addSetForm = () => {
   value.type = 'text';
   value.name = 'value';
   value.id = 'set-value-field';
-  value.placeholder = 'Enter the element to add';
+  value.placeholder = 'Enter the element to add / remove';
 
   const labelValue = document.createElement('label');
   labelValue.setAttribute('for', value.id);
@@ -554,7 +554,7 @@ const addSetForm = () => {
           headers: {
             'Content-Type': 'application/json; charset=utf-8'
           },
-          method: 'PUT',
+          method: 'POST',
           body: JSON.stringify({
             update_clock: !byTimestamp,
             timestamp: byTimestamp
@@ -923,7 +923,7 @@ const addMVRegisterForm = () => {
           headers: {
             'Content-Type': 'application/json; charset=utf-8'
           },
-          method: 'PUT',
+          method: 'POST',
           body: JSON.stringify({
             update_clock: !byTimestamp,
             timestamp: byTimestamp

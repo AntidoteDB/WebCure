@@ -86,7 +86,7 @@ function pushCounterChangesToTheServer() {
                 objects.forEach(object => {
                   if (object.operations && object.operations.length > 0) {
                     fetch(`${DBHelper.SERVER_URL}/api/count_sync/${object.id}`, {
-                      method: 'PUT',
+                      method: 'POST',
                       body: JSON.stringify({
                         lastCommitTimestamp: timestamp ? timestamp : undefined,
                         updates: object.operations
@@ -164,7 +164,7 @@ function pushSetChangesToTheServer() {
                 objects.forEach(object => {
                   if (object.operations && object.operations.length > 0) {
                     fetch(`${DBHelper.SERVER_URL}/api/set_sync/${object.id}`, {
-                      method: 'PUT',
+                      method: 'POST',
                       body: JSON.stringify({
                         lastCommitTimestamp: timestamp ? timestamp : undefined,
                         updates: object.operations
@@ -241,7 +241,7 @@ function pushMVRChangesToTheServer() {
                 objects.forEach(object => {
                   if (object.operations && object.operations.length > 0) {
                     fetch(`${DBHelper.SERVER_URL}/api/mvr_sync/${object.id}`, {
-                      method: 'PUT',
+                      method: 'POST',
                       body: JSON.stringify({
                         lastCommitTimestamp: timestamp ? timestamp : undefined,
                         updates: object.operations

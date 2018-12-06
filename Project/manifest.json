@@ -1,6 +1,6 @@
 {
-    "short_name": "WebCache",
-    "name": "WebCache: a client for AntidoteDB",
+    "short_name": "WebCure",
+    "name": "WebCure: a client for AntidoteDB",
     "icons": [
         {   "src": "/img/favicon.ico",
             "type": "image/ico",

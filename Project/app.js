@@ -50,7 +50,7 @@ var setTheTimestamp = function(timestamp, update_clock) {
 };
 
 // Counter API+
-apiRouter.route('/count/:counter_id/timestamp').put(async function(req, res, next) {
+apiRouter.route('/count/:counter_id/timestamp').post(async function(req, res, next) {
   try {
     var counterId = req.params.counter_id;
     var timestamp = req.body.timestamp;
@@ -77,7 +77,7 @@ apiRouter.route('/count/:counter_id/timestamp').put(async function(req, res, nex
   }
 });
 
-apiRouter.route('/count_sync/:counter_id').put(async function(req, res, next) {
+apiRouter.route('/count_sync/:counter_id').post(async function(req, res, next) {
   try {
     var counterId = req.params.counter_id;
     var lastCommitTimestamp = req.body.lastCommitTimestamp;
@@ -149,7 +149,7 @@ apiRouter
 
 // Set API
 
-apiRouter.route('/set/:set_id/timestamp').put(async function(req, res, next) {
+apiRouter.route('/set/:set_id/timestamp').post(async function(req, res, next) {
   try {
     var setId = req.params.set_id;
     var timestamp = req.body.timestamp;
@@ -176,7 +176,7 @@ apiRouter.route('/set/:set_id/timestamp').put(async function(req, res, next) {
   }
 });
 
-apiRouter.route('/set_sync/:set_id').put(async function(req, res, next) {
+apiRouter.route('/set_sync/:set_id').post(async function(req, res, next) {
   try {
     var setId = req.params.set_id;
     var lastCommitTimestamp = req.body.lastCommitTimestamp;
@@ -258,7 +258,7 @@ apiRouter
   });
 
 // MVR API
-apiRouter.route('/mvr/:mvr_id/timestamp').put(async function(req, res, next) {
+apiRouter.route('/mvr/:mvr_id/timestamp').post(async function(req, res, next) {
   try {
     var mvrId = req.params.mvr_id;
     var timestamp = req.body.timestamp;
@@ -286,7 +286,7 @@ apiRouter.route('/mvr/:mvr_id/timestamp').put(async function(req, res, next) {
   }
 });
 
-apiRouter.route('/mvr_sync/:mvr_id').put(async function(req, res, next) {
+apiRouter.route('/mvr_sync/:mvr_id').post(async function(req, res, next) {
   try {
     var mvrId = req.params.mvr_id;
     var lastCommitTimestamp = req.body.lastCommitTimestamp;
