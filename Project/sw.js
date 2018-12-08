@@ -1,6 +1,6 @@
 /*global DBHelper CounterCRDT SetCRDT MVRegisterCRDT:true*/
 
-var CACHES_NAME = 'web-antidotedb-v1';
+var CACHES_NAME = 'webcure-v1';
 
 self.addEventListener('install', function(event) {
   // Mention URLS that need to be cached
@@ -10,7 +10,6 @@ self.addEventListener('install', function(event) {
     '/',
     '/index.html',
     // js
-    '/client.js',
     '/logger.js',
     '/main.js',
     '/dbhelper.js',

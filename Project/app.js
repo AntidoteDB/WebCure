@@ -39,7 +39,7 @@ var atdClient = antidote.connect(
 /* API routing. */
 var apiRouter = express.Router();
 
-var setTheTimestamp = function(timestamp, update_clock) {
+var setTimestamp = function(timestamp, update_clock) {
   if (timestamp && timestamp.data && timestamp.data !== 'null') {
     timestamp = bytebuffer.fromBase64(timestamp.data);
     console.log(timestamp);
@@ -56,7 +56,7 @@ apiRouter.route('/count/:counter_id/timestamp').post(async function(req, res, ne
     var timestamp = req.body.timestamp;
     var update_clock = req.body.update_clock;
 
-    setTheTimestamp(timestamp, update_clock);
+    setTimestamp(timestamp, update_clock);
 
     let tx = await atdClient.startTransaction();
     let counter = tx.counter(counterId);
@@ -83,7 +83,7 @@ apiRouter.route('/count_sync/:counter_id').post(async function(req, res, next) {
     var lastCommitTimestamp = req.body.lastCommitTimestamp;
     var updates = req.body.updates;
 
-    setTheTimestamp(lastCommitTimestamp, false);
+    setTimestamp(lastCommitTimestamp, false);
     let tx = await atdClient.startTransaction();
     let counter = tx.counter(counterId);
 
@@ -111,7 +111,7 @@ apiRouter
     try {
       var counterId = req.params.counter_id;
       var lastCommitTimestamp = req.body.lastCommitTimestamp;
-      setTheTimestamp(lastCommitTimestamp, false);
+      setTimestamp(lastCommitTimestamp, false);
 
       let tx = await atdClient.startTransaction();
       let counter = tx.counter(counterId);
@@ -131,7 +131,7 @@ apiRouter
     try {
       var counterId = req.params.counter_id;
       var lastCommitTimestamp = req.body.lastCommitTimestamp;
-      setTheTimestamp(lastCommitTimestamp, false);
+      setTimestamp(lastCommitTimestamp, false);
 
       let tx = await atdClient.startTransaction(false);
       let counter = tx.counter(counterId);
@@ -155,7 +155,7 @@ apiRouter.route('/set/:set_id/timestamp').post(async function(req, res, next) {
     var timestamp = req.body.timestamp;
     var update_clock = req.body.update_clock;
 
-    setTheTimestamp(timestamp, update_clock);
+    setTimestamp(timestamp, update_clock);
 
     let tx = await atdClient.startTransaction();
     let set = tx.set(setId);
@@ -184,7 +184,7 @@ apiRouter.route('/set_sync/:set_id').post(async function(req, res, next) {
 
     console.log(updates);
     console.log(lastCommitTimestamp);
-    setTheTimestamp(lastCommitTimestamp, false);
+    setTimestamp(lastCommitTimestamp, false);
     let tx = await atdClient.startTransaction();
     let set = tx.set(setId);
 
@@ -216,7 +216,7 @@ apiRouter
     try {
       var setId = req.params.set_id;
       var lastCommitTimestamp = req.body.lastCommitTimestamp;
-      setTheTimestamp(lastCommitTimestamp, false);
+      setTimestamp(lastCommitTimestamp, false);
 
       var value = req.body.value;
 
@@ -238,7 +238,7 @@ apiRouter
     try {
       var setId = req.params.set_id;
       var lastCommitTimestamp = req.body.lastCommitTimestamp;
-      setTheTimestamp(lastCommitTimestamp, false);
+      setTimestamp(lastCommitTimestamp, false);
 
       var value = req.body.value;
 
@@ -264,7 +264,7 @@ apiRouter.route('/mvr/:mvr_id/timestamp').post(async function(req, res, next) {
     var timestamp = req.body.timestamp;
     var update_clock = req.body.update_clock;
 
-    setTheTimestamp(timestamp, update_clock);
+    setTimestamp(timestamp, update_clock);
 
     let tx = await atdClient.startTransaction();
 
@@ -294,7 +294,7 @@ apiRouter.route('/mvr_sync/:mvr_id').post(async function(req, res, next) {
 
     console.log(updates);
     console.log(lastCommitTimestamp);
-    setTheTimestamp(lastCommitTimestamp, false);
+    setTimestamp(lastCommitTimestamp, false);
     let tx = await atdClient.startTransaction();
     let mvr = tx.multiValueRegister(mvrId);
 
@@ -327,7 +327,7 @@ apiRouter
     try {
       var mvrId = req.params.mvr_id;
       var lastCommitTimestamp = req.body.lastCommitTimestamp;
-      setTheTimestamp(lastCommitTimestamp, false);
+      setTimestamp(lastCommitTimestamp, false);
 
       var value = req.body.value;
 
@@ -349,7 +349,7 @@ apiRouter
     try {
       var mvrId = req.params.mvr_id;
       var lastCommitTimestamp = req.body.lastCommitTimestamp;
-      setTheTimestamp(lastCommitTimestamp, false);
+      setTimestamp(lastCommitTimestamp, false);
 
       let tx = await atdClient.startTransaction();
       let mvr = tx.multiValueRegister(mvrId);
