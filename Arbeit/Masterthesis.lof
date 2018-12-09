@@ -22,9 +22,8 @@
 \addvspace {10\p@ }
 \contentsline {figure}{\numberline {\relax 5.1}{\ignorespaces A look at the server-client architecture with a RESTful interface.\relax }}{31}{figure.caption.27}
 \contentsline {figure}{\numberline {\relax 5.2}{\ignorespaces A top-level view of the system's design.\relax }}{32}{figure.caption.28}
-\contentsline {figure}{\numberline {\relax 5.3}{\ignorespaces 3-Tier architecture.\relax }}{34}{figure.caption.29}
-\contentsline {figure}{\numberline {\relax 5.4}{\ignorespaces Successful request of state from the local database -- Sequence diagram.\relax }}{35}{figure.caption.30}
-\contentsline {figure}{\numberline {\relax 5.5}{\ignorespaces Successful storing of an operation in the local database -- Sequence diagram.\relax }}{36}{figure.caption.31}
+\contentsline {figure}{\numberline {\relax 5.3}{\ignorespaces 3-Tier architecture.\relax }}{33}{figure.caption.29}
+\contentsline {figure}{\numberline {\relax 5.4}{\ignorespaces A part of the WebCure interface on working with Sets.\relax }}{38}{figure.caption.33}
 \addvspace {10\p@ }
 \addvspace {10\p@ }
 \addvspace {10\p@ }

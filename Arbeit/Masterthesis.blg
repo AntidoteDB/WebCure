@@ -4,4 +4,5 @@ Database file #1: bibliography/references.bib
 Warning--empty journal in 2
 Warning--empty chapter and pages in 3
 Warning--can't use both author and editor fields in 33
-(There were 3 warnings)
+Warning--there's a number but no volume in 51
+(There were 4 warnings)
