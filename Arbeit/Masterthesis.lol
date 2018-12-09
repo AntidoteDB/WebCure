@@ -17,25 +17,26 @@
 \contentsline {lstlisting}{\numberline {5.1}Code for sending back to the client the requested data.}{34}{lstlisting.5.1}
 \contentsline {lstlisting}{\numberline {5.2}Code for applying an \textit {add} operation to a Set CRDT.}{35}{lstlisting.5.2}
 \contentsline {lstlisting}{\numberline {5.3}Code for applying an \textit {add} operation to a Set CRDT.}{36}{lstlisting.5.3}
-\contentsline {lstlisting}{\numberline {5.4}Code for caching neccessary data for the client.}{39}{lstlisting.5.4}
+\contentsline {lstlisting}{\numberline {5.4}Code for caching necessary data for the client.}{39}{lstlisting.5.4}
 \contentsline {lstlisting}{\numberline {5.5}Code for maintaining the requests of the application.}{40}{lstlisting.5.5}
 \contentsline {lstlisting}{\numberline {5.6}Creating object stores in IndexedDB for CRDTs and timestamps.}{41}{lstlisting.5.6}
 \contentsline {lstlisting}{\numberline {5.7}A class Set CRDT, objects of which are going to be stored in the \textit {crdt-states} object store.}{42}{lstlisting.5.7}
 \contentsline {lstlisting}{\numberline {5.8}An example of a Set CRDT stored on a client's side.}{44}{lstlisting.5.8}
-\contentsline {lstlisting}{\numberline {5.9}Storing CRDT states in cache after a successful request from the server.}{45}{lstlisting.5.9}
+\contentsline {lstlisting}{\numberline {5.9}Storing CRDT states in the local database after a successful request from the server.}{45}{lstlisting.5.9}
 \contentsline {lstlisting}{\numberline {5.10}Reading CRDT states from client's cache.}{46}{lstlisting.5.10}
-\contentsline {lstlisting}{\numberline {5.11}Reading CRDT states from client's cache.}{47}{lstlisting.5.11}
+\contentsline {lstlisting}{\numberline {5.11}Reading CRDT states from client's database.}{47}{lstlisting.5.11}
+\contentsline {lstlisting}{\numberline {5.12}A function \textit {pushSetChangesToServer} triggered every time when a client re-connects to the network.}{48}{lstlisting.5.12}
 \addvspace {10\p@ }
 \addvspace {10\p@ }
-\contentsline {lstlisting}{\numberline {7.1}A typical result of retrieving the item \textit {document} stored in CouchDB.}{54}{lstlisting.7.1}
-\contentsline {lstlisting}{\numberline {7.2}Updating the value of item \textit {document} by adding \textit {b} into it.}{54}{lstlisting.7.2}
-\contentsline {lstlisting}{\numberline {7.3}The result of requesting the updated version of \textit {document}}{54}{lstlisting.7.3}
-\contentsline {lstlisting}{\numberline {7.4}Updating the value of item \textit {document} by adding \textit {d} into it.}{55}{lstlisting.7.4}
-\contentsline {lstlisting}{\numberline {7.5}The result of requesting the \textit {document} from CouchDB-1.}{55}{lstlisting.7.5}
-\contentsline {lstlisting}{\numberline {7.6}The result of requesting the \textit {document} from CouchDB-2.}{55}{lstlisting.7.6}
-\contentsline {lstlisting}{\numberline {7.7}Updating the value of item \textit {document} by adding element \textit {e} and removing previously added element \textit {d}}{56}{lstlisting.7.7}
-\contentsline {lstlisting}{\numberline {7.8}The demonstration of a conflict situation happening, when the \textit {\_rev} of sent operation and the one at the server do not match.}{56}{lstlisting.7.8}
-\contentsline {lstlisting}{\numberline {7.9}Updating the value of item \textit {document} by adding element \textit {e} and removing previously added element \textit {d} after receiving the new \textit {\_rev} from the second CouchDB server.}{56}{lstlisting.7.9}
+\contentsline {lstlisting}{\numberline {7.1}A typical result of retrieving the item \textit {document} stored in CouchDB.}{58}{lstlisting.7.1}
+\contentsline {lstlisting}{\numberline {7.2}Updating the value of item \textit {document} by adding \textit {b} into it.}{58}{lstlisting.7.2}
+\contentsline {lstlisting}{\numberline {7.3}The result of requesting the updated version of \textit {document}}{58}{lstlisting.7.3}
+\contentsline {lstlisting}{\numberline {7.4}Updating the value of item \textit {document} by adding \textit {d} into it.}{59}{lstlisting.7.4}
+\contentsline {lstlisting}{\numberline {7.5}The result of requesting the \textit {document} from CouchDB-1.}{59}{lstlisting.7.5}
+\contentsline {lstlisting}{\numberline {7.6}The result of requesting the \textit {document} from CouchDB-2.}{59}{lstlisting.7.6}
+\contentsline {lstlisting}{\numberline {7.7}Updating the value of item \textit {document} by adding element \textit {e} and removing previously added element \textit {d}}{60}{lstlisting.7.7}
+\contentsline {lstlisting}{\numberline {7.8}The demonstration of a conflict situation happening, when the \textit {\_rev} of sent operation and the one at the server do not match.}{60}{lstlisting.7.8}
+\contentsline {lstlisting}{\numberline {7.9}Updating the value of item \textit {document} by adding element \textit {e} and removing previously added element \textit {d} after receiving the new \textit {\_rev} from the second CouchDB server.}{60}{lstlisting.7.9}
 \addvspace {10\p@ }
 \addvspace {10\p@ }
 \addvspace {10\p@ }
