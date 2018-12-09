@@ -59,16 +59,7 @@ self.addEventListener('sync', function(event) {
 });
 
 function pushCounterChangesToTheServer() {
-  if (
-    typeof idb === 'undefined' ||
-    typeof DBHelper === 'undefined' ||
-    typeof CounterCRDT === 'undefined'
-  ) {
-    self.importScripts('js/dbhelper.js', 'js/idb.js', 'js/CRDTs/CounterCRDT.js');
-  }
-
-  let promiseArray = [];
-
+  includeScripts();
   DBHelper.getDB();
   DBHelper.crdtDBPromise.then(function(db) {
     var index = db.transaction('crdt-states').objectStore('crdt-states');
@@ -76,77 +67,59 @@ function pushCounterChangesToTheServer() {
     return index
       .getAll()
       .then(function(objects) {
-        DBHelper.crdtDBPromise
-          .then(function(db) {
-            if (!db) return;
-            var index = db.transaction('crdt-timestamps').objectStore('crdt-timestamps');
-            return index.get(0).then(function(timestamp) {
-              if (objects) {
-                objects.forEach(object => {
-                  if (object.operations && object.operations.length > 0) {
-                    fetch(`${DBHelper.SERVER_URL}/api/count_sync/${object.id}`, {
-                      method: 'POST',
-                      body: JSON.stringify({
-                        lastCommitTimestamp: timestamp ? timestamp : undefined,
-                        updates: object.operations
-                      }),
-                      headers: {
-                        'Content-Type': 'application/json; charset=utf-8'
-                      }
-                    }).then(response => response.json());
-                  }
-                });
-              }
-            });
-          })
-          .catch(function() {
-            // TODO throw an error
-          });
-      })
-      .then(function() {
-        return Promise.all(promiseArray)
-          .then(function() {
-            DBHelper.crdtDBPromise.then(function(db) {
-              if (!db) return;
-
-              var index = db.transaction('crdt-states').objectStore('crdt-states');
-
-              return index.getAll().then(function(objects) {
-                var tx = db.transaction('crdt-states', 'readwrite');
-                var store = tx.objectStore('crdt-states');
-
-                if (objects) {
-                  objects.forEach(object => {
-                    // TODO FIX THE BUG WITH CLEANING NOT CORRECT DATA!!!!!
-                    var temp = object;
-                    Object.setPrototypeOf(temp, CounterCRDT.prototype);
-                    temp.processSentOperations();
-                    store.put(temp);
+        DBHelper.crdtDBPromise.then(function(db) {
+          if (!db) return;
+          var index = db.transaction('crdt-timestamps').objectStore('crdt-timestamps');
+          return index.get(0).then(function(timestamp) {
+            if (objects) {
+              objects.forEach(object => {
+                if (object.operations && object.operations.length > 0) {
+                  fetch(`${DBHelper.SERVER_URL}/api/count_sync/${object.id}`, {
+                    method: 'POST',
+                    body: JSON.stringify({
+                      lastCommitTimestamp: timestamp ? timestamp : undefined,
+                      updates: object.operations
+                    }),
+                    headers: {
+                      'Content-Type': 'application/json; charset=utf-8'
+                    }
                   });
                 }
-                console.log('Success! Promise all');
-                return tx.complete;
               });
-            });
-          })
-          .catch(function(error) {
-            throw 'Silenced Exception! ' + error;
+            }
           });
+        });
+      })
+      .then(function() {
+        return DBHelper.crdtDBPromise.then(function(db) {
+          if (!db) return;
+
+          var index = db.transaction('crdt-states').objectStore('crdt-states');
+
+          return index.getAll().then(function(objects) {
+            var tx = db.transaction('crdt-states', 'readwrite');
+            var store = tx.objectStore('crdt-states');
+
+            if (objects) {
+              objects.forEach(object => {
+                if (object.type === 'counter') {
+                  var temp = object;
+                  Object.setPrototypeOf(temp, CounterCRDT.prototype);
+                  temp.processSentOperations();
+                  store.put(temp);
+                }
+              });
+            }
+            console.log('Success! Promise all');
+            return tx.complete;
+          });
+        });
       });
   });
 }
 
 function pushSetChangesToTheServer() {
-  if (
-    typeof idb === 'undefined' ||
-    typeof DBHelper === 'undefined' ||
-    typeof SetCRDT === 'undefined'
-  ) {
-    self.importScripts('js/dbhelper.js', 'js/idb.js', 'js/CRDTs/SetCRDT.js');
-  }
-
-  let promiseArray = [];
-
+  includeScripts();
   DBHelper.getDB();
   DBHelper.crdtDBPromise.then(function(db) {
     var index = db.transaction('crdt-states').objectStore('crdt-states');
@@ -154,75 +127,58 @@ function pushSetChangesToTheServer() {
     return index
       .getAll()
       .then(function(objects) {
-        DBHelper.crdtDBPromise
-          .then(function(db) {
-            if (!db) return;
-            var index = db.transaction('crdt-timestamps').objectStore('crdt-timestamps');
-            return index.get(0).then(function(timestamp) {
-              if (objects) {
-                objects.forEach(object => {
-                  if (object.operations && object.operations.length > 0) {
-                    fetch(`${DBHelper.SERVER_URL}/api/set_sync/${object.id}`, {
-                      method: 'POST',
-                      body: JSON.stringify({
-                        lastCommitTimestamp: timestamp ? timestamp : undefined,
-                        updates: object.operations
-                      }),
-                      headers: {
-                        'Content-Type': 'application/json; charset=utf-8'
-                      }
-                    }).then(response => response.json());
-                  }
-                });
-              }
-            });
-          })
-          .catch(function() {
-            // TODO throw an error
-          });
-      })
-      .then(function() {
-        return Promise.all(promiseArray)
-          .then(function() {
-            DBHelper.crdtDBPromise.then(function(db) {
-              if (!db) return;
-
-              var index = db.transaction('crdt-states').objectStore('crdt-states');
-
-              return index.getAll().then(function(objects) {
-                var tx = db.transaction('crdt-states', 'readwrite');
-                var store = tx.objectStore('crdt-states');
-
-                if (objects) {
-                  objects.forEach(object => {
-                    var temp = object;
-                    Object.setPrototypeOf(temp, SetCRDT.prototype);
-                    temp.processSentOperations();
-                    store.put(temp);
+        DBHelper.crdtDBPromise.then(function(db) {
+          if (!db) return;
+          var index = db.transaction('crdt-timestamps').objectStore('crdt-timestamps');
+          return index.get(0).then(function(timestamp) {
+            if (objects) {
+              objects.forEach(object => {
+                if (object.operations && object.operations.length > 0) {
+                  fetch(`${DBHelper.SERVER_URL}/api/set_sync/${object.id}`, {
+                    method: 'POST',
+                    body: JSON.stringify({
+                      lastCommitTimestamp: timestamp ? timestamp : undefined,
+                      updates: object.operations
+                    }),
+                    headers: {
+                      'Content-Type': 'application/json; charset=utf-8'
+                    }
                   });
                 }
-                console.log('Success! Promise all');
-                return tx.complete;
               });
-            });
-          })
-          .catch(function(error) {
-            throw 'Silenced Exception! ' + error;
+            }
           });
+        });
+      })
+      .then(function() {
+        return DBHelper.crdtDBPromise.then(function(db) {
+          if (!db) return;
+
+          var index = db.transaction('crdt-states').objectStore('crdt-states');
+
+          return index.getAll().then(function(objects) {
+            var tx = db.transaction('crdt-states', 'readwrite');
+            var store = tx.objectStore('crdt-states');
+            if (objects) {
+              objects.forEach(object => {
+                if (object.type === 'set') {
+                  var temp = object;
+                  Object.setPrototypeOf(temp, SetCRDT.prototype);
+                  temp.processSentOperations();
+                  store.put(temp);
+                }
+              });
+            }
+            console.log('Success! Promise all');
+            return tx.complete;
+          });
+        });
       });
   });
 }
 
 function pushMVRChangesToTheServer() {
-  if (
-    typeof idb === 'undefined' ||
-    typeof DBHelper === 'undefined' ||
-    typeof MVRegisterCRDT === 'undefined'
-  ) {
-    self.importScripts('js/dbhelper.js', 'js/idb.js', 'js/CRDTs/MVRegisterCRDT.js');
-  }
-
-  let promiseArray = [];
+  includeScripts();
 
   DBHelper.getDB();
   DBHelper.crdtDBPromise.then(function(db) {
@@ -231,63 +187,77 @@ function pushMVRChangesToTheServer() {
     return index
       .getAll()
       .then(function(objects) {
-        DBHelper.crdtDBPromise
-          .then(function(db) {
-            if (!db) return;
-            var index = db.transaction('crdt-timestamps').objectStore('crdt-timestamps');
-            return index.get(0).then(function(timestamp) {
-              if (objects) {
-                objects.forEach(object => {
-                  if (object.operations && object.operations.length > 0) {
-                    fetch(`${DBHelper.SERVER_URL}/api/mvr_sync/${object.id}`, {
-                      method: 'POST',
-                      body: JSON.stringify({
-                        lastCommitTimestamp: timestamp ? timestamp : undefined,
-                        updates: object.operations
-                      }),
-                      headers: {
-                        'Content-Type': 'application/json; charset=utf-8'
-                      }
-                    }).then(response => response.json());
-                  }
-                });
-              }
-            });
-          })
-          .catch(function() {
-            // TODO throw an error
-          });
-      })
-      .then(function() {
-        return Promise.all(promiseArray)
-          .then(function() {
-            DBHelper.crdtDBPromise.then(function(db) {
-              if (!db) return;
-
-              var index = db.transaction('crdt-states').objectStore('crdt-states');
-
-              return index.getAll().then(function(objects) {
-                var tx = db.transaction('crdt-states', 'readwrite');
-                var store = tx.objectStore('crdt-states');
-
-                if (objects) {
-                  objects.forEach(object => {
-                    var temp = object;
-                    Object.setPrototypeOf(temp, MVRegisterCRDT.prototype);
-                    temp.processSentOperations();
-                    store.put(temp);
+        DBHelper.crdtDBPromise.then(function(db) {
+          if (!db) return;
+          var index = db.transaction('crdt-timestamps').objectStore('crdt-timestamps');
+          return index.get(0).then(function(timestamp) {
+            if (objects) {
+              objects.forEach(object => {
+                if (object.operations && object.operations.length > 0) {
+                  fetch(`${DBHelper.SERVER_URL}/api/mvr_sync/${object.id}`, {
+                    method: 'POST',
+                    body: JSON.stringify({
+                      lastCommitTimestamp: timestamp ? timestamp : undefined,
+                      updates: object.operations
+                    }),
+                    headers: {
+                      'Content-Type': 'application/json; charset=utf-8'
+                    }
                   });
                 }
-                console.log('Success! Promise all');
-                return tx.complete;
               });
-            });
-          })
-          .catch(function(error) {
-            throw 'Silenced Exception! ' + error;
+            }
           });
+        });
+      })
+      .then(function() {
+        return DBHelper.crdtDBPromise.then(function(db) {
+          if (!db) return;
+
+          var index = db.transaction('crdt-states').objectStore('crdt-states');
+
+          return index.getAll().then(function(objects) {
+            var tx = db.transaction('crdt-states', 'readwrite');
+            var store = tx.objectStore('crdt-states');
+
+            if (objects) {
+              objects.forEach(object => {
+                if (object.type === 'mvregister') {
+                  var temp = object;
+                  Object.setPrototypeOf(temp, MVRegisterCRDT.prototype);
+                  temp.processSentOperations();
+                  store.put(temp);
+                }
+              });
+            }
+            console.log('Success! Promise all');
+            return tx.complete;
+          });
+        });
       });
   });
+}
+
+function includeScripts() {
+  if (typeof idb === 'undefined') {
+    self.importScripts('js/idb.js');
+  }
+
+  if (typeof DBHelper === 'undefined') {
+    self.importScripts('js/dbhelper.js');
+  }
+
+  if (typeof CounterCRDT === 'undefined') {
+    self.importScripts('js/CRDTs/CounterCRDT.js');
+  }
+
+  if (typeof SetCRDT === 'undefined') {
+    self.importScripts('js/CRDTs/SetCRDT.js');
+  }
+
+  if (typeof MVRegisterCRDT === 'undefined') {
+    self.importScripts('js/CRDTs/MVRegisterCRDT.js');
+  }
 }
 
 /* function pushMapChangesToTheServer() {
