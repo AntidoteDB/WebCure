@@ -1,9 +1,10 @@
 \chapter{Introduction}
 \label{Introduction}
 
-In this chapter we are going to discuss the motivation, research questions and the scope of this thesis.
+In this introductory chapter we are going to discuss the motivation, research questions and the scope of this thesis.
 
 \section{Motivation}
+\label{Introduction-Motivation}
 
 The main motivation of this thesis is to explore the possibillities of implementing a web-client for the AntidoteDB with a support of caching and by utilizing the main features of the database. As AntidoteDB is already known for its use in the development of applications, it would dramatically improve the user-experience if offline work with the database is going to be reached. We are going to explore the best ways to develop such an application, design it and implement. The goal of this thesis is to show you that it is possible to build an application based on Antidote-DB that works both online and offline. Here and from now on, we will call the application we are going to develop -- WebCure.
 
@@ -12,28 +13,16 @@ The main motivation of this thesis is to explore the possibillities of implement
 % A database side is strongly consistent, though. 
 
 \section{Research questions}
+\label{Introduction-Research}
 
 The following research questions are going to be addressed in this thesis:
 
 \begin{itemize}
-    \item \textbf{RQ1.} How efficient is it to use a web-client with cache rather than without it?
-    \item \textbf{RQ2.} What are the methods available to implement web-applications that would be able to work off-line and
+    \item \textit{RQ1.} What could be a scalable solution for the transmission of Conflict-Free Replicated Datatypes data between a client and AntidoteDB-based server?
+    \item \textit{RQ2.} What are the methods and technics available to implement web applications that would be able to work offline and
     in the conditions of poor network connections?
-    \item \textbf{RQ3.} What could be a scalable solution for transmitting CRDT data between a server and clients?
   \end{itemize}
 
+\section{Structure of Thesis}
 
-
-
-
-\section{The structure}
-
-Here, I am going to briefly sketch the structure of this thesis and explain the contents of each chapter. 
-
-\begin{itemize}
-    \item Description of the main requirements of the application;
-    \item Design of the architecture 
-    \item Description of the implementation phase
-    \item Evaluation
-    \item Conclusion
-  \end{itemize}
+In this section, we are going to give a summary of the structure of this thesis. We started with the introduction in the \chapref*{Introduction}, where we discuss the motivation of the thesis in the \secref*{Introduction-Motivation} and research questions in the \secref*{Introduction-Research}. Then, in the \chapref*{Background}, we are going to talk about the fundamentals required to comprehend the idea of the paper: in the \secref*{Background-Main} we are discussing the main theoretical concepts related to the distributed databases, while in the \secref*{2-antidotedb} we introduce the concepts of AntidoteDB, and in the \secref*{2-crdts} we cover Conflict-Free Replicated Datatypes in general. Additionaly, there we describe the datatypes we used in our work. Afterwards, in \secref*{4-Requirements} and \secref*{4-Assumptions} we will talk about the requirements and assumptions we make for the system we are going to design. Next, in the \secref*{4-protocol} we will show in details how we came up with the protocol of the system. Having done that, in the \chapref*{Implementation} we will go in details through the implementation of the system, starting discussing the system's main components in the \secref*{sysmaincomponents}. Furthemore, in the \chapref*{Evaluation} we will cover the topic on how we made an evaluation of the system, where we will also show the WebCure running in a Calendar application. Finally, in the \chapref*{RelatedWork} we discuss other methods and technics that inspired us for this work. Then, in \chapref*{Conclusion} we will summarize the work of this thesis and in the \secref*{futurework} we will talk about any future improvements that can be done. 

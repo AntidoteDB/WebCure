@@ -1,120 +1,126 @@
 \chapter{Related Work}
 \label{RelatedWork}
 
-In this chapter, we are going to mention some of the researches, which influenced our work. 
+In this chapter, we present some other approaches, which influenced our work. 
 
 \section{SwiftCloud: a transactional system that brings geo-replication to the client}
 
-Geo-replication of data into several data centers (DC) across the world is used in cloud platforms in order to improve availability and latency\cite{6}. This goal could be achieved even to a greater extent by storing some part of the data or even by replicating all of it at client machines. Thus, caching could be useful in terms of increasing availability of systems.
+Geo-replication of data into several data centres (DC) across the world is used in cloud platforms in order to improve availability and latency\cite{6}. This goal could be achieved even to a greater extent by storing some part of the data or even by replicating all of it at client machines. Thus, caching could be useful concerning the increasing availability of systems.
 
-One of such systems that integrates client- and server-side storage is called SwiftCloud, where the idea is to cache a subset of the objects from the DCs, and if the appropriate objects are in cache, then responsiveness is improved and the operation without an internet connection is possible\cite{5}. The authors of the SwiftCloud state that it improves latency and throughput if it is compared to general geo-replication techniques. That is possible due to availability during faults thanks to automatic switch of DCs when the current one does not respond. Apart from that, the system also maintains consistency guarantees \cite{7}.
+A system that integrates client- and server-side storage is called SwiftCloud, where the idea is to cache a subset of the objects from the DCs, and if the appropriate objects are in cache, then responsiveness is improved, and the operation without an internet connection is possible\cite{5}. The authors of the SwiftCloud state that it improves latency and throughput if it is compared to general geo-replication techniques. That is possible due to availability during faults thanks to automatic switch of DCs when the current one does not respond. Apart from that, SwiftCloud distributed object database is the first to provide fast reads and writes via a causally-consistent client-side local cache backed by the cloud. To provide the convergence of the data, SwiftCloud relies on CRDTs, which have rich confluent semantics\cite{7}.
 
 \section{Legion: a framework, which enriches web applications}
 
-A framework named Legion shows another interesting approach how to address availability and scalability issues by using cache at the client-side. The idea is to avoid a concept of a centralized infrastracture for mediating user interactions, as it causes unnecessarily high latency and hinders fault-tolerance and scalability\cite{8}. As an alternative, authors of Legion suggest client web applications to securely replicate data from servers and afterwards synchonize the data among the clients. This change makes the system less dependent on the server and, moreover, it reduces the latency of interactions among the clients. The guarantee of convergence between all of the replicas is possible due to CRDTs, introduced in \chapref*{Background}. 
+A framework named Legion shows another exciting approach on how to address availability and scalability issues by using the cache at the client-side. The idea is to avoid a concept of a centralised infrastructure for mediating user interactions, as it causes unnecessarily high latency and hinders fault-tolerance and scalability\cite{8}. As an alternative, authors of Legion suggest client web applications to securely replicate data from servers and afterwards synchronise the data among the clients. This change makes the system less dependent on the server and, moreover, it reduces the latency of interactions among the clients. The guarantee of convergence between all of the replicas is possible due to CRDTs, introduced in \chapref*{Background}. 
 
 \section{Developing web and mobile applications with offline usage experience}
 
-Nowadays, applications with offline experience are becoming extremely popular. In this thesis, in \chapref*{Technologies} we presented an approach of developing web applications with a help of service workers and background synchonization (they also go by name of Progressive Web Applications [PWA]). It is a universal approach to create a cross-platform application that would work in web and on mobile devices. However, there are also other ways how the offline experience could be achieved. Sometimes, the process could become easier if specifc frameworks are used. In the following subsections, we are going to describe tools and techniques that are useful in this context. 
+Nowadays, applications with offline experience are becoming extremely popular. In this thesis, in \chapref*{Technologies} we presented an approach of developing web applications with the help of service workers and background synchronisation (they also go by the name of Progressive Web Applications [PWA]). It is a universal approach to create a cross-platform application that would work in web and on mobile devices. However, there are also other ways how the offline experience could be achieved. Sometimes, the process could become easier if specific frameworks are used. In the following subsections, we are going to describe the tools and techniques that are useful in this context. 
 
 
 \subsection*{Polymer App Toolbox}
 
-Polymer is a JavaScript library from Google, which helps to build web applications with the use of Web Components. The former concept represents a set of web platform APIs, which allow to create custom HTML tags to use in web pages\cite{16}. As web components are based on the latest web standards and it eases the process of development. Polymer App Toolbox, in its turn, provides a collection of components to build PWAs with Polymer. However, the support of offline-experience is possible yet again due to Service Workers\cite{18}, which repeats the solution used in this thesis. Currently, among the users of Polymer, apart from Google, there are such giants as Electronic Arts, IBM and Coca-Cola\cite{17}.
+Polymer is a JavaScript library from Google, which helps to build web applications with the use of Web Components. The former concept represents a set of web platform APIs, which allow creating custom HTML tags to use in web pages\cite{16}. As web components are based on the latest web standards, and it eases the process of development. Polymer App Toolbox, in its turn, provides a collection of components to build PWAs with Polymer. However, the support of offline-experience is possible yet again due to Service Workers\cite{18}, which repeats the solution used in this thesis. Nevertheless, in contrast to the implementation offered in this thesis, working with Polymer App Toolbox requires additional knowledge of the Polymer framework. Currently, among the users of Polymer, apart from Google, there are such giants as Electronic Arts, IBM and Coca-Cola\cite{17}.
 
 \subsection*{HTML5 Specification}
 
-The specification of HTML5 contains some features that offer a possibility to build web applications that work offline. The solution to address this problem is to use SQL-based database API in order to be able to store data locally, and to use an offline application HTTP cache to make sure about the availability of the application when there is no internet connection. The latter makes possible the following advantages: offline browsing, flexibility and fast load of resources from the hard drive\cite{20}. However, from 2015 the application cache is considered to be deprecated and is recommended to be avoided\cite{21} in favour of Service Workers. Apart from that, HTML5 also lets the developer to check in which stage the user's navigator is, by simply checking the attribute \textit{navigator.onLine}\cite{19}. Offline and online events make changes to this attribute, which reflects the status of current connection. The advantages of HTML5 approach is the reusability of code, shorter development and testing times and universal support of mobile platforms. However, if compared to the mobile applications written in native languages, HTML5 web applications could be inferior to them.
+The specification of HTML5 contains some features that offer a possibility to build web applications that work offline. The solution to address this problem is to use SQL-based database API in order to be able to store data locally and to use an offline application HTTP cache to make sure about the availability of the application when there is no internet connection. The latter makes possible the following advantages: offline browsing, flexibility and a fast load of resources from the hard drive\cite{20}. However, from 2015 the application cache is considered to be deprecated and is recommended to be avoided\cite{21} in favour of Service Workers. Thus, for the implementation of WebCure, we favoured the approach of using a combination of a service worker and a Cache API.
  
 \subsection*{Hoodie}
 
-Hoodie is a framework, which eases the process of developing web and iOS applications. We will not cover all the features it offers and only stop on it providing offline experience for applications that are developed using Hoodie. The documentation states that framework is offline-first\cite{23}, which means that all the data is fistly stored locally and could be accessed without the internet connection. This is possible due to PouchDB database, which performs this work in the background\cite{24}. We will explore the process of how PouchDB works below.
+Hoodie is a framework, which eases the process of developing web and iOS applications. We will not cover all the features it offers and will only stop on it providing offline experience for applications that are developed using Hoodie. The documentation states that the framework is offline-first\cite{23}, which means that all the data is firstly stored locally and could be accessed without the internet connection. It is possible due to PouchDB database, which performs this work in the background\cite{24}. We will explore the process of how PouchDB works below.
 
 \subsection*{localForage}
 
-localForage is a JavaScript library, which provides the possibility to improve the offline-experience of web applications in terms of storing data on the client-side. It uses IndexedDB, localStorage or WebSQL with a simple API. localForage sits on top of datastore layer and provides a range of methods to control the data. One of the useful benefits of it is that the data is not required to be explicitly converted into JSON format, as localForage does that automatically\cite{25}. 
+localForage is a JavaScript library, which provides the possibility to improve the offline-experience of web applications regarding storing data on the client-side. It uses IndexedDB, localStorage or WebSQL with a simple API. localForage sits on top of the data store layer and provides a range of methods to control the data. One of the useful benefits of it is that the data is not required to be explicitly converted into JSON format, as localForage does that automatically\cite{25}. localForage might be a useful library; however, as we already used IndexedDB Promised to work with IndexedDB database, we did not need to use anything heavier, such as localForage, primarily as it does not provide any fundamental differences in the approach.
 
 \subsection*{PouchDB and CouchDB}
 
-PouchDB represents an open-source JavaScript database, which is designed to build applications, which work well online and offline. To put it in a nutshell, PouchDB enables web applications to store the data locally, and, apart from that, eases the process of synchonization with CouchDB-compatibale servers. CouchDB, in its turn, is a database that is supported by a replication approach, which allows to synchonize two or more servers, based on CouchDB. As there is a replication approach, it has its own way of dealing with conflicts, which we explain next by following the description of the protocol offered by \citet{26}. For every item stored in CouchDB, the database will add two extra properties: \textit{\_id} and \textit{\_rev}, which can be seen at ~\lstref*{lst:rwork1} that shows the result of getting an element named \textit{document} previously stored in the database.
+PouchDB represents an open-source JavaScript database, which is designed to build applications, which work well online and offline. To put it in a nutshell, PouchDB enables web applications to store the data locally, and, apart from that, eases the process of synchronisation with CouchDB-compatible servers. CouchDB, in its turn, is a database that is supported by a replication approach, which allows synchronising two or more servers, based on CouchDB. As there is a replication approach, it has its way of dealing with conflicts, which we explain next by following the description of the protocol offered by \citet{26}. 
 
 \begin{lstlisting}[caption={A typical result of retrieving the item \textit{document} stored in CouchDB.}, label={lst:rwork1}]
 {"_id":"document","_rev":"1-23202479633c2b380f79507a776743d5","a":1}
 \end{lstlisting}
 
-As you can see, the \textit{\_id} represents the name of the item, which is a custom name set by the user, while \textit{\_rev} represents the hash value, associated with the content. Afterwards, whenever we want to change the item \textit{document}, the same \textit{\_id} and \textit{\_rev} should be used. For example, to change the value of \textit{document} by adding \textit{b} into it, a simple PUT HTTP-request should be sent, as ~\lstref*{lst:rwork2} shows.
+For every item stored in CouchDB, the database will add two extra properties: \textit{\_id} and \textit{\_rev}, which can be seen at \lstref*{lst:rwork1} that shows the result of getting an element named \textit{document} previously stored in the database. As we can see, the \textit{\_id} represents the name of the item, which is a custom name set by the user, while \textit{\_rev} represents the hash value, associated with the content. Afterwards, whenever we want to change the item \textit{document}, the same \textit{\_id} and \textit{\_rev} should be used.
 
 \begin{lstlisting}[caption={Updating the value of item \textit{document} by adding \textit{b} into it.}, label={lst:rwork2}]
 PUT /database/document
 {"_id":"document","_rev":"1-23202479633c2b380f79507a776743d5","a":1, "b":2}
 \end{lstlisting}
 
-The next retrieval of the \textit{document} will get us the result shown at ~\lstref*{lst:rwork3}.
+For example, to change the value of \textit{document} by adding \textit{b} into it, a simple PUT HTTP-request should be sent, as \lstref*{lst:rwork2} shows.
 
 \begin{lstlisting}[caption={The result of requesting the updated version of \textit{document}}, label={lst:rwork3}]
 GET /database/document
 {"_id":"document","_rev":"2-c5242a69558bf0c24dda59b585d1a52b","a":1, "b":2}
 \end{lstlisting}
 
-As you can see, the \textit{\_rev} property got updated. In case the wrong revision is sent to update the document, the database will respond with an error.
-\\
-However, as you might have guessed, it is much more interesting, when you have more than one server. Let us assume that now we have two CouchDB servers. Imageine we try to update the \textit{document} once again with the values shown at ~\lstref*{lst:rwork4}.
+The next retrieval of the \textit{document} will get us the result shown at \lstref*{lst:rwork3}.
+
+As we can see, the \textit{\_rev} property got updated. In case the wrong revision is sent to update the document, the database will respond with an error.
 
 \begin{lstlisting}[caption={Updating the value of item \textit{document} by adding \textit{d} into it.}, label={lst:rwork4}]
 PUT /database/document
 {"_id":"document","_rev":"2-c5242a69558bf0c24dda59b585d1a52b","a":1, "b":2, "d":4}
 \end{lstlisting}
 
-For example, let us say that it gets written to the first CouchDB server, which gives the response shown at ~\lstref*{lst:rwork5}.
+However, as our reader might have guessed, it is much more interesting, when we have more than one server. Let us assume that now we have two CouchDB servers. Imagine we try to update the \textit{document} once again with the values shown at \lstref*{lst:rwork4}.
 
 \begin{lstlisting}[caption={The result of requesting the \textit{document} from CouchDB-1.}, label={lst:rwork5}]
 GET /database/document
 {"_id":"document","_rev":"3-2235fd4815b81b2da1b84159aba4006e", "a":1, "b":2, "d":4}
 \end{lstlisting}
 
-But the second CouchDB server still has the old data, as you can see at ~\lstref*{lst:rwork6}.
+For example, let us say that it gets written to the first CouchDB server, which gives the response shown at \lstref*{lst:rwork5}.
 
 \begin{lstlisting}[caption={The result of requesting the \textit{document} from CouchDB-2.}, label={lst:rwork6}]
 GET /database/document
 {"_id":"document","_rev":"2-c5242a69558bf0c24dda59b585d1a52b","a":1, "b":2}
 \end{lstlisting}
 
-Ideally, the replication happens fastly and both databases will synchonize and reach the same state. However, sometimes it might take a while. And if a client tries to update the document yet another time, there is a possibility that the update will go to the second server, which will reject the update, as \textit{\_rev} does not match any more. 
+However, the second CouchDB server still has the old data, as we can see at \lstref*{lst:rwork6}.
+
+Ideally, the replication happens fastly, and both databases will synchronise and reach the same state. However, sometimes it might take a while. Moreover, if a client tries to update the document yet another time, there is a possibility that the update will go to the second server, which will reject the update, as \textit{\_rev} does not match any more. 
 
 \begin{lstlisting}[caption={Updating the value of item \textit{document} by adding element \textit{e} and removing previously added element \textit{d}}, label={lst:rwork7}]
 PUT /database/document
 {"_id":"document","_rev":"3-2235fd4815b81b2da1b84159aba4006e", "a":1, "b":2, "e":5}
 \end{lstlisting}
 
-As we mentioned ealier, the response of the second CouchDB server for the operation shown at ~\lstref*{lst:rwork7} will look like the one at ~\lstref*{lst:rwork8}.
-
 \begin{lstlisting}[caption={The demonstration of a conflict situation happening, when the \textit{\_rev} of sent operation and the one at the server do not match.}, label={lst:rwork8}]
 {"error":"conflict","reason":"Document update conflict."}
 \end{lstlisting}
 
-However, there is another option to perform this update. We might have a strategy of getting the latest \textit{\_rev} first, which was \textit{"2-c5242a69558bf0c24dda59b585d1a52b"} at the second CouchDB server, and only then applying the update. So, the operation will look as at ~\lstref*{lst:rwork9}.
+As we mentioned earlier, the response of the second CouchDB server for the operation shown at \lstref*{lst:rwork7} will look like the one at \lstref*{lst:rwork8}.
 
 \begin{lstlisting}[caption={Updating the value of item \textit{document} by adding element \textit{e} and removing previously added element \textit{d} after receiving the new \textit{\_rev} from the second CouchDB server.}, label={lst:rwork9}]
 PUT /database/document
 {"_id":"document","_rev":"2-c5242a69558bf0c24dda59b585d1a52b", "a":1, "b":2, "e":5}
 \end{lstlisting}
 
-In case this PUT request goes to the second CouchDB server, then this operation will be successful and now both servers will have different states, which creates a conflict situation. 
+However, there is another option to perform this update. We might have a strategy of getting the latest \textit{\_rev} first, which was \textit{"2-c5242a69558bf0c24dda59b585d1a52b"} at the second CouchDB server, and only then applying the update. So, the operation will look as at \lstref*{lst:rwork9}.
+
+In case this PUT request goes to the second CouchDB server, then this operation will be successful, and now both servers will have different states, which creates a conflict situation. 
 However, it is still an undesirable situation. Thus, there are the limitations that should be given a thought in the development process, which indeed make the process of creating the product based on CouchDB more complicated:
     \begin{itemize}
-        \item {Making a change, do not request multiple GETs and POSTs}
-        \item {Do not update the \_rev locally in the client without getting new data from the server before that}
+        \item {Making a change, do not request multiple GETs and POSTs;}
+        \item {Do not update the \textit{\_rev} locally in the client without getting new data from the server before that;}
       \end{itemize}
+      
+Let us now summarize the advantages the WebCure has due to using AntidoteDB and not CouchDB. 
+
+First of all, since CouchDB ``blocks'' the possibility of updating the server's database without knowing the latest revision \textit{\_rev}, it already adds extra-work in the design and implementation of the protocol. Moreover, as we believe, it does not allow to perform concurrent updates. AntidoteDB, on the other hand, uses the concept of timestamps, which allows supporting causal consistency guarantees and, as it is not creating such restrictions on making updates, it has a massive advantage with the support of concurrent updates. 
 
 \subsection*{Realm Mobile}
 
-This is a framework, which makes an integration of a client-side database for iOS and Android with a server-side, which offers the following features: real-time synchronization, conflict resolution and event handling. This framework eases the process of developing applications with offline experience. The concept we are interested here is conflict-handling. In AntidoteDB, for this purpose, CRDTs are used. Realm Mobile maintains a good user experience in offline mode due to the rules they described for conflict resolution.
+Realm Mobile is a framework, which makes integration of a client-side database for iOS and Android with a server-side, which offers the following features: real-time synchronisation, conflict resolution and event handling. This framework eases the process of developing applications with offline experience. The concept we are interested here is conflict-handling. In AntidoteDB, for this purpose, CRDTs are used. Realm Mobile maintains a good user experience in offline mode due to the rules they described for conflict resolution.
 As they state, ``at a very high level the rules are as follows:
 
     \begin{itemize}
-        \item {\textbf{Deletes always win.} If one side deletes an object it will always stay deleted, even if the other side has made changes to it later on.}
-        \item {\textbf{Last update wins.} If two sides update the same property, the value will end up as the last updated.}
-        \item {\textbf{Inserts in lists are ordered by time.} If two items are inserted at the same position, the item that was inserted first will end up before the other item. This means that if both sides append items to the end of a list they will end up in order of insertion time.}''\cite{22}
+        \item {\textbf{Deletes always win.} If one side deletes an object, it will always stay deleted, even if the other side has made changes to it later on;}
+        \item {\textbf{The last update wins.} If two sides update the same property, the value will end up as the last updated;}
+        \item {\textbf{Inserts in lists are ordered by time.} If two items are inserted at the same position, the item that was inserted first will end up before the other item. It means that if both sides append items to the end of a list, they will end up in order of insertion time;}''\cite{22}
     \end{itemize}
 
-The authors of the framework state that ``strong eventual consistency'' guarantees are reached\cite{22} with the above mentioned approach. Though, such way of conflict handling is not as flexible as CRDTs and has to be taken into account by the programmer at the stage of the development.
+The authors of the framework state that ``strong eventual consistency'' guarantees are reached\cite{22} with the approach mentioned above. Though, such way of conflict handling is not as flexible as CRDTs and has to be taken into account by the programmer at the stage of the development.

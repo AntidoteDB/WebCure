@@ -1,13 +1,8 @@
-% Abstract for the TUM report document
-% Included by MAIN.TEX
-
 \begin{center}
 {\Large \textbf Abstract}
 \end{center}
 \vspace{1cm}
 
-The purpose of this thesis is to explore the possibilities of developing an offline web application, which would serve as a client for the AntidoteDB database. We developed a prototype of the application and designed the architecture of the application in such a way that both offline and online functionalities are possible. 
+Despite advancements in connectivity for user devices by service providers, such devices are subject to periods of disconnection. In order for the user to be able to interact with the application during periods of disconnectivity, the application must store its data on the client machine. Besides that, updates need to be maintained and delivered to the server once the connection is reestablished. The demand for offline support has led to many ad-hoc solutions that often do not provide well-defined consistency guarantees. 
 
-To model the data stored offline in the local database of a web-browser, Conflict-free Replicated Data Types (CRDTs). It lets to ease the task of merging the changes. 
-
-Apart from that, the client-server protocol was designed, in order to support the functionality of the application. The paper could be divided into two parts: firstly, the problem of designing mentioned solution is going to be discussed. Secondly, there is an implementation part and a description of how specific problems were tackled.
+In this thesis, we developed a WebCure, a framework for partial replication of data at client-side in web applications. It consists of a client-side data store that maintains both the data that has been received from the cloud storage server and the updates that have been executed by the client but have not been delivered to the cloud store, yet. A service worker acts as a proxy on client-side. While the client is offline, it forwards the requests to the client-side database. Finally, a cloud storage server maintains data shared between different clients. For this purpose, we chose AntidoteDB as the cloud storage server since it provides with conflict-free replicated data types (CRDTs) a well-defined semantics for concurrent updates. Updates that are executed while a client is offline are concurrent with all other updates happening between the last retrieval from the cloud storage and the next connection and synchronisation of the client. We developed the algorithms for WebCure and implemented a stable prototype of the framework. To evaluate its feasibility and performance, we additionally ported a calendar application that allows now for offline operations.

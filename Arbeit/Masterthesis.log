@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.19 (MiKTeX 2.9.6800 64-bit) (preloaded format=pdflatex 2018.8.30)  9 DEC 2018 22:38
+This is pdfTeX, Version 3.14159265-2.6-1.40.19 (MiKTeX 2.9.6800 64-bit) (preloaded format=pdflatex 2018.8.30)  11 DEC 2018 00:14
 entering extended mode
 **"c:/Users/Server/Dropbox (Server (Study))/TU Kaiserslautern/Thesis/Project/MasterThesis/Arbeit/Masterthesis.tex"
 ("c:/Users/Server/Dropbox (Server (Study))/TU Kaiserslautern/Thesis/Project/MasterThesis/Arbeit/Masterthesis.tex"
@@ -1131,37 +1131,38 @@ Package babel Info: Redefining ngerman shorthand "|
 Package babel Info: Redefining ngerman shorthand "~
 (babel)             in language  on input line 6.
 Package babel Info: Redefining ngerman shorthand "|
-(babel)             in language  on input line 14.
+(babel)             in language  on input line 15.
 Package babel Info: Redefining ngerman shorthand "~
-(babel)             in language  on input line 14.
-LaTeX Font Info:    Try loading font information for TS1+ppl on input line 19.
+(babel)             in language  on input line 15.
+LaTeX Font Info:    Try loading font information for TS1+ppl on input line 21.
 (C:\MiKTeX\tex\latex\psnfss\ts1ppl.fd
 File: ts1ppl.fd 2001/06/04 font definitions for TS1/ppl.
 )
-Underfull \hbox (badness 5563) in paragraph at lines 20--22
-[]\T1/ppl/b/n/12 RQ2. \T1/ppl/m/n/12 What are the me-thods availa-ble to im-ple-ment web-
+Underfull \hbox (badness 1661) in paragraph at lines 21--22
+[]\T1/ppl/m/it/12 RQ1. \T1/ppl/m/n/12 What could be a sca-la-ble so-lu-ti-on for the trans-mis-si-on
  []
 
 Package babel Info: Redefining ngerman shorthand "|
-(babel)             in language  on input line 29.
+(babel)             in language  on input line 26.
 Package babel Info: Redefining ngerman shorthand "~
-(babel)             in language  on input line 29.
+(babel)             in language  on input line 26.
+)
 Package babel Info: Redefining ngerman shorthand "|
-(babel)             in language  on input line 34.
+(babel)             in language  on input line 83.
 Package babel Info: Redefining ngerman shorthand "~
-(babel)             in language  on input line 34.
+(babel)             in language  on input line 83.
 Package babel Info: Redefining ngerman shorthand "|
-(babel)             in language  on input line 34.
+(babel)             in language  on input line 83.
 Package babel Info: Redefining ngerman shorthand "~
-(babel)             in language  on input line 34.
-[1
+(babel)             in language  on input line 83.
+ [1
 
 
 
 
 
 
-])
+]
 Package babel Info: Redefining ngerman shorthand "|
 (babel)             in language  on input line 84.
 Package babel Info: Redefining ngerman shorthand "~
@@ -1181,13 +1182,13 @@ Package babel Info: Redefining ngerman shorthand "|
 Package babel Info: Redefining ngerman shorthand "~
 (babel)             in language  on input line 6.
 Package babel Info: Redefining ngerman shorthand "|
-(babel)             in language  on input line 11.
+(babel)             in language  on input line 12.
 Package babel Info: Redefining ngerman shorthand "~
-(babel)             in language  on input line 11.
+(babel)             in language  on input line 12.
 Package babel Info: Redefining ngerman shorthand "|
-(babel)             in language  on input line 11.
+(babel)             in language  on input line 12.
 Package babel Info: Redefining ngerman shorthand "~
-(babel)             in language  on input line 11.
+(babel)             in language  on input line 12.
 [3
 
 
@@ -1195,15 +1196,15 @@ Package babel Info: Redefining ngerman shorthand "~
 
 ]
 Package babel Info: Redefining ngerman shorthand "|
-(babel)             in language  on input line 19.
+(babel)             in language  on input line 20.
 Package babel Info: Redefining ngerman shorthand "~
-(babel)             in language  on input line 19.
+(babel)             in language  on input line 20.
 Package babel Info: Redefining ngerman shorthand "|
-(babel)             in language  on input line 19.
+(babel)             in language  on input line 20.
 Package babel Info: Redefining ngerman shorthand "~
-(babel)             in language  on input line 19.
+(babel)             in language  on input line 20.
  [4] (images/causal/causal_true.pdf_tex
-<images/causal/causal_true.pdf, id=291, page=1, 191.9672pt x 144.54pt>
+<images/causal/causal_true.pdf, id=307, page=1, 191.9672pt x 144.54pt>
 File: images/causal/causal_true.pdf Graphic file (type pdf)
 <use images/causal/causal_true.pdf, page 1>
 Package pdftex.def Info: images/causal/causal_true.pdf , page1 used on input line 56.
@@ -1240,78 +1241,78 @@ LaTeX Font Warning: Font shape `OML/cmm/b/it' in size <3.84003> not available
 LaTeX Font Warning: Font shape `OMS/cmsy/b/n' in size <3.84003> not available
 (Font)              size <5> substituted on input line 57.
 
-<images/causal/causal_true.pdf, id=292, page=2, 191.9672pt x 144.54pt>
+<images/causal/causal_true.pdf, id=308, page=2, 191.9672pt x 144.54pt>
 File: images/causal/causal_true.pdf Graphic file (type pdf)
 <use images/causal/causal_true.pdf, page 2>
 Package pdftex.def Info: images/causal/causal_true.pdf , page2 used on input line 58.
 (pdftex.def)             Requested size: 154.55302pt x 116.37538pt.
-<images/causal/causal_true.pdf, id=293, page=3, 191.9672pt x 144.54pt>
+<images/causal/causal_true.pdf, id=309, page=3, 191.9672pt x 144.54pt>
 File: images/causal/causal_true.pdf Graphic file (type pdf)
 <use images/causal/causal_true.pdf, page 3>
 Package pdftex.def Info: images/causal/causal_true.pdf , page3 used on input line 60.
 (pdftex.def)             Requested size: 154.55302pt x 116.37538pt.
-<images/causal/causal_true.pdf, id=294, page=4, 191.9672pt x 144.54pt>
+<images/causal/causal_true.pdf, id=310, page=4, 191.9672pt x 144.54pt>
 File: images/causal/causal_true.pdf Graphic file (type pdf)
 <use images/causal/causal_true.pdf, page 4>
 Package pdftex.def Info: images/causal/causal_true.pdf , page4 used on input line 62.
 (pdftex.def)             Requested size: 154.55302pt x 116.37538pt.
-<images/causal/causal_true.pdf, id=295, page=5, 191.9672pt x 144.54pt>
+<images/causal/causal_true.pdf, id=311, page=5, 191.9672pt x 144.54pt>
 File: images/causal/causal_true.pdf Graphic file (type pdf)
 <use images/causal/causal_true.pdf, page 5>
 Package pdftex.def Info: images/causal/causal_true.pdf , page5 used on input line 64.
 (pdftex.def)             Requested size: 154.55302pt x 116.37538pt.
-<images/causal/causal_true.pdf, id=296, page=6, 191.9672pt x 144.54pt>
+<images/causal/causal_true.pdf, id=312, page=6, 191.9672pt x 144.54pt>
 File: images/causal/causal_true.pdf Graphic file (type pdf)
 <use images/causal/causal_true.pdf, page 6>
 Package pdftex.def Info: images/causal/causal_true.pdf , page6 used on input line 66.
 (pdftex.def)             Requested size: 154.55302pt x 116.37538pt.
 )
 LaTeX Font Info:    Font shape `T1/ppl/bx/n' in size <10> not available
-(Font)              Font shape `T1/ppl/b/n' tried instead on input line 23.
+(Font)              Font shape `T1/ppl/b/n' tried instead on input line 24.
  (images/causal/causal_false.pdf_tex
-<images/causal/causal_false.pdf, id=297, page=1, 191.9672pt x 144.54pt>
+<images/causal/causal_false.pdf, id=313, page=1, 191.9672pt x 144.54pt>
 File: images/causal/causal_false.pdf Graphic file (type pdf)
 <use images/causal/causal_false.pdf, page 1>
 Package pdftex.def Info: images/causal/causal_false.pdf , page1 used on input line 56.
 (pdftex.def)             Requested size: 154.55302pt x 116.37538pt.
-<images/causal/causal_false.pdf, id=298, page=2, 191.9672pt x 144.54pt>
+<images/causal/causal_false.pdf, id=314, page=2, 191.9672pt x 144.54pt>
 File: images/causal/causal_false.pdf Graphic file (type pdf)
 <use images/causal/causal_false.pdf, page 2>
 Package pdftex.def Info: images/causal/causal_false.pdf , page2 used on input line 58.
 (pdftex.def)             Requested size: 154.55302pt x 116.37538pt.
-<images/causal/causal_false.pdf, id=299, page=3, 191.9672pt x 144.54pt>
+<images/causal/causal_false.pdf, id=315, page=3, 191.9672pt x 144.54pt>
 File: images/causal/causal_false.pdf Graphic file (type pdf)
 <use images/causal/causal_false.pdf, page 3>
 Package pdftex.def Info: images/causal/causal_false.pdf , page3 used on input line 60.
 (pdftex.def)             Requested size: 154.55302pt x 116.37538pt.
-<images/causal/causal_false.pdf, id=300, page=4, 191.9672pt x 144.54pt>
+<images/causal/causal_false.pdf, id=316, page=4, 191.9672pt x 144.54pt>
 File: images/causal/causal_false.pdf Graphic file (type pdf)
 <use images/causal/causal_false.pdf, page 4>
 Package pdftex.def Info: images/causal/causal_false.pdf , page4 used on input line 62.
 (pdftex.def)             Requested size: 154.55302pt x 116.37538pt.
-<images/causal/causal_false.pdf, id=301, page=5, 191.9672pt x 144.54pt>
+<images/causal/causal_false.pdf, id=317, page=5, 191.9672pt x 144.54pt>
 File: images/causal/causal_false.pdf Graphic file (type pdf)
 <use images/causal/causal_false.pdf, page 5>
 Package pdftex.def Info: images/causal/causal_false.pdf , page5 used on input line 64.
 (pdftex.def)             Requested size: 154.55302pt x 116.37538pt.
-<images/causal/causal_false.pdf, id=302, page=6, 191.9672pt x 144.54pt>
+<images/causal/causal_false.pdf, id=318, page=6, 191.9672pt x 144.54pt>
 File: images/causal/causal_false.pdf Graphic file (type pdf)
 <use images/causal/causal_false.pdf, page 6>
 Package pdftex.def Info: images/causal/causal_false.pdf , page6 used on input line 66.
 (pdftex.def)             Requested size: 154.55302pt x 116.37538pt.
 )
 Package babel Info: Redefining ngerman shorthand "|
-(babel)             in language  on input line 35.
+(babel)             in language  on input line 36.
 Package babel Info: Redefining ngerman shorthand "~
-(babel)             in language  on input line 35.
+(babel)             in language  on input line 36.
 Package babel Info: Redefining ngerman shorthand "|
-(babel)             in language  on input line 47.
+(babel)             in language  on input line 48.
 Package babel Info: Redefining ngerman shorthand "~
-(babel)             in language  on input line 47.
+(babel)             in language  on input line 48.
 Package babel Info: Redefining ngerman shorthand "|
-(babel)             in language  on input line 47.
+(babel)             in language  on input line 48.
 Package babel Info: Redefining ngerman shorthand "~
-(babel)             in language  on input line 47.
+(babel)             in language  on input line 48.
  [5 <./images/causal/causal_true.pdf> <./images/causal/causal_true.pdf
 
 pdfTeX warning: pdflatex (file ./images/causal/causal_true.pdf): PDF inclusion: multiple pdfs with page group included in a single page
@@ -1347,22 +1348,22 @@ pdfTeX warning: pdflatex (file ./images/causal/causal_false.pdf): PDF inclusion:
 pdfTeX warning: pdflatex (file ./images/causal/causal_false.pdf): PDF inclusion: multiple pdfs with page group included in a single page
 >]
 Package babel Info: Redefining ngerman shorthand "|
-(babel)             in language  on input line 52.
+(babel)             in language  on input line 53.
 Package babel Info: Redefining ngerman shorthand "~
-(babel)             in language  on input line 52.
+(babel)             in language  on input line 53.
 Package babel Info: Redefining ngerman shorthand "|
-(babel)             in language  on input line 65.
+(babel)             in language  on input line 66.
 Package babel Info: Redefining ngerman shorthand "~
-(babel)             in language  on input line 65.
+(babel)             in language  on input line 66.
 Package babel Info: Redefining ngerman shorthand "|
-(babel)             in language  on input line 65.
+(babel)             in language  on input line 66.
 Package babel Info: Redefining ngerman shorthand "~
-(babel)             in language  on input line 65.
+(babel)             in language  on input line 66.
  [6]
 LaTeX Font Info:    Font shape `T1/ppl/bx/n' in size <14.4> not available
-(Font)              Font shape `T1/ppl/b/n' tried instead on input line 65.
+(Font)              Font shape `T1/ppl/b/n' tried instead on input line 66.
  (images/crdts-replication/op-based.pdf_tex
-<images/crdts-replication/op-based.pdf, id=333, page=1, 252.14159pt x 91.54199pt>
+<images/crdts-replication/op-based.pdf, id=349, page=1, 252.14159pt x 91.54199pt>
 File: images/crdts-replication/op-based.pdf Graphic file (type pdf)
 <use images/crdts-replication/op-based.pdf, page 1>
 Package pdftex.def Info: images/crdts-replication/op-based.pdf , page1 used on input line 56.
@@ -1374,118 +1375,118 @@ LaTeX Font Info:    External font `yhcmex10' loaded for size
 (Font)              <6.80386> on input line 57.
 LaTeX Font Info:    External font `yhcmex10' loaded for size
 (Font)              <4.85992> on input line 57.
-<images/crdts-replication/op-based.pdf, id=334, page=2, 252.14159pt x 91.54199pt>
+<images/crdts-replication/op-based.pdf, id=350, page=2, 252.14159pt x 91.54199pt>
 File: images/crdts-replication/op-based.pdf Graphic file (type pdf)
 <use images/crdts-replication/op-based.pdf, page 2>
 Package pdftex.def Info: images/crdts-replication/op-based.pdf , page2 used on input line 58.
 (pdftex.def)             Requested size: 386.38849pt x 140.28925pt.
-<images/crdts-replication/op-based.pdf, id=335, page=3, 252.14159pt x 91.54199pt>
+<images/crdts-replication/op-based.pdf, id=351, page=3, 252.14159pt x 91.54199pt>
 File: images/crdts-replication/op-based.pdf Graphic file (type pdf)
 <use images/crdts-replication/op-based.pdf, page 3>
 Package pdftex.def Info: images/crdts-replication/op-based.pdf , page3 used on input line 60.
 (pdftex.def)             Requested size: 386.38849pt x 140.28925pt.
 LaTeX Font Info:    Font shape `T1/ppl/bx/n' in size <9.71986> not available
 (Font)              Font shape `T1/ppl/b/n' tried instead on input line 61.
-<images/crdts-replication/op-based.pdf, id=336, page=4, 252.14159pt x 91.54199pt>
+<images/crdts-replication/op-based.pdf, id=352, page=4, 252.14159pt x 91.54199pt>
 File: images/crdts-replication/op-based.pdf Graphic file (type pdf)
 <use images/crdts-replication/op-based.pdf, page 4>
 Package pdftex.def Info: images/crdts-replication/op-based.pdf , page4 used on input line 64.
 (pdftex.def)             Requested size: 386.38849pt x 140.28925pt.
-<images/crdts-replication/op-based.pdf, id=337, page=5, 252.14159pt x 91.54199pt>
+<images/crdts-replication/op-based.pdf, id=353, page=5, 252.14159pt x 91.54199pt>
 File: images/crdts-replication/op-based.pdf Graphic file (type pdf)
 <use images/crdts-replication/op-based.pdf, page 5>
 Package pdftex.def Info: images/crdts-replication/op-based.pdf , page5 used on input line 67.
 (pdftex.def)             Requested size: 386.38849pt x 140.28925pt.
-<images/crdts-replication/op-based.pdf, id=338, page=6, 252.14159pt x 91.54199pt>
+<images/crdts-replication/op-based.pdf, id=354, page=6, 252.14159pt x 91.54199pt>
 File: images/crdts-replication/op-based.pdf Graphic file (type pdf)
 <use images/crdts-replication/op-based.pdf, page 6>
 Package pdftex.def Info: images/crdts-replication/op-based.pdf , page6 used on input line 69.
 (pdftex.def)             Requested size: 386.38849pt x 140.28925pt.
-<images/crdts-replication/op-based.pdf, id=339, page=7, 252.14159pt x 91.54199pt>
+<images/crdts-replication/op-based.pdf, id=355, page=7, 252.14159pt x 91.54199pt>
 File: images/crdts-replication/op-based.pdf Graphic file (type pdf)
 <use images/crdts-replication/op-based.pdf, page 7>
 Package pdftex.def Info: images/crdts-replication/op-based.pdf , page7 used on input line 71.
 (pdftex.def)             Requested size: 386.38849pt x 140.28925pt.
-<images/crdts-replication/op-based.pdf, id=340, page=8, 252.14159pt x 91.54199pt>
+<images/crdts-replication/op-based.pdf, id=356, page=8, 252.14159pt x 91.54199pt>
 File: images/crdts-replication/op-based.pdf Graphic file (type pdf)
 <use images/crdts-replication/op-based.pdf, page 8>
 Package pdftex.def Info: images/crdts-replication/op-based.pdf , page8 used on input line 73.
 (pdftex.def)             Requested size: 386.38849pt x 140.28925pt.
-<images/crdts-replication/op-based.pdf, id=341, page=9, 252.14159pt x 91.54199pt>
+<images/crdts-replication/op-based.pdf, id=357, page=9, 252.14159pt x 91.54199pt>
 File: images/crdts-replication/op-based.pdf Graphic file (type pdf)
 <use images/crdts-replication/op-based.pdf, page 9>
 Package pdftex.def Info: images/crdts-replication/op-based.pdf , page9 used on input line 76.
 (pdftex.def)             Requested size: 386.38849pt x 140.28925pt.
-<images/crdts-replication/op-based.pdf, id=342, page=10, 252.14159pt x 91.54199pt>
+<images/crdts-replication/op-based.pdf, id=358, page=10, 252.14159pt x 91.54199pt>
 File: images/crdts-replication/op-based.pdf Graphic file (type pdf)
 <use images/crdts-replication/op-based.pdf, page 10>
 Package pdftex.def Info: images/crdts-replication/op-based.pdf , page10 used on input line 79.
 (pdftex.def)             Requested size: 386.38849pt x 140.28925pt.
-<images/crdts-replication/op-based.pdf, id=343, page=11, 252.14159pt x 91.54199pt>
+<images/crdts-replication/op-based.pdf, id=359, page=11, 252.14159pt x 91.54199pt>
 File: images/crdts-replication/op-based.pdf Graphic file (type pdf)
 <use images/crdts-replication/op-based.pdf, page 11>
 Package pdftex.def Info: images/crdts-replication/op-based.pdf , page11 used on input line 82.
 (pdftex.def)             Requested size: 386.38849pt x 140.28925pt.
 ) (images/crdts-replication/state-based.pdf_tex
-<images/crdts-replication/state-based.pdf, id=348, page=1, 260.17198pt x 105.59369pt>
+<images/crdts-replication/state-based.pdf, id=364, page=1, 260.17198pt x 105.59369pt>
 File: images/crdts-replication/state-based.pdf Graphic file (type pdf)
 <use images/crdts-replication/state-based.pdf, page 1>
 Package pdftex.def Info: images/crdts-replication/state-based.pdf , page1 used on input line 56.
 (pdftex.def)             Requested size: 386.38849pt x 156.82883pt.
-<images/crdts-replication/state-based.pdf, id=349, page=2, 260.17198pt x 105.59369pt>
+<images/crdts-replication/state-based.pdf, id=365, page=2, 260.17198pt x 105.59369pt>
 File: images/crdts-replication/state-based.pdf Graphic file (type pdf)
 <use images/crdts-replication/state-based.pdf, page 2>
 Package pdftex.def Info: images/crdts-replication/state-based.pdf , page2 used on input line 60.
 (pdftex.def)             Requested size: 386.38849pt x 156.82883pt.
-<images/crdts-replication/state-based.pdf, id=350, page=3, 260.17198pt x 105.59369pt>
+<images/crdts-replication/state-based.pdf, id=366, page=3, 260.17198pt x 105.59369pt>
 File: images/crdts-replication/state-based.pdf Graphic file (type pdf)
 <use images/crdts-replication/state-based.pdf, page 3>
 Package pdftex.def Info: images/crdts-replication/state-based.pdf , page3 used on input line 62.
 (pdftex.def)             Requested size: 386.38849pt x 156.82883pt.
-<images/crdts-replication/state-based.pdf, id=351, page=4, 260.17198pt x 105.59369pt>
+<images/crdts-replication/state-based.pdf, id=367, page=4, 260.17198pt x 105.59369pt>
 File: images/crdts-replication/state-based.pdf Graphic file (type pdf)
 <use images/crdts-replication/state-based.pdf, page 4>
 Package pdftex.def Info: images/crdts-replication/state-based.pdf , page4 used on input line 64.
 (pdftex.def)             Requested size: 386.38849pt x 156.82883pt.
-<images/crdts-replication/state-based.pdf, id=352, page=5, 260.17198pt x 105.59369pt>
+<images/crdts-replication/state-based.pdf, id=368, page=5, 260.17198pt x 105.59369pt>
 File: images/crdts-replication/state-based.pdf Graphic file (type pdf)
 <use images/crdts-replication/state-based.pdf, page 5>
 Package pdftex.def Info: images/crdts-replication/state-based.pdf , page5 used on input line 66.
 (pdftex.def)             Requested size: 386.38849pt x 156.82883pt.
-<images/crdts-replication/state-based.pdf, id=353, page=6, 260.17198pt x 105.59369pt>
+<images/crdts-replication/state-based.pdf, id=369, page=6, 260.17198pt x 105.59369pt>
 File: images/crdts-replication/state-based.pdf Graphic file (type pdf)
 <use images/crdts-replication/state-based.pdf, page 6>
 Package pdftex.def Info: images/crdts-replication/state-based.pdf , page6 used on input line 70.
 (pdftex.def)             Requested size: 386.38849pt x 156.82883pt.
-<images/crdts-replication/state-based.pdf, id=354, page=7, 260.17198pt x 105.59369pt>
+<images/crdts-replication/state-based.pdf, id=370, page=7, 260.17198pt x 105.59369pt>
 File: images/crdts-replication/state-based.pdf Graphic file (type pdf)
 <use images/crdts-replication/state-based.pdf, page 7>
 Package pdftex.def Info: images/crdts-replication/state-based.pdf , page7 used on input line 73.
 (pdftex.def)             Requested size: 386.38849pt x 156.82883pt.
-<images/crdts-replication/state-based.pdf, id=355, page=8, 260.17198pt x 105.59369pt>
+<images/crdts-replication/state-based.pdf, id=371, page=8, 260.17198pt x 105.59369pt>
 File: images/crdts-replication/state-based.pdf Graphic file (type pdf)
 <use images/crdts-replication/state-based.pdf, page 8>
 Package pdftex.def Info: images/crdts-replication/state-based.pdf , page8 used on input line 76.
 (pdftex.def)             Requested size: 386.38849pt x 156.82883pt.
-<images/crdts-replication/state-based.pdf, id=356, page=9, 260.17198pt x 105.59369pt>
+<images/crdts-replication/state-based.pdf, id=372, page=9, 260.17198pt x 105.59369pt>
 File: images/crdts-replication/state-based.pdf Graphic file (type pdf)
 <use images/crdts-replication/state-based.pdf, page 9>
 Package pdftex.def Info: images/crdts-replication/state-based.pdf , page9 used on input line 81.
 (pdftex.def)             Requested size: 386.38849pt x 156.82883pt.
-<images/crdts-replication/state-based.pdf, id=357, page=10, 260.17198pt x 105.59369pt>
+<images/crdts-replication/state-based.pdf, id=373, page=10, 260.17198pt x 105.59369pt>
 File: images/crdts-replication/state-based.pdf Graphic file (type pdf)
 <use images/crdts-replication/state-based.pdf, page 10>
 Package pdftex.def Info: images/crdts-replication/state-based.pdf , page10 used on input line 83.
 (pdftex.def)             Requested size: 386.38849pt x 156.82883pt.
 )
 Package babel Info: Redefining ngerman shorthand "|
-(babel)             in language  on input line 94.
+(babel)             in language  on input line 95.
 Package babel Info: Redefining ngerman shorthand "~
-(babel)             in language  on input line 94.
+(babel)             in language  on input line 95.
 Package babel Info: Redefining ngerman shorthand "|
-(babel)             in language  on input line 94.
+(babel)             in language  on input line 95.
 Package babel Info: Redefining ngerman shorthand "~
-(babel)             in language  on input line 94.
+(babel)             in language  on input line 95.
  [7 <./images/crdts-replication/op-based.pdf> <./images/crdts-replication/op-based.pdf
 
 pdfTeX warning: pdflatex (file ./images/crdts-replication/op-based.pdf): PDF inclusion: multiple pdfs with page group included in a single page
@@ -1518,19 +1519,19 @@ pdfTeX warning: pdflatex (file ./images/crdts-replication/op-based.pdf): PDF inc
 pdfTeX warning: pdflatex (file ./images/crdts-replication/op-based.pdf): PDF inclusion: multiple pdfs with page group included in a single page
 >]
 LaTeX Font Info:    External font `yhcmex10' loaded for size
-(Font)              <10> on input line 105.
+(Font)              <10> on input line 106.
 LaTeX Font Info:    External font `yhcmex10' loaded for size
-(Font)              <7> on input line 105.
+(Font)              <7> on input line 106.
 LaTeX Font Info:    External font `yhcmex10' loaded for size
-(Font)              <5> on input line 105.
+(Font)              <5> on input line 106.
 Package babel Info: Redefining ngerman shorthand "|
-(babel)             in language  on input line 106.
+(babel)             in language  on input line 107.
 Package babel Info: Redefining ngerman shorthand "~
-(babel)             in language  on input line 106.
+(babel)             in language  on input line 107.
 Package babel Info: Redefining ngerman shorthand "|
-(babel)             in language  on input line 106.
+(babel)             in language  on input line 107.
 Package babel Info: Redefining ngerman shorthand "~
-(babel)             in language  on input line 106.
+(babel)             in language  on input line 107.
  [8 <./images/crdts-replication/state-based.pdf> <./images/crdts-replication/state-based.pdf
 
 pdfTeX warning: pdflatex (file ./images/crdts-replication/state-based.pdf): PDF inclusion: multiple pdfs with page group included in a single page
@@ -1614,96 +1615,96 @@ Package babel Info: Redefining ngerman shorthand "|
 Package babel Info: Redefining ngerman shorthand "~
 (babel)             in language  on input line 43.
 Package babel Info: Redefining ngerman shorthand "|
-(babel)             in language  on input line 52.
+(babel)             in language  on input line 53.
 Package babel Info: Redefining ngerman shorthand "~
-(babel)             in language  on input line 52.
+(babel)             in language  on input line 53.
 Package babel Info: Redefining ngerman shorthand "|
-(babel)             in language  on input line 52.
+(babel)             in language  on input line 53.
 Package babel Info: Redefining ngerman shorthand "~
-(babel)             in language  on input line 52.
+(babel)             in language  on input line 53.
 [11
 
 
 ]
 Package babel Info: Redefining ngerman shorthand "|
-(babel)             in language  on input line 52.
+(babel)             in language  on input line 53.
 Package babel Info: Redefining ngerman shorthand "~
-(babel)             in language  on input line 52.
+(babel)             in language  on input line 53.
 Package babel Info: Redefining ngerman shorthand "|
-(babel)             in language  on input line 52.
+(babel)             in language  on input line 53.
 Package babel Info: Redefining ngerman shorthand "~
-(babel)             in language  on input line 52.
+(babel)             in language  on input line 53.
  [12]
 Package babel Info: Redefining ngerman shorthand "|
-(babel)             in language  on input line 56.
+(babel)             in language  on input line 57.
 Package babel Info: Redefining ngerman shorthand "~
-(babel)             in language  on input line 56.
+(babel)             in language  on input line 57.
 Package babel Info: Redefining ngerman shorthand "|
-(babel)             in language  on input line 67.
+(babel)             in language  on input line 68.
 Package babel Info: Redefining ngerman shorthand "~
-(babel)             in language  on input line 67.
+(babel)             in language  on input line 68.
 Package babel Info: Redefining ngerman shorthand "|
-(babel)             in language  on input line 71.
+(babel)             in language  on input line 72.
 Package babel Info: Redefining ngerman shorthand "~
-(babel)             in language  on input line 71.
+(babel)             in language  on input line 72.
  (images/protocol/overview.pdf_tex
-<images/protocol/overview.pdf, id=479, page=1, 279.29344pt x 91.09032pt>
+<images/protocol/overview.pdf, id=495, page=1, 279.29344pt x 91.09032pt>
 File: images/protocol/overview.pdf Graphic file (type pdf)
 <use images/protocol/overview.pdf, page 1>
 Package pdftex.def Info: images/protocol/overview.pdf , page1 used on input line 56.
 (pdftex.def)             Requested size: 231.83545pt x 75.61465pt.
-<images/protocol/overview.pdf, id=480, page=2, 279.29344pt x 91.09032pt>
+<images/protocol/overview.pdf, id=496, page=2, 279.29344pt x 91.09032pt>
 File: images/protocol/overview.pdf Graphic file (type pdf)
 <use images/protocol/overview.pdf, page 2>
 Package pdftex.def Info: images/protocol/overview.pdf , page2 used on input line 58.
 (pdftex.def)             Requested size: 231.83545pt x 75.61465pt.
-<images/protocol/overview.pdf, id=481, page=3, 279.29344pt x 91.09032pt>
+<images/protocol/overview.pdf, id=497, page=3, 279.29344pt x 91.09032pt>
 File: images/protocol/overview.pdf Graphic file (type pdf)
 <use images/protocol/overview.pdf, page 3>
 Package pdftex.def Info: images/protocol/overview.pdf , page3 used on input line 60.
 (pdftex.def)             Requested size: 231.83545pt x 75.61465pt.
 )
 Package babel Info: Redefining ngerman shorthand "|
-(babel)             in language  on input line 84.
+(babel)             in language  on input line 85.
 Package babel Info: Redefining ngerman shorthand "~
-(babel)             in language  on input line 84.
+(babel)             in language  on input line 85.
 Package babel Info: Redefining ngerman shorthand "|
-(babel)             in language  on input line 84.
+(babel)             in language  on input line 85.
 Package babel Info: Redefining ngerman shorthand "~
-(babel)             in language  on input line 84.
+(babel)             in language  on input line 85.
  [13] (images/notations/timeline.pdf_tex
-<images/notations/timeline.pdf, id=493, page=1, 191.9672pt x 144.54pt>
+<images/notations/timeline.pdf, id=509, page=1, 191.9672pt x 144.54pt>
 File: images/notations/timeline.pdf Graphic file (type pdf)
 <use images/notations/timeline.pdf, page 1>
 Package pdftex.def Info: images/notations/timeline.pdf , page1 used on input line 56.
 (pdftex.def)             Requested size: 135.23833pt x 101.83232pt.
 ) (images/notations/transmission.pdf_tex
-<images/notations/transmission.pdf, id=494, page=1, 191.9672pt x 144.54pt>
+<images/notations/transmission.pdf, id=510, page=1, 191.9672pt x 144.54pt>
 File: images/notations/transmission.pdf Graphic file (type pdf)
 <use images/notations/transmission.pdf, page 1>
 Package pdftex.def Info: images/notations/transmission.pdf , page1 used on input line 56.
 (pdftex.def)             Requested size: 135.23833pt x 101.83232pt.
 ) (images/notations/data.pdf_tex
-<images/notations/data.pdf, id=495, page=1, 191.9672pt x 144.54pt>
+<images/notations/data.pdf, id=511, page=1, 191.9672pt x 144.54pt>
 File: images/notations/data.pdf Graphic file (type pdf)
 <use images/notations/data.pdf, page 1>
 Package pdftex.def Info: images/notations/data.pdf , page1 used on input line 56.
 (pdftex.def)             Requested size: 135.23833pt x 101.83232pt.
 ) (images/notations/operation.pdf_tex
-<images/notations/operation.pdf, id=496, page=1, 191.9672pt x 144.54pt>
+<images/notations/operation.pdf, id=512, page=1, 191.9672pt x 144.54pt>
 File: images/notations/operation.pdf Graphic file (type pdf)
 <use images/notations/operation.pdf, page 1>
 Package pdftex.def Info: images/notations/operation.pdf , page1 used on input line 56.
 (pdftex.def)             Requested size: 135.23833pt x 101.83232pt.
 )
 Package babel Info: Redefining ngerman shorthand "|
-(babel)             in language  on input line 104.
+(babel)             in language  on input line 105.
 Package babel Info: Redefining ngerman shorthand "~
-(babel)             in language  on input line 104.
+(babel)             in language  on input line 105.
 Package babel Info: Redefining ngerman shorthand "|
-(babel)             in language  on input line 104.
+(babel)             in language  on input line 105.
 Package babel Info: Redefining ngerman shorthand "~
-(babel)             in language  on input line 104.
+(babel)             in language  on input line 105.
  [14 <./images/protocol/overview.pdf> <./images/protocol/overview.pdf
 
 pdfTeX warning: pdflatex (file ./images/protocol/overview.pdf): PDF inclusion: multiple pdfs with page group included in a single page
@@ -1723,46 +1724,46 @@ pdfTeX warning: pdflatex (file ./images/notations/data.pdf): PDF inclusion: mult
 
 pdfTeX warning: pdflatex (file ./images/notations/operation.pdf): PDF inclusion: multiple pdfs with page group included in a single page
 >] (images/architecture/read.pdf_tex
-<images/architecture/read.pdf, id=517, page=1, 457.44975pt x 100.32109pt>
+<images/architecture/read.pdf, id=533, page=1, 457.44975pt x 100.32109pt>
 File: images/architecture/read.pdf Graphic file (type pdf)
 <use images/architecture/read.pdf, page 1>
 Package pdftex.def Info: images/architecture/read.pdf , page1 used on input line 56.
 (pdftex.def)             Requested size: 386.38849pt x 84.73753pt.
-<images/architecture/read.pdf, id=518, page=2, 457.44975pt x 100.32109pt>
+<images/architecture/read.pdf, id=534, page=2, 457.44975pt x 100.32109pt>
 File: images/architecture/read.pdf Graphic file (type pdf)
 <use images/architecture/read.pdf, page 2>
 Package pdftex.def Info: images/architecture/read.pdf , page2 used on input line 59.
 (pdftex.def)             Requested size: 386.38849pt x 84.73753pt.
-<images/architecture/read.pdf, id=519, page=3, 457.44975pt x 100.32109pt>
+<images/architecture/read.pdf, id=535, page=3, 457.44975pt x 100.32109pt>
 File: images/architecture/read.pdf Graphic file (type pdf)
 <use images/architecture/read.pdf, page 3>
 Package pdftex.def Info: images/architecture/read.pdf , page3 used on input line 63.
 (pdftex.def)             Requested size: 386.38849pt x 84.73753pt.
 )
-LaTeX Font Info:    Try loading font information for T1+phv on input line 120.
+LaTeX Font Info:    Try loading font information for T1+phv on input line 121.
  (C:\MiKTeX\tex\latex\psnfss\t1phv.fd
 File: t1phv.fd 2001/06/04 scalable font definitions for T1/phv.
 )
-Overfull \hbox (19.0pt too wide) in paragraph at lines 120--120
+Overfull \hbox (19.0pt too wide) in paragraph at lines 121--121
 [][] 
  []
 
 LaTeX Font Info:    Font shape `T1/phv/bx/n' in size <12> not available
-(Font)              Font shape `T1/phv/b/n' tried instead on input line 120.
-LaTeX Font Info:    Try loading font information for T1+pcr on input line 120.
+(Font)              Font shape `T1/phv/b/n' tried instead on input line 121.
+LaTeX Font Info:    Try loading font information for T1+pcr on input line 121.
 (C:\MiKTeX\tex\latex\psnfss\t1pcr.fd
 File: t1pcr.fd 2001/06/04 font definitions for T1/pcr.
 )
 LaTeX Font Info:    Font shape `T1/pcr/bx/n' in size <10> not available
-(Font)              Font shape `T1/pcr/b/n' tried instead on input line 124.
+(Font)              Font shape `T1/pcr/b/n' tried instead on input line 125.
 Package babel Info: Redefining ngerman shorthand "|
-(babel)             in language  on input line 129.
+(babel)             in language  on input line 130.
 Package babel Info: Redefining ngerman shorthand "~
-(babel)             in language  on input line 129.
+(babel)             in language  on input line 130.
 Package babel Info: Redefining ngerman shorthand "|
-(babel)             in language  on input line 129.
+(babel)             in language  on input line 130.
 Package babel Info: Redefining ngerman shorthand "~
-(babel)             in language  on input line 129.
+(babel)             in language  on input line 130.
  [15 <./images/architecture/read.pdf> <./images/architecture/read.pdf
 
 pdfTeX warning: pdflatex (file ./images/architecture/read.pdf): PDF inclusion: multiple pdfs with page group included in a single page
@@ -1770,45 +1771,45 @@ pdfTeX warning: pdflatex (file ./images/architecture/read.pdf): PDF inclusion: m
 
 pdfTeX warning: pdflatex (file ./images/architecture/read.pdf): PDF inclusion: multiple pdfs with page group included in a single page
 >] (images/architecture/write.pdf_tex
-<images/architecture/write.pdf, id=543, page=1, 487.56226pt x 100.32109pt>
+<images/architecture/write.pdf, id=559, page=1, 487.56226pt x 100.32109pt>
 File: images/architecture/write.pdf Graphic file (type pdf)
 <use images/architecture/write.pdf, page 1>
 Package pdftex.def Info: images/architecture/write.pdf , page1 used on input line 56.
 (pdftex.def)             Requested size: 386.38849pt x 79.50688pt.
-<images/architecture/write.pdf, id=544, page=2, 487.56226pt x 100.32109pt>
+<images/architecture/write.pdf, id=560, page=2, 487.56226pt x 100.32109pt>
 File: images/architecture/write.pdf Graphic file (type pdf)
 <use images/architecture/write.pdf, page 2>
 Package pdftex.def Info: images/architecture/write.pdf , page2 used on input line 59.
 (pdftex.def)             Requested size: 386.38849pt x 79.50688pt.
-<images/architecture/write.pdf, id=545, page=3, 487.56226pt x 100.32109pt>
+<images/architecture/write.pdf, id=561, page=3, 487.56226pt x 100.32109pt>
 File: images/architecture/write.pdf Graphic file (type pdf)
 <use images/architecture/write.pdf, page 3>
 Package pdftex.def Info: images/architecture/write.pdf , page3 used on input line 63.
 (pdftex.def)             Requested size: 386.38849pt x 79.50688pt.
-<images/architecture/write.pdf, id=546, page=4, 487.56226pt x 100.32109pt>
+<images/architecture/write.pdf, id=562, page=4, 487.56226pt x 100.32109pt>
 File: images/architecture/write.pdf Graphic file (type pdf)
 <use images/architecture/write.pdf, page 4>
 Package pdftex.def Info: images/architecture/write.pdf , page4 used on input line 65.
 (pdftex.def)             Requested size: 386.38849pt x 79.50688pt.
-<images/architecture/write.pdf, id=547, page=5, 487.56226pt x 100.32109pt>
+<images/architecture/write.pdf, id=563, page=5, 487.56226pt x 100.32109pt>
 File: images/architecture/write.pdf Graphic file (type pdf)
 <use images/architecture/write.pdf, page 5>
 Package pdftex.def Info: images/architecture/write.pdf , page5 used on input line 67.
 (pdftex.def)             Requested size: 386.38849pt x 79.50688pt.
-<images/architecture/write.pdf, id=548, page=6, 487.56226pt x 100.32109pt>
+<images/architecture/write.pdf, id=564, page=6, 487.56226pt x 100.32109pt>
 File: images/architecture/write.pdf Graphic file (type pdf)
 <use images/architecture/write.pdf, page 6>
 Package pdftex.def Info: images/architecture/write.pdf , page6 used on input line 69.
 (pdftex.def)             Requested size: 386.38849pt x 79.50688pt.
 )
 Package babel Info: Redefining ngerman shorthand "|
-(babel)             in language  on input line 155.
+(babel)             in language  on input line 156.
 Package babel Info: Redefining ngerman shorthand "~
-(babel)             in language  on input line 155.
+(babel)             in language  on input line 156.
 Package babel Info: Redefining ngerman shorthand "|
-(babel)             in language  on input line 155.
+(babel)             in language  on input line 156.
 Package babel Info: Redefining ngerman shorthand "~
-(babel)             in language  on input line 155.
+(babel)             in language  on input line 156.
  [16 <./images/architecture/write.pdf> <./images/architecture/write.pdf
 
 pdfTeX warning: pdflatex (file ./images/architecture/write.pdf): PDF inclusion: multiple pdfs with page group included in a single page
@@ -1825,57 +1826,57 @@ pdfTeX warning: pdflatex (file ./images/architecture/write.pdf): PDF inclusion: 
 
 pdfTeX warning: pdflatex (file ./images/architecture/write.pdf): PDF inclusion: multiple pdfs with page group included in a single page
 >]
-Overfull \hbox (19.0pt too wide) in paragraph at lines 157--157
+Overfull \hbox (19.0pt too wide) in paragraph at lines 158--158
 [][] 
  []
 
 (images/architecture/offline.pdf_tex
-<images/architecture/offline.pdf, id=565, page=1, 613.84802pt x 172.31026pt>
+<images/architecture/offline.pdf, id=581, page=1, 613.84802pt x 172.31026pt>
 File: images/architecture/offline.pdf Graphic file (type pdf)
 <use images/architecture/offline.pdf, page 1>
 Package pdftex.def Info: images/architecture/offline.pdf , page1 used on input line 56.
 (pdftex.def)             Requested size: 386.38849pt x 108.46136pt.
-<images/architecture/offline.pdf, id=566, page=2, 613.84802pt x 172.31026pt>
+<images/architecture/offline.pdf, id=582, page=2, 613.84802pt x 172.31026pt>
 File: images/architecture/offline.pdf Graphic file (type pdf)
 <use images/architecture/offline.pdf, page 2>
 Package pdftex.def Info: images/architecture/offline.pdf , page2 used on input line 59.
 (pdftex.def)             Requested size: 386.38849pt x 108.46136pt.
-<images/architecture/offline.pdf, id=567, page=3, 613.84802pt x 172.31026pt>
+<images/architecture/offline.pdf, id=583, page=3, 613.84802pt x 172.31026pt>
 File: images/architecture/offline.pdf Graphic file (type pdf)
 <use images/architecture/offline.pdf, page 3>
 Package pdftex.def Info: images/architecture/offline.pdf , page3 used on input line 63.
 (pdftex.def)             Requested size: 386.38849pt x 108.46136pt.
-<images/architecture/offline.pdf, id=568, page=4, 613.84802pt x 172.31026pt>
+<images/architecture/offline.pdf, id=584, page=4, 613.84802pt x 172.31026pt>
 File: images/architecture/offline.pdf Graphic file (type pdf)
 <use images/architecture/offline.pdf, page 4>
 Package pdftex.def Info: images/architecture/offline.pdf , page4 used on input line 65.
 (pdftex.def)             Requested size: 386.38849pt x 108.46136pt.
-<images/architecture/offline.pdf, id=569, page=5, 613.84802pt x 172.31026pt>
+<images/architecture/offline.pdf, id=585, page=5, 613.84802pt x 172.31026pt>
 File: images/architecture/offline.pdf Graphic file (type pdf)
 <use images/architecture/offline.pdf, page 5>
 Package pdftex.def Info: images/architecture/offline.pdf , page5 used on input line 67.
 (pdftex.def)             Requested size: 386.38849pt x 108.46136pt.
-<images/architecture/offline.pdf, id=570, page=6, 613.84802pt x 172.31026pt>
+<images/architecture/offline.pdf, id=586, page=6, 613.84802pt x 172.31026pt>
 File: images/architecture/offline.pdf Graphic file (type pdf)
 <use images/architecture/offline.pdf, page 6>
 Package pdftex.def Info: images/architecture/offline.pdf , page6 used on input line 69.
 (pdftex.def)             Requested size: 386.38849pt x 108.46136pt.
-<images/architecture/offline.pdf, id=571, page=7, 613.84802pt x 172.31026pt>
+<images/architecture/offline.pdf, id=587, page=7, 613.84802pt x 172.31026pt>
 File: images/architecture/offline.pdf Graphic file (type pdf)
 <use images/architecture/offline.pdf, page 7>
 Package pdftex.def Info: images/architecture/offline.pdf , page7 used on input line 71.
 (pdftex.def)             Requested size: 386.38849pt x 108.46136pt.
-<images/architecture/offline.pdf, id=572, page=8, 613.84802pt x 172.31026pt>
+<images/architecture/offline.pdf, id=588, page=8, 613.84802pt x 172.31026pt>
 File: images/architecture/offline.pdf Graphic file (type pdf)
 <use images/architecture/offline.pdf, page 8>
 Package pdftex.def Info: images/architecture/offline.pdf , page8 used on input line 73.
 (pdftex.def)             Requested size: 386.38849pt x 108.46136pt.
-<images/architecture/offline.pdf, id=573, page=9, 613.84802pt x 172.31026pt>
+<images/architecture/offline.pdf, id=589, page=9, 613.84802pt x 172.31026pt>
 File: images/architecture/offline.pdf Graphic file (type pdf)
 <use images/architecture/offline.pdf, page 9>
 Package pdftex.def Info: images/architecture/offline.pdf , page9 used on input line 75.
 (pdftex.def)             Requested size: 386.38849pt x 108.46136pt.
-<images/architecture/offline.pdf, id=574, page=10, 613.84802pt x 172.31026pt>
+<images/architecture/offline.pdf, id=590, page=10, 613.84802pt x 172.31026pt>
 File: images/architecture/offline.pdf Graphic file (type pdf)
 <use images/architecture/offline.pdf, page 10>
 Package pdftex.def Info: images/architecture/offline.pdf , page10 used on input line 77.
@@ -1884,15 +1885,15 @@ Package pdftex.def Info: images/architecture/offline.pdf , page10 used on input 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
 Package babel Info: Redefining ngerman shorthand "|
-(babel)             in language  on input line 188.
+(babel)             in language  on input line 189.
 Package babel Info: Redefining ngerman shorthand "~
-(babel)             in language  on input line 188.
+(babel)             in language  on input line 189.
 Package babel Info: Redefining ngerman shorthand "|
-(babel)             in language  on input line 188.
+(babel)             in language  on input line 189.
 Package babel Info: Redefining ngerman shorthand "~
-(babel)             in language  on input line 188.
+(babel)             in language  on input line 189.
  [17]
-Overfull \hbox (19.0pt too wide) in paragraph at lines 189--189
+Overfull \hbox (19.0pt too wide) in paragraph at lines 190--190
 [][] 
  []
 
@@ -1900,13 +1901,13 @@ Overfull \hbox (19.0pt too wide) in paragraph at lines 189--189
 Underfull \vbox (badness 2961) has occurred while \output is active []
 
 Package babel Info: Redefining ngerman shorthand "|
-(babel)             in language  on input line 197.
+(babel)             in language  on input line 198.
 Package babel Info: Redefining ngerman shorthand "~
-(babel)             in language  on input line 197.
+(babel)             in language  on input line 198.
 Package babel Info: Redefining ngerman shorthand "|
-(babel)             in language  on input line 197.
+(babel)             in language  on input line 198.
 Package babel Info: Redefining ngerman shorthand "~
-(babel)             in language  on input line 197.
+(babel)             in language  on input line 198.
  [18 <./images/architecture/offline.pdf> <./images/architecture/offline.pdf
 
 pdfTeX warning: pdflatex (file ./images/architecture/offline.pdf): PDF inclusion: multiple pdfs with page group included in a single page
@@ -1935,80 +1936,80 @@ pdfTeX warning: pdflatex (file ./images/architecture/offline.pdf): PDF inclusion
 
 pdfTeX warning: pdflatex (file ./images/architecture/offline.pdf): PDF inclusion: multiple pdfs with page group included in a single page
 >] (images/architecture/twoClients.pdf_tex
-<images/architecture/twoClients.pdf, id=609, page=1, 577.89975pt x 264.43422pt>
+<images/architecture/twoClients.pdf, id=625, page=1, 577.89975pt x 264.43422pt>
 File: images/architecture/twoClients.pdf Graphic file (type pdf)
 <use images/architecture/twoClients.pdf, page 1>
 Package pdftex.def Info: images/architecture/twoClients.pdf , page1 used on input line 56.
 (pdftex.def)             Requested size: 386.38849pt x 176.80685pt.
-<images/architecture/twoClients.pdf, id=610, page=2, 577.89975pt x 264.43422pt>
+<images/architecture/twoClients.pdf, id=626, page=2, 577.89975pt x 264.43422pt>
 File: images/architecture/twoClients.pdf Graphic file (type pdf)
 <use images/architecture/twoClients.pdf, page 2>
 Package pdftex.def Info: images/architecture/twoClients.pdf , page2 used on input line 59.
 (pdftex.def)             Requested size: 386.38849pt x 176.80685pt.
-<images/architecture/twoClients.pdf, id=611, page=3, 577.89975pt x 264.43422pt>
+<images/architecture/twoClients.pdf, id=627, page=3, 577.89975pt x 264.43422pt>
 File: images/architecture/twoClients.pdf Graphic file (type pdf)
 <use images/architecture/twoClients.pdf, page 3>
 Package pdftex.def Info: images/architecture/twoClients.pdf , page3 used on input line 63.
 (pdftex.def)             Requested size: 386.38849pt x 176.80685pt.
-<images/architecture/twoClients.pdf, id=612, page=4, 577.89975pt x 264.43422pt>
+<images/architecture/twoClients.pdf, id=628, page=4, 577.89975pt x 264.43422pt>
 File: images/architecture/twoClients.pdf Graphic file (type pdf)
 <use images/architecture/twoClients.pdf, page 4>
 Package pdftex.def Info: images/architecture/twoClients.pdf , page4 used on input line 65.
 (pdftex.def)             Requested size: 386.38849pt x 176.80685pt.
-<images/architecture/twoClients.pdf, id=613, page=5, 577.89975pt x 264.43422pt>
+<images/architecture/twoClients.pdf, id=629, page=5, 577.89975pt x 264.43422pt>
 File: images/architecture/twoClients.pdf Graphic file (type pdf)
 <use images/architecture/twoClients.pdf, page 5>
 Package pdftex.def Info: images/architecture/twoClients.pdf , page5 used on input line 67.
 (pdftex.def)             Requested size: 386.38849pt x 176.80685pt.
-<images/architecture/twoClients.pdf, id=614, page=6, 577.89975pt x 264.43422pt>
+<images/architecture/twoClients.pdf, id=630, page=6, 577.89975pt x 264.43422pt>
 File: images/architecture/twoClients.pdf Graphic file (type pdf)
 <use images/architecture/twoClients.pdf, page 6>
 Package pdftex.def Info: images/architecture/twoClients.pdf , page6 used on input line 70.
 (pdftex.def)             Requested size: 386.38849pt x 176.80685pt.
-<images/architecture/twoClients.pdf, id=615, page=7, 577.89975pt x 264.43422pt>
+<images/architecture/twoClients.pdf, id=631, page=7, 577.89975pt x 264.43422pt>
 File: images/architecture/twoClients.pdf Graphic file (type pdf)
 <use images/architecture/twoClients.pdf, page 7>
 Package pdftex.def Info: images/architecture/twoClients.pdf , page7 used on input line 72.
 (pdftex.def)             Requested size: 386.38849pt x 176.80685pt.
-<images/architecture/twoClients.pdf, id=616, page=8, 577.89975pt x 264.43422pt>
+<images/architecture/twoClients.pdf, id=632, page=8, 577.89975pt x 264.43422pt>
 File: images/architecture/twoClients.pdf Graphic file (type pdf)
 <use images/architecture/twoClients.pdf, page 8>
 Package pdftex.def Info: images/architecture/twoClients.pdf , page8 used on input line 74.
 (pdftex.def)             Requested size: 386.38849pt x 176.80685pt.
-<images/architecture/twoClients.pdf, id=617, page=9, 577.89975pt x 264.43422pt>
+<images/architecture/twoClients.pdf, id=633, page=9, 577.89975pt x 264.43422pt>
 File: images/architecture/twoClients.pdf Graphic file (type pdf)
 <use images/architecture/twoClients.pdf, page 9>
 Package pdftex.def Info: images/architecture/twoClients.pdf , page9 used on input line 77.
 (pdftex.def)             Requested size: 386.38849pt x 176.80685pt.
-<images/architecture/twoClients.pdf, id=618, page=10, 577.89975pt x 264.43422pt>
+<images/architecture/twoClients.pdf, id=634, page=10, 577.89975pt x 264.43422pt>
 File: images/architecture/twoClients.pdf Graphic file (type pdf)
 <use images/architecture/twoClients.pdf, page 10>
 Package pdftex.def Info: images/architecture/twoClients.pdf , page10 used on input line 79.
 (pdftex.def)             Requested size: 386.38849pt x 176.80685pt.
-<images/architecture/twoClients.pdf, id=619, page=12, 577.89975pt x 264.43422pt>
+<images/architecture/twoClients.pdf, id=635, page=12, 577.89975pt x 264.43422pt>
 File: images/architecture/twoClients.pdf Graphic file (type pdf)
 <use images/architecture/twoClients.pdf, page 12>
 Package pdftex.def Info: images/architecture/twoClients.pdf , page12 used on input line 85.
 (pdftex.def)             Requested size: 386.38849pt x 176.80685pt.
-<images/architecture/twoClients.pdf, id=620, page=14, 577.89975pt x 264.43422pt>
+<images/architecture/twoClients.pdf, id=636, page=14, 577.89975pt x 264.43422pt>
 File: images/architecture/twoClients.pdf Graphic file (type pdf)
 <use images/architecture/twoClients.pdf, page 14>
 Package pdftex.def Info: images/architecture/twoClients.pdf , page14 used on input line 89.
 (pdftex.def)             Requested size: 386.38849pt x 176.80685pt.
-<images/architecture/twoClients.pdf, id=621, page=15, 577.89975pt x 264.43422pt>
+<images/architecture/twoClients.pdf, id=637, page=15, 577.89975pt x 264.43422pt>
 File: images/architecture/twoClients.pdf Graphic file (type pdf)
 <use images/architecture/twoClients.pdf, page 15>
 Package pdftex.def Info: images/architecture/twoClients.pdf , page15 used on input line 91.
 (pdftex.def)             Requested size: 386.38849pt x 176.80685pt.
 )
 Package babel Info: Redefining ngerman shorthand "|
-(babel)             in language  on input line 217.
+(babel)             in language  on input line 218.
 Package babel Info: Redefining ngerman shorthand "~
-(babel)             in language  on input line 217.
+(babel)             in language  on input line 218.
 Package babel Info: Redefining ngerman shorthand "|
-(babel)             in language  on input line 217.
+(babel)             in language  on input line 218.
 Package babel Info: Redefining ngerman shorthand "~
-(babel)             in language  on input line 217.
+(babel)             in language  on input line 218.
  [19 <./images/architecture/twoClients.pdf> <./images/architecture/twoClients.pdf
 
 pdfTeX warning: pdflatex (file ./images/architecture/twoClients.pdf): PDF inclusion: multiple pdfs with page group included in a single page
@@ -2078,7 +2079,7 @@ Package babel Info: Redefining ngerman shorthand "~
 
 
 ] (images/technologies/sw.pdf_tex
-<images/technologies/sw.pdf, id=660, page=1, 301.8778pt x 181.42593pt>
+<images/technologies/sw.pdf, id=676, page=1, 301.8778pt x 181.42593pt>
 File: images/technologies/sw.pdf Graphic file (type pdf)
 <use images/technologies/sw.pdf, page 1>
 Package pdftex.def Info: images/technologies/sw.pdf , page1 used on input line 56.
@@ -2115,22 +2116,22 @@ LaTeX Font Warning: Font shape `OML/cmm/b/it' in size <4.33505> not available
 LaTeX Font Warning: Font shape `OMS/cmsy/b/n' in size <4.33505> not available
 (Font)              size <5> substituted on input line 57.
 
-<images/technologies/sw.pdf, id=661, page=2, 301.8778pt x 181.42593pt>
+<images/technologies/sw.pdf, id=677, page=2, 301.8778pt x 181.42593pt>
 File: images/technologies/sw.pdf Graphic file (type pdf)
 <use images/technologies/sw.pdf, page 2>
 Package pdftex.def Info: images/technologies/sw.pdf , page2 used on input line 58.
 (pdftex.def)             Requested size: 270.47075pt x 162.55098pt.
-<images/technologies/sw.pdf, id=662, page=3, 301.8778pt x 181.42593pt>
+<images/technologies/sw.pdf, id=678, page=3, 301.8778pt x 181.42593pt>
 File: images/technologies/sw.pdf Graphic file (type pdf)
 <use images/technologies/sw.pdf, page 3>
 Package pdftex.def Info: images/technologies/sw.pdf , page3 used on input line 60.
 (pdftex.def)             Requested size: 270.47075pt x 162.55098pt.
-<images/technologies/sw.pdf, id=663, page=4, 301.8778pt x 181.42593pt>
+<images/technologies/sw.pdf, id=679, page=4, 301.8778pt x 181.42593pt>
 File: images/technologies/sw.pdf Graphic file (type pdf)
 <use images/technologies/sw.pdf, page 4>
 Package pdftex.def Info: images/technologies/sw.pdf , page4 used on input line 62.
 (pdftex.def)             Requested size: 270.47075pt x 162.55098pt.
-<images/technologies/sw.pdf, id=664, page=5, 301.8778pt x 181.42593pt>
+<images/technologies/sw.pdf, id=680, page=5, 301.8778pt x 181.42593pt>
 File: images/technologies/sw.pdf Graphic file (type pdf)
 <use images/technologies/sw.pdf, page 5>
 Package pdftex.def Info: images/technologies/sw.pdf , page5 used on input line 64.
@@ -2259,20 +2260,20 @@ Package babel Info: Redefining ngerman shorthand "|
 Package babel Info: Redefining ngerman shorthand "~
 (babel)             in language  on input line 156.
 
-Overfull \hbox (19.0pt too wide) in paragraph at lines 160--160
+Overfull \hbox (19.0pt too wide) in paragraph at lines 161--161
 [][] 
  []
 
 Package babel Info: Redefining ngerman shorthand "|
-(babel)             in language  on input line 168.
+(babel)             in language  on input line 169.
 Package babel Info: Redefining ngerman shorthand "~
-(babel)             in language  on input line 168.
+(babel)             in language  on input line 169.
 Package babel Info: Redefining ngerman shorthand "|
-(babel)             in language  on input line 168.
+(babel)             in language  on input line 169.
 Package babel Info: Redefining ngerman shorthand "~
-(babel)             in language  on input line 168.
+(babel)             in language  on input line 169.
 [28]
-Overfull \hbox (19.0pt too wide) in paragraph at lines 172--172
+Overfull \hbox (19.0pt too wide) in paragraph at lines 173--173
 [][] 
  []
 
@@ -2303,7 +2304,7 @@ Package babel Info: Redefining ngerman shorthand "|
 (babel)             in language  on input line 1.
 Package babel Info: Redefining ngerman shorthand "~
 (babel)             in language  on input line 1.
-<images/design/clientserver.jpeg, id=811, 662.475pt x 567.11874pt>
+<images/design/clientserver.jpeg, id=827, 662.475pt x 567.11874pt>
 File: images/design/clientserver.jpeg Graphic file (type jpg)
 <use images/design/clientserver.jpeg>
 Package pdftex.def Info: images/design/clientserver.jpeg  used on input line 14.
@@ -2317,67 +2318,67 @@ Package babel Info: Redefining ngerman shorthand "|
 Package babel Info: Redefining ngerman shorthand "~
 (babel)             in language  on input line 22.
 (images/design/Main.pdf_tex
-<images/design/Main.pdf, id=815, page=1, 402.68117pt x 227.14647pt>
+<images/design/Main.pdf, id=831, page=1, 402.68117pt x 227.14647pt>
 File: images/design/Main.pdf Graphic file (type pdf)
 <use images/design/Main.pdf, page 1>
 Package pdftex.def Info: images/design/Main.pdf , page1 used on input line 56.
 (pdftex.def)             Requested size: 386.38849pt x 217.968pt.
-<images/design/Main.pdf, id=816, page=2, 402.68117pt x 227.14647pt>
+<images/design/Main.pdf, id=832, page=2, 402.68117pt x 227.14647pt>
 File: images/design/Main.pdf Graphic file (type pdf)
 <use images/design/Main.pdf, page 2>
 Package pdftex.def Info: images/design/Main.pdf , page2 used on input line 58.
 (pdftex.def)             Requested size: 386.38849pt x 217.968pt.
-<images/design/Main.pdf, id=817, page=3, 402.68117pt x 227.14647pt>
+<images/design/Main.pdf, id=833, page=3, 402.68117pt x 227.14647pt>
 File: images/design/Main.pdf Graphic file (type pdf)
 <use images/design/Main.pdf, page 3>
 Package pdftex.def Info: images/design/Main.pdf , page3 used on input line 62.
 (pdftex.def)             Requested size: 386.38849pt x 217.968pt.
 )
-Overfull \hbox (32.0pt too wide) in paragraph at lines 29--30
+Overfull \hbox (32.0pt too wide) in paragraph at lines 30--31
  [] 
  []
 
 Package babel Info: Redefining ngerman shorthand "|
-(babel)             in language  on input line 33.
+(babel)             in language  on input line 34.
 Package babel Info: Redefining ngerman shorthand "~
-(babel)             in language  on input line 33.
+(babel)             in language  on input line 34.
 Package babel Info: Redefining ngerman shorthand "|
-(babel)             in language  on input line 33.
+(babel)             in language  on input line 34.
 Package babel Info: Redefining ngerman shorthand "~
-(babel)             in language  on input line 33.
+(babel)             in language  on input line 34.
 [31
 
 
  <./images/design/clientserver.jpeg>] (images/implementation/3tier.pdf_tex
-<images/implementation/3tier.pdf, id=827, page=1, 422.32782pt x 135.19748pt>
+<images/implementation/3tier.pdf, id=843, page=1, 422.32782pt x 135.19748pt>
 File: images/implementation/3tier.pdf Graphic file (type pdf)
 <use images/implementation/3tier.pdf, page 1>
 Package pdftex.def Info: images/implementation/3tier.pdf , page1 used on input line 56.
 (pdftex.def)             Requested size: 386.38849pt x 123.69621pt.
-<images/implementation/3tier.pdf, id=828, page=2, 422.32782pt x 135.19748pt>
+<images/implementation/3tier.pdf, id=844, page=2, 422.32782pt x 135.19748pt>
 File: images/implementation/3tier.pdf Graphic file (type pdf)
 <use images/implementation/3tier.pdf, page 2>
 Package pdftex.def Info: images/implementation/3tier.pdf , page2 used on input line 58.
 (pdftex.def)             Requested size: 386.38849pt x 123.69621pt.
-<images/implementation/3tier.pdf, id=829, page=3, 422.32782pt x 135.19748pt>
+<images/implementation/3tier.pdf, id=845, page=3, 422.32782pt x 135.19748pt>
 File: images/implementation/3tier.pdf Graphic file (type pdf)
 <use images/implementation/3tier.pdf, page 3>
 Package pdftex.def Info: images/implementation/3tier.pdf , page3 used on input line 60.
 (pdftex.def)             Requested size: 386.38849pt x 123.69621pt.
-<images/implementation/3tier.pdf, id=830, page=4, 422.32782pt x 135.19748pt>
+<images/implementation/3tier.pdf, id=846, page=4, 422.32782pt x 135.19748pt>
 File: images/implementation/3tier.pdf Graphic file (type pdf)
 <use images/implementation/3tier.pdf, page 4>
 Package pdftex.def Info: images/implementation/3tier.pdf , page4 used on input line 65.
 (pdftex.def)             Requested size: 386.38849pt x 123.69621pt.
 )
 Package babel Info: Redefining ngerman shorthand "|
-(babel)             in language  on input line 47.
+(babel)             in language  on input line 48.
 Package babel Info: Redefining ngerman shorthand "~
-(babel)             in language  on input line 47.
+(babel)             in language  on input line 48.
 Package babel Info: Redefining ngerman shorthand "|
-(babel)             in language  on input line 47.
+(babel)             in language  on input line 48.
 Package babel Info: Redefining ngerman shorthand "~
-(babel)             in language  on input line 47.
+(babel)             in language  on input line 48.
  [32 <./images/design/Main.pdf> <./images/design/Main.pdf
 
 pdfTeX warning: pdflatex (file ./images/design/Main.pdf): PDF inclusion: multiple pdfs with page group included in a single page
@@ -2386,21 +2387,21 @@ pdfTeX warning: pdflatex (file ./images/design/Main.pdf): PDF inclusion: multipl
 pdfTeX warning: pdflatex (file ./images/design/Main.pdf): PDF inclusion: multiple pdfs with page group included in a single page
 >]
 Package babel Info: Redefining ngerman shorthand "|
-(babel)             in language  on input line 50.
+(babel)             in language  on input line 51.
 Package babel Info: Redefining ngerman shorthand "~
-(babel)             in language  on input line 50.
+(babel)             in language  on input line 51.
 Package babel Info: Redefining ngerman shorthand "|
-(babel)             in language  on input line 54.
+(babel)             in language  on input line 55.
 Package babel Info: Redefining ngerman shorthand "~
-(babel)             in language  on input line 54.
+(babel)             in language  on input line 55.
 Package babel Info: Redefining ngerman shorthand "|
-(babel)             in language  on input line 57.
+(babel)             in language  on input line 59.
 Package babel Info: Redefining ngerman shorthand "~
-(babel)             in language  on input line 57.
+(babel)             in language  on input line 59.
 Package babel Info: Redefining ngerman shorthand "|
-(babel)             in language  on input line 57.
+(babel)             in language  on input line 59.
 Package babel Info: Redefining ngerman shorthand "~
-(babel)             in language  on input line 57.
+(babel)             in language  on input line 59.
  [33 <./images/implementation/3tier.pdf> <./images/implementation/3tier.pdf
 
 pdfTeX warning: pdflatex (file ./images/implementation/3tier.pdf): PDF inclusion: multiple pdfs with page group included in a single page
@@ -2411,92 +2412,95 @@ pdfTeX warning: pdflatex (file ./images/implementation/3tier.pdf): PDF inclusion
 
 pdfTeX warning: pdflatex (file ./images/implementation/3tier.pdf): PDF inclusion: multiple pdfs with page group included in a single page
 >]
-Overfull \hbox (19.0pt too wide) in paragraph at lines 68--68
+Overfull \hbox (19.0pt too wide) in paragraph at lines 70--70
 [][] 
  []
 
 Package babel Info: Redefining ngerman shorthand "|
-(babel)             in language  on input line 84.
+(babel)             in language  on input line 86.
 Package babel Info: Redefining ngerman shorthand "~
-(babel)             in language  on input line 84.
+(babel)             in language  on input line 86.
 Package babel Info: Redefining ngerman shorthand "|
-(babel)             in language  on input line 84.
+(babel)             in language  on input line 86.
 Package babel Info: Redefining ngerman shorthand "~
-(babel)             in language  on input line 84.
+(babel)             in language  on input line 86.
 [34]
-Overfull \hbox (19.0pt too wide) in paragraph at lines 101--101
+Overfull \hbox (19.0pt too wide) in paragraph at lines 103--103
 [][] 
  []
 
 Package babel Info: Redefining ngerman shorthand "|
-(babel)             in language  on input line 101.
+(babel)             in language  on input line 103.
 Package babel Info: Redefining ngerman shorthand "~
-(babel)             in language  on input line 101.
+(babel)             in language  on input line 103.
 Package babel Info: Redefining ngerman shorthand "|
-(babel)             in language  on input line 101.
+(babel)             in language  on input line 103.
 Package babel Info: Redefining ngerman shorthand "~
-(babel)             in language  on input line 101.
+(babel)             in language  on input line 103.
 [35]
-Overfull \hbox (19.0pt too wide) in paragraph at lines 130--130
+Overfull \hbox (19.0pt too wide) in paragraph at lines 132--132
 [][] 
  []
 
-Package babel Info: Redefining ngerman shorthand "|
-(babel)             in language  on input line 130.
-Package babel Info: Redefining ngerman shorthand "~
-(babel)             in language  on input line 130.
-Package babel Info: Redefining ngerman shorthand "|
-(babel)             in language  on input line 130.
-Package babel Info: Redefining ngerman shorthand "~
-(babel)             in language  on input line 130.
-[36]
-Underfull \vbox (badness 10000) has occurred while \output is active []
+
+Underfull \vbox (badness 2050) has occurred while \output is active []
 
 Package babel Info: Redefining ngerman shorthand "|
-(babel)             in language  on input line 163.
+(babel)             in language  on input line 132.
 Package babel Info: Redefining ngerman shorthand "~
-(babel)             in language  on input line 163.
+(babel)             in language  on input line 132.
 Package babel Info: Redefining ngerman shorthand "|
-(babel)             in language  on input line 163.
+(babel)             in language  on input line 132.
 Package babel Info: Redefining ngerman shorthand "~
-(babel)             in language  on input line 163.
+(babel)             in language  on input line 132.
+ [36]
+Underfull \vbox (badness 3260) has occurred while \output is active []
+
+Package babel Info: Redefining ngerman shorthand "|
+(babel)             in language  on input line 165.
+Package babel Info: Redefining ngerman shorthand "~
+(babel)             in language  on input line 165.
+Package babel Info: Redefining ngerman shorthand "|
+(babel)             in language  on input line 165.
+Package babel Info: Redefining ngerman shorthand "~
+(babel)             in language  on input line 165.
  [37]
 Package babel Info: Redefining ngerman shorthand "|
-(babel)             in language  on input line 164.
+(babel)             in language  on input line 166.
 Package babel Info: Redefining ngerman shorthand "~
-(babel)             in language  on input line 164.
-<images/screens/Overview.PNG, id=961, 333.49594pt x 377.15906pt>
+(babel)             in language  on input line 166.
+<images/screens/Overview.PNG, id=977, 333.49594pt x 377.15906pt>
 File: images/screens/Overview.PNG Graphic file (type png)
 <use images/screens/Overview.PNG>
-Package pdftex.def Info: images/screens/Overview.PNG  used on input line 173.
+Package pdftex.def Info: images/screens/Overview.PNG  used on input line 175.
 (pdftex.def)             Requested size: 231.83545pt x 262.19672pt.
 File: images/screens/Overview.PNG Graphic file (type png)
 <use images/screens/Overview.PNG>
-Package pdftex.def Info: images/screens/Overview.PNG  used on input line 173.
+Package pdftex.def Info: images/screens/Overview.PNG  used on input line 175.
 (pdftex.def)             Requested size: 231.83545pt x 262.19672pt.
 Package babel Info: Redefining ngerman shorthand "|
-(babel)             in language  on input line 181.
+(babel)             in language  on input line 183.
 Package babel Info: Redefining ngerman shorthand "~
-(babel)             in language  on input line 181.
+(babel)             in language  on input line 183.
 Package babel Info: Redefining ngerman shorthand "|
-(babel)             in language  on input line 181.
+(babel)             in language  on input line 183.
 Package babel Info: Redefining ngerman shorthand "~
-(babel)             in language  on input line 181.
+(babel)             in language  on input line 183.
  [38 <./images/screens/Overview.PNG>]
-Overfull \hbox (19.0pt too wide) in paragraph at lines 188--188
+Overfull \hbox (19.0pt too wide) in paragraph at lines 190--190
 [][] 
  []
 
 Package babel Info: Redefining ngerman shorthand "|
-(babel)             in language  on input line 206.
+(babel)             in language  on input line 207.
 Package babel Info: Redefining ngerman shorthand "~
-(babel)             in language  on input line 206.
+(babel)             in language  on input line 207.
 Package babel Info: Redefining ngerman shorthand "|
-(babel)             in language  on input line 206.
+(babel)             in language  on input line 207.
 Package babel Info: Redefining ngerman shorthand "~
-(babel)             in language  on input line 206.
+(babel)             in language  on input line 207.
 [39]
-Overfull \hbox (19.0pt too wide) in paragraph at lines 226--226
+Overfull \hbox (19.0pt too wide) in paragraph at lines 228--228
 [][] 
  []
 
@@ -2512,32 +2516,34 @@ Package babel Info: Redefining ngerman shorthand "|
 Package babel Info: Redefining ngerman shorthand "~
 (babel)             in language  on input line 237.
  [40]
-Overfull \hbox (19.0pt too wide) in paragraph at lines 245--245
+Overfull \hbox (19.0pt too wide) in paragraph at lines 247--247
 [][] 
  []
 
 Package babel Info: Redefining ngerman shorthand "|
-(babel)             in language  on input line 259.
+(babel)             in language  on input line 260.
 Package babel Info: Redefining ngerman shorthand "~
-(babel)             in language  on input line 259.
+(babel)             in language  on input line 260.
 Package babel Info: Redefining ngerman shorthand "|
-(babel)             in language  on input line 259.
+(babel)             in language  on input line 260.
 Package babel Info: Redefining ngerman shorthand "~
-(babel)             in language  on input line 259.
+(babel)             in language  on input line 260.
 [41]
-Overfull \hbox (19.0pt too wide) in paragraph at lines 263--263
+Overfull \hbox (19.0pt too wide) in paragraph at lines 265--265
 [][] 
  []
 
 Package babel Info: Redefining ngerman shorthand "|
-(babel)             in language  on input line 297.
+(babel)             in language  on input line 295.
 Package babel Info: Redefining ngerman shorthand "~
-(babel)             in language  on input line 297.
+(babel)             in language  on input line 295.
 Package babel Info: Redefining ngerman shorthand "|
-(babel)             in language  on input line 297.
+(babel)             in language  on input line 295.
 Package babel Info: Redefining ngerman shorthand "~
-(babel)             in language  on input line 297.
+(babel)             in language  on input line 295.
 [42]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
 Package babel Info: Redefining ngerman shorthand "|
 (babel)             in language  on input line 338.
 Package babel Info: Redefining ngerman shorthand "~
@@ -2547,7 +2553,7 @@ Package babel Info: Redefining ngerman shorthand "|
 Package babel Info: Redefining ngerman shorthand "~
 (babel)             in language  on input line 338.
  [43]
-Overfull \hbox (19.0pt too wide) in paragraph at lines 351--351
+Overfull \hbox (19.0pt too wide) in paragraph at lines 353--353
 [][] 
  []
 
@@ -2560,20 +2566,20 @@ Package babel Info: Redefining ngerman shorthand "|
 Package babel Info: Redefining ngerman shorthand "~
 (babel)             in language  on input line 364.
 [44]
-Overfull \hbox (19.0pt too wide) in paragraph at lines 369--369
+Overfull \hbox (19.0pt too wide) in paragraph at lines 371--371
 [][] 
  []
 
 Package babel Info: Redefining ngerman shorthand "|
-(babel)             in language  on input line 393.
+(babel)             in language  on input line 391.
 Package babel Info: Redefining ngerman shorthand "~
-(babel)             in language  on input line 393.
+(babel)             in language  on input line 391.
 Package babel Info: Redefining ngerman shorthand "|
-(babel)             in language  on input line 393.
+(babel)             in language  on input line 391.
 Package babel Info: Redefining ngerman shorthand "~
-(babel)             in language  on input line 393.
+(babel)             in language  on input line 391.
 [45]
-Overfull \hbox (19.0pt too wide) in paragraph at lines 406--406
+Overfull \hbox (19.0pt too wide) in paragraph at lines 408--408
 [][] 
  []
 
@@ -2581,59 +2587,64 @@ Overfull \hbox (19.0pt too wide) in paragraph at lines 406--406
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
 Package babel Info: Redefining ngerman shorthand "|
-(babel)             in language  on input line 419.
+(babel)             in language  on input line 417.
 Package babel Info: Redefining ngerman shorthand "~
-(babel)             in language  on input line 419.
+(babel)             in language  on input line 417.
 Package babel Info: Redefining ngerman shorthand "|
-(babel)             in language  on input line 419.
+(babel)             in language  on input line 417.
 Package babel Info: Redefining ngerman shorthand "~
-(babel)             in language  on input line 419.
+(babel)             in language  on input line 417.
  [46]
-Overfull \hbox (19.0pt too wide) in paragraph at lines 429--429
+Overfull \hbox (19.0pt too wide) in paragraph at lines 431--431
 [][] 
  []
 
 Package babel Info: Redefining ngerman shorthand "|
-(babel)             in language  on input line 440.
+(babel)             in language  on input line 436.
 Package babel Info: Redefining ngerman shorthand "~
-(babel)             in language  on input line 440.
+(babel)             in language  on input line 436.
 Package babel Info: Redefining ngerman shorthand "|
-(babel)             in language  on input line 440.
+(babel)             in language  on input line 436.
 Package babel Info: Redefining ngerman shorthand "~
-(babel)             in language  on input line 440.
+(babel)             in language  on input line 436.
 [47]
-Overfull \hbox (19.0pt too wide) in paragraph at lines 455--455
+Overfull \hbox (19.0pt too wide) in paragraph at lines 457--457
 [][] 
  []
 
+
+Underfull \vbox (badness 1242) has occurred while \output is active []
+
 Package babel Info: Redefining ngerman shorthand "|
-(babel)             in language  on input line 459.
+(babel)             in language  on input line 457.
 Package babel Info: Redefining ngerman shorthand "~
-(babel)             in language  on input line 459.
+(babel)             in language  on input line 457.
 Package babel Info: Redefining ngerman shorthand "|
-(babel)             in language  on input line 459.
+(babel)             in language  on input line 457.
 Package babel Info: Redefining ngerman shorthand "~
-(babel)             in language  on input line 459.
-[48]
+(babel)             in language  on input line 457.
+ [48]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
 Package babel Info: Redefining ngerman shorthand "|
-(babel)             in language  on input line 497.
+(babel)             in language  on input line 495.
 Package babel Info: Redefining ngerman shorthand "~
-(babel)             in language  on input line 497.
+(babel)             in language  on input line 495.
 Package babel Info: Redefining ngerman shorthand "|
-(babel)             in language  on input line 497.
+(babel)             in language  on input line 495.
 Package babel Info: Redefining ngerman shorthand "~
-(babel)             in language  on input line 497.
+(babel)             in language  on input line 495.
  [49]
+Underfull \vbox (badness 5681) has occurred while \output is active []
+
 Package babel Info: Redefining ngerman shorthand "|
-(babel)             in language  on input line 518.
+(babel)             in language  on input line 520.
 Package babel Info: Redefining ngerman shorthand "~
-(babel)             in language  on input line 518.
+(babel)             in language  on input line 520.
 Package babel Info: Redefining ngerman shorthand "|
-(babel)             in language  on input line 518.
+(babel)             in language  on input line 520.
 Package babel Info: Redefining ngerman shorthand "~
-(babel)             in language  on input line 518.
+(babel)             in language  on input line 520.
  [50])
 Package babel Info: Redefining ngerman shorthand "|
 (babel)             in language  on input line 100.
@@ -2715,6 +2726,9 @@ Package babel Info: Redefining ngerman shorthand "|
 (babel)             in language  on input line 16.
 Package babel Info: Redefining ngerman shorthand "~
 (babel)             in language  on input line 16.
+
+Underfull \vbox (badness 2707) has occurred while \output is active []
+
 Package babel Info: Redefining ngerman shorthand "|
 (babel)             in language  on input line 28.
 Package babel Info: Redefining ngerman shorthand "~
@@ -2724,6 +2738,9 @@ Package babel Info: Redefining ngerman shorthand "|
 Package babel Info: Redefining ngerman shorthand "~
 (babel)             in language  on input line 28.
  [56]
+Underfull \vbox (badness 1377) has occurred while \output is active []
+
+
 Overfull \vbox (10.87498pt too high) has occurred while \output is active []
 
 Package babel Info: Redefining ngerman shorthand "|
@@ -2749,15 +2766,18 @@ Overfull \hbox (19.0pt too wide) in paragraph at lines 54--54
 [][] 
  []
 
+
+Underfull \vbox (badness 1997) has occurred while \output is active []
+
 Package babel Info: Redefining ngerman shorthand "|
-(babel)             in language  on input line 55.
+(babel)             in language  on input line 54.
 Package babel Info: Redefining ngerman shorthand "~
-(babel)             in language  on input line 55.
+(babel)             in language  on input line 54.
 Package babel Info: Redefining ngerman shorthand "|
-(babel)             in language  on input line 55.
+(babel)             in language  on input line 54.
 Package babel Info: Redefining ngerman shorthand "~
-(babel)             in language  on input line 55.
-[58]
+(babel)             in language  on input line 54.
+ [58]
 Overfull \hbox (19.0pt too wide) in paragraph at lines 63--63
 [][] 
  []
@@ -2773,18 +2793,21 @@ Overfull \hbox (19.0pt too wide) in paragraph at lines 77--77
  []
 
 
+Underfull \vbox (badness 6691) has occurred while \output is active []
+
+
 Overfull \vbox (13.77516pt too high) has occurred while \output is active []
 
 Package babel Info: Redefining ngerman shorthand "|
-(babel)             in language  on input line 79.
+(babel)             in language  on input line 77.
 Package babel Info: Redefining ngerman shorthand "~
-(babel)             in language  on input line 79.
+(babel)             in language  on input line 77.
 Package babel Info: Redefining ngerman shorthand "|
-(babel)             in language  on input line 79.
+(babel)             in language  on input line 77.
 Package babel Info: Redefining ngerman shorthand "~
-(babel)             in language  on input line 79.
+(babel)             in language  on input line 77.
  [59]
-Overfull \hbox (19.0pt too wide) in paragraph at lines 84--84
+Overfull \hbox (19.0pt too wide) in paragraph at lines 86--86
 [][] 
  []
 
@@ -2794,38 +2817,35 @@ Overfull \hbox (19.0pt too wide) in paragraph at lines 91--91
  []
 
 
-Underfull \hbox (badness 3690) in paragraph at lines 95--96
-[]\T1/ppl/m/n/12 However, the-re is ano-ther op-ti-on to per-form this up-da-te. We
- []
-
-
 Overfull \hbox (19.0pt too wide) in paragraph at lines 97--97
 [][] 
  []
 
-
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
 Package babel Info: Redefining ngerman shorthand "|
-(babel)             in language  on input line 97.
+(babel)             in language  on input line 98.
 Package babel Info: Redefining ngerman shorthand "~
-(babel)             in language  on input line 97.
+(babel)             in language  on input line 98.
 Package babel Info: Redefining ngerman shorthand "|
-(babel)             in language  on input line 97.
+(babel)             in language  on input line 98.
 Package babel Info: Redefining ngerman shorthand "~
-(babel)             in language  on input line 97.
- [60])
+(babel)             in language  on input line 98.
+[60]
+Underfull \hbox (badness 3690) in paragraph at lines 102--103
+[]\T1/ppl/m/n/12 However, the-re is ano-ther op-ti-on to per-form this up-da-te. We
+ []
+
+
 Overfull \vbox (10.87498pt too high) has occurred while \output is active []
 
 Package babel Info: Redefining ngerman shorthand "|
-(babel)             in language  on input line 107.
+(babel)             in language  on input line 119.
 Package babel Info: Redefining ngerman shorthand "~
-(babel)             in language  on input line 107.
+(babel)             in language  on input line 119.
 Package babel Info: Redefining ngerman shorthand "|
-(babel)             in language  on input line 107.
+(babel)             in language  on input line 119.
 Package babel Info: Redefining ngerman shorthand "~
-(babel)             in language  on input line 107.
- [61]
+(babel)             in language  on input line 119.
+ [61])
 Package babel Info: Redefining ngerman shorthand "|
 (babel)             in language  on input line 108.
 Package babel Info: Redefining ngerman shorthand "~
@@ -2845,17 +2865,17 @@ Package babel Info: Redefining ngerman shorthand "|
 Package babel Info: Redefining ngerman shorthand "~
 (babel)             in language  on input line 8.
 Package babel Info: Redefining ngerman shorthand "|
-(babel)             in language  on input line 9.
+(babel)             in language  on input line 11.
 Package babel Info: Redefining ngerman shorthand "~
-(babel)             in language  on input line 9.
+(babel)             in language  on input line 11.
 Package babel Info: Redefining ngerman shorthand "|
-(babel)             in language  on input line 30.
+(babel)             in language  on input line 33.
 Package babel Info: Redefining ngerman shorthand "~
-(babel)             in language  on input line 30.
+(babel)             in language  on input line 33.
 Package babel Info: Redefining ngerman shorthand "|
-(babel)             in language  on input line 30.
+(babel)             in language  on input line 33.
 Package babel Info: Redefining ngerman shorthand "~
-(babel)             in language  on input line 30.
+(babel)             in language  on input line 33.
 [63
 
 
@@ -3115,45 +3135,45 @@ Package babel Info: Redefining ngerman shorthand "|
 Package babel Info: Redefining ngerman shorthand "~
 (babel)             in language  on input line 219.
 [73]
-Underfull \hbox (badness 10000) in paragraph at lines 251--255
+Underfull \hbox (badness 10000) in paragraph at lines 245--249
 \T1/ppl/m/n/12 en-[]US / docs / Web / API / WindowBase64 / Base64 _ encoding _ and _
  []
 
 
-Underfull \hbox (badness 1019) in paragraph at lines 287--291
+Underfull \hbox (badness 1019) in paragraph at lines 281--285
 \T1/ppl/m/n/12 introduction # what-[]are-[]web-[]components-[]$[][], 2018 (ac-ces-sed Oc-to-ber
  []
 
 Package babel Info: Redefining ngerman shorthand "|
-(babel)             in language  on input line 291.
+(babel)             in language  on input line 286.
 Package babel Info: Redefining ngerman shorthand "~
-(babel)             in language  on input line 291.
+(babel)             in language  on input line 286.
 Package babel Info: Redefining ngerman shorthand "|
-(babel)             in language  on input line 291.
+(babel)             in language  on input line 286.
 Package babel Info: Redefining ngerman shorthand "~
-(babel)             in language  on input line 291.
+(babel)             in language  on input line 286.
 [74]
-Underfull \hbox (badness 1629) in paragraph at lines 293--296
+Underfull \hbox (badness 1629) in paragraph at lines 287--290
 []\T1/ppl/m/n/12 Offline ca-ching with ser-vice wor-ker pre-ca-che.  [][]$https : / / www .
  []
 
 
-Underfull \hbox (badness 7451) in paragraph at lines 293--296
+Underfull \hbox (badness 7451) in paragraph at lines 287--290
 \T1/ppl/m/n/12 polymer-[]project . org / 1 . 0 / toolbox / service-[]worker$[][], 2016 (ac-ces-sed
  []
 
 
-Underfull \hbox (badness 3068) in paragraph at lines 303--307
+Underfull \hbox (badness 3068) in paragraph at lines 297--301
 []\T1/ppl/m/n/12 Eric Bi-del-man.  A be-gin-ner's gui-de to using the ap-p-li-ca-ti-
  []
 
 
-Underfull \hbox (badness 4316) in paragraph at lines 309--313
+Underfull \hbox (badness 4316) in paragraph at lines 303--307
 []\T1/ppl/m/n/12 Using the ap-p-li-ca-ti-on ca-che.  [][]$https : / / developer . mozilla . org /
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 331--336
+Underfull \hbox (badness 10000) in paragraph at lines 319--324
 \T1/ppl/m/n/12 / / blog . teamtreehouse . com / using-[]localforage-[]oine-[]data-[]storage$[][],
  []
 
@@ -3173,7 +3193,7 @@ Package atveryend Info: Empty hook `AfterLastShipout' on input line 122.
 Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 122.
 Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 122.
 Package rerunfilecheck Info: File `Masterthesis.out' has not changed.
-(rerunfilecheck)             Checksum: 3E29C6E69C4E7675E57E3FE8D33CE65C;2728.
+(rerunfilecheck)             Checksum: 2232C7F9247215146DE714A72CC76DC2;2734.
 
 
 LaTeX Font Warning: Size substitutions with differences
@@ -3182,17 +3202,17 @@ LaTeX Font Warning: Size substitutions with differences
  )
 (\end occurred when \ifx on line 115 was incomplete) 
 Here is how much of TeX's memory you used:
- 26797 strings out of 492973
- 460313 string characters out of 3143877
- 715949 words of memory out of 3000000
- 29486 multiletter control sequences out of 15000+200000
+ 26799 strings out of 492973
+ 460400 string characters out of 3143877
+ 705255 words of memory out of 3000000
+ 29489 multiletter control sequences out of 15000+200000
  605610 words of font info for 171 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
  57i,18n,71p,9187b,2862s stack positions out of 5000i,500n,10000p,200000b,50000s
 {C:/MiKTeX/fonts/enc/dvips/base/8r.enc}<C:/MiKTeX/fonts/type1/urw/courier/ucrb8a.pfb><C:/MiKTeX/fonts/type1/urw/courier/ucrr8a.pfb><C:/MiKTeX/fonts/type1/urw/helvetic/uhvb8a.pfb><C:/MiKTeX/fonts/type1/urw/helvetic/uhvr8a.pfb><C:/MiKTeX/fonts/type1/urw/helvetic/uhvro8a.pfb><C:/MiKTeX/fonts/type1/urw/palatino/uplb8a.pfb><C:/MiKTeX/fonts/type1/urw/palatino/uplr8a.pfb><C:/MiKTeX/fonts/type1/urw/palatino/uplr8a.pfb><C:/MiKTeX/fonts/type1/urw/palatino/uplri8a.pfb>
-Output written on Masterthesis.pdf (85 pages, 597690 bytes).
+Output written on Masterthesis.pdf (85 pages, 603998 bytes).
 PDF statistics:
- 1808 PDF objects out of 2073 (max. 8388607)
- 678 named destinations out of 1000 (max. 500000)
+ 1823 PDF objects out of 2073 (max. 8388607)
+ 677 named destinations out of 1000 (max. 500000)
  764 words of extra memory for PDF output out of 10000 (max. 10000000)
 

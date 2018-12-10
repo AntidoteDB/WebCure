@@ -4,6 +4,7 @@
 In this chapter, we are going to introduce the reader to the theoretical concepts, which represent a prerequisite to have the understanding of this thesis.
 
 \section{Main concepts}
+\label{Background-Main}
 
 \textit{Distributed database} is ``a collection of multiple, logically interrelated databases distributed over a computer network''\cite{11}. A \textit{geo-distributed database}, in its turn, is a database, which is spread across two or more geographically distinct locations and runs without experiencing performance delays. The maintaining of such databases brings its challenges. As the database is spread across several locations, there should be a replication process in order to ensure that replicas of that database synchonize and have the latest state of the data. This replication process should be fast, because if there are two replicas of the database, then whenever there is some information written to the first replica, it should be accessable to users, who use the second one. That is the problem of the availability, but before the information at replicas becomes available, it first should be checked over the consistency, as the states of the replicas should be equal. That is a complex task to solve. 
 

@@ -154,6 +154,7 @@ Nevertheless, one of the most significant problems with IndexedDB is using it in
 Both Cache API and IndexedDB database mentioned in \secref*{CacheAPI} and \secref*{IndexedDB} are taking the place at the local machine. However, when the local machine is running out of storage space, user agents will clear it automatically on an LRU policy\footnote{In the systems with LRU or least recently used caching policy, the least frequently used data will be cleared first.}\cite{47}. This is not something that suits an application, which promises to provide offline experience. And in the worst case scenario, if the data was not synced with the server, it is going to be lost. The solution for this problem is to use a Persistent Storage API\cite{45, 46}, which guarantees that cached data is not going to be cleared if the browser comes under pressure.
 
 \section{Background Sync}
+\label{BackgroundSync}
 
 The reality is that it is not always possible to be online all the time, even if someone wanted to. Sometimes, there is no network connection at all, or it could be that abysmal that it could be hard to do anything under such conditions. Therefore, the scenario when someone could do his or her work offline and then, when the connection is re-established again, this work will go online, is useful. Nowadays, thanks to \textit{Background Sync}\cite{38} from Google it is possible to do in web applications. 
 

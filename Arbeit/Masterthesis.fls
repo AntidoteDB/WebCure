@@ -313,13 +313,13 @@ INPUT chapters/1-Introduction.tex
 INPUT C:/MiKTeX/tex/latex/psnfss/ts1ppl.fd
 INPUT C:/MiKTeX/tex/latex/psnfss/ts1ppl.fd
 INPUT C:/MiKTeX/fonts/tfm/adobe/palatino/pplr8c.tfm
+INPUT C:/MiKTeX/fonts/tfm/adobe/palatino/pplri8t.tfm
 INPUT C:/MiKTeX/fonts/vf/adobe/palatino/pplr8c.vf
 INPUT C:/MiKTeX/fonts/tfm/public/mathpazo/fplmr.tfm
-INPUT chapters/2-Background.tex
-INPUT chapters/2-Background.tex
-INPUT C:/MiKTeX/fonts/tfm/adobe/palatino/pplri8t.tfm
 INPUT C:/MiKTeX/fonts/vf/adobe/palatino/pplri8t.vf
 INPUT C:/MiKTeX/fonts/tfm/adobe/palatino/pplri8r.tfm
+INPUT chapters/2-Background.tex
+INPUT chapters/2-Background.tex
 INPUT images/causal/causal_true.pdf_tex
 INPUT images/causal/causal_true.pdf_tex
 INPUT C:/MiKTeX/fonts/tfm/adobe/palatino/pplr8t.tfm

@@ -1,4 +1,4 @@
-\begin{thebibliography}{51}
+\begin{thebibliography}{49}
 \providecommand{\natexlab}[1]{#1}
 \providecommand{\url}[1]{\texttt{#1}}
 \expandafter\ifx\csname urlstyle\endcsname\relax
@@ -241,12 +241,6 @@ Riemann~Hui Joseph~Fong.
 Prof. Dr.~Dr. h.~c. Dieter~Rombach.
 \newblock Lecture slides of fundamentals of software engineering, 2017.
 
-\bibitem[Zeller(2018 (accessed December 06, 2018))]{52}
-Peter Zeller.
-\newblock Antidote typescript client.
-\newblock \url{https://antidotedb.github.io/antidote_ts_client/}, 2018
-  (accessed December 06, 2018).
-
 \bibitem[53(2018 (accessed December 06, 2018))]{53}
 Base64 encoding and decoding.
 \newblock
@@ -310,12 +304,6 @@ Using the application cache.
 \newblock
   \url{https://developer.mozilla.org/en-US/docs/Web/HTML/Using_the_application_cache},
   2018 (accessed October 30, 2018).
-
-\bibitem[van Kesteren(2008 (accessed October 29, 2018))]{19}
-Anne van Kesteren.
-\newblock Offline web applications.
-\newblock \url{https://www.w3.org/TR/offline-webapps/}, 2008 (accessed October
-  29, 2018).
 
 \bibitem[23(accessed November 4, 2018)]{23}
 hood.ie intro.
