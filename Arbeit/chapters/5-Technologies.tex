@@ -159,7 +159,7 @@ Both Cache API and IndexedDB database mentioned in \secref*{CacheAPI} and \secre
 The reality is that it is not always possible to be online all the time, even if someone wanted to. Sometimes, there is no network connection at all, or it could be that abysmal that it could be hard to do anything under such conditions. Therefore, the scenario when someone could do his or her work offline and then, when the connection is re-established again, this work will go online, is useful. Nowadays, thanks to \textit{Background Sync}\cite{38} from Google it is possible to do in web applications. 
 
 \begin{lstlisting}[caption={An example code, which demonstrates how to register a sync (\textit{myFirstSync} here) event for the service worker\cite{38}.}, label={lst:tech8}]
-// Register your service worker:
+// Register the service worker:
 navigator.serviceWorker.register('/sw.js');
 
 // Then later, request a one-off sync:
