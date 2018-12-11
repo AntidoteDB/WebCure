@@ -586,6 +586,10 @@ INPUT images/architecture/read.pdf
 INPUT ./images/architecture/read.pdf
 INPUT ./images/architecture/read.pdf
 INPUT ./images/architecture/read.pdf
+INPUT C:/MiKTeX/fonts/vf/adobe/palatino/pplri8t.vf
+INPUT C:/MiKTeX/fonts/tfm/adobe/palatino/pplri8r.tfm
+INPUT C:/MiKTeX/fonts/vf/adobe/palatino/pplri8t.vf
+INPUT C:/MiKTeX/fonts/tfm/adobe/palatino/pplri8r.tfm
 INPUT C:/MiKTeX/tex/latex/psnfss/t1phv.fd
 INPUT C:/MiKTeX/tex/latex/psnfss/t1phv.fd
 INPUT C:/MiKTeX/fonts/tfm/adobe/helvetic/phvr8t.tfm
@@ -595,10 +599,6 @@ INPUT C:/MiKTeX/tex/latex/psnfss/t1pcr.fd
 INPUT C:/MiKTeX/fonts/tfm/adobe/courier/pcrr8t.tfm
 INPUT C:/MiKTeX/fonts/tfm/adobe/palatino/pplr8t.tfm
 INPUT C:/MiKTeX/fonts/tfm/adobe/courier/pcrb8t.tfm
-INPUT C:/MiKTeX/fonts/vf/adobe/palatino/pplri8t.vf
-INPUT C:/MiKTeX/fonts/tfm/adobe/palatino/pplri8r.tfm
-INPUT C:/MiKTeX/fonts/vf/adobe/palatino/pplri8t.vf
-INPUT C:/MiKTeX/fonts/tfm/adobe/palatino/pplri8r.tfm
 INPUT C:/MiKTeX/fonts/vf/adobe/helvetic/phvb8t.vf
 INPUT C:/MiKTeX/fonts/tfm/adobe/helvetic/phvb8r.tfm
 INPUT C:/MiKTeX/fonts/vf/adobe/helvetic/phvr8t.vf

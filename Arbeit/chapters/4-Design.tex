@@ -18,12 +18,13 @@ R1 & Retrieval, increment and decrement of the Counter CRDT should be possible. 
 R2 & Retrieval, adding and removing elements from the Set CRDT should be possible.                       \\ \hline
 R3 & Retrieval, assigning and resetting the Multi-Value Register CRDT should be possible.               \\ \hline
 R4 & Retrieval elements of any supported CRDTs should be possible according to the passed timestamp. \\ \hline
-R5 & Do not store the element's values in the cache, if they were requested at specific timestamp (for the matter of having only the latest data on the client's side). \\ \hline
-R6 & The user should be able to remove from the client any stored data element. \\ \hline
-R7 & It should not be possible to create elements of different CRDTs with the same name (due to limitations of AntidoteDB). \\ \hline
-R8 & When offline, it should be possible to perform operations on supported CRDTs. \\ \hline
+R5 & The client should cache only the latest data available at server's side. \\ \hline
+R6 & It should not be possible to create elements of different CRDTs with the same name (due to limitations of AntidoteDB). \\ \hline
+R7 & When offline, it should be possible to make read/write operations on supported CRDTs. \\ \hline
+R8 & The user should be able to remove from the client any stored data element. \\ \hline
 R9 & Any operations performed offline, once the connection is restored, should be sent to the server immediately. \\ \hline
-R10 & When the connection is reestablished after having data changes in offline mode, the client storage should be updated appropriately (with a consideration of the client's offline changes and possible changes on the server). \\ \hline
+R10 & The execution model of offline operations at the client should be sequential (updates are ordered). \\ \hline 
+R11 & When the connection is reestablished after having data changes in offline mode, the client storage should be updated appropriately (with a consideration of the client's offline changes and possible changes on the server). \\ \hline
 \end{tabular}
 \caption*{}
 \end{table}
@@ -34,11 +35,15 @@ R10 & When the connection is reestablished after having data changes in offline 
 \label{table:req2}
 \begin{tabular}{|p{1cm}|p{14cm}|}
 \hline
-NFR1 & The web application should be available online and offline (except for the functionality with timestamp-related updates). \\ \hline
-NFR2 & The web application should be available with a poor internet connection. \\ \hline
+NFR1 & The system should be available online and offline (except for the functionality with timestamp-related updates). \\ \hline
+NFR2 & The system should be available with a poor internet connection. \\ \hline
 \end{tabular}
 \caption*{}
-\end{table}
+\end{table} 
+
+First of all, looking at the first three functional requirements, \textit{R1--R3}, we see that for the implementation were selected such CRDTs as Counter, Set and Multi-Value Register. The reason for that is that these data types cover the most operations on CRDTs and, if our design works for them, it will work for the rest as well. The requirement \textit{R4} makes the user able to get the data from the server at different timestamps and compare it. Next, talking about the requirement \textit{R5}, even though it is possible to request data at different timestamps, it is vital for the client to store in cache only the latest available at the server data. The requirement \textit{R6} is due to one of the limitations AntidoteDB possesses, and is related to one of the assumptions we make in the following section. Requirements \textit{R7--R9} specify what kind of actions the user is able to perform on a client when offline, as well as their synchronisation with the server. Finally, the requirements \textit{R10} and \textit{R11} guarantee that the changes performed offline at the client, as well as changes at the server side, are synchronised in a way satisfying causal consistency model. 
+
+Next, there are non-functional requirements: \textit{NFR1} and \textit{NFR2}. Basically, both of them support our claim that a client is able to work offline, as well as under uncertain network conditions. 
 
 \section{Assumptions}
 \label{4-Assumptions}
@@ -67,7 +72,7 @@ The fundamental part of the WebCure will be its protocol design. We are going to
 
 \subsection{Data transmission}
 
-As we already remember from the \chapref*{Background}, because AntidoteDB is using CRDT datatypes, the following options are possible to update the database: state-based and operation-based. Due to the time constraints and the amount of work, this thesis will consider only the operation-based approach. Therefore, whenever a client wants to update the database, it will send to the server a list of operations. However, whenever it wants to read the value, it will receive the current state of the object from the database. For this thesis, we are going to use such datatypes as Counters, Sets and Multi-Value Registers, to which the reader was introduced in the \secref*{2-crdts}.
+As we already remember from the \chapref*{Background}, because AntidoteDB is using CRDT datatypes, the following options are possible to update the database: state-based and operation-based. This thesis will consider only the operation-based approach, as it has such an advantage over the state-based approach as less transferred data in most situations. Therefore, whenever a client wants to update the database, it will send to the server a list of operations. However, whenever it wants to read the value, it will receive the current state of the object from the database. For this thesis, we are going to use such datatypes as Counters, Sets and Multi-Value Registers, to which the reader was introduced in the \secref*{2-crdts}.
 
 \subsection{Description} 
 
@@ -101,7 +106,7 @@ Firstly, as we would like to focus on the communication part between a server an
     \label{fig:notations}%
 \end{figure}
 
-Let us explain the notations, which are going to be used for a further protocol description. At \figref*{fig:notations} \textbf{(a)}, we can see a notation for the timeline, every point of which represents a different timestamp. Timelines will be used for the matter of showing the sequence of events happening.At \figref*{fig:notations} \textbf{(b)}, the arrow shows the transmission of data between a subsystem \textit{A} and subsystem \textit{B}, as well as its direction and a command. \figref*{fig:notations} \textbf{(c)} represents the state of the data on a system's side, while \figref*{fig:notations} \textbf{(d)} points to a timestamp, at which an operation that changes the system's storage was applied.
+Let us explain the notations, which are going to be used for a further protocol description. At \figref*{fig:notations} \textbf{(a)}, we can see a notation for the timeline. Timelines will be used for the matter of showing the sequence of events happening. At \figref*{fig:notations} \textbf{(b)}, the arrow shows the transmission of data between a subsystem \textit{A} and subsystem \textit{B}, as well as its direction and a command. \figref*{fig:notations} \textbf{(c)} represents the state of the data on a system's side, while \figref*{fig:notations} \textbf{(d)} points to a timestamp, at which an operation that changes the system's storage was applied.
 
 Next, as we already mentioned, we will explain the protocol in an event-based way. 
 
@@ -123,20 +128,35 @@ Let us assume that a client initiates its work with an empty storage. Then, a us
 // @param id: the id of the object, for which the update was requested;
 
 function read(id) {
-  if (ONLINE) {
-    value = fetch(id); // request the value of the data by id from the server
-    store(value, timestamp); // store the value and timestamp received from the server on a client's storage
-    print(value, timestamp); // print the value and timestamp received from the server to the user
-  } else {
-    value = fetch(id); // Get the value of the data by id from the cache
-    print(value); // print the value to the user
-  }
+  GetHttpRequest( // send an http-request to get the data from the server by id
+    id,
+    function onSuccess(value, timestamp) { // get the value and timestamp from the server
+
+      // create an object that maintains all necessary data
+      var item = {
+        id: id, // id of an data item
+        operations: [], // operations performed offline
+        sentOperations: [], // operations performed offline and already sent to the server
+        state: value, // a state received from the server
+        type: 'set' // a type of CRDT
+      }; 
+
+      storeInCache(item); // cache an item created earleir
+      storeInCache(timestamp); // cache the timestamp
+    },
+    function onFail() {
+      getFromCache(id); // get the object from cache by id
+    }
+  );
 }
 \end{lstlisting} 
 
-The pseudocode of the logic for this \textit{read} functionality can be seen at~\lstref*{lst:read1}. If a client is online, then the value and timestamp associated with passed \textit{id} are going to be fetched from the server and, after that, stored on a client's storage and displayed to the user. However, if the client is offline, then the client will try to get the data from the cache for the requested id, or, if there is none, it will show the appropriate message to the user.
+The pseudocode of the logic for this \textit{read} functionality can be seen at the \lstref*{lst:read1}. At the \textit{line 5}, an asynchonous function \textit{GetHttpRequest} has two callbacks -- \textit{onSuccess}, in case a request proceeds successfully, and \textit{onFail} in case of a failure. 
 
-A client will always receive either the data associated with the latest timestamp from the server or, if a client chooses to specify the timestamp, it will receive the data associated with that timestamp. 
+In case of success, the value and the timestamp associated with passed \textit{id} are going to be fetched from the server. After that, at the \textit{line 10} we create an element \textit{item}, which has the following properties: \textit{id} for the id of a data item, \textit{state} for the actual state of the data item on the server, \textit{type} for the type of CRDT, \textit{operations} for the operations performed at the client's side while offline, \textit{sentOperations} for the operations performed at the client's side while offline, but which are already sent to the server. Next, a function \textit{storeInCache} is called twice at the lines \textit{18 and 19}. Firstly, to store in cache an object \textit{item} for the offline use. Secondly, to store in cache a \textit{timestamp} received from the server.  A client will always receive either the data associated with the latest timestamp from the server or, if a client chooses to specify the timestamp, it will receive the data associated with that timestamp. 
+
+In case of failure, however, the method \textit{getFromCache} is going to be called with an argument \textit{id}, as can be seen at the \textit{line 22}. If \textit{id} exists at client's cache, then it will be returned. 
+
 
 Now, let us say, that after receiving an element \textit{id} from the server, the client wants to change it and send it back to the server.
 
@@ -159,18 +179,24 @@ So, once the client is notified that the update was applied on the server succes
 // Update function that processes user-made update
 // @param id: an id for the object that should be updated;
 // @param op: operation performed on the object for the specified id
-function update(id, op){
-    send(id, op); // send an operation to the server for the element id
-    if (SUCCESS){
-        print("The operation was applied on the server successfully"); 
+
+function update(id, op) {
+  PostHttpRequest(
+    // send an http-request to update the data on the server
+    { id, op },
+    function onSuccess(result) {
+      // no actions performed
+    },
+    function onFail() {
+      var item = getFromCache(id); // get the object from cache by id
+      item.operations.push(op); // store the operation on a client's side in order to try sending it again later
+      storeInCache(item); // cache an updated item
     }
-    else {
-        store(op); // store the operation on a client's side in order to try sending it again later
-    }
+  );
 }
 \end{lstlisting} 
 
-However, let us look at the pseudocode placed at~\lstref*{lst:update1}. There we can see the function \textit{update}, which has to have access to the parameters \textit{id} and \textit{op} that might be taken from the presentation layer of the system. Afterwards, an attempt is happening to send the operation \textit{op} for the element \textit{id} to the server. If it succeeds, then a success message will be printed. Otherwise, the operation will be stored locally on a client's side. That makes the update available while the user is offline and gives an opportunity to send the operation again when the connection is back again.
+However, let us look at the pseudocode placed at the \lstref*{lst:update1}. There we can see the function \textit{update}, which has to have an access to the parameters \textit{id} and \textit{op}. There is an attempt to send the operation \textit{op} for the element \textit{id} to the server, by using \textit{PostHttpRequest}. It is asynchronous and has two callbacks -- \textit{onSuccess} and \textit{onFail}, just as before it was explained for the \textit{read} function. If the request succeeds, then the client gets notified about it and no further actions are taken. However, in the case of failure, as we can see at the \textit{line 13}, firstly we are getting the object from the cache by \textit{id}. If it exists, then we add the operation \textit{op} to that object into its property \textit{operations}, and, afterwards, store an updated object in cache again using \textit{storeInCache} at the \textit{line 15}. That makes the update available while the user is offline and gives an opportunity to send the operation again when the connection is back.
 
 Next, let us say that a client loses its network connection, so any updates made from that point onwards will be stored locally.  
 

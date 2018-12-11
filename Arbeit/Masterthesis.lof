@@ -8,22 +8,22 @@
 \contentsline {figure}{\numberline {\relax 2.3}{\ignorespaces State-based approach\cite {2}. <<S>> stands for source replicas and <<M>> for merging stages.\relax }}{8}{figure.caption.6}
 \addvspace {10\p@ }
 \contentsline {figure}{\numberline {\relax 3.1}{\ignorespaces An overview of the communication protocol.\relax }}{14}{figure.caption.12}
-\contentsline {figure}{\numberline {\relax 3.2}{\ignorespaces An overview of notations used in the following chapters for the protocol explanation.\relax }}{14}{figure.caption.14}
-\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {}}}{14}{subfigure.2.1}
-\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {}}}{14}{subfigure.2.2}
-\contentsline {subfigure}{\numberline {(c)}{\ignorespaces {}}}{14}{subfigure.2.3}
-\contentsline {subfigure}{\numberline {(d)}{\ignorespaces {}}}{14}{subfigure.2.4}
+\contentsline {figure}{\numberline {\relax 3.2}{\ignorespaces An overview of notations used in the following chapters for the protocol explanation.\relax }}{15}{figure.caption.14}
+\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {}}}{15}{subfigure.2.1}
+\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {}}}{15}{subfigure.2.2}
+\contentsline {subfigure}{\numberline {(c)}{\ignorespaces {}}}{15}{subfigure.2.3}
+\contentsline {subfigure}{\numberline {(d)}{\ignorespaces {}}}{15}{subfigure.2.4}
 \contentsline {figure}{\numberline {\relax 3.3}{\ignorespaces The communication between a client and a server for the read function.\relax }}{15}{figure.caption.16}
-\contentsline {figure}{\numberline {\relax 3.4}{\ignorespaces The communication between a client and a server for the update function.\relax }}{16}{figure.caption.18}
-\contentsline {figure}{\numberline {\relax 3.5}{\ignorespaces The communication between a client and a server while offline with a transition to online.\relax }}{18}{figure.caption.20}
-\contentsline {figure}{\numberline {\relax 3.6}{\ignorespaces The communication between two clients and a server.\relax }}{19}{figure.caption.22}
+\contentsline {figure}{\numberline {\relax 3.4}{\ignorespaces The communication between a client and a server for the update function.\relax }}{17}{figure.caption.18}
+\contentsline {figure}{\numberline {\relax 3.5}{\ignorespaces The communication between a client and a server while offline with a transition to online.\relax }}{19}{figure.caption.20}
+\contentsline {figure}{\numberline {\relax 3.6}{\ignorespaces The communication between two clients and a server.\relax }}{20}{figure.caption.22}
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {\relax 4.1}{\ignorespaces An overview of the service worker being able to provide the application experience of both online and offline modes.\relax }}{22}{figure.caption.23}
+\contentsline {figure}{\numberline {\relax 4.1}{\ignorespaces An overview of the service worker being able to provide the application experience of both online and offline modes.\relax }}{24}{figure.caption.23}
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {\relax 5.1}{\ignorespaces A look at the server-client architecture with a RESTful interface.\relax }}{31}{figure.caption.27}
-\contentsline {figure}{\numberline {\relax 5.2}{\ignorespaces A top-level view of the system's design.\relax }}{32}{figure.caption.28}
-\contentsline {figure}{\numberline {\relax 5.3}{\ignorespaces 3-Tier architecture.\relax }}{33}{figure.caption.29}
-\contentsline {figure}{\numberline {\relax 5.4}{\ignorespaces A part of the WebCure interface on working with Sets.\relax }}{38}{figure.caption.33}
+\contentsline {figure}{\numberline {\relax 5.1}{\ignorespaces A look at the server-client architecture with a RESTful interface.\relax }}{33}{figure.caption.27}
+\contentsline {figure}{\numberline {\relax 5.2}{\ignorespaces A top-level view of the system's design.\relax }}{34}{figure.caption.28}
+\contentsline {figure}{\numberline {\relax 5.3}{\ignorespaces 3-Tier architecture.\relax }}{35}{figure.caption.29}
+\contentsline {figure}{\numberline {\relax 5.4}{\ignorespaces A part of the WebCure interface on working with Sets.\relax }}{40}{figure.caption.33}
 \addvspace {10\p@ }
 \addvspace {10\p@ }
 \addvspace {10\p@ }

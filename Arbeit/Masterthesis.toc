@@ -11,31 +11,31 @@
 \contentsline {section}{\numberline {3.1}Requirements}{11}{section.3.1}
 \contentsline {section}{\numberline {3.2}Assumptions}{11}{section.3.2}
 \contentsline {section}{\numberline {3.3}Protocol}{13}{section.3.3}
-\contentsline {subsection}{\numberline {3.3.1}Data transmission}{13}{subsection.3.3.1}
-\contentsline {subsection}{\numberline {3.3.2}Description}{13}{subsection.3.3.2}
-\contentsline {chapter}{\numberline {4}Technologies}{21}{chapter.4}
-\contentsline {section}{\numberline {4.1}Service Worker}{21}{section.4.1}
-\contentsline {subsection}{\numberline {4.1.1}Service worker lifecycle}{23}{subsection.4.1.1}
-\contentsline {section}{\numberline {4.2}Cache API}{25}{section.4.2}
-\contentsline {section}{\numberline {4.3}IndexedDB}{26}{section.4.3}
-\contentsline {subsection}{\numberline {4.3.1}IndexedDB terms}{27}{subsection.4.3.1}
-\contentsline {subsection}{\numberline {4.3.2}IndexedDB Promised}{27}{subsection.4.3.2}
-\contentsline {section}{\numberline {4.4}Persistent Storage}{28}{section.4.4}
-\contentsline {section}{\numberline {4.5}Background Sync}{28}{section.4.5}
-\contentsline {chapter}{\numberline {5}Implementation}{31}{chapter.5}
-\contentsline {section}{\numberline {5.1}System's main components}{32}{section.5.1}
-\contentsline {subsection}{\numberline {5.1.1}Database layer}{33}{subsection.5.1.1}
-\contentsline {subsection}{\numberline {5.1.2}Server}{34}{subsection.5.1.2}
-\contentsline {subsection}{\numberline {5.1.3}Client}{38}{subsection.5.1.3}
-\contentsline {chapter}{\numberline {6}Evaluation}{53}{chapter.6}
-\contentsline {chapter}{\numberline {7}Related Work}{55}{chapter.7}
-\contentsline {section}{\numberline {7.1}SwiftCloud: a transactional system that brings geo-replication to the client}{55}{section.7.1}
-\contentsline {section}{\numberline {7.2}Legion: a framework, which enriches web applications}{55}{section.7.2}
-\contentsline {section}{\numberline {7.3}Developing web and mobile applications with offline usage experience}{56}{section.7.3}
-\contentsline {chapter}{\numberline {8}Conclusion}{63}{chapter.8}
-\contentsline {section}{\numberline {8.1}Summary}{63}{section.8.1}
-\contentsline {section}{\numberline {8.2}Future Work}{63}{section.8.2}
-\contentsline {chapter}{\nonumberline List of Figures}{65}{chapter*.47}
-\contentsline {chapter}{\nonumberline List of Tables}{67}{chapter*.48}
-\contentsline {chapter}{\nonumberline Listings}{69}{chapter*.49}
-\contentsline {chapter}{\nonumberline Bibliography}{71}{chapter*.50}
+\contentsline {subsection}{\numberline {3.3.1}Data transmission}{14}{subsection.3.3.1}
+\contentsline {subsection}{\numberline {3.3.2}Description}{14}{subsection.3.3.2}
+\contentsline {chapter}{\numberline {4}Technologies}{23}{chapter.4}
+\contentsline {section}{\numberline {4.1}Service Worker}{23}{section.4.1}
+\contentsline {subsection}{\numberline {4.1.1}Service worker lifecycle}{25}{subsection.4.1.1}
+\contentsline {section}{\numberline {4.2}Cache API}{27}{section.4.2}
+\contentsline {section}{\numberline {4.3}IndexedDB}{28}{section.4.3}
+\contentsline {subsection}{\numberline {4.3.1}IndexedDB terms}{29}{subsection.4.3.1}
+\contentsline {subsection}{\numberline {4.3.2}IndexedDB Promised}{29}{subsection.4.3.2}
+\contentsline {section}{\numberline {4.4}Persistent Storage}{30}{section.4.4}
+\contentsline {section}{\numberline {4.5}Background Sync}{30}{section.4.5}
+\contentsline {chapter}{\numberline {5}Implementation}{33}{chapter.5}
+\contentsline {section}{\numberline {5.1}System's main components}{34}{section.5.1}
+\contentsline {subsection}{\numberline {5.1.1}Database layer}{35}{subsection.5.1.1}
+\contentsline {subsection}{\numberline {5.1.2}Server}{36}{subsection.5.1.2}
+\contentsline {subsection}{\numberline {5.1.3}Client}{40}{subsection.5.1.3}
+\contentsline {chapter}{\numberline {6}Evaluation}{55}{chapter.6}
+\contentsline {chapter}{\numberline {7}Related Work}{57}{chapter.7}
+\contentsline {section}{\numberline {7.1}SwiftCloud: a transactional system that brings geo-replication to the client}{57}{section.7.1}
+\contentsline {section}{\numberline {7.2}Legion: a framework, which enriches web applications}{57}{section.7.2}
+\contentsline {section}{\numberline {7.3}Developing web and mobile applications with offline usage experience}{58}{section.7.3}
+\contentsline {chapter}{\numberline {8}Conclusion}{65}{chapter.8}
+\contentsline {section}{\numberline {8.1}Summary}{65}{section.8.1}
+\contentsline {section}{\numberline {8.2}Future Work}{65}{section.8.2}
+\contentsline {chapter}{\nonumberline List of Figures}{67}{chapter*.47}
+\contentsline {chapter}{\nonumberline List of Tables}{69}{chapter*.48}
+\contentsline {chapter}{\nonumberline Listings}{71}{chapter*.49}
+\contentsline {chapter}{\nonumberline Bibliography}{73}{chapter*.50}
