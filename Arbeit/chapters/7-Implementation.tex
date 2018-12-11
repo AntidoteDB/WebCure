@@ -1,9 +1,9 @@
 \chapter{Implementation}
 \label{Implementation}
 
-In this chapter, we are going to describe the way we solved the significant obstacles that we faced during the development phase.
+In this chapter, we are going to describe the way we solved the obstacles that we faced during the development phase.
 
-Addressing the client, in the \chapref*{Technologies} we already named the key frameworks and techniques that we used in the implementation. Concerning the server, it is going to provide to the client the RESTful\footnote{REST or Representational State Transfer is a set of design principles, which make the network communication more flexible and scalable\cite{40}.} interface for the use cases, which we will describe below.
+In \chapref*{Technologies} we already named the key frameworks and techniques that we used in the implementation for the client. The server is going to provide to the client a RESTful\footnote{REST or Representational State Transfer is a set of design principles, which make the network communication more flexible and scalable\cite{40}.} interface for the use cases, which we will describe below.
 
 \begin{figure}[!htb]
     \begin{center}
@@ -12,14 +12,14 @@ Addressing the client, in the \chapref*{Technologies} we already named the key f
     \stackunder{\fbox{\includegraphics[width=0.5\linewidth]{images/design/clientserver.jpeg}}}%
     {\scriptsize%
      Source: \url{https://cdn-images-1.medium.com/max/660/1*EbBD6IXvf3o-YegUvRB_IA.jpeg}}
-    \caption {A look at the server-client architecture with a RESTful interface.}
+    \caption {A server-client architecture with a RESTful interface.}
     \label{fig:design1}
 \end{center}
 \end{figure}
 
-To demonstrate the functionality of the WebCure, we covered three different types of CRDTs used in AntidoteDB: a Counter, a Set and a Multi-value Register. We managed to support each of these data types on the server and the client as well. We will use a Set CRDT as an example for code listings introduced further.
+To demonstrate the functionality of WebCure, we implemented three different types of CRDTs used in AntidoteDB: a Counter, a Set and a Multi-value Register. We support each of these data types on the server and the client as well. We will use a Set CRDT as an example for code listings introduced further.
 
-\section{System's main components}
+\section{Main components of the system}
 \label{sysmaincomponents}
 
 \begin{figure}[!htb]
@@ -33,7 +33,7 @@ To demonstrate the functionality of the WebCure, we covered three different type
 \end{center}
 \end{figure}
 
-In the chapter \chapref*{Design}, we introduced a client and a server as black boxes, without really knowing what is happening inside each of them. However, from now on, we have a clear understanding of what the system and its main components will look like. As we can see at the \figref*{fig:impl1}, the client part of the system, which we introduced before, contains a web application that has a database on its side for reading and storing the data locally. The server, on the other hand, possesses a setup with AntidoteDB and, apart from that, can exchange messages with a client. Regarding the exchanging of the data, the client can send to the server the operations performed offline, while the server is sending back to the client the current states of CRDT data.
+In \chapref*{Design}, we introduced a client and a server as black boxes, without really explaining their internal structure. However, we have a clear picture of what the system and its main components will look like. As we can see at the \figref*{fig:impl1}, the client part of the system, which we introduced before, contains a web application that has a database on its side for reading and storing the data locally. The server, on the other hand, is controlling an AntidoteDB database, apart from that, can exchange messages with clients. The communication with the server on a client's side is controlled by a service worker. It serves as a proxy and gets the data either from cache, or from the server, depending on the use case. Regarding the exchanging of the data, the client can send to the server the operations performed offline, while the server is sending back to the client the current states of CRDT data. 
 
 \begin{figure}[!htb]
     \begin{center}
@@ -44,23 +44,23 @@ In the chapter \chapref*{Design}, we introduced a client and a server as black b
 \end{center}
 \end{figure}
 
-We are going to implement the WebCure using a 3-tier architecture\cite{51}, as it suits the design of the system. Its principal distinction is that it has a clear separation between the presentation, application and data layers, as we can spot at the \figref*{fig:dev1}, where we also noted how each JavaScript file of the WebCure relates to these layers. Each layer is responsible for their tasks. Let us now briefly characterise every of them. A \textit{presentation layer} is responsible for presenting the information to the users, while it can also accept requests from them. An \textit{application layer}, in its turn, implements the algorithmic part of the system and answers the operations requested by the client. The last one, a \textit{data layer}, manages and implements the data sources of the system. The advantages of a 3-tier architecture style are the scalability and portability it provides. However, a disadvantage could be a communication overhead between the layers\cite{50}.
+We are going to design WebCure using a 3-tier architecture\cite{51}. Its principal distinction is that it has a clear separation between the presentation, application, and data layers, as we can spot in \figref*{fig:dev1}, where we also sketch how each JavaScript file of WebCure relates to these layers. Each layer is responsible for its tasks. Let us now briefly characterise them. A \textit{presentation layer} is implemented on a client's side and is responsible for presenting the information to the users, while it can also accept requests from them. An \textit{application layer} is based on a server's side, implements the algorithmic part of the system and answers the operations requested by the client. The last one, a \textit{data layer}, manages and implements the data sources of the system. The advantages of a 3-tier architecture style are the scalability and portability it provides. However, a disadvantage could be a communication overhead between the layers\cite{50}.
 
-In the next subsections, we are going to describe the implementation of the main logic of the system.
+In the next subsections, we are going to describe the implementation of the system.
 
-\subsection{Database layer}
+\subsection{Database}
 
-This layer includes an AntidoteDB database, which is used to store and handle CRDT-objects. To be able to work with the database, we are going to use a JavaScript Client for AntidoteDB\footnote{https://antidotedb.github.io/antidote\_ts\_client/}, which suits the stack of the technologies we are using for WebCure. The database itself will be running on a Docker\footnote{https://www.docker.com/} container created from an image of Antidote data store. For this thesis, however, specific changes were applied to the docker image of Antidote and the JavaScript Client for Antidote as well. In order to be able to read and to apply changes to the data at a specific timestamp, the Antidote image for docker should be running with certifications checks disabled, while also there is a flag, which was added to the Antidote JavaScript client to make sure that the client supports the possibility of making transactions at specific timestamps. Apart from that, the database was also changed to support this functionality.
+This layer includes an AntidoteDB database, which is used to store and handle CRDT-objects. To be able to work with the database, we are going to use a JavaScript Client for AntidoteDB\footnote{https://antidotedb.github.io/antidote\_ts\_client/}, which suits the stack of the technologies we are using for WebCure. The database itself will be running on a Docker\footnote{https://www.docker.com/} container created from an image of the Antidote data store. For this thesis, however, specific changes were applied to the docker image of Antidote and the JavaScript Client for Antidote as well. In order to read and to apply changes to the data at a specific timestamp, the Antidote image for docker should be running with certification checks disabled, while also there is a flag, which was added to the Antidote JavaScript client to make sure that the client supports the possibility of comitting updates at specific timestamps. Apart from that, the database was also changed to support this functionality.
 
 \subsection{Server}
 \label{impl-server}
 
-The server side of the WebCure is fundamental, as it provides the interface to the client and manages the communication with the database layer. To implement a server we used a Node.js\footnote{Node.js is a JavaScript run-time environment, which let us execute JavaScript code outside the web browser. More details can be found here: https://nodejs.org/en/.} framework called Express\footnote{Express is a Nodej.s framework that provides features for web and mobile applications. More details can be found here: https://expressjs.com/.}. As we are taking Set CRDT as an example, let us mention the methods the server has for it:
+The server side of WebCure is fundamental, as it provides the interface to the client and manages the communication with the database layer. To implement a server we used a Node.js\footnote{Node.js is a JavaScript run-time environment, which let us execute JavaScript code outside the web browser. More details can be found here: https://nodejs.org/en/.} framework called Express\footnote{Express is a Nodej.s framework for web and mobile applications that provides such features as robust routing, HTTP helpers and others. More details can be found here: https://expressjs.com/.}. Taking Set CRDT as an example, we will now discuss the methods the server implements:
 
 \begin{itemize}
     \item {Sending back either the latest state of a Set CRDT or, if a timestamp was provided, then the state at a specific timestamp;}
-    \item {Adding/removing elements from the Set CRDT;}
-    \item {Applying all the add and remove operations, which were performed at the client while offline;}
+    \item {Adding/removing elements from a Set CRDT;}
+    \item {Applying a list of operations, which were performed at the client while offline.}
 \end{itemize}
 
 \subsection*{Sending the data back}
@@ -92,9 +92,9 @@ apiRouter.route('/set/:set_id/timestamp').post(async function(req, res, next) {
 });
 \end{lstlisting} 
 
-Have a look at the~\lstref*{lst:dev1}, where at the \textit{line 1} there is an object \textit{apiRouter} from Express framework introduced above, which adds an HTTP Post route to listen for. As a response to that request, starting from \textit{line 4}, we can observe the logic of the function. There, firstly, we assign variables the passed parameters. The id of the requested Set CRDT -- \textit{req.params.set\_id}, is assigned to the variable \textit{setId} and an optional timestamp -- \textit{req.body.timestamp}, is assigned to the variable \textit{timetamp}, which is used in the function \textit{setTimestamp} to set the current timestamp of the database. For this operation, the timestamp parameter is optional, though.
+Have a look at the~\lstref*{lst:dev1}, where at the \textit{line 1} there is an object \textit{apiRouter} from Express framework introduced above, which adds an HTTP Post route to listen for. As a response to that request, starting from \textit{line 4}, we can observe the logic of the function. There, firstly, we assign the passed parameters to variables. The id of the requested Set CRDT -- \textit{req.params.set\_id}, is assigned to the variable \textit{setId} and an optional timestamp -- \textit{req.body.timestamp}, is assigned to the variable \textit{timetamp}, which is used in the function \textit{setTimestamp} to set the current timestamp of the database. For this operation, the timestamp parameter is optional, though.
 
-At \textit{line 9} we use the asynchronous method \textit{startTransaction} of object \textit{atdClient}, which represents the Antidote JavaScript Client. From that point, a reference of the Antidote Object associated with \textit{setId} is assigned to the variable \textit{set} and afterwards its value is read and assigned to \textit{val}. Then, at the \textit{line 13} the transaction is committed and, afterwards, a JSON object containing the status of the request, the value of requested Set CRDT and the timestamp of the transaction (as the timestamp is an object representing a type of ByteBuffer\footnote{https://github.com/dcodeIO/bytebuffer.js}, for a successful transmission in a JSON format, it is converted to the Base64\footnote{Base64 -- a group of similar binary-to-text encoding schemes that represent binary data in an ASCII string format by translating it into a radix-64 representation\cite{53}.} at \textit{line 19}) are sent back to the client.
+At \textit{line 9} we use the asynchronous method \textit{startTransaction} of object \textit{atdClient}, which represents the Antidote JavaScript Client. From that point, a reference of the Antidote Object associated with \textit{setId} is assigned to the variable \textit{set} and afterwards its value is read and assigned to \textit{val}. Then, at the \textit{line 13} the transaction is committed and, afterwards, a JSON object containing the status of the request, the value of requested Set CRDT and the timestamp of the transaction (as the timestamp is an object representing a type of ByteBuffer\footnote{https://github.com/dcodeIO/bytebuffer.js}, for a successful transmission in a JSON format, it is converted to Base64\footnote{Base64 -- a group of similar binary-to-text encoding schemes that represent binary data in an ASCII string format by translating it into a radix-64 representation\cite{53}.} at \textit{line 19}. That eases the process of passing the timestamp information in a JSON format.) are sent back to the client.
 
 \subsection*{Adding / removing elements}
 
@@ -123,7 +123,7 @@ apiRouter
   })
 \end{lstlisting} 
 
-As we can see from the~\lstref*{lst:dev2}, this code looks very similar to what we have already seen before, with some small differences. At the \textit{line 7}, for example, we now get the passed by a client value and assign it to the \textit{value} variable. Afterwards, we start a transaction and at the \textit{line 10} assign to the variable \textit{set} an Antidote Object associated with \textit{setId}. Later, we call an operation \textit{update} of the transaction object \textit{tx}, which let us update the value in the database. We passed it as a parameter a method call \textit{add(value)} of the object \textit{set}. Finally, we commit the transaction and send back to the client the status of request.
+As we can see from the~\lstref*{lst:dev2}, this code looks very similar to what we have already seen before, with some small differences. At the \textit{line 7}, for example, we receive an element (the one, which has to be added to the Set CRDT identified as \textit{id}) passed by a client and assign it to the variable \textit{value}. Afterwards, we start a transaction and at the \textit{line 10} assign to the variable \textit{set} an Antidote Object associated with \textit{setId}. Later, we call an operation \textit{update} of the transaction object \textit{tx}, which let us update the value in the database. We passed it as a parameter a method call \textit{add(value)} of the object \textit{set}. Finally, we commit the transaction and send back to the client the status of request. Additionally, even though it is not the case for the code we presented in the above scenarios, the same transaction in AntidoteDB can mix read and update methods on different objects.
 
 \subsection*{Applying the operations performed offline}
 
@@ -161,11 +161,11 @@ apiRouter.route('/set_sync/:set_id').post(async function(req, res, next) {
 });
 \end{lstlisting}
 
-At the~\lstref*{lst:dev3}, we can see the server's implementation for this case. The most, we are interested in a part, which starts at the \textit{line 11}. There, we create an empty array named \textit{antidoteUpdates}, where we are going to store the updates from the client in the order in what they were received. To do that, we start iteratingover the elements of the array \textit{update} using the loop \textit{forEach}. The array \textit{updates} was received through the POST request from the client. The format of \textit{updates} array allows distinguishing between the operations applied on the Set CRDT -- it is either \textit{add} or \textit{remove}. We can see it inside the loop between the lines \textit{13} and \textit{17}. Afterwards, we have the array, consisting Antidote-compatible updates. Then, the important point is to apply these updates at the timestamp, which the client had on its side, as there could be other updates coming from different clients which could have been online at that time. For this reason, at the \textit{line 4}, we store a timestamp coming from the client, which is the latest it received from the server before going offline. Thus, we apply the updates on that timestamp, to satisfy causal consistency guarantees.
+In \lstref*{lst:dev3}, we can see the server's implementation for this case. The most, we are interested in a part, which starts at the \textit{line 11}. There, we create an empty array named \textit{antidoteUpdates}, where we are going to store the updates from the client in the order in what they were received. To do that, we start iterating over the elements of the array \textit{update} using the loop \textit{forEach}. The array \textit{updates} was received through the POST request from the client. The format of \textit{updates} array allows to distinguish between the operations applied on the Set CRDT -- it is either \textit{add} or \textit{remove}. We can see it inside the loop between the lines \textit{13} and \textit{17}. Afterwards, we have the array, consisting of Antidote-compatible updates. Then, the important point is to apply these updates at the timestamp, which the client had on its side, as there could be other updates coming from different clients which could have been online at that time. For this reason, at the \textit{line 4}, we store a timestamp coming from the client, which is the latest it received from the server before going offline. Thus, we apply the updates on that timestamp, to satisfy causal consistency guarantees.
 
 \subsection{Client}
 
-In order for the user to be able to communicate with an AntidoteDB server, we are going to have a running web application that serves as a client. It runs in the web-browser, supports various commands from the user and sits on top of the local database layer.
+In order for the user to communicate with an AntidoteDB server, we are going to have a running web application that serves as a client. It runs in the web-browser, supports various commands from the user and sits on top of the local database layer.
 
 \begin{figure}[!htb]
     \begin{center}
@@ -173,19 +173,19 @@ In order for the user to be able to communicate with an AntidoteDB server, we ar
     \setlength{\fboxrule}{1pt}%
     \stackunder{\fbox{\includegraphics[width=0.6\linewidth]{images/screens/Overview.PNG}}}%
     {\scriptsize}
-    \caption {A part of the WebCure interface on working with Sets.}
+    \caption {A Set CRDT part of the demonstration application, based on WebCure.}
     \label{fig:dev2}
 \end{center}
 \end{figure}
  
 
-For each of supported CRDTs, there are different available commands, which we can observe from the \figref*{fig:dev2}. For the demonstration of the functionality, there are three inputs available to the user. The first input labelled \textit{Set Id}, is responsible for the names of the elements stored in the local cache and the AntidoteDB. The second input, \textit{Element}, is there for the user to enter a list of elements to add or remove from the Set CRDT. The last input gives an opportunity to provide a specific timestamp, in order to be able to get the data at that timestamp or, in the other case, to apply a selected operation at that timestamp. Apart from the inputs, there are four buttons, which perform specific operations on a set CRDTs -- \textit{getting the value by id}, \textit{adding and removing elements}, \textit{removing element by id from the cache}.
+For each of the supported CRDTs, there are different commands available. At \figref*{fig:dev2}, we can observe the commands that are available for a Set CRDT in our demonstration application. For the explanation of the functionality, there are three inputs available to the user. The first input labelled \textit{Set Id}, is responsible for the names of the elements stored in the local cache and the AntidoteDB. The second input, \textit{Element}, is there for the user to enter a list of elements to add or remove from the Set CRDT. The last input gives an opportunity to provide a specific timestamp, in order to be able to get the data at that timestamp or, in the other case, to apply a selected operation at that timestamp. Apart from the inputs, there are four buttons, which perform specific operations on a set CRDTs -- \textit{getting the value by id}, \textit{adding and removing elements}, \textit{removing element by id from the cache}.
 
 However, for all this functionality to work as intended in both modes -- offline and online -- at first, a service worker has to be set up. 
 
 \subsection*{Setting up a service worker}
 
-Our service worker lies in the root directory of the application under the file \textit{sw.js}. Due to it, the application can maintain its main features such as support the offline work and synchronising the changes performed offline with the primary database. As it was explained in the \chapref*{Technologies}, we registered the service worker on a \textit{load} event of the application. Then, we added two listeners to the service worker for the events \textit{install} and \textit{fetch}, which we are going to explain further.
+Our service worker is located in the root directory of the application under the file \textit{sw.js}. With its help, the application can maintain its main features such as support the offline work and synchronising the changes performed offline with the primary database. As explained in \chapref*{Technologies}, we registered the service worker on \textit{load} event of the application. Then, we added two listeners to the service worker for the events \textit{install} and \textit{fetch}, which we are going to explain further.
 
 \begin{lstlisting}[caption={Code for caching necessary data for the client.}, label={lst:dev4}]
 self.addEventListener('install', function(event) {
@@ -223,7 +223,7 @@ self.addEventListener('install', function(event) {
 });
 \end{lstlisting}
 
-At the \lstref*{lst:dev4}, we can see that the array \textit{urlsToCache} consists of elements of type JavaScript strings, which are all the required frameworks, libraries, HTML pages, CSS styles and images needed for the application to work properly. This array is later used at the \textit{line28} to create a cache storage \textit{CACHES\_NAME}, where the responses to stored URLs from the array \textit{urlsToCache} are going to be stored. All this work is performed when the installation of the service worker for the page is triggered, which in our case is the start of the application. 
+In \lstref*{lst:dev4}, we can see that the array \textit{urlsToCache} consists of elements of type JavaScript strings, which are all the required frameworks, libraries, HTML pages, CSS styles and images needed for the application to work properly. This array is later used at the \textit{line28} to create a cache storage \textit{CACHES\_NAME}, where the responses to stored URLs from the array \textit{urlsToCache} are going to be stored. All this work is performed when the installation of the service worker for the page is triggered, which in our case is the start of the application. 
 
 \begin{lstlisting}[caption={Code for maintaining the requests of the application.}, label={lst:dev5}]
 self.addEventListener('fetch', function(event) {
@@ -236,13 +236,13 @@ self.addEventListener('fetch', function(event) {
 });
 \end{lstlisting}
 
-Now, once we already have the cached data, we still need to make use of it to make our application work offline. If we look at \lstref*{lst:dev5}, we can see that whenever there is a request going to the network, at \textit{line 3} we are trying to match that request with ones we have in cache: if it is the case, then the cached object is returned or, otherwise, the fetching process from the network continues, as can be seen at the \textit{line 5}.
+Now, once we already have the cached data, we still need to make use of it to make our application work offline. If we look at \lstref*{lst:dev5}, we can see that whenever there is a request going to the network, at \textit{line 3} we are trying to match that request with ones we have in cache: if it is the case, then the cached object is returned or, otherwise, the fetching process from the network continues, as can be seen at the \textit{line 5}. If the requested resource is not cached and, moreover, the client is offline, then the \textit{fetch} request executes normally and will respond with an error, as the resource will not be loaded.
 
 Apart from caching scripts and media files, necessary for the application to work, we will also need to set up a local database to store the data at the client's side.
 
 \subsection*{Setting up a local database}
 
-As it was explained in the \chapref*{Technologies}, in the file \textit{js/dbhelper.js} we are setting up an IndexedDB database for the client's side. There, we are going to create two object stores. First one will consist of different CRDT data items, differentiated by their id. The other object store will keep track of the timestamp, which is associated with the latest data taken from the server. The point of having that timestamp is for the client to send it with the updates performed while offline, which will give an insight to the server, at what timestamp these updates should be applied.
+As explained in \chapref*{Technologies}, in the file \textit{js/dbhelper.js} we are setting up an IndexedDB database for the client's side. There, we are going to create two object stores. The first one will consist of different CRDT data items, differentiated by their id. The other object store will keep track of the timestamp, which is associated with the latest data taken from the server. The point of having that timestamp is for the client to send it with the updates performed while offline, which will give an insight to the server, at what timestamp these updates should be applied.
 
 \begin{lstlisting}[caption={Creating object stores in IndexedDB for CRDTs and timestamps.}, label={lst:dev6}]
 // ...
@@ -256,7 +256,9 @@ var snapshotStore = upgradeDB.createObjectStore('crdt-timestamps', \{
 // ...
 \end{lstlisting}
 
-We can observe the logic explained above at \lstref*{lst:dev6}, where there is an object store named \textit{`crdt-states'} created for CRDTs and \textit{`crdt-timestamps'} for the timestamp. A \textit{keyPath} parameter for both of them is there in order to be able to query the data by \textit{id}.
+We can observe the logic explained above at \lstref*{lst:dev6}, where there is an object store named \textit{`crdt-states'} created for CRDTs and \textit{`crdt-timestamps'} for the timestamp. A \textit{keyPath} parameter for both of them is there in order to be able to query the data by \textit{id}. 
+
+While it is clear why do we store the states of CRDTs, it might be not the case for why it is done for the timestamps. First of all, any updates a client makes when it loses the internet connection will be stored in the cache. However, when these updates will be sent to the server, it needs to know how to apply them. To that point, the server might have already received updates from some other clients. Therefore, to make sure that the updates we send are applied at the version of the data we were dealing with locally, a client has to provide a timestamp to the server. Secondly, we store a timestamp in cache for the persistence. While we could have turned to creating a variable for this case, it would not have allowed us to use this information after closing the application. Caching solves this problem.
 
 \subsection*{Implementation of abstract Set CRDT type}
 
