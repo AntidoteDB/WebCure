@@ -9,28 +9,24 @@ class MVRegisterCRDT {
     this.sentOperations = [];
   }
 
-  calculateState() {
+  materialize() {
     let values = [];
 
-    if (this.sentOperations.length > 0) {
-      this.sentOperations.forEach(operation => {
-        if (operation.type === 'assign') {
-          this.state = [operation.value];
-        } else if (operation.type === 'reset') {
-          this.state = [];
-        }
-      });
-    }
+    this.sentOperations.forEach(operation => {
+      if (operation.type === 'assign') {
+        this.state = [operation.value];
+      } else if (operation.type === 'reset') {
+        this.state = [];
+      }
+    });
 
-    if (this.operations.length > 0) {
-      this.operations.forEach(operation => {
-        if (operation.type === 'assign') {
-          this.state = [operation.value];
-        } else if (operation.type === 'reset') {
-          this.state = [];
-        }
-      });
-    }
+    this.operations.forEach(operation => {
+      if (operation.type === 'assign') {
+        this.state = [operation.value];
+      } else if (operation.type === 'reset') {
+        this.state = [];
+      }
+    });
 
     this.state.forEach(key => {
       values.push(key);
@@ -40,12 +36,10 @@ class MVRegisterCRDT {
   }
 
   processSentOperations() {
-    if (this.operations.length > 0) {
-      this.operations.forEach(operation => {
-        this.sentOperations.push(operation);
-      });
-      this.operations = [];
-    }
+    this.operations.forEach(operation => {
+      this.sentOperations.push(operation);
+    });
+    this.operations = [];
   }
 
   assign(valueToAssign) {
