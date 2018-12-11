@@ -83,35 +83,37 @@ const requestMapSync = () => {
 
 const fillSelectsEls = elementDoms => {
   elementDoms.forEach(elementDom => {
-    elementDom.innerHTML = '';
-    DBHelper.crdtDBPromise.then(function(db) {
-      if (!db) return;
+    if (elementDom) {
+      elementDom.innerHTML = '';
+      DBHelper.crdtDBPromise.then(function(db) {
+        if (!db) return;
 
-      var index = db.transaction('crdt-states').objectStore('crdt-states');
+        var index = db.transaction('crdt-states').objectStore('crdt-states');
 
-      return index.getAll().then(function(states) {
-        var selectOptions = [],
-          i = 'a'.charCodeAt(0),
-          j = 'z'.charCodeAt(0);
+        return index.getAll().then(function(states) {
+          var selectOptions = [],
+            i = 'a'.charCodeAt(0),
+            j = 'z'.charCodeAt(0);
 
-        for (; i <= j; ++i) {
-          selectOptions.push(String.fromCharCode(i));
-        }
-
-        states.forEach(state => {
-          if (elementDom.id.indexOf(state.type) === -1) {
-            selectOptions = selectOptions.filter(item => item !== state.id);
+          for (; i <= j; ++i) {
+            selectOptions.push(String.fromCharCode(i));
           }
-        });
 
-        selectOptions.forEach(element => {
-          const option = document.createElement('option');
-          option.value = element;
-          option.innerHTML = element;
-          elementDom.appendChild(option);
+          states.forEach(state => {
+            if (elementDom.id.indexOf(state.type) === -1) {
+              selectOptions = selectOptions.filter(item => item !== state.id);
+            }
+          });
+
+          selectOptions.forEach(element => {
+            const option = document.createElement('option');
+            option.value = element;
+            option.innerHTML = element;
+            elementDom.appendChild(option);
+          });
         });
       });
-    });
+    }
   });
 };
 
@@ -215,7 +217,9 @@ const addCounterForm = () => {
                 store.put(item);
 
                 let setSelector = document.getElementById('set-name-field');
-                fillSelectsEls([name, setSelector]);
+                let mvrSelector = document.getElementById('mvregister-name-field');
+                let mapSelector = document.getElementById('map-name-field');
+                fillSelectsEls([name, setSelector, mvrSelector, mapSelector]);
                 return tx.complete;
               })
               .then(function() {
@@ -579,7 +583,9 @@ const addSetForm = () => {
 
                 store.put(item);
                 let counterSelector = document.getElementById('counter-name-field');
-                fillSelectsEls([name, counterSelector]);
+                let mvrSelector = document.getElementById('mvregister-name-field');
+                let mapSelector = document.getElementById('map-name-field');
+                fillSelectsEls([name, counterSelector, mapSelector, mvrSelector]);
                 return tx.complete;
               })
               .then(function() {
@@ -949,7 +955,8 @@ const addMVRegisterForm = () => {
                 store.put(item);
                 let counterSelector = document.getElementById('counter-name-field');
                 let setSelector = document.getElementById('set-name-field');
-                fillSelectsEls([name, counterSelector, setSelector]);
+                let mapSelector = document.getElementById('map-name-field');
+                fillSelectsEls([name, counterSelector, setSelector, mapSelector]);
                 return tx.complete;
               })
               .then(function() {
