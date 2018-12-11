@@ -27,7 +27,7 @@ describe('SetCRDT', function() {
     ]);
     expect(a.sentOperations).toEqual([]);
     expect(a.state).toEqual(new Set([]));
-    expect(a.calculateState()).toEqual(['a']);
+    expect(a.materialize()).toEqual(['a']);
     a.processSentOperations();
     expect(a.operations).toEqual([]);
     expect(a.sentOperations).toEqual([
@@ -41,7 +41,7 @@ describe('SetCRDT', function() {
     expect(b.state).toEqual(new Set([]));
     b.add('a');
     b.processSentOperations();
-    expect(b.calculateState()).toEqual(['a']);
+    expect(b.materialize()).toEqual(['a']);
   });
 
   it('Remove an element from a Set', function() {
@@ -57,7 +57,7 @@ describe('SetCRDT', function() {
     ]);
     expect(a.sentOperations).toEqual([]);
     expect(a.state).toEqual(new Set(['a']));
-    expect(a.calculateState()).toEqual([]);
+    expect(a.materialize()).toEqual([]);
     a.processSentOperations();
     expect(a.operations).toEqual([]);
     expect(a.sentOperations).toEqual([
@@ -71,6 +71,6 @@ describe('SetCRDT', function() {
     expect(b.state).toEqual(new Set(['a']));
     b.remove('a');
     b.processSentOperations();
-    expect(b.calculateState()).toEqual([]);
+    expect(b.materialize()).toEqual([]);
   });
 });

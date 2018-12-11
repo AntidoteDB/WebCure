@@ -22,7 +22,7 @@ describe('CounterCRDT', function() {
     expect(a.operations).toEqual([5]); // a.operations = [5]
     expect(a.sentOperations).toEqual([]); // a.operations = []
     expect(a.state).toEqual(0); // a.state = 0
-    expect(a.calculateState()).toEqual(5);
+    expect(a.materialize()).toEqual(5);
     a.processSentOperations();
     expect(a.operations).toEqual([]);
     expect(a.sentOperations).toEqual([5]);
@@ -31,8 +31,8 @@ describe('CounterCRDT', function() {
     expect(b.state).toEqual(0);
     b.inc();
     b.processSentOperations();
-    expect(b.calculateState()).toEqual(1);
-    // TODO Keep in mind that at this point the sentOperationsArray is not cleared and calculateState will return 10.
+    expect(b.materialize()).toEqual(1);
+    // TODO Keep in mind that at this point the sentOperationsArray is not cleared and materialize will return 10.
   });
 
   it('Decrement the Counter by value', function() {
@@ -43,7 +43,7 @@ describe('CounterCRDT', function() {
     expect(a.operations).toEqual([-5]);
     expect(a.sentOperations).toEqual([]);
     expect(a.state).toEqual(0);
-    expect(a.calculateState()).toEqual(-5);
+    expect(a.materialize()).toEqual(-5);
     a.processSentOperations();
     expect(a.operations).toEqual([]);
     expect(a.sentOperations).toEqual([-5]);
@@ -52,6 +52,6 @@ describe('CounterCRDT', function() {
     expect(b.state).toEqual(0);
     b.dec();
     b.processSentOperations();
-    expect(b.calculateState()).toEqual(-1);
+    expect(b.materialize()).toEqual(-1);
   });
 });

@@ -21,7 +21,7 @@ describe('Set Offline', function() {
               update_clock: false
             },
             function(result) {
-              expect(result.cont).toEqual(item.calculateState());
+              expect(result.cont).toEqual(item.materialize());
               expect(result.lastCommitTimestamp).toEqual(timestamp);
               done();
             }
@@ -50,7 +50,7 @@ describe('Set Offline', function() {
               update_clock: false
             },
             function(result) {
-              expect(result.cont).toEqual(item.calculateState());
+              expect(result.cont).toEqual(item.materialize());
               expect(result.lastCommitTimestamp).toEqual(timestamp);
               TestHelper.checkPut(
                 type,
@@ -63,7 +63,7 @@ describe('Set Offline', function() {
                     key + '/timestamp',
                     { timestamp: { data: timestamp }, update_clock: false },
                     function(result) {
-                      expect(result.cont).toEqual(item.calculateState());
+                      expect(result.cont).toEqual(item.materialize());
                       expect(result.lastCommitTimestamp).toEqual(timestamp);
                       TestHelper.checkPut(
                         type,
@@ -106,7 +106,7 @@ describe('Set Offline', function() {
                     update_clock: false
                   },
                   function(result) {
-                    expect(result.cont).toEqual(item.calculateState());
+                    expect(result.cont).toEqual(item.materialize());
                     expect(result.lastCommitTimestamp).toEqual(timestamp);
                     TestHelper.checkDel(
                       type,
@@ -119,7 +119,7 @@ describe('Set Offline', function() {
                           key + '/timestamp',
                           { timestamp: { data: timestamp }, update_clock: false },
                           function(result) {
-                            expect(result.cont).toEqual(item.calculateState());
+                            expect(result.cont).toEqual(item.materialize());
                             expect(result.lastCommitTimestamp).toEqual(timestamp);
                             TestHelper.checkPut(
                               type,
