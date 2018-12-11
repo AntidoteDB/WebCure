@@ -4,7 +4,7 @@ class MapCRDT {
   constructor(id, values) {
     this.id = id;
     this.state = values ? values : [];
-    this.type = 'map';
+    this.type = "map";
     this.operations = [];
     this.sentOperations = [];
   }
@@ -12,25 +12,21 @@ class MapCRDT {
   calculateState() {
     let values = [];
 
-    if (this.sentOperations.length > 0) {
-      this.sentOperations.forEach(operation => {
-        if (operation.type === 'assign') {
-          this.state = [operation.value];
-        } else if (operation.type === 'reset') {
-          this.state = [];
-        }
-      });
-    }
+    this.sentOperations.forEach(operation => {
+      if (operation.type === "assign") {
+        this.state = [operation.value];
+      } else if (operation.type === "reset") {
+        this.state = [];
+      }
+    });
 
-    if (this.operations.length > 0) {
-      this.operations.forEach(operation => {
-        if (operation.type === 'assign') {
-          this.state = [operation.value];
-        } else if (operation.type === 'reset') {
-          this.state = [];
-        }
-      });
-    }
+    this.operations.forEach(operation => {
+      if (operation.type === "assign") {
+        this.state = [operation.value];
+      } else if (operation.type === "reset") {
+        this.state = [];
+      }
+    });
 
     this.state.forEach(key => {
       values.push(key);
@@ -40,17 +36,15 @@ class MapCRDT {
   }
 
   processSentOperations() {
-    if (this.operations.length > 0) {
-      this.operations.forEach(operation => {
-        this.sentOperations.push(operation);
-      });
-      this.operations = [];
-    }
+    this.operations.forEach(operation => {
+      this.sentOperations.push(operation);
+    });
+    this.operations = [];
   }
 
   update(valueToAssign) {
     let operation = {
-      type: 'assign',
+      type: "assign",
       value: valueToAssign
     };
 
@@ -59,7 +53,7 @@ class MapCRDT {
 
   remove(valueToAssign) {
     let operation = {
-      type: 'assign',
+      type: "assign",
       value: valueToAssign
     };
 
@@ -68,15 +62,14 @@ class MapCRDT {
 
   reset() {
     let operation = {
-      type: 'reset'
+      type: "reset"
     };
 
     this.operations.push(operation);
   }
-
 }
 
 /* istanbul ignore if  */
-if (typeof module === 'object' && module.exports) {
+if (typeof module === "object" && module.exports) {
   module.exports = MapCRDT;
 }

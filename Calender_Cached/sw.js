@@ -45,6 +45,8 @@ self.addEventListener("install", function(event) {
       return cache.addAll(urlsToCache);
     })
   );
+
+  includeScripts();
 });
 
 self.addEventListener("fetch", function(event) {
@@ -63,8 +65,6 @@ self.addEventListener("sync", function(event) {
 });
 
 function pushUserChangesToTheServer() {
-  includeScripts();
-
   DBHelper.getDB();
 
   var syncUserChanges = function(calendarId) {

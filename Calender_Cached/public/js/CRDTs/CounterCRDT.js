@@ -4,34 +4,28 @@ class CounterCRDT {
   constructor(id, value) {
     this.id = id;
     this.state = value ? value : 0;
-    this.type = 'counter';
+    this.type = "counter";
     this.operations = [];
     this.sentOperations = [];
   }
 
   calculateState() {
-    if (this.sentOperations.length > 0) {
-      this.sentOperations.forEach(operation => {
-        this.state += operation;
-      });
-    }
+    this.sentOperations.forEach(operation => {
+      this.state += operation;
+    });
 
-    if (this.operations.length > 0) {
-      this.operations.forEach(operation => {
-        this.state += operation;
-      });
-    }
+    this.operations.forEach(operation => {
+      this.state += operation;
+    });
 
     return this.state;
   }
 
   processSentOperations() {
-    if (this.operations.length > 0) {
-      this.operations.forEach(operation => {
-        this.sentOperations.push(operation);
-      });
-      this.operations = [];
-    }
+    this.operations.forEach(operation => {
+      this.sentOperations.push(operation);
+    });
+    this.operations = [];
   }
 
   inc(incValue) {
@@ -46,6 +40,6 @@ class CounterCRDT {
 }
 
 /* istanbul ignore if  */
-if (typeof module === 'object' && module.exports) {
+if (typeof module === "object" && module.exports) {
   module.exports = CounterCRDT;
 }

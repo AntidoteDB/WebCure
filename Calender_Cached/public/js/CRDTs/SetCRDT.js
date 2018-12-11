@@ -4,42 +4,36 @@ class SetCRDT {
   constructor(id, values) {
     this.id = id;
     this.state = values ? new Set(values) : new Set();
-    this.type = 'set';
+    this.type = "set";
     this.operations = [];
     this.sentOperations = [];
   }
 
   processSentOperations() {
-    if (this.operations.length > 0) {
-      this.operations.forEach(operation => {
-        this.sentOperations.push(operation);
-      });
-      this.operations = [];
-    }
+    this.operations.forEach(operation => {
+      this.sentOperations.push(operation);
+    });
+    this.operations = [];
   }
 
   calculateState() {
     let values = [];
 
-    if (this.sentOperations.length > 0) {
-      this.sentOperations.forEach(operation => {
-        if (operation.type === 'add') {
-          this.state.add(operation.value);
-        } else if (operation.type === 'remove') {
-          this.state.delete(operation.value);
-        }
-      });
-    }
+    this.sentOperations.forEach(operation => {
+      if (operation.type === "add") {
+        this.state.add(operation.value);
+      } else if (operation.type === "remove") {
+        this.state.delete(operation.value);
+      }
+    });
 
-    if (this.operations.length > 0) {
-      this.operations.forEach(operation => {
-        if (operation.type === 'add') {
-          this.state.add(operation.value);
-        } else if (operation.type === 'remove') {
-          this.state.delete(operation.value);
-        }
-      });
-    }
+    this.operations.forEach(operation => {
+      if (operation.type === "add") {
+        this.state.add(operation.value);
+      } else if (operation.type === "remove") {
+        this.state.delete(operation.value);
+      }
+    });
 
     this.state.forEach(key => {
       values.push(key);
@@ -50,7 +44,7 @@ class SetCRDT {
 
   add(valueToAdd) {
     let operation = {
-      type: 'add',
+      type: "add",
       value: valueToAdd
     };
 
@@ -59,7 +53,7 @@ class SetCRDT {
 
   remove(valueToRemove) {
     let operation = {
-      type: 'remove',
+      type: "remove",
       value: valueToRemove
     };
 
@@ -68,6 +62,6 @@ class SetCRDT {
 }
 
 /* istanbul ignore if  */
-if (typeof module === 'object' && module.exports) {
+if (typeof module === "object" && module.exports) {
   module.exports = SetCRDT;
 }
