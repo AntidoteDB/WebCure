@@ -247,7 +247,7 @@ const addCounterForm = () => {
                 if (state) {
                   Object.setPrototypeOf(state, CounterCRDT.prototype);
 
-                  log(`[Offline] The value of ${name.value} is: ${state.materialize()}`);
+                  log(`[Offline] The value of ${name.value} is: ${state.calculateState()}`);
                 } else {
                   log('[Offline] Selected key is not available offline.');
                 }
@@ -610,7 +610,7 @@ const addSetForm = () => {
               return index.get(name.value).then(function(state) {
                 if (state) {
                   Object.setPrototypeOf(state, SetCRDT.prototype);
-                  log(`[Offline] The value of ${name.value} is: [ ${state.materialize()} ]`);
+                  log(`[Offline] The value of ${name.value} is: [ ${state.calculateState()} ]`);
                 } else {
                   log('[Offline] Selected key is not available offline.');
                 }
@@ -980,7 +980,7 @@ const addMVRegisterForm = () => {
               return index.get(name.value).then(function(state) {
                 if (state) {
                   Object.setPrototypeOf(state, MVRegisterCRDT.prototype);
-                  log(`[Offline] The value of ${name.value} is: [ ${state.materialize()} ]`);
+                  log(`[Offline] The value of ${name.value} is: [ ${state.calculateState()} ]`);
                 } else {
                   log('[Offline] Selected key is not available offline.');
                 }
@@ -1043,6 +1043,7 @@ const addMVRegisterForm = () => {
                 var store = tx.objectStore('crdt-states');
 
                 var item = val;
+                debugger;
                 Object.setPrototypeOf(item, MVRegisterCRDT.prototype);
                 item.assign(value.value);
                 store.put(item);
@@ -1113,6 +1114,7 @@ const addMVRegisterForm = () => {
               var item = val;
 
               Object.setPrototypeOf(item, MVRegisterCRDT.prototype);
+              debugger;
               item.reset();
               store.put(item);
 
@@ -1315,6 +1317,7 @@ const addMapForm = () => {
       if (!db) return;
       var index = db.transaction('crdt-timestamps').objectStore('crdt-timestamps');
       return index.get(0).then(function(storedTimestamp) {
+        debugger;
         fetch(`${DBHelper.SERVER_URL}/api/map/${name.value}/timestamp`, {
           headers: {
             'Content-Type': 'application/json; charset=utf-8'
@@ -1339,6 +1342,7 @@ const addMapForm = () => {
 
                 var tx = db.transaction('crdt-states', 'readwrite');
                 var store = tx.objectStore('crdt-states');
+                debugger;
                 var item = new MapCRDT(name.value, json.cont.entries);
 
                 store.put(item);
@@ -1376,7 +1380,7 @@ const addMapForm = () => {
               return index.get(name.value).then(function(state) {
                 if (state) {
                   Object.setPrototypeOf(state, MapCRDT.prototype);
-                  log(`[Offline] The value of ${name.value} is: [ ${state.materialize()} ]`);
+                  log(`[Offline] The value of ${name.value} is: [ ${state.calculateState()} ]`);
                 } else {
                   log('[Offline] Selected key is not available offline.');
                 }
@@ -1439,6 +1443,7 @@ const addMapForm = () => {
                 var store = tx.objectStore('crdt-states');
 
                 var item = val;
+                debugger;
                 Object.setPrototypeOf(item, MVRegisterCRDT.prototype);
                 item.assign(value.value);
                 store.put(item);
@@ -1509,6 +1514,7 @@ const addMapForm = () => {
               var item = val;
 
               Object.setPrototypeOf(item, MVRegisterCRDT.prototype);
+              debugger;
               item.reset();
               store.put(item);
 

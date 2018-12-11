@@ -10,30 +10,36 @@ class SetCRDT {
   }
 
   processSentOperations() {
-    this.operations.forEach(operation => {
-      this.sentOperations.push(operation);
-    });
-    this.operations = [];
+    if (this.operations.length > 0) {
+      this.operations.forEach(operation => {
+        this.sentOperations.push(operation);
+      });
+      this.operations = [];
+    }
   }
 
-  materialize() {
+  calculateState() {
     let values = [];
 
-    this.sentOperations.forEach(operation => {
-      if (operation.type === 'add') {
-        this.state.add(operation.value);
-      } else if (operation.type === 'remove') {
-        this.state.delete(operation.value);
-      }
-    });
+    if (this.sentOperations.length > 0) {
+      this.sentOperations.forEach(operation => {
+        if (operation.type === 'add') {
+          this.state.add(operation.value);
+        } else if (operation.type === 'remove') {
+          this.state.delete(operation.value);
+        }
+      });
+    }
 
-    this.operations.forEach(operation => {
-      if (operation.type === 'add') {
-        this.state.add(operation.value);
-      } else if (operation.type === 'remove') {
-        this.state.delete(operation.value);
-      }
-    });
+    if (this.operations.length > 0) {
+      this.operations.forEach(operation => {
+        if (operation.type === 'add') {
+          this.state.add(operation.value);
+        } else if (operation.type === 'remove') {
+          this.state.delete(operation.value);
+        }
+      });
+    }
 
     this.state.forEach(key => {
       values.push(key);

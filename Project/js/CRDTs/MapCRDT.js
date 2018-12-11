@@ -9,24 +9,28 @@ class MapCRDT {
     this.sentOperations = [];
   }
 
-  materialize() {
+  calculateState() {
     let values = [];
 
-    this.sentOperations.forEach(operation => {
-      if (operation.type === 'assign') {
-        this.state = [operation.value];
-      } else if (operation.type === 'reset') {
-        this.state = [];
-      }
-    });
+    if (this.sentOperations.length > 0) {
+      this.sentOperations.forEach(operation => {
+        if (operation.type === 'assign') {
+          this.state = [operation.value];
+        } else if (operation.type === 'reset') {
+          this.state = [];
+        }
+      });
+    }
 
-    this.operations.forEach(operation => {
-      if (operation.type === 'assign') {
-        this.state = [operation.value];
-      } else if (operation.type === 'reset') {
-        this.state = [];
-      }
-    });
+    if (this.operations.length > 0) {
+      this.operations.forEach(operation => {
+        if (operation.type === 'assign') {
+          this.state = [operation.value];
+        } else if (operation.type === 'reset') {
+          this.state = [];
+        }
+      });
+    }
 
     this.state.forEach(key => {
       values.push(key);
@@ -36,10 +40,12 @@ class MapCRDT {
   }
 
   processSentOperations() {
-    this.operations.forEach(operation => {
-      this.sentOperations.push(operation);
-    });
-    this.operations = [];
+    if (this.operations.length > 0) {
+      this.operations.forEach(operation => {
+        this.sentOperations.push(operation);
+      });
+      this.operations = [];
+    }
   }
 
   update(valueToAssign) {
@@ -67,6 +73,7 @@ class MapCRDT {
 
     this.operations.push(operation);
   }
+
 }
 
 /* istanbul ignore if  */

@@ -9,23 +9,29 @@ class CounterCRDT {
     this.sentOperations = [];
   }
 
-  materialize() {
-    this.sentOperations.forEach(operation => {
-      this.state += operation;
-    });
+  calculateState() {
+    if (this.sentOperations.length > 0) {
+      this.sentOperations.forEach(operation => {
+        this.state += operation;
+      });
+    }
 
-    this.operations.forEach(operation => {
-      this.state += operation;
-    });
+    if (this.operations.length > 0) {
+      this.operations.forEach(operation => {
+        this.state += operation;
+      });
+    }
 
     return this.state;
   }
 
   processSentOperations() {
-    this.operations.forEach(operation => {
-      this.sentOperations.push(operation);
-    });
-    this.operations = [];
+    if (this.operations.length > 0) {
+      this.operations.forEach(operation => {
+        this.sentOperations.push(operation);
+      });
+      this.operations = [];
+    }
   }
 
   inc(incValue) {

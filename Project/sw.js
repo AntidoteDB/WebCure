@@ -35,8 +35,6 @@ self.addEventListener('install', function(event) {
       return cache.addAll(urlsToCache);
     })
   );
-
-  includeScripts();
 });
 
 self.addEventListener('fetch', function(event) {
@@ -55,10 +53,13 @@ self.addEventListener('sync', function(event) {
     event.waitUntil(pushSetChangesToTheServer());
   } else if (event.tag === 'syncMVRChanges') {
     event.waitUntil(pushMVRChangesToTheServer());
-  }
+  } /*  else if (event.tag === 'syncMapChanges') {
+    event.waitUntil(pushMapChangesToTheServer());
+  } */
 });
 
 function pushCounterChangesToTheServer() {
+  includeScripts();
   DBHelper.getDB();
   DBHelper.crdtDBPromise.then(function(db) {
     var index = db.transaction('crdt-states').objectStore('crdt-states');
@@ -118,6 +119,7 @@ function pushCounterChangesToTheServer() {
 }
 
 function pushSetChangesToTheServer() {
+  includeScripts();
   DBHelper.getDB();
   DBHelper.crdtDBPromise.then(function(db) {
     var index = db.transaction('crdt-states').objectStore('crdt-states');
@@ -176,6 +178,8 @@ function pushSetChangesToTheServer() {
 }
 
 function pushMVRChangesToTheServer() {
+  includeScripts();
+
   DBHelper.getDB();
   DBHelper.crdtDBPromise.then(function(db) {
     var index = db.transaction('crdt-states').objectStore('crdt-states');
