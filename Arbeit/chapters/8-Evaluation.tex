@@ -5,12 +5,50 @@ In this chapter, we are going to evaluate the system we built, as well as presen
 
 \section{Testing}
 
+To assure the correctness of our application, we covered it with test cases of different types. 
+
+Firstly, we did unit testing for the implemented CRDT classes, which purpose is to validate the correctness of their work according to the design specifications. 
+
+\begin{lstlisting}[caption={Simple unit test that checks the correct initialization of objects of a \textit{SetCRDT} class.}, label={lst:ev1}]
+  it('Check the initialization of a SetCRDT Class', function() {
+    var a = new SetCRDT('a', ['a', 'b', 'c']);
+    var b = new SetCRDT('b');
+
+    expect(a.id).toEqual('a');
+    expect(a.state).toEqual(new Set(['a', 'b', 'c']));
+    expect(a.type).toEqual('set');
+    
+    expect(b.state).toEqual(new Set([]));
+
+    expect(a.operations).toEqual([]);
+    expect(a.sentOperations).toEqual([]);
+  });
+\end{lstlisting}
+
+At the \lstref*{lst:ev1}, we can observe a simple unit test, which helps to check the correctness of the initialization of \textit{SetCRDT} objects, written with a help of Jasmine framework\footnote{https://jasmine.github.io/}.At \textit{lines 9 and 10} we can see that objects \textit{a} and \textit{b} are created using a constructor of \textit{SetCRDT} with parameters. The first parameter, as our reader might remember from \secref*{impl-client}, is referring to the \textit{id} of the set, while the second one is referring to the elements it contains initially. Later, step by step, every property is checked according to the expected values it should possess. This is just one of the unit tests, which serves as an example to demonstrate the way we wrote unit tests for the abstract CRDT classes, which we implemented for the client side.
+
+Apart from that, we did system testing as well. To achieve that, we had to mimic the behaviour of WebCure in the testing environment. For that, we ... 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
 
 - add the comparison between your approach and the other, in related work.
-
-- add the test coverage statistics
-
-

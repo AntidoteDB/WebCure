@@ -27,6 +27,7 @@
 \contentsline {lstlisting}{\numberline {5.11}Performing an operation \textit {add} on a Set CRDT while the client is offline.}{50}{lstlisting.5.11}
 \contentsline {lstlisting}{\numberline {5.12}A function \textit {pushSetChangesToServer} triggered every time when a client re-connects to the network.}{51}{lstlisting.5.12}
 \addvspace {10\p@ }
+\contentsline {lstlisting}{\numberline {6.1}Simple unit test that checks the correct initialization of objects of a \textit {SetCRDT} class.}{55}{lstlisting.6.1}
 \addvspace {10\p@ }
 \contentsline {lstlisting}{\numberline {7.1}A typical result of retrieving the item \textit {document} stored in CouchDB.}{60}{lstlisting.7.1}
 \contentsline {lstlisting}{\numberline {7.2}Updating the value of item \textit {document} by adding \textit {b} into it.}{60}{lstlisting.7.2}
@@ -37,6 +38,5 @@
 \contentsline {lstlisting}{\numberline {7.7}Updating the value of item \textit {document} by adding element \textit {e} and removing previously added element \textit {d}}{62}{lstlisting.7.7}
 \contentsline {lstlisting}{\numberline {7.8}The demonstration of a conflict situation happening, when the \textit {\_rev} of sent operation and the one at the server do not match.}{62}{lstlisting.7.8}
 \contentsline {lstlisting}{\numberline {7.9}Updating the value of item \textit {document} by adding element \textit {e} and removing previously added element \textit {d} after receiving the new \textit {\_rev} from the second CouchDB server.}{62}{lstlisting.7.9}
-\addvspace {10\p@ }
 \addvspace {10\p@ }
 \addvspace {10\p@ }

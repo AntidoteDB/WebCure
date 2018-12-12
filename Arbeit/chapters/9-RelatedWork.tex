@@ -108,7 +108,7 @@ However, it is still an undesirable situation. Thus, there are the limitations t
         \item {Do not update the \textit{\_rev} locally in the client without getting new data from the server before that;}
       \end{itemize}
       
-Let us now summarize the advantages the WebCure has due to using AntidoteDB and not CouchDB. 
+Let us now summarize the advantages WebCure has due to using AntidoteDB and not CouchDB. 
 
 First of all, since CouchDB ``blocks'' the possibility of updating the server's database without knowing the latest revision \textit{\_rev}, it already adds extra-work in the design and implementation of the protocol. Moreover, as we believe, it does not allow to perform concurrent updates. AntidoteDB, on the other hand, uses the concept of timestamps, which allows supporting causal consistency guarantees and, as it is not creating such restrictions on making updates, it has a massive advantage with the support of concurrent updates. 
 

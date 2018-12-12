@@ -6,7 +6,7 @@ In this chapter, we are going to, firstly, introduce the requirements and assump
 \section{Requirements}
 \label{4-Requirements}
 
-We listed the functional requirements of the WebCure in \tableref*{table:req1} and non-functional requirements in \tableref*{table:req2}.
+We listed the functional requirements of WebCure in \tableref*{table:req1} and non-functional requirements in \tableref*{table:req2}.
 
 \begin{table}[!htbp]
 \centering
@@ -48,11 +48,11 @@ Next, there are non-functional requirements: \textit{NFR1} and \textit{NFR2}. Ba
 \section{Assumptions}
 \label{4-Assumptions}
 
-In this section, we are going to give a list of assumptions we make for the WebCure. 
+In this section, we are going to give a list of assumptions we make for WebCure. 
 
 \begin{enumerate}
 \item {\textbf{Timestamps}. Firstly, the database storage used for the server's side should have the concept of timestamps (like in AntidoteDB, described in \secref*{2-antidotedb}), in order for the protocol we are going to describe in the \secref*{4-protocol} to work correctly.}
-\item {\textbf{Cache is persistent}. For the WebCure to work online and, especially, offline, we believe that the browser's cache is safe from automatic clearing. Contrarily, if the cache could be cleared automatically depending on the browser's behaviour, it makes it impossible to support the claim that the application can work offline. To guarantee this assumption, a Persistent Storage API described in \secref*{persistentstorage} can be used.}
+\item {\textbf{Cache is persistent}. For WebCure to work online and, especially, offline, we believe that the browser's cache is safe from automatic clearing. Contrarily, if the cache could be cleared automatically depending on the browser's behaviour, it makes it impossible to support the claim that the application can work offline. To guarantee this assumption, a Persistent Storage API described in \secref*{persistentstorage} can be used.}
 \item{\textbf{Name duplicates}. We limit the creation of different CRDT elements with the same name in the system due to limitations of AntidoteDB, as the requirement \textit{R7} describes it in the \tableref*{table:req1}. As AntidoteDB is in the process of ongoing development, currently the database crashes when there is an attempt to create elements of different CRDTs with the same name. Thus, this condition has to be fulfilled.}
 \item{\textbf{Server's database is always on}. We assume that the server's database is not going to be reset and lose all its data. As the client entirely relies on the server's storage for the synchronisation and only sends back operations performed offline on client's side, it will be impossible to restore the server's database from the client's storage, even if it was up-to-date before the server's data loss. With additional changes to the current protocol, it might be possible, though, but that is not the topic we cover in this thesis. However, even in such a situation, the client will be able to continue the offline work.}
 \end{enumerate}
@@ -62,7 +62,7 @@ As we specified the requirements, we can go further into and design the protocol
 \section{Protocol}
 \label{4-protocol}
 
-The fundamental part of the WebCure will be its protocol design. We are going to describe it in an event-based way in the form of pseudo-code in the following sections. 
+The fundamental part of WebCure will be its protocol design. We are going to describe it in an event-based way in the form of pseudo-code in the following sections. 
 
 %    \begin{itemize}
    %     \item {A client receives an update from the server}
