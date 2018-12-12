@@ -18,7 +18,7 @@ class TestHelper {
     }
 
     if (type === 'counter') {
-      request.put(
+      request.post(
         {
           url: endpoint + '/api/count/' + id + '/timestamp',
           headers: {
@@ -38,7 +38,7 @@ class TestHelper {
         }
       );
     } else if (type === 'set') {
-      request.put(
+      request.post(
         {
           url: endpoint + '/api/set/' + id + '/timestamp',
           headers: {
@@ -53,6 +53,44 @@ class TestHelper {
           expect(result.cont).toEqual(value);
           expect(result.lastCommitTimestamp).not.toEqual(null);
           expect(result.lastCommitTimestamp).not.toEqual('');
+          expect(response.statusCode).toEqual(200);
+          callback(result);
+        }
+      );
+    }
+  }
+
+  static checkPost(type, id, element, callback) {
+    if (type === 'counter') {
+      request.post(
+        {
+          url: endpoint + '/api/count/' + id,
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify(element)
+        },
+        function(error, response) {
+          expect(response).toBeDefined();
+          let result = JSON.parse(response.body);
+          expect(result.status).toEqual('OK');
+          expect(response.statusCode).toEqual(200);
+          callback(result);
+        }
+      );
+    } else if (type === 'set') {
+      request.post(
+        {
+          url: endpoint + '/api/set/' + id,
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify(element)
+        },
+        function(error, response) {
+          expect(response).toBeDefined();
+          let result = JSON.parse(response.body);
+          expect(result.status).toEqual('OK');
           expect(response.statusCode).toEqual(200);
           callback(result);
         }
@@ -136,7 +174,7 @@ class TestHelper {
 
   static checkSync(type, id, element, callback) {
     if (type === 'counter') {
-      request.put(
+      request.post(
         {
           url: endpoint + '/api/count_sync/' + id,
           headers: {
@@ -153,7 +191,7 @@ class TestHelper {
         }
       );
     } else if (type === 'set') {
-      request.put(
+      request.post(
         {
           url: endpoint + '/api/set_sync/' + id,
           headers: {

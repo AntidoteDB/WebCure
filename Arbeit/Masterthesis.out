@@ -28,14 +28,15 @@
 \BOOKMARK [2][-]{subsection.5.1.2}{5.1.2 Server}{section.5.1}% 28
 \BOOKMARK [2][-]{subsection.5.1.3}{5.1.3 Client}{section.5.1}% 29
 \BOOKMARK [0][-]{chapter.6}{6 Evaluation}{}% 30
-\BOOKMARK [0][-]{chapter.7}{7 Related Work}{}% 31
-\BOOKMARK [1][-]{section.7.1}{7.1 SwiftCloud: a transactional system that brings geo-replication to the client}{chapter.7}% 32
-\BOOKMARK [1][-]{section.7.2}{7.2 Legion: a framework, which enriches web applications}{chapter.7}% 33
-\BOOKMARK [1][-]{section.7.3}{7.3 Developing web and mobile applications with offline usage experience}{chapter.7}% 34
-\BOOKMARK [0][-]{chapter.8}{8 Conclusion}{}% 35
-\BOOKMARK [1][-]{section.8.1}{8.1 Summary}{chapter.8}% 36
-\BOOKMARK [1][-]{section.8.2}{8.2 Future Work}{chapter.8}% 37
-\BOOKMARK [0][-]{chapter*.47}{List of Figures}{}% 38
-\BOOKMARK [0][-]{chapter*.48}{List of Tables}{}% 39
-\BOOKMARK [0][-]{chapter*.49}{Listings}{}% 40
-\BOOKMARK [0][-]{chapter*.50}{Bibliography}{}% 41
+\BOOKMARK [1][-]{section.6.1}{6.1 Testing}{chapter.6}% 31
+\BOOKMARK [0][-]{chapter.7}{7 Related Work}{}% 32
+\BOOKMARK [1][-]{section.7.1}{7.1 SwiftCloud: a transactional system that brings geo-replication to the client}{chapter.7}% 33
+\BOOKMARK [1][-]{section.7.2}{7.2 Legion: a framework, which enriches web applications}{chapter.7}% 34
+\BOOKMARK [1][-]{section.7.3}{7.3 Developing web and mobile applications with offline usage experience}{chapter.7}% 35
+\BOOKMARK [0][-]{chapter.8}{8 Conclusion}{}% 36
+\BOOKMARK [1][-]{section.8.1}{8.1 Summary}{chapter.8}% 37
+\BOOKMARK [1][-]{section.8.2}{8.2 Future Work}{chapter.8}% 38
+\BOOKMARK [0][-]{chapter*.47}{List of Figures}{}% 39
+\BOOKMARK [0][-]{chapter*.48}{List of Tables}{}% 40
+\BOOKMARK [0][-]{chapter*.49}{Listings}{}% 41
+\BOOKMARK [0][-]{chapter*.50}{Bibliography}{}% 42

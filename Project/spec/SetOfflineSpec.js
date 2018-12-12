@@ -13,7 +13,7 @@ describe('Set Offline', function() {
       timestamp = result.lastCommitTimestamp;
       TestHelper.checkPut(type, key, { value: 'a' }, function() {
         TestHelper.checkGet(type, key, ['a'], function() {
-          TestHelper.checkPut(
+          TestHelper.checkPost(
             type,
             key + '/timestamp',
             {
@@ -42,7 +42,7 @@ describe('Set Offline', function() {
 
       TestHelper.checkPut(type, key, { value: 'a' }, function() {
         TestHelper.checkGet(type, key, ['a'], function() {
-          TestHelper.checkPut(
+          TestHelper.checkPost(
             type,
             key + '/timestamp',
             {
@@ -58,14 +58,14 @@ describe('Set Offline', function() {
                 { lastCommitTimestamp: { data: timestamp }, value: 'b' },
                 function(result) {
                   newTimestamp = result.lastCommitTimestamp;
-                  TestHelper.checkPut(
+                  TestHelper.checkPost(
                     type,
                     key + '/timestamp',
                     { timestamp: { data: timestamp }, update_clock: false },
                     function(result) {
                       expect(result.cont).toEqual(item.materialize());
                       expect(result.lastCommitTimestamp).toEqual(timestamp);
-                      TestHelper.checkPut(
+                      TestHelper.checkPost(
                         type,
                         key + '/timestamp',
                         { timestamp: { data: newTimestamp }, update_clock: false },
@@ -98,7 +98,7 @@ describe('Set Offline', function() {
             timestamp = result.lastCommitTimestamp;
             TestHelper.checkDel(type, key, { value: 'a' }, function() {
               TestHelper.checkGet(type, key, ['b'], function() {
-                TestHelper.checkPut(
+                TestHelper.checkPost(
                   type,
                   key + '/timestamp',
                   {
@@ -114,14 +114,14 @@ describe('Set Offline', function() {
                       { lastCommitTimestamp: { data: timestamp }, value: 'b' },
                       function(result) {
                         newTimestamp = result.lastCommitTimestamp;
-                        TestHelper.checkPut(
+                        TestHelper.checkPost(
                           type,
                           key + '/timestamp',
                           { timestamp: { data: timestamp }, update_clock: false },
                           function(result) {
                             expect(result.cont).toEqual(item.materialize());
                             expect(result.lastCommitTimestamp).toEqual(timestamp);
-                            TestHelper.checkPut(
+                            TestHelper.checkPost(
                               type,
                               key + '/timestamp',
                               { timestamp: { data: newTimestamp }, update_clock: false },
