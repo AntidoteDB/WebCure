@@ -23,8 +23,8 @@
 \contentsline {section}{\numberline {4.4}Persistent Storage}{30}{section.4.4}
 \contentsline {section}{\numberline {4.5}Background Sync}{30}{section.4.5}
 \contentsline {chapter}{\numberline {5}Implementation}{33}{chapter.5}
-\contentsline {section}{\numberline {5.1}System's main components}{34}{section.5.1}
-\contentsline {subsection}{\numberline {5.1.1}Database layer}{35}{subsection.5.1.1}
+\contentsline {section}{\numberline {5.1}Main components of the system}{34}{section.5.1}
+\contentsline {subsection}{\numberline {5.1.1}Database}{35}{subsection.5.1.1}
 \contentsline {subsection}{\numberline {5.1.2}Server}{36}{subsection.5.1.2}
 \contentsline {subsection}{\numberline {5.1.3}Client}{40}{subsection.5.1.3}
 \contentsline {chapter}{\numberline {6}Evaluation}{55}{chapter.6}

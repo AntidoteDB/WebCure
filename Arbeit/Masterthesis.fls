@@ -298,13 +298,13 @@ INPUT abstract/Abstract.tex
 INPUT abstract/Abstract.tex
 INPUT acknowledgement/Acknowledgement.tex
 INPUT acknowledgement/Acknowledgement.tex
-INPUT disclaimer/Disclaimer.tex
-INPUT disclaimer/Disclaimer.tex
 INPUT C:/MiKTeX/fonts/tfm/adobe/palatino/pplb8t.tfm
-INPUT Masterthesis.toc
-INPUT Masterthesis.toc
 INPUT C:/MiKTeX/fonts/vf/adobe/palatino/pplb8t.vf
 INPUT C:/MiKTeX/fonts/tfm/adobe/palatino/pplb8r.tfm
+INPUT disclaimer/Disclaimer.tex
+INPUT disclaimer/Disclaimer.tex
+INPUT Masterthesis.toc
+INPUT Masterthesis.toc
 OUTPUT Masterthesis.toc
 INPUT C:/MiKTeX/fonts/vf/adobe/palatino/pplro8t.vf
 INPUT C:/MiKTeX/fonts/tfm/adobe/palatino/pplro8r.tfm

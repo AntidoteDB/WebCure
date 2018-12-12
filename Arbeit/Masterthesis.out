@@ -23,8 +23,8 @@
 \BOOKMARK [1][-]{section.4.4}{4.4 Persistent Storage}{chapter.4}% 23
 \BOOKMARK [1][-]{section.4.5}{4.5 Background Sync}{chapter.4}% 24
 \BOOKMARK [0][-]{chapter.5}{5 Implementation}{}% 25
-\BOOKMARK [1][-]{section.5.1}{5.1 System's main components}{chapter.5}% 26
-\BOOKMARK [2][-]{subsection.5.1.1}{5.1.1 Database layer}{section.5.1}% 27
+\BOOKMARK [1][-]{section.5.1}{5.1 Main components of the system}{chapter.5}% 26
+\BOOKMARK [2][-]{subsection.5.1.1}{5.1.1 Database}{section.5.1}% 27
 \BOOKMARK [2][-]{subsection.5.1.2}{5.1.2 Server}{section.5.1}% 28
 \BOOKMARK [2][-]{subsection.5.1.3}{5.1.3 Client}{section.5.1}% 29
 \BOOKMARK [0][-]{chapter.6}{6 Evaluation}{}% 30

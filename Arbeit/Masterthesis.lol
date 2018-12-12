@@ -15,17 +15,17 @@
 \contentsline {lstlisting}{\numberline {4.8}An example code, which demonstates that a function \textit {doSomeStuff} called, when the \textit {sync} event happened\cite {38}.}{31}{lstlisting.4.8}
 \addvspace {10\p@ }
 \contentsline {lstlisting}{\numberline {5.1}Code for sending back to the client the requested data.}{36}{lstlisting.5.1}
-\contentsline {lstlisting}{\numberline {5.2}Code for applying an \textit {add} operation to a Set CRDT.}{37}{lstlisting.5.2}
-\contentsline {lstlisting}{\numberline {5.3}Code for applying an \textit {add} operation to a Set CRDT.}{38}{lstlisting.5.3}
+\contentsline {lstlisting}{\numberline {5.2}Code for applying an \textit {add} operation to a Set CRDT.}{38}{lstlisting.5.2}
+\contentsline {lstlisting}{\numberline {5.3}Code for applying an \textit {add} operation to a Set CRDT.}{39}{lstlisting.5.3}
 \contentsline {lstlisting}{\numberline {5.4}Code for caching necessary data for the client.}{41}{lstlisting.5.4}
 \contentsline {lstlisting}{\numberline {5.5}Code for maintaining the requests of the application.}{42}{lstlisting.5.5}
 \contentsline {lstlisting}{\numberline {5.6}Creating object stores in IndexedDB for CRDTs and timestamps.}{43}{lstlisting.5.6}
 \contentsline {lstlisting}{\numberline {5.7}A class \textit {SetCRDT}, objects of which are going to be stored in the \textit {`crdt-states'} object store.}{44}{lstlisting.5.7}
-\contentsline {lstlisting}{\numberline {5.8}An example of a \textit {SetCRDT} object, stored on a client's side.}{46}{lstlisting.5.8}
+\contentsline {lstlisting}{\numberline {5.8}An example of a \textit {SetCRDT} object, stored on a client side.}{47}{lstlisting.5.8}
 \contentsline {lstlisting}{\numberline {5.9}Storing CRDT states in the local database after a successful request from the server.}{47}{lstlisting.5.9}
-\contentsline {lstlisting}{\numberline {5.10}Reading CRDT states from client's cache.}{48}{lstlisting.5.10}
-\contentsline {lstlisting}{\numberline {5.11}Performing an operation \textit {add} on a Set CRDT while the client is offline.}{49}{lstlisting.5.11}
-\contentsline {lstlisting}{\numberline {5.12}A function \textit {pushSetChangesToServer} triggered every time when a client re-connects to the network.}{50}{lstlisting.5.12}
+\contentsline {lstlisting}{\numberline {5.10}Reading CRDT states from client's cache.}{49}{lstlisting.5.10}
+\contentsline {lstlisting}{\numberline {5.11}Performing an operation \textit {add} on a Set CRDT while the client is offline.}{50}{lstlisting.5.11}
+\contentsline {lstlisting}{\numberline {5.12}A function \textit {pushSetChangesToServer} triggered every time when a client re-connects to the network.}{51}{lstlisting.5.12}
 \addvspace {10\p@ }
 \addvspace {10\p@ }
 \contentsline {lstlisting}{\numberline {7.1}A typical result of retrieving the item \textit {document} stored in CouchDB.}{60}{lstlisting.7.1}

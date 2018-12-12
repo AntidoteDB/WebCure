@@ -33,7 +33,7 @@ To demonstrate the functionality of WebCure, we implemented three different type
 \end{center}
 \end{figure}
 
-In \chapref*{Design}, we introduced a client and a server as black boxes, without really explaining their internal structure. However, we have a clear picture of what the system and its main components will look like. As we can see at the \figref*{fig:impl1}, the client part of the system, which we introduced before, contains a web application that has a database on its side for reading and storing the data locally. The server, on the other hand, is controlling an AntidoteDB database, apart from that, can exchange messages with clients. The communication with the server on a client's side is controlled by a service worker. It serves as a proxy and gets the data either from cache, or from the server, depending on the use case. Regarding the exchanging of the data, the client can send to the server the operations performed offline, while the server is sending back to the client the current states of CRDT data. 
+In \chapref*{Design}, we introduced a client and a server as black boxes, without really explaining their internal structure. However, we have a clear picture of what the system and its main components will look like. As we can see at the \figref*{fig:impl1}, the client part of the system, which we introduced before, contains a web application that has a database on its side for reading and storing the data locally. The server, on the other hand, is controlling an AntidoteDB database, apart from that, can exchange messages with clients. The communication with the server on a client side is controlled by a service worker. It serves as a proxy and gets the data either from cache, or from the server, depending on the use case. Regarding the exchanging of the data, the client can send to the server the operations performed offline, while the server is sending back to the client the current states of CRDT data. 
 
 \begin{figure}[!htb]
     \begin{center}
@@ -44,7 +44,7 @@ In \chapref*{Design}, we introduced a client and a server as black boxes, withou
 \end{center}
 \end{figure}
 
-We are going to design WebCure using a 3-tier architecture\cite{51}. Its principal distinction is that it has a clear separation between the presentation, application, and data layers, as we can spot in \figref*{fig:dev1}, where we also sketch how each JavaScript file of WebCure relates to these layers. Each layer is responsible for its tasks. Let us now briefly characterise them. A \textit{presentation layer} is implemented on a client's side and is responsible for presenting the information to the users, while it can also accept requests from them. An \textit{application layer} is based on a server's side, implements the algorithmic part of the system and answers the operations requested by the client. The last one, a \textit{data layer}, manages and implements the data sources of the system. The advantages of a 3-tier architecture style are the scalability and portability it provides. However, a disadvantage could be a communication overhead between the layers\cite{50}.
+We are going to design WebCure using a 3-tier architecture\cite{51}. Its principal distinction is that it has a clear separation between the presentation, application, and data layers, as we can spot in \figref*{fig:dev1}, where we also sketch how each JavaScript file of WebCure relates to these layers. Each layer is responsible for its tasks. Let us now briefly characterise them. A \textit{presentation layer} is implemented on a client side and is responsible for presenting the information to the users, while it can also accept requests from them. An \textit{application layer} is based on a server's side, implements the algorithmic part of the system and answers the operations requested by the client. The last one, a \textit{data layer}, manages and implements the data sources of the system. The advantages of a 3-tier architecture style are the scalability and portability it provides. However, a disadvantage could be a communication overhead between the layers\cite{50}.
 
 In the next subsections, we are going to describe the implementation of the system.
 
@@ -238,11 +238,11 @@ self.addEventListener('fetch', function(event) {
 
 Now, once we already have the cached data, we still need to make use of it to make our application work offline. If we look at \lstref*{lst:dev5}, we can see that whenever there is a request going to the network, at \textit{line 3} we are trying to match that request with ones we have in cache: if it is the case, then the cached object is returned or, otherwise, the fetching process from the network continues, as can be seen at the \textit{line 5}. If the requested resource is not cached and, moreover, the client is offline, then the \textit{fetch} request executes normally and will respond with an error, as the resource will not be loaded.
 
-Apart from caching scripts and media files, necessary for the application to work, we will also need to set up a local database to store the data at the client's side.
+Apart from caching scripts and media files, necessary for the application to work, we will also need to set up a local database to store the data at the client side.
 
 \subsection*{Setting up a local database}
 
-As explained in \chapref*{Technologies}, in the file \textit{js/dbhelper.js} we are setting up an IndexedDB database for the client's side. There, we are going to create two object stores. The first one will consist of different CRDT data items, differentiated by their id. The other object store will keep track of the timestamp, which is associated with the latest data taken from the server. The point of having that timestamp is for the client to send it with the updates performed while offline, which will give an insight to the server, at what timestamp these updates should be applied.
+As explained in \chapref*{Technologies}, in the file \textit{js/dbhelper.js} we are setting up an IndexedDB database for the client side. There, we are going to create two object stores. The first one will consist of different CRDT data items, differentiated by their id. The other object store will keep track of the timestamp, which is associated with the latest data taken from the server. The point of having that timestamp is for the client to send it with the updates performed while offline, which will give an insight to the server, at what timestamp these updates should be applied.
 
 \begin{lstlisting}[caption={Creating object stores in IndexedDB for CRDTs and timestamps.}, label={lst:dev6}]
 // ...
@@ -262,7 +262,7 @@ While it is clear why do we store the states of CRDTs, it might be not the case 
 
 \subsection*{Implementation of abstract Set CRDT type}
 
-Next, let us introduce our implementation of Set CRDTs abstraction for the client's side, which helps to maintain the data received by the server.
+Next, let us introduce our implementation of Set CRDTs abstraction for the client side, which helps to maintain the data received by the server.
 
 \begin{lstlisting}[caption={A class \textit{SetCRDT}, objects of which are going to be stored in the \textit{`crdt-states'} object store.}, label={lst:dev7}]
 class SetCRDT {
@@ -275,36 +275,30 @@ class SetCRDT {
   }
 
   processSentOperations() {
-    if (this.operations.length > 0) {
-      this.operations.forEach(operation => {
-        this.sentOperations.push(operation);
-      });
-      this.operations = [];
-    }
+    this.operations.forEach(operation => {
+      this.sentOperations.push(operation);
+    });
+    this.operations = [];
   }
 
-  calculateState() {
+  materialize() {
     let values = [];
 
-    if (this.sentOperations.length > 0) {
-      this.sentOperations.forEach(operation => {
-        if (operation.type === 'add') {
-          this.state.add(operation.value);
-        } else if (operation.type === 'remove') {
-          this.state.delete(operation.value);
-        }
-      });
-    }
+    this.sentOperations.forEach(operation => {
+      if (operation.type === 'add') {
+        this.state.add(operation.value);
+      } else if (operation.type === 'remove') {
+        this.state.delete(operation.value);
+      }
+    });
 
-    if (this.operations.length > 0) {
-      this.operations.forEach(operation => {
-        if (operation.type === 'add') {
-          this.state.add(operation.value);
-        } else if (operation.type === 'remove') {
-          this.state.delete(operation.value);
-        }
-      });
-    }
+    this.operations.forEach(operation => {
+      if (operation.type === 'add') {
+        this.state.add(operation.value);
+      } else if (operation.type === 'remove') {
+        this.state.delete(operation.value);
+      }
+    });
 
     this.state.forEach(key => {
       values.push(key);
@@ -347,12 +341,12 @@ Secondly, there are the methods, which ease the process of working with \textit{
 
          \begin{itemize}
          \item \textit{processSentOperations()} -- shifts offline performed operations to the \textit{sentOperations} property in order to have a distinction for the operations, which are already sent to the client.
-         \item \textit{calculateState} -- returns the current state of the CRDT Set, taking into account the operations performed offline.
-         \item \textit{add} -- performs an offline operation of adding an element to the Set CRDT, takes an element to add as a parameter.
-          \item \textit{remove} -- performs an offline operation of removing an element from the Set CRDT, takes an element to remove as a parameter.
+         \item \textit{materialize()} -- returns the current state of the CRDT Set, taking into account the operations performed offline.
+         \item \textit{add(valueToAdd)} -- performs an offline operation of adding an element to the Set CRDT, takes \textit{valueToAdd} as a parameter.
+          \item \textit{remove(valueToRemove)} -- performs an offline operation of removing an element from the Set CRDT, takes \textit{valueToRemove} as a parameter.
      \end{itemize}
 
-\begin{lstlisting}[caption={An example of a \textit{SetCRDT} object, stored on a client's side.}, label={lst:dev8}]
+\begin{lstlisting}[caption={An example of a \textit{SetCRDT} object, stored on a client side.}, label={lst:dev8}]
 {
 id: "a",
 operations: [{type: "add", value: "c"}],
@@ -362,7 +356,7 @@ type: "set"
 }
 \end{lstlisting}
      
-Having now understood the structure of the data stored on a client's side, as well as the way it is managed, let us look at the \lstref*{lst:dev8}, where an example of a Set CRDT element with an id \textit{a} is shown. As can be seen, it has a state received from the server of \textit{\{``b'', ``d''\}}, while also having an offline operation \textit{add(c)} performed on it, which is still about to be sent to the server, as an array \textit{sentOperations} is empty at this example.
+Having now understood the structure of the data stored on a client side, as well as the way it is managed, let us look at the \lstref*{lst:dev8}, where an example of a Set CRDT element with an id \textit{a} is shown. As can be seen, it has a state received from the server of \textit{\{``b'', ``d''\}}, while also having an offline operation \textit{add(c)} performed on it, which is still about to be sent to the server, as an array \textit{sentOperations} is empty at this example.
 
 As we have already explained the server's side logic earlier, in the following sections, we will only touch the topic of a client's offline work and the logic happening at the client on a transition from offline to online modes. We believe that the part, which is related to the online work of the client is already apparent to the reader, as it comes down to the simple client-server communication through predefined requests and this part was already covered when explaining the server's side. 
 
@@ -392,10 +386,8 @@ DBHelper.crdtDBPromise
 
      var tx = db.transaction('crdt-timestamps', 'readwrite');
      var store = tx.objectStore('crdt-timestamps');
-
-     if (temp) {
-       store.put({ id: 0, data: lastCommitTimestamp });
-     }
+     
+     store.put({ id: 0, data: lastCommitTimestamp });
 
      return tx.complete;
     });
@@ -404,7 +396,7 @@ DBHelper.crdtDBPromise
 
 At \lstref*{lst:dev9}, \textit{DBHelper.crdtDBPromise} at the \textit{line 1} gives us an access to the IndexedDB database consisting the object stores we created. There, we start a transaction on a \textit{`crdt-states'} object store and at the \textit{line 8} we create an element of \textit{SetCRDT} class introduced above, passing it the \textit{id} of the Set CRDT and its \textit{value} that was just received from the server. Then we assign it to the variable \textit{item} and add this \textit{item} to the object store of CRDT states using the method \textit{put} of \textit{store} object. Next, we close the transaction using the method \textit{complete} of the \textit{tx} transaction object.
 
-Next, when we successfully stored the received state, there is another piece of information that has to be saved on the client as well. This time it is a timestamp associated with the update we received. Looking again at the \lstref*{lst:dev9}, at \textit{line 20} we refer to the \textit{`crdt-timestamps'} object store this time. Similarly as before, as can be seen at the \textit{line 25}, we store \textit{lastCommitTimestamp}, which consists the timestamp received from the server. That happens each time we get a new update from the server.
+Next, when we successfully stored the received state, there is another piece of information that has to be saved on the client as well. This time it is a timestamp associated with the update we received. Looking again at the \lstref*{lst:dev9}, at \textit{line 20} we refer to the \textit{`crdt-timestamps'} object store this time. Similarly as before, as can be seen at the \textit{line 25}, we store \textit{lastCommitTimestamp}, which consists the timestamp received from the server. That happens each time we get a new update from the server and normally, there is no way to observe a new update without an updated timestamp as well.
 
 
 \begin{lstlisting}[caption={Reading CRDT states from client's cache.}, label={lst:dev10}]
@@ -416,7 +408,7 @@ DBHelper.crdtDBPromise.then(function(db) {
   return index.get(id).then(function(state) {
     if (state) {
      Object.setPrototypeOf(state, SetCRDT.prototype);
-     log('[Offline] The value of ' + name.value + 'is: [ ' + state.calculateState() + ']');
+     log('[Offline] The value of ' + name.value + 'is: [ ' + state.materialize() + ']');
     } else {
      log('[Offline] Selected key is not available offline.');
     }
@@ -424,7 +416,7 @@ DBHelper.crdtDBPromise.then(function(db) {
 });
 \end{lstlisting}
 
-Now comes the part regarding reading the states of the Set CRDTs from the cache. We can have a look at the \lstref*{lst:dev10}, where the code already looks familiar to us. There, at the \textit{line 6}, we use the method \textit{get} of \textit{index} to search by the property \textit{id} of the object. Then, if an element with such \textit{id} was found in the object store, we are going to have it in a \textit{state} variable. As we do not store the class information in the client's database, we will have to ``remind'' the object we have in the \textit{state} variable about its prototype. That is why a method \textit{Object.setPrototypeOf} is used with \textit{state} and \textit{SetCRDT.prototype} as parameters. After that, the object \textit{state} will have an access to \textit{SetCRDT}'s methods. For the demonstration of the client's functionality, in this thesis we are using a JavaScript Logger\footnote{http://www.songho.ca/misc/logger/logger.html} library, which we have an access to under the \textit{log} variable at \textit{lines 9 and 11}. It let us keep the track of neccessary information in a convinient manner. As can be seen, at the \textit{line 9} we log the actual state of the Set CRDT using a \textit{calculateState()} method of \textit{SetCRDT} class.
+Now comes the part regarding reading the states of the Set CRDTs from the cache. We can have a look at the \lstref*{lst:dev10}, where the code already looks familiar to us. There, at the \textit{line 6}, we use the method \textit{get} of \textit{index} to search by the property \textit{id} of the object. Then, if an element with such \textit{id} was found in the object store, we are going to have it in a \textit{state} variable. As we do not store the class information in the client's database, we will have to ``remind'' the object we have in the \textit{state} variable about its prototype. That is why a method \textit{Object.setPrototypeOf} is used with \textit{state} and \textit{SetCRDT.prototype} as parameters. After that, the object \textit{state} will have an access to \textit{SetCRDT}'s methods. For the demonstration of the client's functionality, in this thesis we are using a JavaScript Logger\footnote{http://www.songho.ca/misc/logger/logger.html} library, which we have an access to under the \textit{log} variable at \textit{lines 9 and 11}. It let us keep the track of neccessary information in a convinient manner. As can be seen, at the \textit{line 9} we log the actual state of the Set CRDT using a \textit{materialize()} method of \textit{SetCRDT} class.
 
 \subsection*{Add / Remove}
 
@@ -450,11 +442,11 @@ DBHelper.crdtDBPromise
   });
 \end{lstlisting}
 
-Looking at the \lstref*{lst:dev11}, we can see that there is not so much of a difference with previous code that we have seen on performing the read operations from the IndexedDB. Again, as we can see from the example, a transaction on a \textit{`crdt-states'} object store is created and if an element with \textit{id} is found in the object store, its value will be available under the variable \textit{storedValue}. Then, similarly, the method \textit{Object.setPrototypeOf} is used for the \textit{storedValue}, in order for it to have an access to the \textit{SetCRDT} class methods. Once it is done, at \textit{line 12} we use the method \textit{storedValue.add(value)}, where \textit{value} variable is the value entered by the user. If we get back to the \lstref*{lst:dev7}, we will recall that the method \textit{add} will add an element to the array-type property \textit{operations} of the object \textit{storedValue}. Finally, we uset \textit{store.put(storedValue)} to put the update data item back to the client's database and afterwards complete the transaction. Similarly, the same happens when a user tries to remove elements from Set CRDTs.
+Looking at \lstref*{lst:dev11}, we can see that there is not so much of a difference with previous code that we have seen on performing the read operations from IndexedDB. Again, as we can see from the example, a transaction on a \textit{`crdt-states'} object store is created and if an element with \textit{id} is found in the object store, its value will be available under the variable \textit{storedValue}. Then, similarly, the method \textit{Object.setPrototypeOf} is used for the \textit{storedValue}, in order for it to have an access to the \textit{SetCRDT} class methods. Once it is done, at \textit{line 12} we use the method \textit{storedValue.add(value)}, where \textit{value} variable is the value entered by the user. If we get back to \lstref*{lst:dev7}, we will recall that the method \textit{add} will add an element to the array-type property \textit{operations} of the object \textit{storedValue}. Finally, we use \textit{store.put(storedValue)} to put the update data item back to the client's database and afterwards complete the transaction. Similarly, the same happens when a user tries to remove elements from Set CRDTs.
 
 \subsection*{A transition from offline to online}
 
-One more case, the implementation of what we would like to cover is what happens when the client switches from offline mode back to online. The implementation of this part was already slightly touched in the \secref*{BackgroundSync}. For every offline operation performed on sets, we register a unique tag named \textit{syncSetChanges}.
+Next, we would like to discuss what happens when the client switches from offline mode back to online. For every offline operation performed on sets, we register a unique tag named \textit{syncSetChanges}, as was explained in the \secref*{BackgroundSync}.
 
 \begin{lstlisting}[caption={A function \textit{pushSetChangesToServer} triggered every time when a client re-connects to the network.}, label={lst:dev12}]
 function pushSetChangesToServer() {
@@ -514,10 +506,10 @@ function pushSetChangesToServer() {
 }
 \end{lstlisting}
 
-Then, a \textit{sync} event is going to be triggered inside the service worker. At the time it happens, we are going to check whether our tag \textit{syncSetChanges} registered it. In case it is, a function \textit{pushSetChangesToServer} is going to be called, which we can observe at \lstref*{lst:dev12}. 
+Then, a \textit{sync} event is going to be triggered inside the service worker. At the time it happens, we are going to check whether our tag \textit{syncSetChanges} registered it. In this case, a function \textit{pushSetChangesToServer} is called, which we can observe at \lstref*{lst:dev12}. 
 
-Let us have a closer look into it. At the \textit{line 7}, we get all the elements stored in the object store of \textit{`crdt-states'}. In this section, we are describing the implementation of maintaining only Set CRDTs. However, the object store \textit{`crdt-states'} normally can contain any CRDTs. Once we got the states, at the \textit{line 12}, we are also getting the latest timestamp that was stored on a client's side (we use \textit{get(0) here, as we store every new timestamp under the id \textit{0}}). This step is specifically needed for the causality of updates (more details are available in the \chapref*{Design}). Then, for every Set CRDT, we are creating a POST HTTP request, which contains the information about the timestamp at which these updates were performed, as well as operations themselves. We can see it at \textit{lines 16--24}, where the timestamp is sent as \textit{lastCommitTimestamp} and operations are sent as \textit{object.operations}. In such a way, this information is sent to the server, which continues processing it on its side.
+Let us have a closer look into it. At the \textit{line 7}, we get all the elements stored in the object store of \textit{`crdt-states'}. In this section, we are describing the implementation of maintaining only Set CRDTs. However, the object store \textit{`crdt-states'} normally can contain any CRDTs. Once we got the states, at \textit{line 12}, we are also getting the latest timestamp that was stored on a client side (we use \textit{get(0) here, as we store every new timestamp under the id \textit{0}}). This step is specifically needed for the causality of updates (more details are available in the \chapref*{Design}). Then, for every Set CRDT, we are creating a POST HTTP request, which contains the information about the timestamp at which these updates were performed, as well as operations themselves. We can see it at \textit{lines 16--24}, where the timestamp is sent as \textit{lastCommitTimestamp} and operations are sent as \textit{object.operations}. In such a way, this information is sent to the server, which continues processing it on its side.
 
-However, this is not it for the client yet. There is a reason why the client has to distinguish between performed offline and already sent to the server operations. First of all, in order not to send the same updates multiple times to the server. At the \textit{line 46} of the \lstref*{lst:dev12}, we see that the method \textit{processSentOperations()} is called. We can look up its implementation again at the \lstref*{lst:dev7}. As we remember, it shifts already sent operations to another array named \textit{sentOperations}, which is also a property of the class \textit{SetCRDT}. Our reader might also think about the possibility of just clearing these operations from the cache as soon as the internet connection at the client's side is re-established again. That that would not be a good idea. Let us imagine the following situation: a client works offline for some time, then the connection gets re-established, but before the client could request new updates from the server, the connection gets off again. What happens in such a scenario? First of all, the operations performed offline at the client's side will be sent to the server immediately, but if we delete sent operations from the cache, then we are risking losing the data at client's side. As we did not yet receive the latest updates from the server, the client would not be able to continue working offline on its data. It was the second reason, why it is better to keep offline operations at client's side in two separate collections, at least before the server sends back data updates, having already applied the operations the client sent. At that point, it would be safe to remove them.
+However, this is not it for the client yet. There is a reason why the client has to distinguish between performed offline and already sent to the server operations. First of all, in order to not send the same updates multiple times to the server. At the \textit{line 46} of the \lstref*{lst:dev12}, we see that the method \textit{processSentOperations()} is called. We can look up its implementation again at the \lstref*{lst:dev7}. As we remember, it shifts already sent operations to another array named \textit{sentOperations}, which is also a property of the class \textit{SetCRDT}. Our reader might also think about the possibility of just clearing these operations from the cache as soon as the internet connection at the client side is re-established again. That that would not be a good idea. Let us imagine the following situation: a client works offline for some time, then the connection gets re-established, but before the client could request new updates from the server, the connection gets off again. What happens in such a scenario? First of all, the operations performed offline at the client side will be sent to the server immediately, but if we delete sent operations from the cache, then we are risking losing the data at client side. As we did not yet receive the latest updates from the server, the client would not be able to continue working offline on its data. It was the second reason, why it is better to keep offline operations at client side in two separate collections, at least before the server sends back data updates, having already applied the operations the client sent. At that point, it will be safe to remove them.
 
 Finally, we have covered so far every aspect of the implementation, and in the next chapter, we will do an evaluation of our work.
