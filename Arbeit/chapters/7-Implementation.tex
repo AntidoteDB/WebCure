@@ -245,7 +245,7 @@ Apart from caching scripts and media files, necessary for the application to wor
 
 As explained in \chapref*{Technologies}, in the file \textit{js/dbhelper.js} we are setting up an IndexedDB database for the client side. There, we are going to create two object stores. The first one will consist of different CRDT data items, differentiated by their id. The other object store will keep track of the timestamp, which is associated with the latest data taken from the server. The point of having that timestamp is for the client to send it with the updates performed while offline, which will give an insight to the server, at what timestamp these updates should be applied.
 
-\begin{lstlisting}[caption={Creating object stores in IndexedDB for CRDTs and timestamps.}, label={lst:dev6}]
+\begin{lstlisting}[caption={[Creating object stores in IndexedDB]Creating object stores in IndexedDB for CRDTs and timestamps.}, label={lst:dev6}]
 // ...
 var stateStore = upgradeDB.createObjectStore('crdt-states', \{
   keyPath: 'id'
@@ -265,7 +265,7 @@ While it is clear why do we store the states of CRDTs, it might be not the case 
 
 Next, let us introduce our implementation of Set CRDTs abstraction for the client side, which helps to maintain the data received by the server.
 
-\begin{lstlisting}[caption={A class \textit{SetCRDT}, objects of which are going to be stored in the \textit{`crdt-states'} object store.}, label={lst:dev7}]
+\begin{lstlisting}[caption={[Code for the implementation of \textit{SetCRDT} class]A class \textit{SetCRDT}, objects of which are going to be stored in the \textit{`crdt-states'} object store.}, label={lst:dev7}]
 class SetCRDT {
   constructor(id, values) {
     this.id = id;
@@ -365,7 +365,7 @@ As we have already explained the server's side logic earlier, in the following s
 
 One of the crucial aspects of the client working offline as intended is storing the CRDT states received from the server. Let us further explain the logic behind the implementation of it.
 
-\begin{lstlisting}[caption={Storing CRDT states in the local database after a successful request from the server.}, label={lst:dev9}]
+\begin{lstlisting}[caption={[Caching on a client side CRDT states, received from the server]Storing CRDT states in the local database after a successful request from the server.}, label={lst:dev9}]
 DBHelper.crdtDBPromise
   .then(function(db) {
   // ...
@@ -423,7 +423,7 @@ Now comes the part regarding reading the states of the Set CRDTs from the cache.
 
 Another functionality that a client covers, apart from reading and storing the values in the local database, it is performing the operations on CRDTs offline.
 
-\begin{lstlisting}[caption={Performing an operation \textit{add} on a Set CRDT while the client is offline.}, label={lst:dev11}]
+\begin{lstlisting}[caption={[Applying operation \textit{add} on a Set CRDT while offline]Performing an operation \textit{add} on a Set CRDT while the client is offline.}, label={lst:dev11}]
 DBHelper.crdtDBPromise
   .then(function(db) {
 // ...
@@ -449,7 +449,7 @@ Looking at \lstref*{lst:dev11}, we can see that there is not so much of a differ
 
 Next, we would like to discuss what happens when the client switches from offline mode back to online. For every offline operation performed on sets, we register a unique tag named \textit{syncSetChanges}, as was explained in the \secref*{BackgroundSync}.
 
-\begin{lstlisting}[caption={A function \textit{pushSetChangesToServer} triggered every time when a client re-connects to the network.}, label={lst:dev12}]
+\begin{lstlisting}[caption={[A function, which synchronises operations with the server when the connection is re-established]A function \textit{pushSetChangesToServer}, triggered every time when a client re-connects to the network.}, label={lst:dev12}]
 function pushSetChangesToServer() {
   // ...
   DBHelper.crdtDBPromise.then(function(db) {

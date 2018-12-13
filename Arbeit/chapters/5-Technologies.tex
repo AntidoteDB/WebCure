@@ -49,7 +49,7 @@ In this subsection, we will introduce the steps through which a service worker g
 
 Before one can use service worker features, a developer has to register the corresponding script in the JavaScript code. The registration helps the browser to find a service worker and, afterwards, start its installation in the environment.
 
-\begin{lstlisting}[caption={An example code, which demonstrates how to register a service worker\cite{32}.}, label={lst:tech1}]
+\begin{lstlisting}[caption={[Code for a Service Worker registration]Code, which demonstrates how to register a service worker\cite{32}.}, label={lst:tech1}]
 if ('serviceWorker' in navigator) {
   navigator.serviceWorker.register('/service-worker.js')
   .then(function(registration) {
@@ -67,7 +67,7 @@ Not every browser supports the functionality of service workers. Nowadays, the l
 
 The scope of the service workers is quite significant: it defines the paths, from which it can intercept network requests. By default, the scope of the service worker is the location, where the service worker file is stored, including all the sub-directories. For example, if the scope is the root directory, then the service worker is going to regulate the requests for all files at the domain.
 
-\begin{lstlisting}[caption={An example code, which demonstrates how to set a custom scope when registering a service worker\cite{32}.}, label={lst:tech2}]
+\begin{lstlisting}[caption={[Code for setting up a custom scope of a Service Worker]Code, which demonstrates how to set a custom scope when registering a service worker\cite{32}.}, label={lst:tech2}]
 navigator.serviceWorker.register('/service-worker.js', {
   scope: '/app/'
 });
@@ -86,7 +86,7 @@ After the registration, the browser might attempt installation of a service work
 
 Installation triggers service worker's \textit{install} event. There is a probability of having a listener for it in order to assign a specific task (depends on the use case), which follows the installation on success. The way to set up this listener is shown at~\lstref*{lst:tech3}.
 
-\begin{lstlisting}[caption={An example code, which demonstates a listener for the \textit{install} service worker's event\cite{32}.}, label={lst:tech3}]
+\begin{lstlisting}[caption={[Code for listening to installation of a Service Worker]Code, which demonstates a listener for the \textit{install} service worker's event\cite{32}.}, label={lst:tech3}]
 // Listen for install event, set callback
 self.addEventListener('install', function(event) {
     // Perform some task
@@ -99,7 +99,7 @@ After the installation, a service worker has to be activated. In case there are 
 
 Similar to the installation, the activation phase also has its event that gets triggered once the service worker is activating, as we can see at~\lstref*{lst:tech4}. For example, at this point, it might be a good idea to clean the previously stored old cached data.
 
-\begin{lstlisting}[caption={An example code, which demonstates a listener for the \textit{activation} service worker's event\cite{32}.}, label={lst:tech4}]
+\begin{lstlisting}[caption={[Code for listening to activation of a Service Worker]Code, which demonstates a listener for the \textit{activation} service worker's event\cite{32}.}, label={lst:tech4}]
 self.addEventListener('activate', function(event) {
   // Perform some task
 });
@@ -110,7 +110,7 @@ self.addEventListener('activate', function(event) {
 
 For the best offline experience, the web application should store somewhere HTML, CSS, JavaScript code, as well as images, fonts. There is a place for all of it called Cache API, which we are going to use for WebCure. With Cache API it is possible to store network requests associated with corresponding requests.
 
-\begin{lstlisting}[caption={An example code, which demonstrates how one can create cache storage called \textit{my-cache}\cite{34}.}, label={lst:tech6}]
+\begin{lstlisting}[caption={[Code for creating a cache storage using Cache API]Code, which demonstrates how one can create cache storage called \textit{my-cache}\cite{34}.}, label={lst:tech6}]
 caches.open('my-cache').then((cache) => {
   // do something with cache...
 });
@@ -139,7 +139,7 @@ All read and write operations in IndexedDB should be wrapped into a \textit{tran
 
 As IndexedDB is relatively a new API, it is not supported by all the web browsers yet and, therefore, the support for it should be checked before any further development, as it is shown at~\lstref*{lst:tech7}. However, all the recent versions of the major web browsers are compatible with it. 
 
-\begin{lstlisting}[caption={An example code, which demonstrates how one can check the support for IndexedDB API\cite{35}.}, label={lst:tech7}]
+\begin{lstlisting}[caption={[Code for checking the support of IndexedDB API]Code, which demonstrates how one can check the support for IndexedDB API\cite{35}.}, label={lst:tech7}]
 if (!('indexedDB' in window)) {
   console.log('This browser doesn\'t support IndexedDB');
   return;
@@ -158,7 +158,7 @@ Both Cache API and IndexedDB database mentioned in \secref*{CacheAPI} and \secre
 
 The reality is that it is not always possible to be online all the time, even if someone wanted to. Sometimes, there is no network connection at all, or it could be that abysmal that it could be hard to do anything under such conditions. Therefore, the scenario when someone could do his or her work offline and then, when the connection is re-established again, this work will go online, is useful. Nowadays, thanks to \textit{Background Sync}\cite{38} from Google it is possible to do in web applications. 
 
-\begin{lstlisting}[caption={An example code, which demonstrates how to register a sync (\textit{myFirstSync} here) event for the service worker\cite{38}.}, label={lst:tech8}]
+\begin{lstlisting}[caption={[Code for registration of a sync event for a Service Worker]Code, which demonstrates how to register a sync (\textit{myFirstSync} here) event for the service worker\cite{38}.}, label={lst:tech8}]
 // Register the service worker:
 navigator.serviceWorker.register('/sw.js');
 
@@ -170,7 +170,7 @@ navigator.serviceWorker.ready.then(function(swRegistration) {
 
 For this feature to work, the web application has to use a service worker. First of all, it should be registered and, afterwards, a unique tag should be registered as well, which is going to be responsible for the background call of the method. Let us show an example: at~\lstref*{lst:tech8}, we can see how a synchronization tag \textit{myFirstSync} is registered.
 
-\begin{lstlisting}[caption={An example code, which demonstates that a function \textit{doSomeStuff} called, when the \textit{sync} event happened\cite{38}.}, label={lst:tech9}]
+\begin{lstlisting}[caption={[Code for calling a specific function when sync event triggered]Code, which demonstates that a function \textit{doSomeStuff} called, when the \textit{sync} event happened\cite{38}.}, label={lst:tech9}]
 self.addEventListener('sync', function(event) {
   if (event.tag == 'myFirstSync') {
     event.waitUntil(doSomeStuff());

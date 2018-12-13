@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.19 (MiKTeX 2.9.6800 64-bit) (preloaded format=pdflatex 2018.8.30)  12 DEC 2018 03:35
+This is pdfTeX, Version 3.14159265-2.6-1.40.19 (MiKTeX 2.9.6800 64-bit) (preloaded format=pdflatex 2018.8.30)  13 DEC 2018 04:19
 entering extended mode
 **"c:/Users/Server/Dropbox (Server (Study))/TU Kaiserslautern/Thesis/Project/MasterThesis/Arbeit/Masterthesis.tex"
 ("c:/Users/Server/Dropbox (Server (Study))/TU Kaiserslautern/Thesis/Project/MasterThesis/Arbeit/Masterthesis.tex"
@@ -883,16 +883,7 @@ Package tocbasic Info: setting babel extension for `loc' on input line 200.
 
 
 Writing glossary file Masterthesis.glo 
-(Masterthesis.aux
-
-Masterthesis.aux:310: LaTeX Error: Missing \begin{document}.
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help
-You're in trouble here.  Try typing  <return>  to proceed.
-If that doesn't work, type  X <return>  to quit.
-
-)
+(Masterthesis.aux)
 \openout1 = `Masterthesis.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 43.
@@ -959,51 +950,10 @@ LaTeX Info: Redefining \nameref on input line 43.
 \@outlinefile=\write4
 \openout4 = `Masterthesis.out'.
 
-LaTeX Font Info:    Try loading font information for U+msa on input line 54.
- (C:\MiKTeX\tex\latex\amsfonts\umsa.fd
-File: umsa.fd 2013/01/14 v3.01 AMS symbols A
-)
-LaTeX Font Info:    Try loading font information for U+msb on input line 54.
- (C:\MiKTeX\tex\latex\amsfonts\umsb.fd
-File: umsb.fd 2013/01/14 v3.01 AMS symbols B
-)
-LaTeX Font Info:    Try loading font information for OMX+yhex on input line 54.
- (C:\MiKTeX\tex\latex\yhmath\omxyhex.fd
-File: OMXyhex.fd 
-File: OMXyhex.fd 2013/07/03 v1.1 YH's humble contribution to TeX maths (NP)
-)
-LaTeX Font Info:    External font `yhcmex10' loaded for size
-(Font)              <12> on input line 54.
-LaTeX Font Info:    External font `yhcmex10' loaded for size
-(Font)              <8> on input line 54.
-LaTeX Font Info:    External font `yhcmex10' loaded for size
-(Font)              <6> on input line 54.
-Package babel Info: Redefining ngerman shorthand "|
-(babel)             in language  on input line 54.
-Package babel Info: Redefining ngerman shorthand "~
-(babel)             in language  on input line 54.
-Package babel Info: Redefining ngerman shorthand "|
-(babel)             in language  on input line 54.
-Package babel Info: Redefining ngerman shorthand "~
-(babel)             in language  on input line 54.
- [1
-
-{C:/Users/Server/AppData/Local/MiKTeX/2.9/pdftex/config/pdftex.map}]
-Package babel Info: Redefining ngerman shorthand "|
-(babel)             in language  on input line 54.
-Package babel Info: Redefining ngerman shorthand "~
-(babel)             in language  on input line 54.
-Package babel Info: Redefining ngerman shorthand "|
-(babel)             in language  on input line 54.
-Package babel Info: Redefining ngerman shorthand "~
-(babel)             in language  on input line 54.
- [2
-
-
-] (titlepage/Titlepage.tex
+ (titlepage/Titlepage.tex
 LaTeX Font Info:    Font shape `T1/ppl/bx/n' in size <24.88> not available
 (Font)              Font shape `T1/ppl/b/n' tried instead on input line 42.
-<styles/tulogo.png, id=177, 401.5pt x 108.405pt>
+<styles/tulogo.png, id=173, 401.5pt x 108.405pt>
 File: styles/tulogo.png Graphic file (type png)
 <use styles/tulogo.png>
 Package pdftex.def Info: styles/tulogo.png  used on input line 67.
@@ -1017,7 +967,11 @@ Package babel Info: Redefining ngerman shorthand "|
 (babel)             in language  on input line 58.
 Package babel Info: Redefining ngerman shorthand "~
 (babel)             in language  on input line 58.
- [1 <./styles/tulogo.png>]
+ [1
+
+
+
+{C:/Users/Server/AppData/Local/MiKTeX/2.9/pdftex/config/pdftex.map} <./styles/tulogo.png>]
 Package babel Info: Redefining ngerman shorthand "|
 (babel)             in language  on input line 58.
 Package babel Info: Redefining ngerman shorthand "~
@@ -1029,31 +983,29 @@ Package babel Info: Redefining ngerman shorthand "~
  [2
 
 
-] (abstract/Abstract_german.tex
+] (abstract/Abstract.tex
 LaTeX Font Info:    Font shape `T1/ppl/bx/n' in size <17.28> not available
-(Font)              Font shape `T1/ppl/b/n' tried instead on input line 5.
+(Font)              Font shape `T1/ppl/b/n' tried instead on input line 2.
 )
-Package babel Info: Redefining ngerman shorthand "|
-(babel)             in language  on input line 61.
-Package babel Info: Redefining ngerman shorthand "~
-(babel)             in language  on input line 61.
-Package babel Info: Redefining ngerman shorthand "|
-(babel)             in language  on input line 61.
-Package babel Info: Redefining ngerman shorthand "~
-(babel)             in language  on input line 61.
- [3]
-Package babel Info: Redefining ngerman shorthand "|
-(babel)             in language  on input line 61.
-Package babel Info: Redefining ngerman shorthand "~
-(babel)             in language  on input line 61.
-Package babel Info: Redefining ngerman shorthand "|
-(babel)             in language  on input line 61.
-Package babel Info: Redefining ngerman shorthand "~
-(babel)             in language  on input line 61.
- [4
-
-
-] (abstract/Abstract.tex)
+LaTeX Font Info:    Try loading font information for U+msa on input line 64.
+ (C:\MiKTeX\tex\latex\amsfonts\umsa.fd
+File: umsa.fd 2013/01/14 v3.01 AMS symbols A
+)
+LaTeX Font Info:    Try loading font information for U+msb on input line 64.
+ (C:\MiKTeX\tex\latex\amsfonts\umsb.fd
+File: umsb.fd 2013/01/14 v3.01 AMS symbols B
+)
+LaTeX Font Info:    Try loading font information for OMX+yhex on input line 64.
+ (C:\MiKTeX\tex\latex\yhmath\omxyhex.fd
+File: OMXyhex.fd 
+File: OMXyhex.fd 2013/07/03 v1.1 YH's humble contribution to TeX maths (NP)
+)
+LaTeX Font Info:    External font `yhcmex10' loaded for size
+(Font)              <12> on input line 64.
+LaTeX Font Info:    External font `yhcmex10' loaded for size
+(Font)              <8> on input line 64.
+LaTeX Font Info:    External font `yhcmex10' loaded for size
+(Font)              <6> on input line 64.
 Package babel Info: Redefining ngerman shorthand "|
 (babel)             in language  on input line 64.
 Package babel Info: Redefining ngerman shorthand "~
@@ -1062,7 +1014,7 @@ Package babel Info: Redefining ngerman shorthand "|
 (babel)             in language  on input line 64.
 Package babel Info: Redefining ngerman shorthand "~
 (babel)             in language  on input line 64.
- [5] (acknowledgement/Acknowledgement.tex
+ [3] (acknowledgement/Acknowledgement.tex
 LaTeX Font Info:    Font shape `T1/ppl/bx/n' in size <12> not available
 (Font)              Font shape `T1/ppl/b/n' tried instead on input line 11.
 )
@@ -1074,7 +1026,7 @@ Package babel Info: Redefining ngerman shorthand "|
 (babel)             in language  on input line 67.
 Package babel Info: Redefining ngerman shorthand "~
 (babel)             in language  on input line 67.
- [6
+ [4
 
 
 ]
@@ -1086,7 +1038,7 @@ Package babel Info: Redefining ngerman shorthand "|
 (babel)             in language  on input line 67.
 Package babel Info: Redefining ngerman shorthand "~
 (babel)             in language  on input line 67.
- [7
+ [5
 
 
 ] (disclaimer/Disclaimer.tex
@@ -1098,7 +1050,7 @@ Package babel Info: Redefining ngerman shorthand "|
 (babel)             in language  on input line 12.
 Package babel Info: Redefining ngerman shorthand "~
 (babel)             in language  on input line 12.
- [8])
+ [6])
 Package babel Info: Redefining ngerman shorthand "|
 (babel)             in language  on input line 72.
 Package babel Info: Redefining ngerman shorthand "~
@@ -1114,13 +1066,13 @@ Package babel Info: Redefining ngerman shorthand "|
 (babel)             in language  on input line 32.
 Package babel Info: Redefining ngerman shorthand "~
 (babel)             in language  on input line 32.
- [9
+ [7
 
 
 
 
 ]
-Underfull \hbox (badness 4832) in paragraph at lines 33--33
+Underfull \hbox (badness 4832) in paragraph at lines 34--34
  [][] [][][]\T1/ppl/m/n/12 SwiftCloud: a tran-sac-tio-nal sys-tem that brings geo- 
  []
 
@@ -1136,7 +1088,7 @@ Package babel Info: Redefining ngerman shorthand "|
 (babel)             in language  on input line 78.
 Package babel Info: Redefining ngerman shorthand "~
 (babel)             in language  on input line 78.
- [10] (chapters/1-Introduction.tex
+ [8] (chapters/1-Introduction.tex
 chapter 1.
 Package babel Info: Redefining ngerman shorthand "|
 (babel)             in language  on input line 1.
@@ -1186,11 +1138,7 @@ Package babel Info: Redefining ngerman shorthand "|
 (babel)             in language  on input line 83.
 Package babel Info: Redefining ngerman shorthand "~
 (babel)             in language  on input line 83.
-pdfTeX warning (ext4): destination with the same identifier (name{page.1}) has been already used, duplicate ignored
-<to be read again> 
-                   \relax 
-l.83 
-      [1
+ [1
 
 
 
@@ -1206,11 +1154,7 @@ Package babel Info: Redefining ngerman shorthand "|
 (babel)             in language  on input line 84.
 Package babel Info: Redefining ngerman shorthand "~
 (babel)             in language  on input line 84.
-pdfTeX warning (ext4): destination with the same identifier (name{page.2}) has been already used, duplicate ignored
-<to be read again> 
-                   \relax 
-l.84 		\cleardoubleoddplainpage
-                                [2] (chapters/2-Background.tex
+ [2] (chapters/2-Background.tex
 chapter 2.
 Package babel Info: Redefining ngerman shorthand "|
 (babel)             in language  on input line 1.
@@ -1220,12 +1164,6 @@ Package babel Info: Redefining ngerman shorthand "|
 (babel)             in language  on input line 6.
 Package babel Info: Redefining ngerman shorthand "~
 (babel)             in language  on input line 6.
-
-Package natbib Warning: Citation `11' on page 3 undefined on input line 9.
-
-
-Package natbib Warning: Citation `11' on page 3 undefined on input line 11.
-
 Package babel Info: Redefining ngerman shorthand "|
 (babel)             in language  on input line 12.
 Package babel Info: Redefining ngerman shorthand "~
@@ -1240,27 +1178,6 @@ Package babel Info: Redefining ngerman shorthand "~
 
 
 ]
-
-Package natbib Warning: Citation `27' on page 4 undefined on input line 13.
-
-
-Package natbib Warning: Citation `12' on page 4 undefined on input line 13.
-
-
-Package natbib Warning: Citation `12' on page 4 undefined on input line 13.
-
-
-Package natbib Warning: Citation `10' on page 4 undefined on input line 17.
-
-
-Package natbib Warning: Citation `29' on page 4 undefined on input line 19.
-
-
-Package natbib Warning: Citation `28' on page 4 undefined on input line 19.
-
-
-Package natbib Warning: Citation `7' on page 4 undefined on input line 19.
-
 Package babel Info: Redefining ngerman shorthand "|
 (babel)             in language  on input line 20.
 Package babel Info: Redefining ngerman shorthand "~
@@ -1269,8 +1186,8 @@ Package babel Info: Redefining ngerman shorthand "|
 (babel)             in language  on input line 20.
 Package babel Info: Redefining ngerman shorthand "~
 (babel)             in language  on input line 20.
-[4] (images/causal/causal_true.pdf_tex
-<images/causal/causal_true.pdf, id=298, page=1, 191.9672pt x 144.54pt>
+ [4] (images/causal/causal_true.pdf_tex
+<images/causal/causal_true.pdf, id=308, page=1, 191.9672pt x 144.54pt>
 File: images/causal/causal_true.pdf Graphic file (type pdf)
 <use images/causal/causal_true.pdf, page 1>
 Package pdftex.def Info: images/causal/causal_true.pdf , page1 used on input line 56.
@@ -1307,27 +1224,27 @@ LaTeX Font Warning: Font shape `OML/cmm/b/it' in size <3.84003> not available
 LaTeX Font Warning: Font shape `OMS/cmsy/b/n' in size <3.84003> not available
 (Font)              size <5> substituted on input line 57.
 
-<images/causal/causal_true.pdf, id=299, page=2, 191.9672pt x 144.54pt>
+<images/causal/causal_true.pdf, id=309, page=2, 191.9672pt x 144.54pt>
 File: images/causal/causal_true.pdf Graphic file (type pdf)
 <use images/causal/causal_true.pdf, page 2>
 Package pdftex.def Info: images/causal/causal_true.pdf , page2 used on input line 58.
 (pdftex.def)             Requested size: 154.55302pt x 116.37538pt.
-<images/causal/causal_true.pdf, id=300, page=3, 191.9672pt x 144.54pt>
+<images/causal/causal_true.pdf, id=310, page=3, 191.9672pt x 144.54pt>
 File: images/causal/causal_true.pdf Graphic file (type pdf)
 <use images/causal/causal_true.pdf, page 3>
 Package pdftex.def Info: images/causal/causal_true.pdf , page3 used on input line 60.
 (pdftex.def)             Requested size: 154.55302pt x 116.37538pt.
-<images/causal/causal_true.pdf, id=301, page=4, 191.9672pt x 144.54pt>
+<images/causal/causal_true.pdf, id=311, page=4, 191.9672pt x 144.54pt>
 File: images/causal/causal_true.pdf Graphic file (type pdf)
 <use images/causal/causal_true.pdf, page 4>
 Package pdftex.def Info: images/causal/causal_true.pdf , page4 used on input line 62.
 (pdftex.def)             Requested size: 154.55302pt x 116.37538pt.
-<images/causal/causal_true.pdf, id=302, page=5, 191.9672pt x 144.54pt>
+<images/causal/causal_true.pdf, id=312, page=5, 191.9672pt x 144.54pt>
 File: images/causal/causal_true.pdf Graphic file (type pdf)
 <use images/causal/causal_true.pdf, page 5>
 Package pdftex.def Info: images/causal/causal_true.pdf , page5 used on input line 64.
 (pdftex.def)             Requested size: 154.55302pt x 116.37538pt.
-<images/causal/causal_true.pdf, id=303, page=6, 191.9672pt x 144.54pt>
+<images/causal/causal_true.pdf, id=313, page=6, 191.9672pt x 144.54pt>
 File: images/causal/causal_true.pdf Graphic file (type pdf)
 <use images/causal/causal_true.pdf, page 6>
 Package pdftex.def Info: images/causal/causal_true.pdf , page6 used on input line 66.
@@ -1336,32 +1253,32 @@ Package pdftex.def Info: images/causal/causal_true.pdf , page6 used on input lin
 LaTeX Font Info:    Font shape `T1/ppl/bx/n' in size <10> not available
 (Font)              Font shape `T1/ppl/b/n' tried instead on input line 24.
  (images/causal/causal_false.pdf_tex
-<images/causal/causal_false.pdf, id=304, page=1, 191.9672pt x 144.54pt>
+<images/causal/causal_false.pdf, id=314, page=1, 191.9672pt x 144.54pt>
 File: images/causal/causal_false.pdf Graphic file (type pdf)
 <use images/causal/causal_false.pdf, page 1>
 Package pdftex.def Info: images/causal/causal_false.pdf , page1 used on input line 56.
 (pdftex.def)             Requested size: 154.55302pt x 116.37538pt.
-<images/causal/causal_false.pdf, id=305, page=2, 191.9672pt x 144.54pt>
+<images/causal/causal_false.pdf, id=315, page=2, 191.9672pt x 144.54pt>
 File: images/causal/causal_false.pdf Graphic file (type pdf)
 <use images/causal/causal_false.pdf, page 2>
 Package pdftex.def Info: images/causal/causal_false.pdf , page2 used on input line 58.
 (pdftex.def)             Requested size: 154.55302pt x 116.37538pt.
-<images/causal/causal_false.pdf, id=306, page=3, 191.9672pt x 144.54pt>
+<images/causal/causal_false.pdf, id=316, page=3, 191.9672pt x 144.54pt>
 File: images/causal/causal_false.pdf Graphic file (type pdf)
 <use images/causal/causal_false.pdf, page 3>
 Package pdftex.def Info: images/causal/causal_false.pdf , page3 used on input line 60.
 (pdftex.def)             Requested size: 154.55302pt x 116.37538pt.
-<images/causal/causal_false.pdf, id=307, page=4, 191.9672pt x 144.54pt>
+<images/causal/causal_false.pdf, id=317, page=4, 191.9672pt x 144.54pt>
 File: images/causal/causal_false.pdf Graphic file (type pdf)
 <use images/causal/causal_false.pdf, page 4>
 Package pdftex.def Info: images/causal/causal_false.pdf , page4 used on input line 62.
 (pdftex.def)             Requested size: 154.55302pt x 116.37538pt.
-<images/causal/causal_false.pdf, id=308, page=5, 191.9672pt x 144.54pt>
+<images/causal/causal_false.pdf, id=318, page=5, 191.9672pt x 144.54pt>
 File: images/causal/causal_false.pdf Graphic file (type pdf)
 <use images/causal/causal_false.pdf, page 5>
 Package pdftex.def Info: images/causal/causal_false.pdf , page5 used on input line 64.
 (pdftex.def)             Requested size: 154.55302pt x 116.37538pt.
-<images/causal/causal_false.pdf, id=309, page=6, 191.9672pt x 144.54pt>
+<images/causal/causal_false.pdf, id=319, page=6, 191.9672pt x 144.54pt>
 File: images/causal/causal_false.pdf Graphic file (type pdf)
 <use images/causal/causal_false.pdf, page 6>
 Package pdftex.def Info: images/causal/causal_false.pdf , page6 used on input line 66.
@@ -1371,25 +1288,6 @@ Package babel Info: Redefining ngerman shorthand "|
 (babel)             in language  on input line 36.
 Package babel Info: Redefining ngerman shorthand "~
 (babel)             in language  on input line 36.
-
-
-Package natbib Warning: Citation `4' on page 5 undefined on input line 39.
-
-
-Package natbib Warning: Citation `14' on page 5 undefined on input line 39.
-
-
-Package natbib Warning: Citation `9' on page 5 undefined on input line 43.
-
-
-Package natbib Warning: Citation `15' on page 5 undefined on input line 43.
-
-
-Package natbib Warning: Citation `2' on page 5 undefined on input line 47.
-
-
-Package natbib Warning: Citation `15' on page 5 undefined on input line 47.
-
 Package babel Info: Redefining ngerman shorthand "|
 (babel)             in language  on input line 48.
 Package babel Info: Redefining ngerman shorthand "~
@@ -1398,7 +1296,7 @@ Package babel Info: Redefining ngerman shorthand "|
 (babel)             in language  on input line 48.
 Package babel Info: Redefining ngerman shorthand "~
 (babel)             in language  on input line 48.
-[5 <./images/causal/causal_true.pdf> <./images/causal/causal_true.pdf
+ [5 <./images/causal/causal_true.pdf> <./images/causal/causal_true.pdf
 
 pdfTeX warning: pdflatex (file ./images/causal/causal_true.pdf): PDF inclusion: multiple pdfs with page group included in a single page
 > <./images/causal/causal_true.pdf
@@ -1432,26 +1330,23 @@ pdfTeX warning: pdflatex (file ./images/causal/causal_false.pdf): PDF inclusion:
 
 pdfTeX warning: pdflatex (file ./images/causal/causal_false.pdf): PDF inclusion: multiple pdfs with page group included in a single page
 >]
-
-Package natbib Warning: Citation `15' on page 6 undefined on input line 49.
-
-
-Package natbib Warning: Citation `2' on page 6 undefined on input line 51.
-
 Package babel Info: Redefining ngerman shorthand "|
 (babel)             in language  on input line 53.
 Package babel Info: Redefining ngerman shorthand "~
 (babel)             in language  on input line 53.
-
-Package natbib Warning: Citation `3' on page 6 undefined on input line 56.
-
-
-Package natbib Warning: Citation `2' on page 6 undefined on input line 64.
-
+Package babel Info: Redefining ngerman shorthand "|
+(babel)             in language  on input line 66.
+Package babel Info: Redefining ngerman shorthand "~
+(babel)             in language  on input line 66.
+Package babel Info: Redefining ngerman shorthand "|
+(babel)             in language  on input line 66.
+Package babel Info: Redefining ngerman shorthand "~
+(babel)             in language  on input line 66.
+ [6]
 LaTeX Font Info:    Font shape `T1/ppl/bx/n' in size <14.4> not available
 (Font)              Font shape `T1/ppl/b/n' tried instead on input line 66.
-(images/crdts-replication/op-based.pdf_tex
-<images/crdts-replication/op-based.pdf, id=320, page=1, 252.14159pt x 91.54199pt>
+ (images/crdts-replication/op-based.pdf_tex
+<images/crdts-replication/op-based.pdf, id=351, page=1, 252.14159pt x 91.54199pt>
 File: images/crdts-replication/op-based.pdf Graphic file (type pdf)
 <use images/crdts-replication/op-based.pdf, page 1>
 Package pdftex.def Info: images/crdts-replication/op-based.pdf , page1 used on input line 56.
@@ -1463,144 +1358,119 @@ LaTeX Font Info:    External font `yhcmex10' loaded for size
 (Font)              <6.80386> on input line 57.
 LaTeX Font Info:    External font `yhcmex10' loaded for size
 (Font)              <4.85992> on input line 57.
-<images/crdts-replication/op-based.pdf, id=321, page=2, 252.14159pt x 91.54199pt>
+<images/crdts-replication/op-based.pdf, id=352, page=2, 252.14159pt x 91.54199pt>
 File: images/crdts-replication/op-based.pdf Graphic file (type pdf)
 <use images/crdts-replication/op-based.pdf, page 2>
 Package pdftex.def Info: images/crdts-replication/op-based.pdf , page2 used on input line 58.
 (pdftex.def)             Requested size: 386.38849pt x 140.28925pt.
-<images/crdts-replication/op-based.pdf, id=322, page=3, 252.14159pt x 91.54199pt>
+<images/crdts-replication/op-based.pdf, id=353, page=3, 252.14159pt x 91.54199pt>
 File: images/crdts-replication/op-based.pdf Graphic file (type pdf)
 <use images/crdts-replication/op-based.pdf, page 3>
 Package pdftex.def Info: images/crdts-replication/op-based.pdf , page3 used on input line 60.
 (pdftex.def)             Requested size: 386.38849pt x 140.28925pt.
 LaTeX Font Info:    Font shape `T1/ppl/bx/n' in size <9.71986> not available
 (Font)              Font shape `T1/ppl/b/n' tried instead on input line 61.
-<images/crdts-replication/op-based.pdf, id=323, page=4, 252.14159pt x 91.54199pt>
+<images/crdts-replication/op-based.pdf, id=354, page=4, 252.14159pt x 91.54199pt>
 File: images/crdts-replication/op-based.pdf Graphic file (type pdf)
 <use images/crdts-replication/op-based.pdf, page 4>
 Package pdftex.def Info: images/crdts-replication/op-based.pdf , page4 used on input line 64.
 (pdftex.def)             Requested size: 386.38849pt x 140.28925pt.
-<images/crdts-replication/op-based.pdf, id=324, page=5, 252.14159pt x 91.54199pt>
+<images/crdts-replication/op-based.pdf, id=355, page=5, 252.14159pt x 91.54199pt>
 File: images/crdts-replication/op-based.pdf Graphic file (type pdf)
 <use images/crdts-replication/op-based.pdf, page 5>
 Package pdftex.def Info: images/crdts-replication/op-based.pdf , page5 used on input line 67.
 (pdftex.def)             Requested size: 386.38849pt x 140.28925pt.
-<images/crdts-replication/op-based.pdf, id=325, page=6, 252.14159pt x 91.54199pt>
+<images/crdts-replication/op-based.pdf, id=356, page=6, 252.14159pt x 91.54199pt>
 File: images/crdts-replication/op-based.pdf Graphic file (type pdf)
 <use images/crdts-replication/op-based.pdf, page 6>
 Package pdftex.def Info: images/crdts-replication/op-based.pdf , page6 used on input line 69.
 (pdftex.def)             Requested size: 386.38849pt x 140.28925pt.
-<images/crdts-replication/op-based.pdf, id=326, page=7, 252.14159pt x 91.54199pt>
+<images/crdts-replication/op-based.pdf, id=357, page=7, 252.14159pt x 91.54199pt>
 File: images/crdts-replication/op-based.pdf Graphic file (type pdf)
 <use images/crdts-replication/op-based.pdf, page 7>
 Package pdftex.def Info: images/crdts-replication/op-based.pdf , page7 used on input line 71.
 (pdftex.def)             Requested size: 386.38849pt x 140.28925pt.
-<images/crdts-replication/op-based.pdf, id=327, page=8, 252.14159pt x 91.54199pt>
+<images/crdts-replication/op-based.pdf, id=358, page=8, 252.14159pt x 91.54199pt>
 File: images/crdts-replication/op-based.pdf Graphic file (type pdf)
 <use images/crdts-replication/op-based.pdf, page 8>
 Package pdftex.def Info: images/crdts-replication/op-based.pdf , page8 used on input line 73.
 (pdftex.def)             Requested size: 386.38849pt x 140.28925pt.
-<images/crdts-replication/op-based.pdf, id=328, page=9, 252.14159pt x 91.54199pt>
+<images/crdts-replication/op-based.pdf, id=359, page=9, 252.14159pt x 91.54199pt>
 File: images/crdts-replication/op-based.pdf Graphic file (type pdf)
 <use images/crdts-replication/op-based.pdf, page 9>
 Package pdftex.def Info: images/crdts-replication/op-based.pdf , page9 used on input line 76.
 (pdftex.def)             Requested size: 386.38849pt x 140.28925pt.
-<images/crdts-replication/op-based.pdf, id=329, page=10, 252.14159pt x 91.54199pt>
+<images/crdts-replication/op-based.pdf, id=360, page=10, 252.14159pt x 91.54199pt>
 File: images/crdts-replication/op-based.pdf Graphic file (type pdf)
 <use images/crdts-replication/op-based.pdf, page 10>
 Package pdftex.def Info: images/crdts-replication/op-based.pdf , page10 used on input line 79.
 (pdftex.def)             Requested size: 386.38849pt x 140.28925pt.
-<images/crdts-replication/op-based.pdf, id=330, page=11, 252.14159pt x 91.54199pt>
+<images/crdts-replication/op-based.pdf, id=361, page=11, 252.14159pt x 91.54199pt>
 File: images/crdts-replication/op-based.pdf Graphic file (type pdf)
 <use images/crdts-replication/op-based.pdf, page 11>
 Package pdftex.def Info: images/crdts-replication/op-based.pdf , page11 used on input line 82.
 (pdftex.def)             Requested size: 386.38849pt x 140.28925pt.
-)
-
-Package natbib Warning: Citation `2' on page 6 undefined on input line 72.
-
-
-Package natbib Warning: Citation `2' on page 6 undefined on input line 72.
-
-Package babel Info: Redefining ngerman shorthand "|
-(babel)             in language  on input line 75.
-Package babel Info: Redefining ngerman shorthand "~
-(babel)             in language  on input line 75.
-Package babel Info: Redefining ngerman shorthand "|
-(babel)             in language  on input line 75.
-Package babel Info: Redefining ngerman shorthand "~
-(babel)             in language  on input line 75.
-[6]
-
-Package natbib Warning: Citation `3' on page 7 undefined on input line 77.
-
-(images/crdts-replication/state-based.pdf_tex
-<images/crdts-replication/state-based.pdf, id=336, page=1, 260.17198pt x 105.59369pt>
+) (images/crdts-replication/state-based.pdf_tex
+<images/crdts-replication/state-based.pdf, id=366, page=1, 260.17198pt x 105.59369pt>
 File: images/crdts-replication/state-based.pdf Graphic file (type pdf)
 <use images/crdts-replication/state-based.pdf, page 1>
 Package pdftex.def Info: images/crdts-replication/state-based.pdf , page1 used on input line 56.
 (pdftex.def)             Requested size: 386.38849pt x 156.82883pt.
-<images/crdts-replication/state-based.pdf, id=337, page=2, 260.17198pt x 105.59369pt>
+<images/crdts-replication/state-based.pdf, id=367, page=2, 260.17198pt x 105.59369pt>
 File: images/crdts-replication/state-based.pdf Graphic file (type pdf)
 <use images/crdts-replication/state-based.pdf, page 2>
 Package pdftex.def Info: images/crdts-replication/state-based.pdf , page2 used on input line 60.
 (pdftex.def)             Requested size: 386.38849pt x 156.82883pt.
-<images/crdts-replication/state-based.pdf, id=338, page=3, 260.17198pt x 105.59369pt>
+<images/crdts-replication/state-based.pdf, id=368, page=3, 260.17198pt x 105.59369pt>
 File: images/crdts-replication/state-based.pdf Graphic file (type pdf)
 <use images/crdts-replication/state-based.pdf, page 3>
 Package pdftex.def Info: images/crdts-replication/state-based.pdf , page3 used on input line 62.
 (pdftex.def)             Requested size: 386.38849pt x 156.82883pt.
-<images/crdts-replication/state-based.pdf, id=339, page=4, 260.17198pt x 105.59369pt>
+<images/crdts-replication/state-based.pdf, id=369, page=4, 260.17198pt x 105.59369pt>
 File: images/crdts-replication/state-based.pdf Graphic file (type pdf)
 <use images/crdts-replication/state-based.pdf, page 4>
 Package pdftex.def Info: images/crdts-replication/state-based.pdf , page4 used on input line 64.
 (pdftex.def)             Requested size: 386.38849pt x 156.82883pt.
-<images/crdts-replication/state-based.pdf, id=340, page=5, 260.17198pt x 105.59369pt>
+<images/crdts-replication/state-based.pdf, id=370, page=5, 260.17198pt x 105.59369pt>
 File: images/crdts-replication/state-based.pdf Graphic file (type pdf)
 <use images/crdts-replication/state-based.pdf, page 5>
 Package pdftex.def Info: images/crdts-replication/state-based.pdf , page5 used on input line 66.
 (pdftex.def)             Requested size: 386.38849pt x 156.82883pt.
-<images/crdts-replication/state-based.pdf, id=341, page=6, 260.17198pt x 105.59369pt>
+<images/crdts-replication/state-based.pdf, id=371, page=6, 260.17198pt x 105.59369pt>
 File: images/crdts-replication/state-based.pdf Graphic file (type pdf)
 <use images/crdts-replication/state-based.pdf, page 6>
 Package pdftex.def Info: images/crdts-replication/state-based.pdf , page6 used on input line 70.
 (pdftex.def)             Requested size: 386.38849pt x 156.82883pt.
-<images/crdts-replication/state-based.pdf, id=342, page=7, 260.17198pt x 105.59369pt>
+<images/crdts-replication/state-based.pdf, id=372, page=7, 260.17198pt x 105.59369pt>
 File: images/crdts-replication/state-based.pdf Graphic file (type pdf)
 <use images/crdts-replication/state-based.pdf, page 7>
 Package pdftex.def Info: images/crdts-replication/state-based.pdf , page7 used on input line 73.
 (pdftex.def)             Requested size: 386.38849pt x 156.82883pt.
-<images/crdts-replication/state-based.pdf, id=343, page=8, 260.17198pt x 105.59369pt>
+<images/crdts-replication/state-based.pdf, id=373, page=8, 260.17198pt x 105.59369pt>
 File: images/crdts-replication/state-based.pdf Graphic file (type pdf)
 <use images/crdts-replication/state-based.pdf, page 8>
 Package pdftex.def Info: images/crdts-replication/state-based.pdf , page8 used on input line 76.
 (pdftex.def)             Requested size: 386.38849pt x 156.82883pt.
-<images/crdts-replication/state-based.pdf, id=344, page=9, 260.17198pt x 105.59369pt>
+<images/crdts-replication/state-based.pdf, id=374, page=9, 260.17198pt x 105.59369pt>
 File: images/crdts-replication/state-based.pdf Graphic file (type pdf)
 <use images/crdts-replication/state-based.pdf, page 9>
 Package pdftex.def Info: images/crdts-replication/state-based.pdf , page9 used on input line 81.
 (pdftex.def)             Requested size: 386.38849pt x 156.82883pt.
-<images/crdts-replication/state-based.pdf, id=345, page=10, 260.17198pt x 105.59369pt>
+<images/crdts-replication/state-based.pdf, id=375, page=10, 260.17198pt x 105.59369pt>
 File: images/crdts-replication/state-based.pdf Graphic file (type pdf)
 <use images/crdts-replication/state-based.pdf, page 10>
 Package pdftex.def Info: images/crdts-replication/state-based.pdf , page10 used on input line 83.
 (pdftex.def)             Requested size: 386.38849pt x 156.82883pt.
 )
-
-Package natbib Warning: Citation `2' on page 7 undefined on input line 89.
-
-
-Package natbib Warning: Citation `2' on page 7 undefined on input line 89.
-
 Package babel Info: Redefining ngerman shorthand "|
-(babel)             in language  on input line 98.
+(babel)             in language  on input line 95.
 Package babel Info: Redefining ngerman shorthand "~
-(babel)             in language  on input line 98.
+(babel)             in language  on input line 95.
 Package babel Info: Redefining ngerman shorthand "|
-(babel)             in language  on input line 98.
+(babel)             in language  on input line 95.
 Package babel Info: Redefining ngerman shorthand "~
-(babel)             in language  on input line 98.
-[7 <./images/crdts-replication/op-based.pdf> <./images/crdts-replication/op-based.pdf
+(babel)             in language  on input line 95.
+ [7 <./images/crdts-replication/op-based.pdf> <./images/crdts-replication/op-based.pdf
 
 pdfTeX warning: pdflatex (file ./images/crdts-replication/op-based.pdf): PDF inclusion: multiple pdfs with page group included in a single page
 > <./images/crdts-replication/op-based.pdf
@@ -1631,18 +1501,12 @@ pdfTeX warning: pdflatex (file ./images/crdts-replication/op-based.pdf): PDF inc
 
 pdfTeX warning: pdflatex (file ./images/crdts-replication/op-based.pdf): PDF inclusion: multiple pdfs with page group included in a single page
 >]
-
-Package natbib Warning: Citation `3' on page 8 undefined on input line 102.
-
 LaTeX Font Info:    External font `yhcmex10' loaded for size
 (Font)              <10> on input line 106.
 LaTeX Font Info:    External font `yhcmex10' loaded for size
 (Font)              <7> on input line 106.
 LaTeX Font Info:    External font `yhcmex10' loaded for size
 (Font)              <5> on input line 106.
-
-Package natbib Warning: Citation `3' on page 8 undefined on input line 106.
-
 Package babel Info: Redefining ngerman shorthand "|
 (babel)             in language  on input line 107.
 Package babel Info: Redefining ngerman shorthand "~
@@ -1651,7 +1515,7 @@ Package babel Info: Redefining ngerman shorthand "|
 (babel)             in language  on input line 107.
 Package babel Info: Redefining ngerman shorthand "~
 (babel)             in language  on input line 107.
-[8 <./images/crdts-replication/state-based.pdf> <./images/crdts-replication/state-based.pdf
+ [8 <./images/crdts-replication/state-based.pdf> <./images/crdts-replication/state-based.pdf
 
 pdfTeX warning: pdflatex (file ./images/crdts-replication/state-based.pdf): PDF inclusion: multiple pdfs with page group included in a single page
 > <./images/crdts-replication/state-based.pdf
@@ -1678,11 +1542,7 @@ pdfTeX warning: pdflatex (file ./images/crdts-replication/state-based.pdf): PDF 
 > <./images/crdts-replication/state-based.pdf
 
 pdfTeX warning: pdflatex (file ./images/crdts-replication/state-based.pdf): PDF inclusion: multiple pdfs with page group included in a single page
->]
-
-Package natbib Warning: Citation `39' on page 9 undefined on input line 110.
-
-)
+>])
 Package babel Info: Redefining ngerman shorthand "|
 (babel)             in language  on input line 88.
 Package babel Info: Redefining ngerman shorthand "~
@@ -1780,45 +1640,41 @@ Package babel Info: Redefining ngerman shorthand "|
 Package babel Info: Redefining ngerman shorthand "~
 (babel)             in language  on input line 77.
  (images/protocol/overview.pdf_tex
-<images/protocol/overview.pdf, id=467, page=1, 279.29344pt x 91.09032pt>
+<images/protocol/overview.pdf, id=502, page=1, 279.29344pt x 91.09032pt>
 File: images/protocol/overview.pdf Graphic file (type pdf)
 <use images/protocol/overview.pdf, page 1>
 Package pdftex.def Info: images/protocol/overview.pdf , page1 used on input line 56.
 (pdftex.def)             Requested size: 231.83545pt x 75.61465pt.
-<images/protocol/overview.pdf, id=468, page=2, 279.29344pt x 91.09032pt>
+<images/protocol/overview.pdf, id=503, page=2, 279.29344pt x 91.09032pt>
 File: images/protocol/overview.pdf Graphic file (type pdf)
 <use images/protocol/overview.pdf, page 2>
 Package pdftex.def Info: images/protocol/overview.pdf , page2 used on input line 58.
 (pdftex.def)             Requested size: 231.83545pt x 75.61465pt.
-<images/protocol/overview.pdf, id=469, page=3, 279.29344pt x 91.09032pt>
+<images/protocol/overview.pdf, id=504, page=3, 279.29344pt x 91.09032pt>
 File: images/protocol/overview.pdf Graphic file (type pdf)
 <use images/protocol/overview.pdf, page 3>
 Package pdftex.def Info: images/protocol/overview.pdf , page3 used on input line 60.
 (pdftex.def)             Requested size: 231.83545pt x 75.61465pt.
-)
-
-Package natbib Warning: Citation `49' on page 14 undefined on input line 88.
-
-(images/notations/timeline.pdf_tex
-<images/notations/timeline.pdf, id=472, page=1, 191.9672pt x 144.54pt>
+) (images/notations/timeline.pdf_tex
+<images/notations/timeline.pdf, id=508, page=1, 191.9672pt x 144.54pt>
 File: images/notations/timeline.pdf Graphic file (type pdf)
 <use images/notations/timeline.pdf, page 1>
 Package pdftex.def Info: images/notations/timeline.pdf , page1 used on input line 56.
 (pdftex.def)             Requested size: 135.23833pt x 101.83232pt.
 ) (images/notations/transmission.pdf_tex
-<images/notations/transmission.pdf, id=473, page=1, 191.9672pt x 144.54pt>
+<images/notations/transmission.pdf, id=509, page=1, 191.9672pt x 144.54pt>
 File: images/notations/transmission.pdf Graphic file (type pdf)
 <use images/notations/transmission.pdf, page 1>
 Package pdftex.def Info: images/notations/transmission.pdf , page1 used on input line 56.
 (pdftex.def)             Requested size: 135.23833pt x 101.83232pt.
 ) (images/notations/data.pdf_tex
-<images/notations/data.pdf, id=474, page=1, 191.9672pt x 144.54pt>
+<images/notations/data.pdf, id=510, page=1, 191.9672pt x 144.54pt>
 File: images/notations/data.pdf Graphic file (type pdf)
 <use images/notations/data.pdf, page 1>
 Package pdftex.def Info: images/notations/data.pdf , page1 used on input line 56.
 (pdftex.def)             Requested size: 135.23833pt x 101.83232pt.
 ) (images/notations/operation.pdf_tex
-<images/notations/operation.pdf, id=475, page=1, 191.9672pt x 144.54pt>
+<images/notations/operation.pdf, id=511, page=1, 191.9672pt x 144.54pt>
 File: images/notations/operation.pdf Graphic file (type pdf)
 <use images/notations/operation.pdf, page 1>
 Package pdftex.def Info: images/notations/operation.pdf , page1 used on input line 56.
@@ -1839,17 +1695,17 @@ pdfTeX warning: pdflatex (file ./images/protocol/overview.pdf): PDF inclusion: m
 
 pdfTeX warning: pdflatex (file ./images/protocol/overview.pdf): PDF inclusion: multiple pdfs with page group included in a single page
 >] (images/architecture/read.pdf_tex
-<images/architecture/read.pdf, id=490, page=1, 457.44975pt x 100.32109pt>
+<images/architecture/read.pdf, id=527, page=1, 457.44975pt x 100.32109pt>
 File: images/architecture/read.pdf Graphic file (type pdf)
 <use images/architecture/read.pdf, page 1>
 Package pdftex.def Info: images/architecture/read.pdf , page1 used on input line 56.
 (pdftex.def)             Requested size: 386.38849pt x 84.73753pt.
-<images/architecture/read.pdf, id=491, page=2, 457.44975pt x 100.32109pt>
+<images/architecture/read.pdf, id=528, page=2, 457.44975pt x 100.32109pt>
 File: images/architecture/read.pdf Graphic file (type pdf)
 <use images/architecture/read.pdf, page 2>
 Package pdftex.def Info: images/architecture/read.pdf , page2 used on input line 59.
 (pdftex.def)             Requested size: 386.38849pt x 84.73753pt.
-<images/architecture/read.pdf, id=492, page=3, 457.44975pt x 100.32109pt>
+<images/architecture/read.pdf, id=529, page=3, 457.44975pt x 100.32109pt>
 File: images/architecture/read.pdf Graphic file (type pdf)
 <use images/architecture/read.pdf, page 3>
 Package pdftex.def Info: images/architecture/read.pdf , page3 used on input line 63.
@@ -1910,32 +1766,32 @@ Package babel Info: Redefining ngerman shorthand "|
 Package babel Info: Redefining ngerman shorthand "~
 (babel)             in language  on input line 155.
  [16] (images/architecture/write.pdf_tex
-<images/architecture/write.pdf, id=545, page=1, 487.56226pt x 100.32109pt>
+<images/architecture/write.pdf, id=582, page=1, 487.56226pt x 100.32109pt>
 File: images/architecture/write.pdf Graphic file (type pdf)
 <use images/architecture/write.pdf, page 1>
 Package pdftex.def Info: images/architecture/write.pdf , page1 used on input line 56.
 (pdftex.def)             Requested size: 386.38849pt x 79.50688pt.
-<images/architecture/write.pdf, id=546, page=2, 487.56226pt x 100.32109pt>
+<images/architecture/write.pdf, id=583, page=2, 487.56226pt x 100.32109pt>
 File: images/architecture/write.pdf Graphic file (type pdf)
 <use images/architecture/write.pdf, page 2>
 Package pdftex.def Info: images/architecture/write.pdf , page2 used on input line 59.
 (pdftex.def)             Requested size: 386.38849pt x 79.50688pt.
-<images/architecture/write.pdf, id=547, page=3, 487.56226pt x 100.32109pt>
+<images/architecture/write.pdf, id=584, page=3, 487.56226pt x 100.32109pt>
 File: images/architecture/write.pdf Graphic file (type pdf)
 <use images/architecture/write.pdf, page 3>
 Package pdftex.def Info: images/architecture/write.pdf , page3 used on input line 63.
 (pdftex.def)             Requested size: 386.38849pt x 79.50688pt.
-<images/architecture/write.pdf, id=548, page=4, 487.56226pt x 100.32109pt>
+<images/architecture/write.pdf, id=585, page=4, 487.56226pt x 100.32109pt>
 File: images/architecture/write.pdf Graphic file (type pdf)
 <use images/architecture/write.pdf, page 4>
 Package pdftex.def Info: images/architecture/write.pdf , page4 used on input line 65.
 (pdftex.def)             Requested size: 386.38849pt x 79.50688pt.
-<images/architecture/write.pdf, id=549, page=5, 487.56226pt x 100.32109pt>
+<images/architecture/write.pdf, id=586, page=5, 487.56226pt x 100.32109pt>
 File: images/architecture/write.pdf Graphic file (type pdf)
 <use images/architecture/write.pdf, page 5>
 Package pdftex.def Info: images/architecture/write.pdf , page5 used on input line 67.
 (pdftex.def)             Requested size: 386.38849pt x 79.50688pt.
-<images/architecture/write.pdf, id=550, page=6, 487.56226pt x 100.32109pt>
+<images/architecture/write.pdf, id=587, page=6, 487.56226pt x 100.32109pt>
 File: images/architecture/write.pdf Graphic file (type pdf)
 <use images/architecture/write.pdf, page 6>
 Package pdftex.def Info: images/architecture/write.pdf , page6 used on input line 69.
@@ -1978,52 +1834,52 @@ Package babel Info: Redefining ngerman shorthand "|
 Package babel Info: Redefining ngerman shorthand "~
 (babel)             in language  on input line 200.
 [18] (images/architecture/offline.pdf_tex
-<images/architecture/offline.pdf, id=584, page=1, 613.84802pt x 172.31026pt>
+<images/architecture/offline.pdf, id=622, page=1, 613.84802pt x 172.31026pt>
 File: images/architecture/offline.pdf Graphic file (type pdf)
 <use images/architecture/offline.pdf, page 1>
 Package pdftex.def Info: images/architecture/offline.pdf , page1 used on input line 56.
 (pdftex.def)             Requested size: 386.38849pt x 108.46136pt.
-<images/architecture/offline.pdf, id=585, page=2, 613.84802pt x 172.31026pt>
+<images/architecture/offline.pdf, id=623, page=2, 613.84802pt x 172.31026pt>
 File: images/architecture/offline.pdf Graphic file (type pdf)
 <use images/architecture/offline.pdf, page 2>
 Package pdftex.def Info: images/architecture/offline.pdf , page2 used on input line 59.
 (pdftex.def)             Requested size: 386.38849pt x 108.46136pt.
-<images/architecture/offline.pdf, id=586, page=3, 613.84802pt x 172.31026pt>
+<images/architecture/offline.pdf, id=624, page=3, 613.84802pt x 172.31026pt>
 File: images/architecture/offline.pdf Graphic file (type pdf)
 <use images/architecture/offline.pdf, page 3>
 Package pdftex.def Info: images/architecture/offline.pdf , page3 used on input line 63.
 (pdftex.def)             Requested size: 386.38849pt x 108.46136pt.
-<images/architecture/offline.pdf, id=587, page=4, 613.84802pt x 172.31026pt>
+<images/architecture/offline.pdf, id=625, page=4, 613.84802pt x 172.31026pt>
 File: images/architecture/offline.pdf Graphic file (type pdf)
 <use images/architecture/offline.pdf, page 4>
 Package pdftex.def Info: images/architecture/offline.pdf , page4 used on input line 65.
 (pdftex.def)             Requested size: 386.38849pt x 108.46136pt.
-<images/architecture/offline.pdf, id=588, page=5, 613.84802pt x 172.31026pt>
+<images/architecture/offline.pdf, id=626, page=5, 613.84802pt x 172.31026pt>
 File: images/architecture/offline.pdf Graphic file (type pdf)
 <use images/architecture/offline.pdf, page 5>
 Package pdftex.def Info: images/architecture/offline.pdf , page5 used on input line 67.
 (pdftex.def)             Requested size: 386.38849pt x 108.46136pt.
-<images/architecture/offline.pdf, id=589, page=6, 613.84802pt x 172.31026pt>
+<images/architecture/offline.pdf, id=627, page=6, 613.84802pt x 172.31026pt>
 File: images/architecture/offline.pdf Graphic file (type pdf)
 <use images/architecture/offline.pdf, page 6>
 Package pdftex.def Info: images/architecture/offline.pdf , page6 used on input line 69.
 (pdftex.def)             Requested size: 386.38849pt x 108.46136pt.
-<images/architecture/offline.pdf, id=590, page=7, 613.84802pt x 172.31026pt>
+<images/architecture/offline.pdf, id=628, page=7, 613.84802pt x 172.31026pt>
 File: images/architecture/offline.pdf Graphic file (type pdf)
 <use images/architecture/offline.pdf, page 7>
 Package pdftex.def Info: images/architecture/offline.pdf , page7 used on input line 71.
 (pdftex.def)             Requested size: 386.38849pt x 108.46136pt.
-<images/architecture/offline.pdf, id=591, page=8, 613.84802pt x 172.31026pt>
+<images/architecture/offline.pdf, id=629, page=8, 613.84802pt x 172.31026pt>
 File: images/architecture/offline.pdf Graphic file (type pdf)
 <use images/architecture/offline.pdf, page 8>
 Package pdftex.def Info: images/architecture/offline.pdf , page8 used on input line 73.
 (pdftex.def)             Requested size: 386.38849pt x 108.46136pt.
-<images/architecture/offline.pdf, id=592, page=9, 613.84802pt x 172.31026pt>
+<images/architecture/offline.pdf, id=630, page=9, 613.84802pt x 172.31026pt>
 File: images/architecture/offline.pdf Graphic file (type pdf)
 <use images/architecture/offline.pdf, page 9>
 Package pdftex.def Info: images/architecture/offline.pdf , page9 used on input line 75.
 (pdftex.def)             Requested size: 386.38849pt x 108.46136pt.
-<images/architecture/offline.pdf, id=593, page=10, 613.84802pt x 172.31026pt>
+<images/architecture/offline.pdf, id=631, page=10, 613.84802pt x 172.31026pt>
 File: images/architecture/offline.pdf Graphic file (type pdf)
 <use images/architecture/offline.pdf, page 10>
 Package pdftex.def Info: images/architecture/offline.pdf , page10 used on input line 77.
@@ -2069,67 +1925,67 @@ pdfTeX warning: pdflatex (file ./images/architecture/offline.pdf): PDF inclusion
 
 pdfTeX warning: pdflatex (file ./images/architecture/offline.pdf): PDF inclusion: multiple pdfs with page group included in a single page
 >] (images/architecture/twoClients.pdf_tex
-<images/architecture/twoClients.pdf, id=606, page=1, 577.89975pt x 264.43422pt>
+<images/architecture/twoClients.pdf, id=643, page=1, 577.89975pt x 264.43422pt>
 File: images/architecture/twoClients.pdf Graphic file (type pdf)
 <use images/architecture/twoClients.pdf, page 1>
 Package pdftex.def Info: images/architecture/twoClients.pdf , page1 used on input line 56.
 (pdftex.def)             Requested size: 386.38849pt x 176.80685pt.
-<images/architecture/twoClients.pdf, id=607, page=2, 577.89975pt x 264.43422pt>
+<images/architecture/twoClients.pdf, id=644, page=2, 577.89975pt x 264.43422pt>
 File: images/architecture/twoClients.pdf Graphic file (type pdf)
 <use images/architecture/twoClients.pdf, page 2>
 Package pdftex.def Info: images/architecture/twoClients.pdf , page2 used on input line 59.
 (pdftex.def)             Requested size: 386.38849pt x 176.80685pt.
-<images/architecture/twoClients.pdf, id=608, page=3, 577.89975pt x 264.43422pt>
+<images/architecture/twoClients.pdf, id=645, page=3, 577.89975pt x 264.43422pt>
 File: images/architecture/twoClients.pdf Graphic file (type pdf)
 <use images/architecture/twoClients.pdf, page 3>
 Package pdftex.def Info: images/architecture/twoClients.pdf , page3 used on input line 63.
 (pdftex.def)             Requested size: 386.38849pt x 176.80685pt.
-<images/architecture/twoClients.pdf, id=609, page=4, 577.89975pt x 264.43422pt>
+<images/architecture/twoClients.pdf, id=646, page=4, 577.89975pt x 264.43422pt>
 File: images/architecture/twoClients.pdf Graphic file (type pdf)
 <use images/architecture/twoClients.pdf, page 4>
 Package pdftex.def Info: images/architecture/twoClients.pdf , page4 used on input line 65.
 (pdftex.def)             Requested size: 386.38849pt x 176.80685pt.
-<images/architecture/twoClients.pdf, id=610, page=5, 577.89975pt x 264.43422pt>
+<images/architecture/twoClients.pdf, id=647, page=5, 577.89975pt x 264.43422pt>
 File: images/architecture/twoClients.pdf Graphic file (type pdf)
 <use images/architecture/twoClients.pdf, page 5>
 Package pdftex.def Info: images/architecture/twoClients.pdf , page5 used on input line 67.
 (pdftex.def)             Requested size: 386.38849pt x 176.80685pt.
-<images/architecture/twoClients.pdf, id=611, page=6, 577.89975pt x 264.43422pt>
+<images/architecture/twoClients.pdf, id=648, page=6, 577.89975pt x 264.43422pt>
 File: images/architecture/twoClients.pdf Graphic file (type pdf)
 <use images/architecture/twoClients.pdf, page 6>
 Package pdftex.def Info: images/architecture/twoClients.pdf , page6 used on input line 70.
 (pdftex.def)             Requested size: 386.38849pt x 176.80685pt.
-<images/architecture/twoClients.pdf, id=612, page=7, 577.89975pt x 264.43422pt>
+<images/architecture/twoClients.pdf, id=649, page=7, 577.89975pt x 264.43422pt>
 File: images/architecture/twoClients.pdf Graphic file (type pdf)
 <use images/architecture/twoClients.pdf, page 7>
 Package pdftex.def Info: images/architecture/twoClients.pdf , page7 used on input line 72.
 (pdftex.def)             Requested size: 386.38849pt x 176.80685pt.
-<images/architecture/twoClients.pdf, id=613, page=8, 577.89975pt x 264.43422pt>
+<images/architecture/twoClients.pdf, id=650, page=8, 577.89975pt x 264.43422pt>
 File: images/architecture/twoClients.pdf Graphic file (type pdf)
 <use images/architecture/twoClients.pdf, page 8>
 Package pdftex.def Info: images/architecture/twoClients.pdf , page8 used on input line 74.
 (pdftex.def)             Requested size: 386.38849pt x 176.80685pt.
-<images/architecture/twoClients.pdf, id=614, page=9, 577.89975pt x 264.43422pt>
+<images/architecture/twoClients.pdf, id=651, page=9, 577.89975pt x 264.43422pt>
 File: images/architecture/twoClients.pdf Graphic file (type pdf)
 <use images/architecture/twoClients.pdf, page 9>
 Package pdftex.def Info: images/architecture/twoClients.pdf , page9 used on input line 77.
 (pdftex.def)             Requested size: 386.38849pt x 176.80685pt.
-<images/architecture/twoClients.pdf, id=615, page=10, 577.89975pt x 264.43422pt>
+<images/architecture/twoClients.pdf, id=652, page=10, 577.89975pt x 264.43422pt>
 File: images/architecture/twoClients.pdf Graphic file (type pdf)
 <use images/architecture/twoClients.pdf, page 10>
 Package pdftex.def Info: images/architecture/twoClients.pdf , page10 used on input line 79.
 (pdftex.def)             Requested size: 386.38849pt x 176.80685pt.
-<images/architecture/twoClients.pdf, id=616, page=12, 577.89975pt x 264.43422pt>
+<images/architecture/twoClients.pdf, id=653, page=12, 577.89975pt x 264.43422pt>
 File: images/architecture/twoClients.pdf Graphic file (type pdf)
 <use images/architecture/twoClients.pdf, page 12>
 Package pdftex.def Info: images/architecture/twoClients.pdf , page12 used on input line 85.
 (pdftex.def)             Requested size: 386.38849pt x 176.80685pt.
-<images/architecture/twoClients.pdf, id=617, page=14, 577.89975pt x 264.43422pt>
+<images/architecture/twoClients.pdf, id=654, page=14, 577.89975pt x 264.43422pt>
 File: images/architecture/twoClients.pdf Graphic file (type pdf)
 <use images/architecture/twoClients.pdf, page 14>
 Package pdftex.def Info: images/architecture/twoClients.pdf , page14 used on input line 89.
 (pdftex.def)             Requested size: 386.38849pt x 176.80685pt.
-<images/architecture/twoClients.pdf, id=618, page=15, 577.89975pt x 264.43422pt>
+<images/architecture/twoClients.pdf, id=655, page=15, 577.89975pt x 264.43422pt>
 File: images/architecture/twoClients.pdf Graphic file (type pdf)
 <use images/architecture/twoClients.pdf, page 15>
 Package pdftex.def Info: images/architecture/twoClients.pdf , page15 used on input line 91.
@@ -2206,25 +2062,10 @@ Package babel Info: Redefining ngerman shorthand "|
 (babel)             in language  on input line 1.
 Package babel Info: Redefining ngerman shorthand "~
 (babel)             in language  on input line 1.
-
-Package natbib Warning: Citation `41' on page 23 undefined on input line 8.
-
 Package babel Info: Redefining ngerman shorthand "|
 (babel)             in language  on input line 16.
 Package babel Info: Redefining ngerman shorthand "~
 (babel)             in language  on input line 16.
-
-Package natbib Warning: Citation `1' on page 23 undefined on input line 18.
-
-
-Package natbib Warning: Citation `30' on page 23 undefined on input line 18.
-
-
-Package natbib Warning: Citation `32' on page 23 undefined on input line 22.
-
-
-Package natbib Warning: Citation `33' on page 23 undefined on input line 24.
-
 Package babel Info: Redefining ngerman shorthand "|
 (babel)             in language  on input line 27.
 Package babel Info: Redefining ngerman shorthand "~
@@ -2237,7 +2078,7 @@ Package babel Info: Redefining ngerman shorthand "~
 
 
 ] (images/technologies/sw.pdf_tex
-<images/technologies/sw.pdf, id=657, page=1, 301.8778pt x 181.42593pt>
+<images/technologies/sw.pdf, id=704, page=1, 301.8778pt x 181.42593pt>
 File: images/technologies/sw.pdf Graphic file (type pdf)
 <use images/technologies/sw.pdf, page 1>
 Package pdftex.def Info: images/technologies/sw.pdf , page1 used on input line 56.
@@ -2274,22 +2115,22 @@ LaTeX Font Warning: Font shape `OML/cmm/b/it' in size <4.33505> not available
 LaTeX Font Warning: Font shape `OMS/cmsy/b/n' in size <4.33505> not available
 (Font)              size <5> substituted on input line 57.
 
-<images/technologies/sw.pdf, id=658, page=2, 301.8778pt x 181.42593pt>
+<images/technologies/sw.pdf, id=705, page=2, 301.8778pt x 181.42593pt>
 File: images/technologies/sw.pdf Graphic file (type pdf)
 <use images/technologies/sw.pdf, page 2>
 Package pdftex.def Info: images/technologies/sw.pdf , page2 used on input line 58.
 (pdftex.def)             Requested size: 270.47075pt x 162.55098pt.
-<images/technologies/sw.pdf, id=659, page=3, 301.8778pt x 181.42593pt>
+<images/technologies/sw.pdf, id=706, page=3, 301.8778pt x 181.42593pt>
 File: images/technologies/sw.pdf Graphic file (type pdf)
 <use images/technologies/sw.pdf, page 3>
 Package pdftex.def Info: images/technologies/sw.pdf , page3 used on input line 60.
 (pdftex.def)             Requested size: 270.47075pt x 162.55098pt.
-<images/technologies/sw.pdf, id=660, page=4, 301.8778pt x 181.42593pt>
+<images/technologies/sw.pdf, id=707, page=4, 301.8778pt x 181.42593pt>
 File: images/technologies/sw.pdf Graphic file (type pdf)
 <use images/technologies/sw.pdf, page 4>
 Package pdftex.def Info: images/technologies/sw.pdf , page4 used on input line 62.
 (pdftex.def)             Requested size: 270.47075pt x 162.55098pt.
-<images/technologies/sw.pdf, id=661, page=5, 301.8778pt x 181.42593pt>
+<images/technologies/sw.pdf, id=708, page=5, 301.8778pt x 181.42593pt>
 File: images/technologies/sw.pdf Graphic file (type pdf)
 <use images/technologies/sw.pdf, page 5>
 Package pdftex.def Info: images/technologies/sw.pdf , page5 used on input line 64.
@@ -2325,13 +2166,9 @@ Overfull \hbox (19.0pt too wide) in paragraph at lines 52--52
  []
 
 
-Package natbib Warning: Citation `32' on page 25 undefined on input line 52.
-
-
-Package natbib Warning: Citation `43' on page 25 undefined on input line 64.
-
-
-Package natbib Warning: Citation `42' on page 25 undefined on input line 66.
+Underfull \hbox (badness 1728) in paragraph at lines 52--52
+[]\T1/phv/b/n/12 Listing 4.1 |\T1/phv/m/n/12 Co-de, which de-mons-tra-tes how to re-gis-ter a ser-vice
+ []
 
 Package babel Info: Redefining ngerman shorthand "|
 (babel)             in language  on input line 67.
@@ -2345,9 +2182,6 @@ Package babel Info: Redefining ngerman shorthand "~
 Overfull \hbox (19.0pt too wide) in paragraph at lines 70--70
 [][] 
  []
-
-
-Package natbib Warning: Citation `32' on page 26 undefined on input line 70.
 
 Package babel Info: Redefining ngerman shorthand "|
 (babel)             in language  on input line 89.
@@ -2365,15 +2199,9 @@ Overfull \hbox (19.0pt too wide) in paragraph at lines 89--89
 LaTeX Font Info:    Font shape `T1/phv/m/it' in size <12> not available
 (Font)              Font shape `T1/phv/m/sl' tried instead on input line 89.
 
-Package natbib Warning: Citation `32' on page 27 undefined on input line 89.
-
-
 Overfull \hbox (19.0pt too wide) in paragraph at lines 102--102
 [][] 
  []
-
-
-Package natbib Warning: Citation `32' on page 27 undefined on input line 102.
 
 Package babel Info: Redefining ngerman shorthand "|
 (babel)             in language  on input line 108.
@@ -2392,19 +2220,10 @@ Overfull \hbox (19.0pt too wide) in paragraph at lines 113--113
 [][] 
  []
 
-
-Package natbib Warning: Citation `34' on page 28 undefined on input line 113.
-
-
-Package natbib Warning: Citation `37' on page 28 undefined on input line 119.
-
 Package babel Info: Redefining ngerman shorthand "|
 (babel)             in language  on input line 127.
 Package babel Info: Redefining ngerman shorthand "~
 (babel)             in language  on input line 127.
-
-Package natbib Warning: Citation `35' on page 28 undefined on input line 130.
-
 Package babel Info: Redefining ngerman shorthand "|
 (babel)             in language  on input line 132.
 Package babel Info: Redefining ngerman shorthand "~
@@ -2427,15 +2246,6 @@ Overfull \hbox (19.0pt too wide) in paragraph at lines 142--142
 [][] 
  []
 
-
-Package natbib Warning: Citation `35' on page 29 undefined on input line 142.
-
-
-Package natbib Warning: Citation `36' on page 29 undefined on input line 149.
-
-
-Package natbib Warning: Citation `48' on page 29 undefined on input line 149.
-
 Package babel Info: Redefining ngerman shorthand "|
 (babel)             in language  on input line 150.
 Package babel Info: Redefining ngerman shorthand "~
@@ -2449,30 +2259,14 @@ Package babel Info: Redefining ngerman shorthand "|
 (babel)             in language  on input line 151.
 Package babel Info: Redefining ngerman shorthand "~
 (babel)             in language  on input line 151.
-
-
-Package natbib Warning: Citation `47' on page 30 undefined on input line 154.
-
-
-Package natbib Warning: Citation `45' on page 30 undefined on input line 154.
-
-
-Package natbib Warning: Citation `46' on page 30 undefined on input line 154.
-
 Package babel Info: Redefining ngerman shorthand "|
 (babel)             in language  on input line 156.
 Package babel Info: Redefining ngerman shorthand "~
 (babel)             in language  on input line 156.
 
-Package natbib Warning: Citation `38' on page 30 undefined on input line 159.
-
-
 Overfull \hbox (19.0pt too wide) in paragraph at lines 161--161
 [][] 
  []
-
-
-Package natbib Warning: Citation `38' on page 30 undefined on input line 161.
 
 Package babel Info: Redefining ngerman shorthand "|
 (babel)             in language  on input line 169.
@@ -2486,15 +2280,6 @@ Package babel Info: Redefining ngerman shorthand "~
 Overfull \hbox (19.0pt too wide) in paragraph at lines 173--173
 [][] 
  []
-
-
-Package natbib Warning: Citation `38' on page 31 undefined on input line 173.
-
-
-Package natbib Warning: Citation `44' on page 31 undefined on input line 181.
-
-
-Package natbib Warning: Citation `38' on page 31 undefined on input line 181.
 
 )
 Package babel Info: Redefining ngerman shorthand "|
@@ -2523,10 +2308,7 @@ Package babel Info: Redefining ngerman shorthand "|
 (babel)             in language  on input line 1.
 Package babel Info: Redefining ngerman shorthand "~
 (babel)             in language  on input line 1.
-
-Package natbib Warning: Citation `40' on page 33 undefined on input line 6.
-
-<images/design/clientserver.jpeg, id=775, 662.475pt x 567.11874pt>
+<images/design/clientserver.jpeg, id=855, 662.475pt x 567.11874pt>
 File: images/design/clientserver.jpeg Graphic file (type jpg)
 <use images/design/clientserver.jpeg>
 Package pdftex.def Info: images/design/clientserver.jpeg  used on input line 14.
@@ -2540,17 +2322,17 @@ Package babel Info: Redefining ngerman shorthand "|
 Package babel Info: Redefining ngerman shorthand "~
 (babel)             in language  on input line 22.
 (images/design/Main.pdf_tex
-<images/design/Main.pdf, id=779, page=1, 402.68117pt x 227.14647pt>
+<images/design/Main.pdf, id=859, page=1, 402.68117pt x 227.14647pt>
 File: images/design/Main.pdf Graphic file (type pdf)
 <use images/design/Main.pdf, page 1>
 Package pdftex.def Info: images/design/Main.pdf , page1 used on input line 56.
 (pdftex.def)             Requested size: 386.38849pt x 217.968pt.
-<images/design/Main.pdf, id=780, page=2, 402.68117pt x 227.14647pt>
+<images/design/Main.pdf, id=860, page=2, 402.68117pt x 227.14647pt>
 File: images/design/Main.pdf Graphic file (type pdf)
 <use images/design/Main.pdf, page 2>
 Package pdftex.def Info: images/design/Main.pdf , page2 used on input line 58.
 (pdftex.def)             Requested size: 386.38849pt x 217.968pt.
-<images/design/Main.pdf, id=781, page=3, 402.68117pt x 227.14647pt>
+<images/design/Main.pdf, id=861, page=3, 402.68117pt x 227.14647pt>
 File: images/design/Main.pdf Graphic file (type pdf)
 <use images/design/Main.pdf, page 3>
 Package pdftex.def Info: images/design/Main.pdf , page3 used on input line 62.
@@ -2575,33 +2357,27 @@ Package babel Info: Redefining ngerman shorthand "~
 
 
  <./images/design/clientserver.jpeg>] (images/implementation/3tier.pdf_tex
-<images/implementation/3tier.pdf, id=790, page=1, 422.32782pt x 135.19748pt>
+<images/implementation/3tier.pdf, id=871, page=1, 422.32782pt x 135.19748pt>
 File: images/implementation/3tier.pdf Graphic file (type pdf)
 <use images/implementation/3tier.pdf, page 1>
 Package pdftex.def Info: images/implementation/3tier.pdf , page1 used on input line 56.
 (pdftex.def)             Requested size: 386.38849pt x 123.69621pt.
-<images/implementation/3tier.pdf, id=791, page=2, 422.32782pt x 135.19748pt>
+<images/implementation/3tier.pdf, id=872, page=2, 422.32782pt x 135.19748pt>
 File: images/implementation/3tier.pdf Graphic file (type pdf)
 <use images/implementation/3tier.pdf, page 2>
 Package pdftex.def Info: images/implementation/3tier.pdf , page2 used on input line 58.
 (pdftex.def)             Requested size: 386.38849pt x 123.69621pt.
-<images/implementation/3tier.pdf, id=792, page=3, 422.32782pt x 135.19748pt>
+<images/implementation/3tier.pdf, id=873, page=3, 422.32782pt x 135.19748pt>
 File: images/implementation/3tier.pdf Graphic file (type pdf)
 <use images/implementation/3tier.pdf, page 3>
 Package pdftex.def Info: images/implementation/3tier.pdf , page3 used on input line 60.
 (pdftex.def)             Requested size: 386.38849pt x 123.69621pt.
-<images/implementation/3tier.pdf, id=793, page=4, 422.32782pt x 135.19748pt>
+<images/implementation/3tier.pdf, id=874, page=4, 422.32782pt x 135.19748pt>
 File: images/implementation/3tier.pdf Graphic file (type pdf)
 <use images/implementation/3tier.pdf, page 4>
 Package pdftex.def Info: images/implementation/3tier.pdf , page4 used on input line 65.
 (pdftex.def)             Requested size: 386.38849pt x 123.69621pt.
 )
-
-Package natbib Warning: Citation `51' on page 34 undefined on input line 47.
-
-
-Package natbib Warning: Citation `50' on page 34 undefined on input line 47.
-
 Package babel Info: Redefining ngerman shorthand "|
 (babel)             in language  on input line 48.
 Package babel Info: Redefining ngerman shorthand "~
@@ -2610,7 +2386,7 @@ Package babel Info: Redefining ngerman shorthand "|
 (babel)             in language  on input line 48.
 Package babel Info: Redefining ngerman shorthand "~
 (babel)             in language  on input line 48.
-[34 <./images/design/Main.pdf> <./images/design/Main.pdf
+ [34 <./images/design/Main.pdf> <./images/design/Main.pdf
 
 pdfTeX warning: pdflatex (file ./images/design/Main.pdf): PDF inclusion: multiple pdfs with page group included in a single page
 > <./images/design/Main.pdf
@@ -2657,10 +2433,6 @@ Package babel Info: Redefining ngerman shorthand "|
 Package babel Info: Redefining ngerman shorthand "~
 (babel)             in language  on input line 83.
 [36]
-
-Package natbib Warning: Citation `53' on page 37 undefined on input line 97.
-
-
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
 Package babel Info: Redefining ngerman shorthand "|
@@ -2705,7 +2477,7 @@ Package babel Info: Redefining ngerman shorthand "|
 (babel)             in language  on input line 166.
 Package babel Info: Redefining ngerman shorthand "~
 (babel)             in language  on input line 166.
-<images/screens/Overview.PNG, id=918, 333.49594pt x 377.15906pt>
+<images/screens/Overview.PNG, id=1005, 333.49594pt x 377.15906pt>
 File: images/screens/Overview.PNG Graphic file (type png)
 <use images/screens/Overview.PNG>
 Package pdftex.def Info: images/screens/Overview.PNG  used on input line 176.
@@ -2926,7 +2698,136 @@ Package babel Info: Redefining ngerman shorthand "~
 [55
 
 
-])
+]
+Overfull \hbox (19.0pt too wide) in paragraph at lines 32--32
+[][] 
+ []
+
+Package babel Info: Redefining ngerman shorthand "|
+(babel)             in language  on input line 50.
+Package babel Info: Redefining ngerman shorthand "~
+(babel)             in language  on input line 50.
+Package babel Info: Redefining ngerman shorthand "|
+(babel)             in language  on input line 50.
+Package babel Info: Redefining ngerman shorthand "~
+(babel)             in language  on input line 50.
+[56]
+Package babel Info: Redefining ngerman shorthand "|
+(babel)             in language  on input line 56.
+Package babel Info: Redefining ngerman shorthand "~
+(babel)             in language  on input line 56.
+Package babel Info: Redefining ngerman shorthand "|
+(babel)             in language  on input line 59.
+Package babel Info: Redefining ngerman shorthand "~
+(babel)             in language  on input line 59.
+Package babel Info: Redefining ngerman shorthand "|
+(babel)             in language  on input line 59.
+Package babel Info: Redefining ngerman shorthand "~
+(babel)             in language  on input line 59.
+ [57]
+<images/screens/calendar1.png, id=1390, 493.0922pt x 493.845pt>
+File: images/screens/calendar1.png Graphic file (type png)
+<use images/screens/calendar1.png>
+Package pdftex.def Info: images/screens/calendar1.png  used on input line 66.
+(pdftex.def)             Requested size: 347.74727pt x 348.2964pt.
+File: images/screens/calendar1.png Graphic file (type png)
+<use images/screens/calendar1.png>
+Package pdftex.def Info: images/screens/calendar1.png  used on input line 66.
+(pdftex.def)             Requested size: 347.74727pt x 348.2964pt.
+Package babel Info: Redefining ngerman shorthand "|
+(babel)             in language  on input line 73.
+Package babel Info: Redefining ngerman shorthand "~
+(babel)             in language  on input line 73.
+Package babel Info: Redefining ngerman shorthand "|
+(babel)             in language  on input line 73.
+Package babel Info: Redefining ngerman shorthand "~
+(babel)             in language  on input line 73.
+ [58 <./images/screens/calendar1.png>]
+<images/screens/scr1.PNG, id=1398, 492.33937pt x 493.845pt>
+File: images/screens/scr1.PNG Graphic file (type png)
+<use images/screens/scr1.PNG>
+Package pdftex.def Info: images/screens/scr1.PNG  used on input line 84.
+(pdftex.def)             Requested size: 347.74727pt x 348.82388pt.
+File: images/screens/scr1.PNG Graphic file (type png)
+<use images/screens/scr1.PNG>
+Package pdftex.def Info: images/screens/scr1.PNG  used on input line 84.
+(pdftex.def)             Requested size: 347.74727pt x 348.82388pt.
+
+Overfull \hbox (19.0pt too wide) in paragraph at lines 90--90
+[][] 
+ []
+
+
+Underfull \vbox (badness 6252) has occurred while \output is active []
+
+Package babel Info: Redefining ngerman shorthand "|
+(babel)             in language  on input line 102.
+Package babel Info: Redefining ngerman shorthand "~
+(babel)             in language  on input line 102.
+Package babel Info: Redefining ngerman shorthand "|
+(babel)             in language  on input line 102.
+Package babel Info: Redefining ngerman shorthand "~
+(babel)             in language  on input line 102.
+ [59]
+Overfull \hbox (19.0pt too wide) in paragraph at lines 104--104
+[][] 
+ []
+
+Package babel Info: Redefining ngerman shorthand "|
+(babel)             in language  on input line 107.
+Package babel Info: Redefining ngerman shorthand "~
+(babel)             in language  on input line 107.
+Package babel Info: Redefining ngerman shorthand "|
+(babel)             in language  on input line 107.
+Package babel Info: Redefining ngerman shorthand "~
+(babel)             in language  on input line 107.
+[60 <./images/screens/scr1.PNG>]
+Overfull \hbox (19.0pt too wide) in paragraph at lines 113--113
+[][] 
+ []
+
+
+Overfull \hbox (19.0pt too wide) in paragraph at lines 125--125
+[][] 
+ []
+
+Package babel Info: Redefining ngerman shorthand "|
+(babel)             in language  on input line 134.
+Package babel Info: Redefining ngerman shorthand "~
+(babel)             in language  on input line 134.
+Package babel Info: Redefining ngerman shorthand "|
+(babel)             in language  on input line 134.
+Package babel Info: Redefining ngerman shorthand "~
+(babel)             in language  on input line 134.
+[61]
+Overfull \hbox (19.0pt too wide) in paragraph at lines 134--134
+[][] 
+ []
+
+
+Overfull \hbox (19.0pt too wide) in paragraph at lines 146--146
+[][] 
+ []
+
+<images/screens/scr2.PNG, id=1453, 487.8225pt x 490.08093pt>
+File: images/screens/scr2.PNG Graphic file (type png)
+<use images/screens/scr2.PNG>
+Package pdftex.def Info: images/screens/scr2.PNG  used on input line 164.
+(pdftex.def)             Requested size: 347.74727pt x 349.35829pt.
+File: images/screens/scr2.PNG Graphic file (type png)
+<use images/screens/scr2.PNG>
+Package pdftex.def Info: images/screens/scr2.PNG  used on input line 164.
+(pdftex.def)             Requested size: 347.74727pt x 349.35829pt.
+)
+Package babel Info: Redefining ngerman shorthand "|
+(babel)             in language  on input line 103.
+Package babel Info: Redefining ngerman shorthand "~
+(babel)             in language  on input line 103.
+Package babel Info: Redefining ngerman shorthand "|
+(babel)             in language  on input line 103.
+Package babel Info: Redefining ngerman shorthand "~
+(babel)             in language  on input line 103.
+ [62]
 Package babel Info: Redefining ngerman shorthand "|
 (babel)             in language  on input line 104.
 Package babel Info: Redefining ngerman shorthand "~
@@ -2935,7 +2836,19 @@ Package babel Info: Redefining ngerman shorthand "|
 (babel)             in language  on input line 104.
 Package babel Info: Redefining ngerman shorthand "~
 (babel)             in language  on input line 104.
- [56] (chapters/9-RelatedWork.tex
+ [63 <./images/screens/scr2.PNG>]
+Package babel Info: Redefining ngerman shorthand "|
+(babel)             in language  on input line 104.
+Package babel Info: Redefining ngerman shorthand "~
+(babel)             in language  on input line 104.
+Package babel Info: Redefining ngerman shorthand "|
+(babel)             in language  on input line 104.
+Package babel Info: Redefining ngerman shorthand "~
+(babel)             in language  on input line 104.
+ [64
+
+
+] (chapters/9-RelatedWork.tex
 chapter 7.
 Package babel Info: Redefining ngerman shorthand "|
 (babel)             in language  on input line 1.
@@ -2945,22 +2858,10 @@ Package babel Info: Redefining ngerman shorthand "|
 (babel)             in language  on input line 6.
 Package babel Info: Redefining ngerman shorthand "~
 (babel)             in language  on input line 6.
-
-Package natbib Warning: Citation `6' on page 57 undefined on input line 8.
-
-
-Package natbib Warning: Citation `5' on page 57 undefined on input line 10.
-
-
-Package natbib Warning: Citation `7' on page 57 undefined on input line 10.
-
 Package babel Info: Redefining ngerman shorthand "|
 (babel)             in language  on input line 12.
 Package babel Info: Redefining ngerman shorthand "~
 (babel)             in language  on input line 12.
-
-Package natbib Warning: Citation `8' on page 57 undefined on input line 14.
-
 Package babel Info: Redefining ngerman shorthand "|
 (babel)             in language  on input line 15.
 Package babel Info: Redefining ngerman shorthand "~
@@ -2969,9 +2870,7 @@ Package babel Info: Redefining ngerman shorthand "|
 (babel)             in language  on input line 15.
 Package babel Info: Redefining ngerman shorthand "~
 (babel)             in language  on input line 15.
-[57
-
-
+[65
 
 
 ]
@@ -2979,22 +2878,6 @@ Package babel Info: Redefining ngerman shorthand "|
 (babel)             in language  on input line 16.
 Package babel Info: Redefining ngerman shorthand "~
 (babel)             in language  on input line 16.
-
-
-Package natbib Warning: Citation `16' on page 58 undefined on input line 23.
-
-
-Package natbib Warning: Citation `18' on page 58 undefined on input line 23.
-
-
-Package natbib Warning: Citation `17' on page 58 undefined on input line 23.
-
-
-Package natbib Warning: Citation `20' on page 58 undefined on input line 27.
-
-
-Package natbib Warning: Citation `21' on page 58 undefined on input line 27.
-
 
 Underfull \vbox (badness 2707) has occurred while \output is active []
 
@@ -3006,20 +2889,7 @@ Package babel Info: Redefining ngerman shorthand "|
 (babel)             in language  on input line 28.
 Package babel Info: Redefining ngerman shorthand "~
 (babel)             in language  on input line 28.
- [58]
-
-Package natbib Warning: Citation `23' on page 59 undefined on input line 31.
-
-
-Package natbib Warning: Citation `24' on page 59 undefined on input line 31.
-
-
-Package natbib Warning: Citation `25' on page 59 undefined on input line 35.
-
-
-Package natbib Warning: Citation `26' on page 59 undefined on input line 39.
-
-
+ [66]
 Underfull \vbox (badness 1377) has occurred while \output is active []
 
 
@@ -3033,7 +2903,7 @@ Package babel Info: Redefining ngerman shorthand "|
 (babel)             in language  on input line 40.
 Package babel Info: Redefining ngerman shorthand "~
 (babel)             in language  on input line 40.
- [59]
+ [67]
 Overfull \hbox (19.0pt too wide) in paragraph at lines 41--41
 [][] 
  []
@@ -3059,7 +2929,7 @@ Package babel Info: Redefining ngerman shorthand "|
 (babel)             in language  on input line 54.
 Package babel Info: Redefining ngerman shorthand "~
 (babel)             in language  on input line 54.
- [60]
+ [68]
 Overfull \hbox (19.0pt too wide) in paragraph at lines 63--63
 [][] 
  []
@@ -3088,7 +2958,7 @@ Package babel Info: Redefining ngerman shorthand "|
 (babel)             in language  on input line 77.
 Package babel Info: Redefining ngerman shorthand "~
 (babel)             in language  on input line 77.
- [61]
+ [69]
 Overfull \hbox (19.0pt too wide) in paragraph at lines 86--86
 [][] 
  []
@@ -3111,7 +2981,7 @@ Package babel Info: Redefining ngerman shorthand "|
 (babel)             in language  on input line 98.
 Package babel Info: Redefining ngerman shorthand "~
 (babel)             in language  on input line 98.
-[62]
+[70]
 Underfull \hbox (badness 3690) in paragraph at lines 102--103
 []\T1/ppl/m/n/12 However, the-re is ano-ther op-ti-on to per-form this up-da-te. We
  []
@@ -3127,14 +2997,7 @@ Package babel Info: Redefining ngerman shorthand "|
 (babel)             in language  on input line 119.
 Package babel Info: Redefining ngerman shorthand "~
 (babel)             in language  on input line 119.
- [63]
-
-Package natbib Warning: Citation `22' on page 64 undefined on input line 123.
-
-
-Package natbib Warning: Citation `22' on page 64 undefined on input line 126.
-
-)
+ [71])
 Package babel Info: Redefining ngerman shorthand "|
 (babel)             in language  on input line 108.
 Package babel Info: Redefining ngerman shorthand "~
@@ -3143,7 +3006,7 @@ Package babel Info: Redefining ngerman shorthand "|
 (babel)             in language  on input line 108.
 Package babel Info: Redefining ngerman shorthand "~
 (babel)             in language  on input line 108.
- [64] (chapters/10-ConclusionandFutureWork.tex
+ [72] (chapters/10-ConclusionandFutureWork.tex
 chapter 8.
 Package babel Info: Redefining ngerman shorthand "|
 (babel)             in language  on input line 1.
@@ -3165,7 +3028,7 @@ Package babel Info: Redefining ngerman shorthand "|
 (babel)             in language  on input line 33.
 Package babel Info: Redefining ngerman shorthand "~
 (babel)             in language  on input line 33.
-[65
+[73
 
 
 
@@ -3179,19 +3042,12 @@ Package babel Info: Redefining ngerman shorthand "|
 (babel)             in language  on input line 113.
 Package babel Info: Redefining ngerman shorthand "~
 (babel)             in language  on input line 113.
- [66]
+ [74]
 Package babel Info: Redefining ngerman shorthand "|
 (babel)             in language  on input line 113.
 Package babel Info: Redefining ngerman shorthand "~
 (babel)             in language  on input line 113.
- (Masterthesis.lof
-
-Package natbib Warning: Citation `2' on page 67 undefined on input line 7.
-
-
-Package natbib Warning: Citation `2' on page 67 undefined on input line 8.
-
-)
+ (Masterthesis.lof)
 \tf@lof=\write6
 \openout6 = `Masterthesis.lof'.
 
@@ -3203,7 +3059,7 @@ Package babel Info: Redefining ngerman shorthand "|
 (babel)             in language  on input line 114.
 Package babel Info: Redefining ngerman shorthand "~
 (babel)             in language  on input line 114.
- [67
+ [75
 
 
 ]
@@ -3215,7 +3071,7 @@ Package babel Info: Redefining ngerman shorthand "|
 (babel)             in language  on input line 114.
 Package babel Info: Redefining ngerman shorthand "~
 (babel)             in language  on input line 114.
- [68
+ [76
 
 
 ]
@@ -3249,7 +3105,7 @@ Package babel Info: Redefining ngerman shorthand "|
 (babel)             in language  on input line 116.
 Package babel Info: Redefining ngerman shorthand "~
 (babel)             in language  on input line 116.
-[69]
+[77]
 Package babel Info: Redefining ngerman shorthand "|
 (babel)             in language  on input line 116.
 Package babel Info: Redefining ngerman shorthand "~
@@ -3258,7 +3114,7 @@ Package babel Info: Redefining ngerman shorthand "|
 (babel)             in language  on input line 116.
 Package babel Info: Redefining ngerman shorthand "~
 (babel)             in language  on input line 116.
- [70
+ [78
 
 
 ]
@@ -3268,42 +3124,15 @@ Package babel Info: Redefining ngerman shorthand "|
 Package babel Info: Redefining ngerman shorthand "~
 (babel)             in language  on input line 116.
 (Masterthesis.lol
-
-Package natbib Warning: Citation `32' on page 71 undefined on input line 8.
-
-
-Package natbib Warning: Citation `32' on page 71 undefined on input line 9.
-
-
-Package natbib Warning: Citation `32' on page 71 undefined on input line 10.
-
-
-Package natbib Warning: Citation `32' on page 71 undefined on input line 11.
-
-
-Package natbib Warning: Citation `34' on page 71 undefined on input line 12.
-
-
-Package natbib Warning: Citation `35' on page 71 undefined on input line 13.
-
-
-Package natbib Warning: Citation `38' on page 71 undefined on input line 14.
-
-
-Package natbib Warning: Citation `38' on page 71 undefined on input line 15.
-
-
-Underfull \vbox (badness 5832) has occurred while \output is active []
-
 Package babel Info: Redefining ngerman shorthand "|
-(babel)             in language  on input line 26.
+(babel)             in language  on input line 35.
 Package babel Info: Redefining ngerman shorthand "~
-(babel)             in language  on input line 26.
+(babel)             in language  on input line 35.
 Package babel Info: Redefining ngerman shorthand "|
-(babel)             in language  on input line 26.
+(babel)             in language  on input line 35.
 Package babel Info: Redefining ngerman shorthand "~
-(babel)             in language  on input line 26.
- [71])
+(babel)             in language  on input line 35.
+ [79])
 \tf@lol=\write8
 \openout8 = `Masterthesis.lol'.
 
@@ -3315,18 +3144,206 @@ Package babel Info: Redefining ngerman shorthand "|
 (babel)             in language  on input line 119.
 Package babel Info: Redefining ngerman shorthand "~
 (babel)             in language  on input line 119.
- [72]
-No file Masterthesis.bbl.
+ [80] (Masterthesis.bbl
+chapter without number
+Package babel Info: Redefining ngerman shorthand "|
+(babel)             in language  on input line 1.
+Package babel Info: Redefining ngerman shorthand "~
+(babel)             in language  on input line 1.
 
-Package natbib Warning: There were undefined citations.
+Underfull \hbox (badness 10000) in paragraph at lines 30--35
+[]\T1/ppl/m/n/12 Marc Sha-pi-ro.  Strong even-tu-al con-sis-ten-cy
+ []
 
+
+Underfull \hbox (badness 10000) in paragraph at lines 30--35
+\T1/ppl/m/n/12 and conflict-free re-p-li-ca-ted da-ta ty-pes.  [][]$https :
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 30--35
+\T1/ppl/m/n/12 / / www . microsoft . com / en-[]us / research / video /
+ []
+
+
+Overfull \hbox (10.40977pt too wide) in paragraph at lines 30--35
+\T1/ppl/m/n/12 strong-[]eventual-[]consistency-[]and-[]conict-[]free-[]replicated-[]data-[]types/$[][],
+ []
+
+Package babel Info: Redefining ngerman shorthand "|
+(babel)             in language  on input line 70.
+Package babel Info: Redefining ngerman shorthand "~
+(babel)             in language  on input line 70.
+Package babel Info: Redefining ngerman shorthand "|
+(babel)             in language  on input line 70.
+Package babel Info: Redefining ngerman shorthand "~
+(babel)             in language  on input line 70.
+[81
+
+
+
+
+]
+Underfull \hbox (badness 10000) in paragraph at lines 110--113
+[]\T1/ppl/m/n/12 Datatypes in an-ti-do-te.  [][]$https : / / antidotedb . gitbook . io /
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 110--113
+\T1/ppl/m/n/12 documentation / api / datatypes$[][], 2018 (ac-ces-sed No-vem-ber 26,
+ []
+
+
+Underfull \hbox (badness 5847) in paragraph at lines 115--118
+[]\T1/ppl/m/n/12 Black box mo-del.  [][]$https : / / www . investopedia . com / terms / b /
+ []
+
+
+Underfull \hbox (badness 1496) in paragraph at lines 120--124
+[]\T1/ppl/m/n/12 Caching fi-les with ser-vice wor-ker.  [][]$https : / / developers . google .
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 126--131
+\T1/ppl/m/n/12 google . com / web / fundamentals / primers / service-[]workers/$[][], 2018
+ []
+
+
+Underfull \hbox (badness 1728) in paragraph at lines 133--137
+[]\T1/ppl/m/n/12 Web wor-kers api.  [][]$https : / / developer . mozilla . org / en-[]US / docs /
+ []
+
+Package babel Info: Redefining ngerman shorthand "|
+(babel)             in language  on input line 143.
+Package babel Info: Redefining ngerman shorthand "~
+(babel)             in language  on input line 143.
+Package babel Info: Redefining ngerman shorthand "|
+(babel)             in language  on input line 143.
+Package babel Info: Redefining ngerman shorthand "~
+(babel)             in language  on input line 143.
+[82]
+Underfull \hbox (badness 3019) in paragraph at lines 153--156
+[]\T1/ppl/m/n/12 The na-vi-ga-tor ob-ject.  [][]$https : / / www . w3schools . com / jsref / obj _
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 164--169
+\T1/ppl/m/n/12 web / fundamentals / instant-[]and-[]oine / web-[]storage / cache-[]api$[][],
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 171--175
+[]\T1/ppl/m/n/12 Promise.  [][]$https : / / developer . mozilla . org / en-[]US / docs / Web /
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 171--175
+\T1/ppl/m/n/12 JavaScript / Reference / Global _ Objects / Promise$[][], 2018 (ac-ces-sed
+ []
+
+
+Underfull \hbox (badness 2478) in paragraph at lines 183--187
+[]\T1/ppl/m/n/12 Jake Ar-chi-bald.  In-dexeddb pro-mi-sed.  [][]$https : / / github . com /
+ []
+
+
+Underfull \hbox (badness 1137) in paragraph at lines 189--192
+[]\T1/ppl/m/n/12 Lab: In-dexeddb.  [][]$https : / / developers . google . com / web / ilt / pwa /
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 194--198
+\T1/ppl/m/n/12 mozilla . org / en-[]US / docs / Web / API / IndexedDB _ API / Browser _
+ []
+
+
+Underfull \hbox (badness 8113) in paragraph at lines 194--198
+\T1/ppl/m/n/12 storage _ limits _ and _ eviction _ criteria # LRU _ policy$[][], 2018 (ac-ces-sed
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 207--212
+[]\T1/ppl/m/n/12 Dean Hu-me.  Per-sis-tent sto-ra-ge api: Buil-ding
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 207--212
+\T1/ppl/m/n/12 for the off-li-ne web.  [][]$https : / / deanhume . com /
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 207--212
+\T1/ppl/m/n/12 persistent-[]storage-[]api-[]building-[]for-[]the-[]oine-[]web/$[][], 2017 (ac-
+ []
+
+Package babel Info: Redefining ngerman shorthand "|
+(babel)             in language  on input line 219.
+Package babel Info: Redefining ngerman shorthand "~
+(babel)             in language  on input line 219.
+Package babel Info: Redefining ngerman shorthand "|
+(babel)             in language  on input line 219.
+Package babel Info: Redefining ngerman shorthand "~
+(babel)             in language  on input line 219.
+[83]
+Underfull \hbox (badness 10000) in paragraph at lines 245--249
+\T1/ppl/m/n/12 en-[]US / docs / Web / API / WindowBase64 / Base64 _ encoding _ and _
+ []
+
+Package babel Info: Redefining ngerman shorthand "|
+(babel)             in language  on input line 285.
+Package babel Info: Redefining ngerman shorthand "~
+(babel)             in language  on input line 285.
+Package babel Info: Redefining ngerman shorthand "|
+(babel)             in language  on input line 285.
+Package babel Info: Redefining ngerman shorthand "~
+(babel)             in language  on input line 285.
+[84]
+Underfull \hbox (badness 1019) in paragraph at lines 286--290
+\T1/ppl/m/n/12 introduction # what-[]are-[]web-[]components-[]$[][], 2018 (ac-ces-sed Oc-to-ber
+ []
+
+
+Underfull \hbox (badness 1629) in paragraph at lines 292--295
+[]\T1/ppl/m/n/12 Offline ca-ching with ser-vice wor-ker pre-ca-che.  [][]$https : / / www .
+ []
+
+
+Underfull \hbox (badness 7451) in paragraph at lines 292--295
+\T1/ppl/m/n/12 polymer-[]project . org / 1 . 0 / toolbox / service-[]worker$[][], 2016 (ac-ces-sed
+ []
+
+
+Underfull \hbox (badness 3068) in paragraph at lines 302--306
+[]\T1/ppl/m/n/12 Eric Bi-del-man.  A be-gin-ner's gui-de to using the ap-p-li-ca-ti-
+ []
+
+
+Underfull \hbox (badness 4316) in paragraph at lines 308--312
+[]\T1/ppl/m/n/12 Using the ap-p-li-ca-ti-on ca-che.  [][]$https : / / developer . mozilla . org /
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 324--329
+\T1/ppl/m/n/12 / / blog . teamtreehouse . com / using-[]localforage-[]oine-[]data-[]storage$[][],
+ []
+
+)
 Package atveryend Info: Empty hook `BeforeClearDocument' on input line 122.
+Package babel Info: Redefining ngerman shorthand "|
+(babel)             in language  on input line 122.
+Package babel Info: Redefining ngerman shorthand "~
+(babel)             in language  on input line 122.
+Package babel Info: Redefining ngerman shorthand "|
+(babel)             in language  on input line 122.
+Package babel Info: Redefining ngerman shorthand "~
+(babel)             in language  on input line 122.
+ [85]
 Package atveryend Info: Empty hook `AfterLastShipout' on input line 122.
-(Masterthesis.aux)
+ (Masterthesis.aux)
 Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 122.
 Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 122.
 Package rerunfilecheck Info: File `Masterthesis.out' has not changed.
-(rerunfilecheck)             Checksum: 67ED5B9FAC245C493E1EDC1CA29530F1;2741.
+(rerunfilecheck)             Checksum: FFF6250E72524A91AFCDE794866A2E02;2885.
 
 
 LaTeX Font Warning: Size substitutions with differences
@@ -3335,490 +3352,17 @@ LaTeX Font Warning: Size substitutions with differences
  )
 (\end occurred when \ifx on line 115 was incomplete) 
 Here is how much of TeX's memory you used:
- 26652 strings out of 492973
- 459220 string characters out of 3143877
- 707757 words of memory out of 3000000
- 29371 multiletter control sequences out of 15000+200000
+ 26975 strings out of 492973
+ 462881 string characters out of 3143877
+ 710995 words of memory out of 3000000
+ 29558 multiletter control sequences out of 15000+200000
  605610 words of font info for 171 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
  57i,18n,71p,9187b,2132s stack positions out of 5000i,500n,10000p,200000b,50000s
-{C:/MiKTeX/fonts/enc/dvips/base/8r.enc} <C:\Users\Server\AppData\Local\MiKTeX\2.9\fonts\pk\ljfour\jknappen\ec\dpi600\ecrm1200.pk><C:/MiKTeX/fonts/type1/urw/courier/ucrb8a.pfb><C:/MiKTeX/fonts/type1/urw/courier/ucrr8a.pfb><C:/MiKTeX/fonts/type1/urw/helvetic/uhvb8a.pfb><C:/MiKTeX/fonts/type1/urw/helvetic/uhvr8a.pfb><C:/MiKTeX/fonts/type1/urw/helvetic/uhvro8a.pfb><C:/MiKTeX/fonts/type1/urw/palatino/uplb8a.pfb><C:/MiKTeX/fonts/type1/urw/palatino/uplr8a.pfb><C:/MiKTeX/fonts/type1/urw/palatino/uplr8a.pfb><C:/MiKTeX/fonts/type1/urw/palatino/uplri8a.pfb>
-Output written on Masterthesis.pdf (84 pages, 572827 bytes).
+{C:/MiKTeX/fonts/enc/dvips/base/8r.enc}<C:/MiKTeX/fonts/type1/urw/courier/ucrb8a.pfb><C:/MiKTeX/fonts/type1/urw/courier/ucrr8a.pfb><C:/MiKTeX/fonts/type1/urw/helvetic/uhvb8a.pfb><C:/MiKTeX/fonts/type1/urw/helvetic/uhvr8a.pfb><C:/MiKTeX/fonts/type1/urw/helvetic/uhvro8a.pfb><C:/MiKTeX/fonts/type1/urw/palatino/uplb8a.pfb><C:/MiKTeX/fonts/type1/urw/palatino/uplr8a.pfb><C:/MiKTeX/fonts/type1/urw/palatino/uplr8a.pfb><C:/MiKTeX/fonts/type1/urw/palatino/uplri8a.pfb>
+Output written on Masterthesis.pdf (93 pages, 698791 bytes).
 PDF statistics:
- 1652 PDF objects out of 1728 (max. 8388607)
- 650 named destinations out of 1000 (max. 500000)
- 764 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 2001 PDF objects out of 2073 (max. 8388607)
+ 784 named destinations out of 1000 (max. 500000)
+ 795 words of extra memory for PDF output out of 10000 (max. 10000000)
 
-crbook)              Maybe implementation of \float@listhead will
-(scrbook)              be removed from KOMA-Script soon.
-(scrbook)              Loading of package `scrhack' may help to
-(scrbook)              avoid this warning, if you are using a
-(scrbook)              a package that still implements the
-(scrbook)              deprecated \float@listhead interface  on input line 116.
-
-Package babel Info: Redefining ngerman shorthand "|
-(babel)             in language  on input line 116.
-Package babel Info: Redefining ngerman shorthand "~
-(babel)             in language  on input line 116.
-Package babel Info: Redefining ngerman shorthand "|
-(babel)             in language  on input line 116.
-Package babel Info: Redefining ngerman shorthand "~
-(babel)             in language  on input line 116.
-[69]
-Package babel Info: Redefining ngerman shorthand "|
-(babel)             in language  on input line 116.
-Package babel Info: Redefining ngerman shorthand "~
-(babel)             in language  on input line 116.
-Package babel Info: Redefining ngerman shorthand "|
-(babel)             in language  on input line 116.
-Package babel Info: Redefining ngerman shorthand "~
-(babel)             in language  on input line 116.
- [70
-
-
-]
-chapter without number
-Package babel Info: Redefining ngerman shorthand "|
-(babel)             in language  on input line 116.
-Package babel Info: Redefining ngerman shorthand "~
-(babel)             in language  on input line 116.
-(Masterthesis.lol)
-\tf@lol=\write8
-\openout8 = `Masterthesis.lol'.
-
-Package babel Info: Redefining ngerman shorthand "|
-(babel)             in language  on input line 119.
-Package babel Info: Redefining ngerman shorthand "~
-(babel)             in language  on input line 119.
-Package babel Info: Redefining ngerman shorthand "|
-(babel)             in language  on input line 119.
-Package babel Info: Redefining ngerman shorthand "~
-(babel)             in language  on input line 119.
- [71]
-Package babel Info: Redefining ngerman shorthand "|
-(babel)             in language  on input line 119.
-Package babel Info: Redefining ngerman shorthand "~
-(babel)             in language  on input line 119.
-Package babel Info: Redefining ngerman shorthand "|
-(babel)             in language  on input line 119.
-Package babel Info: Redefining ngerman shorthand "~
-(babel)             in language  on input line 119.
- [72
-
-
-]
-No file Masterthesis.bbl.
-
-Package natbib Warning: There were undefined citations.
-
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 122.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 122.
-(Masterthesis.aux
-Masterthesis.aux:81: Text line contains an invalid character
-A funny symbol that I can't read has just been input.
-Continue, and I'll forget that it ever happened.
-
-Masterthesis.aux:81: Text line contains an invalid character
-A funny symbol that I can't read has just been input.
-Continue, and I'll forget that it ever happened.
-
-Masterthesis.aux:81: Text line contains an invalid character
-A funny symbol that I can't read has just been input.
-Continue, and I'll forget that it ever happened.
-
-Masterthesis.aux:81: Text line contains an invalid character
-A funny symbol that I can't read has just been input.
-Continue, and I'll forget that it ever happened.
-
-Masterthesis.aux:81: Text line contains an invalid character
-A funny symbol that I can't read has just been input.
-Continue, and I'll forget that it ever happened.
-
-Masterthesis.aux:81: Text line contains an invalid character
-A funny symbol that I can't read has just been input.
-Continue, and I'll forget that it ever happened.
-
-Masterthesis.aux:81: Text line contains an invalid character
-A funny symbol that I can't read has just been input.
-Continue, and I'll forget that it ever happened.
-
-Masterthesis.aux:81: Text line contains an invalid character
-A funny symbol that I can't read has just been input.
-Continue, and I'll forget that it ever happened.
-
-Masterthesis.aux:81: Text line contains an invalid character
-A funny symbol that I can't read has just been input.
-Continue, and I'll forget that it ever happened.
-
-Masterthesis.aux:81: Text line contains an invalid character
-A funny symbol that I can't read has just been input.
-Continue, and I'll forget that it ever happened.
-
-Masterthesis.aux:81: Text line contains an invalid character
-A funny symbol that I can't read has just been input.
-Continue, and I'll forget that it ever happened.
-
-Masterthesis.aux:81: Text line contains an invalid character
-A funny symbol that I can't read has just been input.
-Continue, and I'll forget that it ever happened.
-
-Masterthesis.aux:81: Text line contains an invalid character
-A funny symbol that I can't read has just been input.
-Continue, and I'll forget that it ever happened.
-
-Masterthesis.aux:81: Text line contains an invalid character
-A funny symbol that I can't read has just been input.
-Continue, and I'll forget that it ever happened.
-
-Masterthesis.aux:81: Text line contains an invalid character
-A funny symbol that I can't read has just been input.
-Continue, and I'll forget that it ever happened.
-
-Masterthesis.aux:81: Text line contains an invalid character
-A funny symbol that I can't read has just been input.
-Continue, and I'll forget that it ever happened.
-
-Masterthesis.aux:81: Text line contains an invalid character
-A funny symbol that I can't read has just been input.
-Continue, and I'll forget that it ever happened.
-
-Masterthesis.aux:81: Text line contains an invalid character
-A funny symbol that I can't read has just been input.
-Continue, and I'll forget that it ever happened.
-
-Masterthesis.aux:81: Text line contains an invalid character
-A funny symbol that I can't read has just been input.
-Continue, and I'll forget that it ever happened.
-
-Masterthesis.aux:81: Text line contains an invalid character
-A funny symbol that I can't read has just been input.
-Continue, and I'll forget that it ever happened.
-
-Masterthesis.aux:81: Text line contains an invalid character
-A funny symbol that I can't read has just been input.
-Continue, and I'll forget that it ever happened.
-
-Masterthesis.aux:81: Text line contains an invalid character
-A funny symbol that I can't read has just been input.
-Continue, and I'll forget that it ever happened.
-
-Masterthesis.aux:81: Text line contains an invalid character
-A funny symbol that I can't read has just been input.
-Continue, and I'll forget that it ever happened.
-
-Masterthesis.aux:81: Text line contains an invalid character
-A funny symbol that I can't read has just been input.
-Continue, and I'll forget that it ever happened.
-
-Masterthesis.aux:81: Text line contains an invalid character
-A funny symbol that I can't read has just been input.
-Continue, and I'll forget that it ever happened.
-
-Masterthesis.aux:81: Text line contains an invalid character
-A funny symbol that I can't read has just been input.
-Continue, and I'll forget that it ever happened.
-
-Masterthesis.aux:81: Text line contains an invalid character
-A funny symbol that I can't read has just been input.
-Continue, and I'll forget that it ever happened.
-
-Masterthesis.aux:81: Text line contains an invalid character
-A funny symbol that I can't read has just been input.
-Continue, and I'll forget that it ever happened.
-
-Masterthesis.aux:81: Text line contains an invalid character
-A funny symbol that I can't read has just been input.
-Continue, and I'll forget that it ever happened.
-
-Masterthesis.aux:81: Text line contains an invalid character
-A funny symbol that I can't read has just been input.
-Continue, and I'll forget that it ever happened.
-
-Masterthesis.aux:81: Text line contains an invalid character
-A funny symbol that I can't read has just been input.
-Continue, and I'll forget that it ever happened.
-
-Masterthesis.aux:81: Text line contains an invalid character
-A funny symbol that I can't read has just been input.
-Continue, and I'll forget that it ever happened.
-
-Masterthesis.aux:81: Text line contains an invalid character
-A funny symbol that I can't read has just been input.
-Continue, and I'll forget that it ever happened.
-
-Masterthesis.aux:81: Text line contains an invalid character
-A funny symbol that I can't read has just been input.
-Continue, and I'll forget that it ever happened.
-
-Masterthesis.aux:81: Text line contains an invalid character
-A funny symbol that I can't read has just been input.
-Continue, and I'll forget that it ever happened.
-
-Masterthesis.aux:81: Text line contains an invalid character
-A funny symbol that I can't read has just been input.
-Continue, and I'll forget that it ever happened.
-
-Masterthesis.aux:81: Text line contains an invalid character
-A funny symbol that I can't read has just been input.
-Continue, and I'll forget that it ever happened.
-
-Masterthesis.aux:81: Text line contains an invalid character
-A funny symbol that I can't read has just been input.
-Continue, and I'll forget that it ever happened.
-
-Masterthesis.aux:81: Text line contains an invalid character
-A funny symbol that I can't read has just been input.
-Continue, and I'll forget that it ever happened.
-
-Masterthesis.aux:81: Text line contains an invalid character
-A funny symbol that I can't read has just been input.
-Continue, and I'll forget that it ever happened.
-
-Masterthesis.aux:81: Text line contains an invalid character
-A funny symbol that I can't read has just been input.
-Continue, and I'll forget that it ever happened.
-
-Masterthesis.aux:81: Text line contains an invalid character
-A funny symbol that I can't read has just been input.
-Continue, and I'll forget that it ever happened.
-
-Masterthesis.aux:81: Text line contains an invalid character
-A funny symbol that I can't read has just been input.
-Continue, and I'll forget that it ever happened.
-
-Masterthesis.aux:81: Text line contains an invalid character
-A funny symbol that I can't read has just been input.
-Continue, and I'll forget that it ever happened.
-
-Masterthesis.aux:81: Text line contains an invalid character
-A funny symbol that I can't read has just been input.
-Continue, and I'll forget that it ever happened.
-
-Masterthesis.aux:81: Text line contains an invalid character
-A funny symbol that I can't read has just been input.
-Continue, and I'll forget that it ever happened.
-
-Masterthesis.aux:81: Text line contains an invalid character
-A funny symbol that I can't read has just been input.
-Continue, and I'll forget that it ever happened.
-
-Masterthesis.aux:81: Text line contains an invalid character
-A funny symbol that I can't read has just been input.
-Continue, and I'll forget that it ever happened.
-
-Masterthesis.aux:81: Text line contains an invalid character
-A funny symbol that I can't read has just been input.
-Continue, and I'll forget that it ever happened.
-
-Masterthesis.aux:81: Text line contains an invalid character
-A funny symbol that I can't read has just been input.
-Continue, and I'll forget that it ever happened.
-
-Masterthesis.aux:81: Text line contains an invalid character
-A funny symbol that I can't read has just been input.
-Continue, and I'll forget that it ever happened.
-
-Masterthesis.aux:81: Text line contains an invalid character
-A funny symbol that I can't read has just been input.
-Continue, and I'll forget that it ever happened.
-
-Masterthesis.aux:81: Text line contains an invalid character
-A funny symbol that I can't read has just been input.
-Continue, and I'll forget that it ever happened.
-
-Masterthesis.aux:81: Text line contains an invalid character
-A funny symbol that I can't read has just been input.
-Continue, and I'll forget that it ever happened.
-
-Masterthesis.aux:81: Text line contains an invalid character
-A funny symbol that I can't read has just been input.
-Continue, and I'll forget that it ever happened.
-
-Masterthesis.aux:81: Text line contains an invalid character
-A funny symbol that I can't read has just been input.
-Continue, and I'll forget that it ever happened.
-
-Masterthesis.aux:81: Text line contains an invalid character
-A funny symbol that I can't read has just been input.
-Continue, and I'll forget that it ever happened.
-
-Masterthesis.aux:81: Text line contains an invalid character
-A funny symbol that I can't read has just been input.
-Continue, and I'll forget that it ever happened.
-
-Masterthesis.aux:81: Text line contains an invalid character
-A funny symbol that I can't read has just been input.
-Continue, and I'll forget that it ever happened.
-
-Masterthesis.aux:81: Text line contains an invalid character
-A funny symbol that I can't read has just been input.
-Continue, and I'll forget that it ever happened.
-
-Masterthesis.aux:81: Text line contains an invalid character
-A funny symbol that I can't read has just been input.
-Continue, and I'll forget that it ever happened.
-
-Masterthesis.aux:81: Text line contains an invalid character
-A funny symbol that I can't read has just been input.
-Continue, and I'll forget that it ever happened.
-
-Masterthesis.aux:81: Text line contains an invalid character
-A funny symbol that I can't read has just been input.
-Continue, and I'll forget that it ever happened.
-
-Masterthesis.aux:81: Text line contains an invalid character
-A funny symbol that I can't read has just been input.
-Continue, and I'll forget that it ever happened.
-
-Masterthesis.aux:81: Text line contains an invalid character
-A funny symbol that I can't read has just been input.
-Continue, and I'll forget that it ever happened.
-
-Masterthesis.aux:81: Text line contains an invalid character
-A funny symbol that I can't read has just been input.
-Continue, and I'll forget that it ever happened.
-
-Masterthesis.aux:81: Text line contains an invalid character
-A funny symbol that I can't read has just been input.
-Continue, and I'll forget that it ever happened.
-
-Masterthesis.aux:81: Text line contains an invalid character
-A funny symbol that I can't read has just been input.
-Continue, and I'll forget that it ever happened.
-
-Masterthesis.aux:81: Text line contains an invalid character
-A funny symbol that I can't read has just been input.
-Continue, and I'll forget that it ever happened.
-
-Masterthesis.aux:81: Text line contains an invalid character
-A funny symbol that I can't read has just been input.
-Continue, and I'll forget that it ever happened.
-
-Masterthesis.aux:81: Text line contains an invalid character
-A funny symbol that I can't read has just been input.
-Continue, and I'll forget that it ever happened.
-
-Masterthesis.aux:81: Text line contains an invalid character
-A funny symbol that I can't read has just been input.
-Continue, and I'll forget that it ever happened.
-
-Masterthesis.aux:81: Text line contains an invalid character
-A funny symbol that I can't read has just been input.
-Continue, and I'll forget that it ever happened.
-
-Masterthesis.aux:81: Text line contains an invalid character
-A funny symbol that I can't read has just been input.
-Continue, and I'll forget that it ever happened.
-
-Masterthesis.aux:81: Text line contains an invalid character
-A funny symbol that I can't read has just been input.
-Continue, and I'll forget that it ever happened.
-
-Masterthesis.aux:81: Text line contains an invalid character
-A funny symbol that I can't read has just been input.
-Continue, and I'll forget that it ever happened.
-
-Masterthesis.aux:81: Text line contains an invalid character
-A funny symbol that I can't read has just been input.
-Continue, and I'll forget that it ever happened.
-
-Masterthesis.aux:81: Text line contains an invalid character
-A funny symbol that I can't read has just been input.
-Continue, and I'll forget that it ever happened.
-
-Masterthesis.aux:81: Text line contains an invalid character
-A funny symbol that I can't read has just been input.
-Continue, and I'll forget that it ever happened.
-
-Masterthesis.aux:81: Text line contains an invalid character
-A funny symbol that I can't read has just been input.
-Continue, and I'll forget that it ever happened.
-
-Masterthesis.aux:81: Text line contains an invalid character
-A funny symbol that I can't read has just been input.
-Continue, and I'll forget that it ever happened.
-
-Masterthesis.aux:81: Text line contains an invalid character
-A funny symbol that I can't read has just been input.
-Continue, and I'll forget that it ever happened.
-
-Masterthesis.aux:81: Text line contains an invalid character
-A funny symbol that I can't read has just been input.
-Continue, and I'll forget that it ever happened.
-
-Masterthesis.aux:81: Text line contains an invalid character
-A funny symbol that I can't read has just been input.
-Continue, and I'll forget that it ever happened.
-
-Masterthesis.aux:81: Text line contains an invalid character
-A funny symbol that I can't read has just been input.
-Continue, and I'll forget that it ever happened.
-
-Masterthesis.aux:81: Text line contains an invalid character
-A funny symbol that I can't read has just been input.
-Continue, and I'll forget that it ever happened.
-
-Masterthesis.aux:81: Text line contains an invalid character
-A funny symbol that I can't read has just been input.
-Continue, and I'll forget that it ever happened.
-
-Masterthesis.aux:81: Text line contains an invalid character
-A funny symbol that I can't read has just been input.
-Continue, and I'll forget that it ever happened.
-
-Masterthesis.aux:81: Text line contains an invalid character
-A funny symbol that I can't read has just been input.
-Continue, and I'll forget that it ever happened.
-
-Masterthesis.aux:81: Text line contains an invalid character
-A funny symbol that I can't read has just been input.
-Continue, and I'll forget that it ever happened.
-
-Masterthesis.aux:81: Text line contains an invalid character
-A funny symbol that I can't read has just been input.
-Continue, and I'll forget that it ever happened.
-
-Masterthesis.aux:81: Text line contains an invalid character
-A funny symbol that I can't read has just been input.
-Continue, and I'll forget that it ever happened.
-
-Masterthesis.aux:81: Text line contains an invalid character
-A funny symbol that I can't read has just been input.
-Continue, and I'll forget that it ever happened.
-
-Masterthesis.aux:81: Text line contains an invalid character
-A funny symbol that I can't read has just been input.
-Continue, and I'll forget that it ever happened.
-
-Masterthesis.aux:81: Text line contains an invalid character
-A funny symbol that I can't read has just been input.
-Continue, and I'll forget that it ever happened.
-
-Masterthesis.aux:81: Text line contains an invalid character
-A funny symbol that I can't read has just been input.
-Continue, and I'll forget that it ever happened.
-
-Masterthesis.aux:81: Text line contains an invalid character
-A funny symbol that I can't read has just been input.
-Continue, and I'll forget that it ever happened.
-
-Masterthesis.aux:81: Text line contains an invalid character
-A funny symbol that I can't read has just been input.
-Continue, and I'll forget that it ever happened.
-
-Masterthesis.aux:81: Text line contains an invalid character
-A funny symbol that I can't read has just been input.
-Continue, and I'll forget that it ever happened.
-
-Masterthesis.aux:81: Text line contains an invalid character
-(That makes 100 errors; please try again.) 
-Here is how much of TeX's memory you used:
- 26592 strings out of 492973
- 458300 string characters out of 3143877
- 704776 words of memory out of 3000000
- 29311 multiletter control sequences out of 15000+200000
- 605610 words of font info for 171 fonts, out of 3000000 for 9000
- 1141 hyphenation exceptions out of 8191
- 57i,18n,71p,9187b,2132s stack positions out of 5000i,500n,10000p,200000b,50000s
-
-Masterthesis.aux:81:  ==> Fatal error occurred, no output PDF file produced!
