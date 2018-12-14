@@ -38,7 +38,7 @@
   \newcommand*\fsize{\dimexpr\f@size pt\relax}%
   \newcommand*\lineheight[1]{\fontsize{0.8\fsize}{#1\fsize}\selectfont}%
   \ifx\svgwidth\undefined%
-    \setlength{\unitlength}{611.5546875bp}%
+    \setlength{\unitlength}{605.74071299bp}%
     \ifx\svgscale\undefined%
       \relax%
     \else%
@@ -50,31 +50,32 @@
   \global\let\svgwidth\undefined%
   \global\let\svgscale\undefined%
   \makeatother%
-  \begin{picture}(1,0.28070507)%
+  \begin{picture}(1,0.28339932)%
     \lineheight{1}%
     \setlength\tabcolsep{0pt}%
     \put(0,0){\includegraphics[width=\unitlength,page=1]{images/architecture/offline.pdf}}%
-    \put(0.02104013,0.05904601){\color[rgb]{0,0,0}\makebox(0,0)[t]{\lineheight{1.25}\smash{\begin{tabular}[t]{c}Server\end{tabular}}}}%
-    \put(0.01858736,0.15960938){\color[rgb]{0,0,0}\makebox(0,0)[t]{\lineheight{1.25}\smash{\begin{tabular}[t]{c}Client\end{tabular}}}}%
+    \put(0.02124207,0.05961274){\color[rgb]{0,0,0}\makebox(0,0)[t]{\lineheight{1.25}\smash{\begin{tabular}[t]{c}Server\end{tabular}}}}%
+    \put(0.01876576,0.16114133){\color[rgb]{0,0,0}\makebox(0,0)[t]{\lineheight{1.25}\smash{\begin{tabular}[t]{c}Client\end{tabular}}}}%
     \put(0,0){\includegraphics[width=\unitlength,page=2]{images/architecture/offline.pdf}}%
-    \put(0.07990649,0.18413703){\color[rgb]{0,0,0}\makebox(0,0)[t]{\lineheight{1.25}\smash{\begin{tabular}[t]{c}\textit{(id, value', t\textsubscript{1})}\end{tabular}}}}%
-    \put(0.94837428,0.10564855){\color[rgb]{0,0,0}\makebox(0,0)[t]{\lineheight{1.25}\smash{\begin{tabular}[t]{c}\textit{respond(value'', t\textsubscript{2})}\end{tabular}}}}%
-    \put(0.92120492,0.18413703){\color[rgb]{0,0,0}\makebox(0,0)[t]{\lineheight{1.25}\smash{\begin{tabular}[t]{c}\textit{(id, value'', t\textsubscript{2})}\end{tabular}}}}%
+    \put(0.08067344,0.1859044){\color[rgb]{0,0,0}\makebox(0,0)[t]{\lineheight{1.25}\smash{\begin{tabular}[t]{c}\textit{(id, value', t\textsubscript{1})}\end{tabular}}}}%
+    \put(0.93014153,0.10666257){\color[rgb]{0,0,0}\makebox(0,0)[t]{\lineheight{1.25}\smash{\begin{tabular}[t]{c}\textit{\{value'', t\textsubscript{2}\}}\end{tabular}}}}%
+    \put(0.93004676,0.1859044){\color[rgb]{0,0,0}\makebox(0,0)[t]{\lineheight{1.25}\smash{\begin{tabular}[t]{c}\textit{(id, value'', t\textsubscript{2})}\end{tabular}}}}%
     \put(0,0){\includegraphics[width=\unitlength,page=3]{images/architecture/offline.pdf}}%
-    \put(0.29924003,0.10564855){\color[rgb]{0,0,0}\makebox(0,0)[t]{\lineheight{1.25}\smash{\begin{tabular}[t]{c}\textit{update(id, operation(s))}\end{tabular}}}}%
+%    \put(0.32520937,0.10666257){\color[rgb]{0,0,0}\makebox(0,0)[t]{\lineheight{1.25}\smash{\begin{tabular}[t]{c}\textit{\{id, operation(s)\}}\end{tabular}}}}%
     \put(0,0){\includegraphics[width=\unitlength,page=4]{images/architecture/offline.pdf}}%
-    \put(0.72602116,0.10564855){\color[rgb]{0,0,0}\makebox(0,0)[t]{\lineheight{1.25}\smash{\begin{tabular}[t]{c}\textit{read(id)}\end{tabular}}}}%
+%    \put(0.75018157,0.10666257){\color[rgb]{0,0,0}\makebox(0,0)[t]{\lineheight{1.25}\smash{\begin{tabular}[t]{c}\textit{\{id\}}\end{tabular}}}}%
     \put(0,0){\includegraphics[width=\unitlength,page=5]{images/architecture/offline.pdf}}%
-    \put(0.45640593,0.03451836){\color[rgb]{0,0,0}\makebox(0,0)[t]{\lineheight{1.25}\smash{\begin{tabular}[t]{c}\textit{(id, value'', t\textsubscript{2})}\end{tabular}}}}%
+    \put(0.45707211,0.03484967){\color[rgb]{0,0,0}\makebox(0,0)[t]{\lineheight{1.25}\smash{\begin{tabular}[t]{c}\textit{(id, value'', t\textsubscript{2})}\end{tabular}}}}%
     \put(0,0){\includegraphics[width=\unitlength,page=6]{images/architecture/offline.pdf}}%
-    \put(0.60008163,0.10564855){\color[rgb]{0,0,0}\makebox(0,0)[t]{\lineheight{1.25}\smash{\begin{tabular}[t]{c}\textit{respond(status)}\end{tabular}}}}%
+    \put(0.16239157,0.22038193){\color[rgb]{0,0,0}\makebox(0,0)[t]{\lineheight{1.25}\smash{\begin{tabular}[t]{c}\textit{operation(s)}\end{tabular}}}}%
     \put(0,0){\includegraphics[width=\unitlength,page=7]{images/architecture/offline.pdf}}%
-    \put(0.16084774,0.22234383){\color[rgb]{0,0,0}\makebox(0,0)[t]{\lineheight{1.25}\smash{\begin{tabular}[t]{c}\textit{operation(s)}\end{tabular}}}}%
+    \put(0.25649124,0.1859044){\color[rgb]{0,0,0}\makebox(0,0)[t]{\lineheight{1.25}\smash{\begin{tabular}[t]{c}\textit{(id, value'')}\end{tabular}}}}%
     \put(0,0){\includegraphics[width=\unitlength,page=8]{images/architecture/offline.pdf}}%
-    \put(0.25405281,0.18413703){\color[rgb]{0,0,0}\makebox(0,0)[t]{\lineheight{1.25}\smash{\begin{tabular}[t]{c}\textit{(id, value'')}\end{tabular}}}}%
+    \put(0.1908691,0.27257515){\color[rgb]{0,0,0}\makebox(0,0)[t]{\lineheight{1.25}\smash{\begin{tabular}[t]{c}\textit{OFFLINE}\end{tabular}}}}%
     \put(0,0){\includegraphics[width=\unitlength,page=9]{images/architecture/offline.pdf}}%
-    \put(0.18905454,0.26998381){\color[rgb]{0,0,0}\makebox(0,0)[t]{\lineheight{1.25}\smash{\begin{tabular}[t]{c}\textit{OFFLINE}\end{tabular}}}}%
-    \put(0,0){\includegraphics[width=\unitlength,page=10]{images/architecture/offline.pdf}}%
-    \put(0.66489097,0.00017965){\color[rgb]{0,0,0}\makebox(0,0)[t]{\lineheight{1.25}\smash{\begin{tabular}[t]{c}\textit{ONLINE}\end{tabular}}}}%
+    \put(0.67127267,0.00018137){\color[rgb]{0,0,0}\makebox(0,0)[t]{\lineheight{1.25}\smash{\begin{tabular}[t]{c}\textit{ONLINE}\end{tabular}}}}%
+    \put(0.39935276,0.17352286){\color[rgb]{0,0,0}\makebox(0,0)[t]{\lineheight{1.25}\smash{\begin{tabular}[t]{c}\textit{update(id, operations)}\end{tabular}}}}%
+    \put(0.57031516,0.10666257){\color[rgb]{0,0,0}\makebox(0,0)[t]{\lineheight{1.25}\smash{\begin{tabular}[t]{c}\textit{\{status\}}\end{tabular}}}}%
+    \put(0.72451327,0.17352286){\color[rgb]{0,0,0}\makebox(0,0)[t]{\lineheight{1.25}\smash{\begin{tabular}[t]{c}\textit{read(id)}\end{tabular}}}}%
   \end{picture}%
 \endgroup%

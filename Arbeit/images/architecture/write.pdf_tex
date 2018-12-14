@@ -58,15 +58,17 @@
     \put(0.02340176,0.16139072){\color[rgb]{0,0,0}\makebox(0,0)[t]{\lineheight{1.25}\smash{\begin{tabular}[t]{c}Client\end{tabular}}}}%
     \put(0,0){\includegraphics[width=\unitlength,page=2]{images/architecture/write.pdf}}%
     \put(0.09905941,0.19227139){\color[rgb]{0,0,0}\makebox(0,0)[t]{\lineheight{1.25}\smash{\begin{tabular}[t]{c}\textit{(id, value, t\textsubscript{0})}\end{tabular}}}}%
-    \put(0.89423673,0.09345324){\color[rgb]{0,0,0}\makebox(0,0)[t]{\lineheight{1.25}\smash{\begin{tabular}[t]{c}\textit{respond(value', t\textsubscript{1})}\end{tabular}}}}%
+    \put(0.86026799,0.09345324){\color[rgb]{0,0,0}\makebox(0,0)[t]{\lineheight{1.25}\smash{\begin{tabular}[t]{c}\textit{\{value', t\textsubscript{1}\}}\end{tabular}}}}%
     \put(0.8880606,0.19227139){\color[rgb]{0,0,0}\makebox(0,0)[t]{\lineheight{1.25}\smash{\begin{tabular}[t]{c}\textit{(id, value', t\textsubscript{1})}\end{tabular}}}}%
     \put(0,0){\includegraphics[width=\unitlength,page=3]{images/architecture/write.pdf}}%
-    \put(0.14229235,0.09345324){\color[rgb]{0,0,0}\makebox(0,0)[t]{\lineheight{1.25}\smash{\begin{tabular}[t]{c}\textit{update(id, operation(s))}\end{tabular}}}}%
+    %\put(0.17471706,0.09345324){\color[rgb]{0,0,0}\makebox(0,0)[t]{\lineheight{1.25}\smash{\begin{tabular}[t]{c}\textit{\{id, operation(s)\}}\end{tabular}}}}%
     \put(0,0){\includegraphics[width=\unitlength,page=4]{images/architecture/write.pdf}}%
-    \put(0.63329505,0.09345324){\color[rgb]{0,0,0}\makebox(0,0)[t]{\lineheight{1.25}\smash{\begin{tabular}[t]{c}\textit{read(id)}\end{tabular}}}}%
-    \put(0,0){\includegraphics[width=\unitlength,page=5]{images/architecture/write.pdf}}%
-    \put(0.34073689,0.00389929){\color[rgb]{0,0,0}\makebox(0,0)[t]{\lineheight{1.25}\smash{\begin{tabular}[t]{c}\textit{(id, value', t\textsubscript{1})}\end{tabular}}}}%
-    \put(0,0){\includegraphics[width=\unitlength,page=6]{images/architecture/write.pdf}}%
-    \put(0.49896412,0.09345324){\color[rgb]{0,0,0}\makebox(0,0)[t]{\lineheight{1.25}\smash{\begin{tabular}[t]{c}\textit{respond(status)}\end{tabular}}}}%
+    %\put(0.63792715,0.09345324){\color[rgb]{0,0,0}\makebox(0,0)[t]{\lineheight{1.25}\smash{\begin{tabular}[t]{c}\textit{\{id\}}\end{tabular}}}}%
+    \put(-5,0){\includegraphics[width=\unitlength,page=5]{images/architecture/write.pdf}}%
+    \put(0.33213605,0.00389929){\color[rgb]{0,0,0}\makebox(0,0)[t]{\lineheight{1.25}\smash{\begin{tabular}[t]{c}\textit{(id, value', t\textsubscript{1})}\end{tabular}}}}%
+    \put(-0.09,0){\includegraphics[width=\unitlength,page=6]{images/architecture/write.pdf}}%
+    \put(0.46528513,0.09345324){\color[rgb]{0,0,0}\makebox(0,0)[t]{\lineheight{1.25}\smash{\begin{tabular}[t]{c}\textit{\{status\}}\end{tabular}}}}%
+    \put(0.2340537,0.17683106){\color[rgb]{0,0,0}\makebox(0,0)[t]{\lineheight{1.25}\smash{\begin{tabular}[t]{c}\textit{update(id, operations)}\end{tabular}}}}%
+    \put(0.61785471,0.17683106){\color[rgb]{0,0,0}\makebox(0,0)[t]{\lineheight{1.25}\smash{\begin{tabular}[t]{c}\textit{read(id)}\end{tabular}}}}%
   \end{picture}%
 \endgroup%

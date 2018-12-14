@@ -1,0 +1,87 @@
+%% Creator: Inkscape inkscape 0.92.3, www.inkscape.org
+%% PDF/EPS/PS + LaTeX output extension by Johan Engelen, 2010
+%% Accompanies image file 'future.pdf' (pdf, eps, ps)
+%%
+%% To include the image in your LaTeX document, write
+%%   \input{<filename>.pdf_tex}
+%%  instead of
+%%   \includegraphics{<filename>.pdf}
+%% To scale the image, write
+%%   \def\svgwidth{<desired width>}
+%%   \input{<filename>.pdf_tex}
+%%  instead of
+%%   \includegraphics[width=<desired width>]{<filename>.pdf}
+%%
+%% Images with a different path to the parent latex file can
+%% be accessed with the `import' package (which may need to be
+%% installed) using
+%%   \usepackage{import}
+%% in the preamble, and then including the image with
+%%   \import{<path to file>}{<filename>.pdf_tex}
+%% Alternatively, one can specify
+%%   \graphicspath{{<path to file>/}}
+%% 
+%% For more information, please see info/svg-inkscape on CTAN:
+%%   http://tug.ctan.org/tex-archive/info/svg-inkscape
+%%
+\begingroup%
+  \makeatletter%
+  \providecommand\color[2][]{%
+    \errmessage{(Inkscape) Color is used for the text in Inkscape, but the package 'color.sty' is not loaded}%
+    \renewcommand\color[2][]{}%
+  }%
+  \providecommand\transparent[1]{%
+    \errmessage{(Inkscape) Transparency is used (non-zero) for the text in Inkscape, but the package 'transparent.sty' is not loaded}%
+    \renewcommand\transparent[1]{}%
+  }%
+  \providecommand\rotatebox[2]{#2}%
+  \newcommand*\fsize{\dimexpr\f@size pt\relax}%
+  \newcommand*\lineheight[1]{\fontsize{0.8\fsize}{#1\fsize}\selectfont}%
+  \ifx\svgwidth\undefined%
+    \setlength{\unitlength}{605.74071299bp}%
+    \ifx\svgscale\undefined%
+      \relax%
+    \else%
+      \setlength{\unitlength}{\unitlength * \real{\svgscale}}%
+    \fi%
+  \else%
+    \setlength{\unitlength}{\svgwidth}%
+  \fi%
+  \global\let\svgwidth\undefined%
+  \global\let\svgscale\undefined%
+  \makeatother%
+  \begin{picture}(1,0.29578085)%
+    \lineheight{1}%
+    \setlength\tabcolsep{0pt}%
+    \put(0,0){\includegraphics[width=\unitlength,page=1]{images/architecture/future.pdf}}%
+    \put(0.02124207,0.07199427){\color[rgb]{0,0,0}\makebox(0,0)[t]{\lineheight{1.25}\smash{\begin{tabular}[t]{c}Server\end{tabular}}}}%
+    \put(0.01876576,0.17228471){\color[rgb]{0,0,0}\makebox(0,0)[t]{\lineheight{1.25}\smash{\begin{tabular}[t]{c}Client\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=2]{images/architecture/future.pdf}}%
+%    \put(0.12896143,0.12523488){\color[rgb]{0,0,0}\makebox(0,0)[t]{\lineheight{1.25}\smash{\begin{tabular}[t]{c}\textit{\{id\}}\end{tabular}}}}%
+    \put(0.30982661,0.12523488){\color[rgb]{0,0,0}\makebox(0,0)[t]{\lineheight{1.25}\smash{\begin{tabular}[t]{c}\textit{\{value, t\textsubscript{1}\}}\end{tabular}}}}%
+    \put(0.32830415,0.19828593){\color[rgb]{0,0,0}\makebox(0,0)[t]{\lineheight{1.25}\smash{\begin{tabular}[t]{c}\textit{(id, value, t\textsubscript{1})}\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=3]{images/architecture/future.pdf}}%
+    \put(0.08067344,0.0472312){\color[rgb]{0,0,0}\makebox(0,0)[t]{\lineheight{1.25}\smash{\begin{tabular}[t]{c}\textit{(id, value, t\textsubscript{1})}\end{tabular}}}}%
+    \put(0.44469058,0.28495668){\color[rgb]{0,0,0}\makebox(0,0)[t]{\lineheight{1.25}\smash{\begin{tabular}[t]{c}\textit{OFFLINE}\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=4]{images/architecture/future.pdf}}%
+    \put(0.40754597,0.23181085){\color[rgb]{0,0,0}\makebox(0,0)[t]{\lineheight{1.25}\smash{\begin{tabular}[t]{c}\textit{operation(s)}\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=5]{images/architecture/future.pdf}}%
+    \put(0.46326288,0.19828593){\color[rgb]{0,0,0}\makebox(0,0)[t]{\lineheight{1.25}\smash{\begin{tabular}[t]{c}\textit{(id, value')}\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=6]{images/architecture/future.pdf}}%
+    \put(0.6279373,0.00018137){\color[rgb]{0,0,0}\makebox(0,0)[t]{\lineheight{1.25}\smash{\begin{tabular}[t]{c}\textit{ONLINE}\end{tabular}}}}%
+%    \put(0.53012317,0.124){\color[rgb]{0,0,0}\makebox(0,0)[t]{\lineheight{1.25}\smash{\begin{tabular}[t]{c}\textit{\{id, operation(s)\}}\end{tabular}}}}%
+    \put(0.65889114,0.0472312){\color[rgb]{0,0,0}\makebox(0,0)[t]{\lineheight{1.25}\smash{\begin{tabular}[t]{c}\textit{(id, value', t\textsubscript{2})}\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=7]{images/architecture/future.pdf}}%
+    \put(0.75175265,0.23181085){\color[rgb]{0,0,0}\makebox(0,0)[t]{\lineheight{1.25}\smash{\begin{tabular}[t]{c}\textit{operation(s)}\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=8]{images/architecture/future.pdf}}%
+    \put(0.84337601,0.28495668){\color[rgb]{0,0,0}\makebox(0,0)[t]{\lineheight{1.25}\smash{\begin{tabular}[t]{c}\textit{OFFLINE}\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=9]{images/architecture/future.pdf}}%
+    \put(0.82604186,0.19828593){\color[rgb]{0,0,0}\makebox(0,0)[t]{\lineheight{1.25}\smash{\begin{tabular}[t]{c}\textit{(id, value'')}\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=10]{images/architecture/future.pdf}}%
+    \put(0.79756433,0.01389583){\color[rgb]{0,0,0}\makebox(0,0)[t]{\lineheight{1.25}\smash{\begin{tabular}[t]{c}\textit{operation(s)}\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=11]{images/architecture/future.pdf}}%
+    \put(0.88299693,0.0472312){\color[rgb]{0,0,0}\makebox(0,0)[t]{\lineheight{1.25}\smash{\begin{tabular}[t]{c}\textit{(id, value''', t\textsubscript{3})}\end{tabular}}}}%
+    \put(0.10667466,0.1859044){\color[rgb]{0,0,0}\makebox(0,0)[t]{\lineheight{1.25}\smash{\begin{tabular}[t]{c}\textit{read(id)}\end{tabular}}}}%
+    \put(0.61364809,0.1859044){\color[rgb]{0,0,0}\makebox(0,0)[t]{\lineheight{1.25}\smash{\begin{tabular}[t]{c}\textit{update(id, operations)}\end{tabular}}}}%
+  \end{picture}%
+\endgroup%

@@ -1,52 +1,52 @@
 \chapter{Conclusion}
 \label{Conclusion}
 
-In this chapter, we will make a summary of our work and suggest some possibilities on the future wok.
+In this chapter, we will make a summary of our work and suggest some possibilities for future work.
 
 \section{Summary}
 \label{summary}
 
-The work of this thesis mostly concentrated on designing such a client-server system, which would let replicating the data on a client machine. That would allow the user for offline operation at times, when there is no internet connection available, or when it is poor. Moreover, there are requirements for the system such as the possibility to maintain the data at client side as well, and synchonize it with a cloud storage server, when the mode of the client switches from offline to online. Moreover, after the system was designed, it wa needed to be implemented and its feasibility and performance should have been evaluated.
+The work of this thesis mostly concentrated on designing such a client-server system, which would let replicating the data on a client machine. That would allow the user for offline operation at times, when there is no internet connection available, or when it is poor. Moreover, there are requirements for the system such as the possibility to maintain the data at client side as well, and synchronise it with a cloud storage server, when the mode of the client switches from offline to online. Moreover, after the system was designed, it was needed to be implemented, and its feasibility and performance should have been evaluated.
 
-This task was achieved in framework, which we named WebCure. Firstly, we designed a stable protocol for the communication between a client and a server. Then, we made a research on available technologies, which would allow us to implement the system in a way it is intended to work. Next, we developed a presentation application, which demonstrates the work of WebCure on a example of a Set CRDT. After this step, we took a calendar application, which was already built based on AntidoteDB, and extended it to work with WebCure in order to evaluate the outcome. It turned out that, as expected, that the extended version of the calendar has a much shorter response time, better availability, while still keeping its original functionality and letting its users to work both offline and online. 
+This task was achieved in a framework, which we named WebCure. Firstly, we designed a stable protocol for the communication between a client and a server. Then, we made a research on available technologies, which would allow us to implement the system in a way it is intended to work. Next, we developed a presentation application, which demonstrates the work of WebCure on an example of a Set CRDT. After this step, we took a calendar application, which was already built based on AntidoteDB, and extended it to work with WebCure in order to evaluate the outcome. It turned out that, as expected, that the extended version of the calendar has a much shorter response time, better availability, while still keeping its original functionality and letting its users work both offline and online. 
 
 \section{Future Work}
 \label{futurework}
 
-There are different circumstances that create an uncertainty with the current design of the application. In this section, we would like to discuss these situtations, while keeping the answers to them open for the future improvements.
+Different circumstances create uncertainty with the current design of the application. In this section, we would like to discuss these situations, while keeping the answers to them open for future improvements.
 
 \section*{Missing acknowledgement}
 
-In the current design of the WebCure, when a client is online and makes a request to the server with an update, the server sends back the acknowledgement, so the client know that the requested operation was applied on server side. However, there is a topic for discussion in this use case. Let us imagine that the server does not send back the acknowledgement. There are two possibilities:
+In the current design of the WebCure, when a client is online and makes a request to the server with an update, the server sends back the acknowledgement, so the client knows that the requested operation was applied on the server side. However, there is a topic for discussion in this use case. Let us imagine that the server does not send back the acknowledgement. There are two possibilities:
 
 \begin{itemize}
     \item {The update was applied on the server, but the connection failed when the acknowledgement was about to be sent back to the client;}
-    \item {The update was not applied on the server and the client still did not receive an acknowledgement.}
+    \item {The update was not applied on the server, and the client did not receive the acknowledgement because of that.}
 \end{itemize}
 
 However, the problem is that a client does not know, which of the above situations happened. 
 
-One of the solutions could be the following: it does not matter, whether the update was applied on the server or not. A client will just send the update again, utill it does not recieve an acknowledgement, regardless of what happens on the server's side. Nevertheless, in this case, there should be a policy in order not to apply on the server the same update twice.
+One of the solutions could be the following: it does not matter, whether the update was applied on the server or not. A client will send the update again, until it does not receive an acknowledgement, regardless of what happens on the server's side. Nevertheless, in this case, there should be a policy in order not to apply on the server the same update twice.
 
-The other possibility is to have a double verification on the server side. Let us say, that a client sends an update to the server, which should send a message back that it received an update. Afterwards, if a client received an acknowledgement, it sends a message to the server that it is possible to apply the update. 
+The other possibility is to have a double verification on the server side. Let us say, that a client sends an update to the server. After that, the server should send a message back that it received an update. Next, if a client received that message with acknowledgement, it sends another message to the server that it is possible to apply the update. 
 
-Though, the above information just  represents our thoughts on the problem, which is not neccesary a solution to it.  
+Though, the above information represents our thoughts on the problem, which is not necessarily a solution to it.  
 
-\section*{Missing acknowledgement}
+\section*{Automatic updates of data at a client}
 
-Provide insightful advice on where this research should be taken next.
+The current design of WebCure requires that after a client sends a request with an update to the server and receives an acknowledgement, it should then still send another read request in order to update the data on its side. However, this behaviour can be improved. For example, in some cases, it might be needed that a client acquires updates from the server automatically. To extend WebCure with such functionality, our suggestion would be to use Push Notifications feature\cite{32} of a service worker. The service worker can receive push messages from a server, even when the application is not active. It let us show notifications to the user on their device even when the application is closed and still notify about the updates of the data on the server side.
 
-- Automatic synchonization of updates like without pressing any buttons;
-- The thing that was mentioned in the design chapter about the state-based approach;
+\subsection*{Consistency guarantees}
 
-\subsection*{Idempotence of updates}
+\begin{figure}[!htb]
+    \begin{center}
+    \def\svgwidth{\linewidth}
+    \input{images/architecture/future.pdf_tex}
+    \caption {The case of breaking causal consistency guarantees in the current protocol.}
+    \label{fig:final}
+\end{center}
+\end{figure}
 
-- wrote about this part in the notes to the architecture pdf
+In the current protocol design, there is a possibility to break the causality of applied operations, and that is what we would like to consider. Let us discuss the case with potential problems, which is illustrated at \figref*{fig:final}. There, a client reads the data by \textit{id} from the server, which has a \textit{value} associated with that \textit{id}, at the timestamp \textit{t\textsubscript{1}}. Once the client gets this data, it goes offline, performs some changes locally, and now it has the \textit{value'} associated with \textit{id}. Then, the connection gets back, and this update is sent to the server and applied. However, at this point, the connection breaks again, so the acknowledgement response from the server did not reach the client. That means, that at server side the update was applied and the element \textit{id} got its value changed to \textit{value'} at the timestamp \textit{t\textsubscript{2}}. Nevertheless, as the client did not receive that information, the element \textit{id} at the client side has local changes applied to it, which change its value to \textit{value'}. However, the interesting point here is that a client still has the timestamp \textit{t\textsubscript{1}}, stored on its side. Therefore, any further local updates performed at the client, once the internet connection is back again, will be sent to the server with information to apply them at the timestamp \textit{t\textsubscript{1}} and not \textit{t\textsubscript{2}}, how ideally it should be. The bad part here is that while our specific client is offline, some other clients could be communicating with the server at this time which means that the server could have received some updates from them as well. The current design of the protocol does not guarantee causal consistency in such situations. 
 
-
-
-One of the solutions could be the following: it does not matter, 
-
-The other one is: the client sends an update to the server, which should send a message back that it received an update. Afterwards, a client removes this update from the temporary database and sends back a message to the server that it is possible to apply the update.
-
-However, the implementation of the solution for this problem is beyond the scope of this Master thesis. Therefore, these thoughts are going to be included in a section, where future impovements will be discussed.
+Discussing possible solutions, it all depends on the use case. Sometimes, freezing the client side functionality until it receives the acknowledgement from the server, might be acceptable. However, as it might take a long time, this is not a desirable solution. The other option is to check the states that are received after the server eventually responses (consisting possible changes of the other clients) and find a possible solution by looking at the difference with the previous state, which is stored at the client side. However, the is a question, which is open for further investigation.

@@ -57,8 +57,9 @@
     \put(0.02823357,0.03706942){\color[rgb]{0,0,0}\makebox(0,0)[t]{\lineheight{1.25}\smash{\begin{tabular}[t]{c}Server\end{tabular}}}}%
     \put(0.02494223,0.17201457){\color[rgb]{0,0,0}\makebox(0,0)[t]{\lineheight{1.25}\smash{\begin{tabular}[t]{c}Client\end{tabular}}}}%
     \put(0,0){\includegraphics[width=\unitlength,page=2]{images/architecture/read.pdf}}%
-    \put(0.26356475,0.09137661){\color[rgb]{0,0,0}\makebox(0,0)[t]{\lineheight{1.25}\smash{\begin{tabular}[t]{c}\textit{read(id)}\end{tabular}}}}%
-    \put(0.68979395,0.09137661){\color[rgb]{0,0,0}\makebox(0,0)[t]{\lineheight{1.25}\smash{\begin{tabular}[t]{c}\textit{respond(value, t\textsubscript{0})}\end{tabular}}}}%
+    \put(0.1548244,0.19492802){\color[rgb]{0,0,0}\makebox(0,0)[t]{\lineheight{1.25}\smash{\begin{tabular}[t]{c}\textit{read(id)}\end{tabular}}}}%
+    %\put(0.26356475,0.09137661){\color[rgb]{0,0,0}\makebox(0,0)[t]{\lineheight{1.25}\smash{\begin{tabular}[t]{c}\textit{\{id\}}\end{tabular}}}}%
+    \put(0.68979395,0.09137661){\color[rgb]{0,0,0}\makebox(0,0)[t]{\lineheight{1.25}\smash{\begin{tabular}[t]{c}\textit{\{value, t\textsubscript{0}\}}\end{tabular}}}}%
     \put(0.83790449,0.20492802){\color[rgb]{0,0,0}\makebox(0,0)[t]{\lineheight{1.25}\smash{\begin{tabular}[t]{c}\textit{(id, value, t\textsubscript{0})}\end{tabular}}}}%
     \put(0,0){\includegraphics[width=\unitlength,page=3]{images/architecture/read.pdf}}%
     \put(0.1648244,0.00415597){\color[rgb]{0,0,0}\makebox(0,0)[t]{\lineheight{1.25}\smash{\begin{tabular}[t]{c}\textit{(id, value, t\textsubscript{0})}\end{tabular}}}}%
