@@ -1,28 +1,47 @@
 \chapter{Introduction}
 \label{Introduction}
 
-In this introductory chapter we are going to discuss the motivation, research questions and the scope of this thesis.
+In this introductory chapter, we are going to discuss the motivation, research questions and the scope of this thesis.
 
 \section{Motivation}
 \label{Introduction-Motivation}
 
-The main motivation of this thesis is to explore the possibillities of implementing a web-client for the AntidoteDB with a support of caching and by utilizing the main features of the database. As AntidoteDB is already known for its use in the development of applications, it would dramatically improve the user-experience if offline work with the database is going to be reached. We are going to explore the best ways to develop such an application, design it and implement. The goal of this thesis is to show that it is possible to build an application based on Antidote-DB that works both online and offline. Here and from now on, we will call the application we are going to develop -- WebCure.
+In modern days, with the speed the technology grows, the users always have their hopes high concerning having a more comfortable experience of working with web applications on their daily tasks. However, sometimes, even well-designed applications, which are expected to deliver better user experience, fail to do so and keep their users happy, due to the periods of disconnectivity that might occur. At such periods, for the matter of availability of the application, it should have its data on the client machine. That would allow users to maintain and perform different operations on their data while being offline or under poor network conditions. However, on the other hand, the updates performed offline at client side should be sent to the server, once the internet connection is back again. This is not an easy task, as, typically, one server could serve for multiple users. These users might deliver updates to the server at different times, so, the whole system should provide well-defined consistency\footnote{This and other concepts used in the introductory chapter will be defined in \chapref*{Background}.} guarantees to make the offline support possible, which many ad-hoc solutions could not do to this day.
 
-%Nowadays, there are many fields, where distributed databases are used. The scenarios could be different, but to name some of them, it could be booking tickets for the flights and concerts, watching video streaming services (e.g. Netflix) and other examples. There are two main types of the distributed databases: strongly consisted and eventually consistent. However, each of those has its own drawbacks. Thus,   
-%(Antidote is a geo-distributed cloud database that is highly responsive and available under partition, it offers strong guarantees to applications. )
-% A database side is strongly consistent, though. 
+In this thesis, we designed and implemented a framework for web applications, which we named WebCure. The problem we introduced above requires having the data to be partially replicated at the client side. With WebCure, we offer an approach of having a data store on a client side. However, its purpose is not only to have the application available, when there is no internet connection. The client data store will be able to maintain the data coming from both sources: firstly, the data received from the server; and, secondly, the updates performed by the client, but which have not been delivered back to the server, yet. 
+
+Additionally, for the web application to work offline and online, we are using a service worker, which serves as a programmable network proxy, allowing to manage how the network requests from the client are handled. When a client is offline, a service worker will redirect the requests coming from the client to its local storage. In the other situation, when a client has a connection, all the outgoing requests will proceed their way to a server side. This feature alone is a major positive regarding user experience, as it increases the availability of the application. 
+
+On the other side, the server maintains cloud storage, based on AntidoteDB. We chose this database as our cloud storage server for the reason that it uses Conflict-Free replicated data types (CRDTs), which provide well-defined semantics for concurrent updates. We consider the next updates to be concurrent: the ones that are executed while a client is offline with the ones that are happening in the period between the last retrieval from the cloud storage server and the next connection and synchronisation to it. 
+
+To sum it up, we developed the algorithms for WebCure and implemented a stable prototype of the framework. Apart from that, to evaluate WebCure's feasibility and performance, we ported a calendar application that allows for offline operations and shows the usefulness of our framework.
 
 \section{Research questions}
 \label{Introduction-Research}
 
-The following research questions are going to be addressed in this thesis:
+Going through this thesis, our reader will find answers to the following research questions:
 
 \begin{itemize}
-    \item \textit{RQ1.} What could be a scalable solution for the transmission of Conflict-Free Replicated Datatypes data between a client and AntidoteDB-based server?
+    \item \textit{RQ1.} What could be a scalable solution for the transmission of CRDTs between a client and AntidoteDB-based server?
     \item \textit{RQ2.} What are the methods and technics available to implement web applications that would be able to work offline and
     in the conditions of poor network connections?
+    \item \textit{RQ3.} How efficient is it to use a web-client with cache rather than without it?
   \end{itemize}
+
+The research questions mentioned above are essential. Sometimes, there are some creative solutions to different problems that work, but just for one particular case. Therefore, it is always important to look for a solution, which can be scaled to different levels. On this matter, we are going to discuss the problem of transmission of CRDTs between a client and the server it interacts with. As CRDTs offer two ways of replicating data, a state-based approach and an operation-based approach, we are going to argue for the second one, as it has the benefits which are especially valuable for the system we are going to design, which will be explained later. Throughout this thesis, we are going to present the technique for implementing a web application, which would let to develop such a web application that is functional offline. However, even though the way we do it has clear benefits, there are also some other methods, which we are going to discuss in the \chapref*{RelatedWork}. Regarding the last research question, as was already mentioned, in the \chapref*{Evaluation} we will present the calendar application, which was extended, where one of the new features becomes client-side storage. There, we are going to share our thoughts and experience of working with an app that has improved its functionality.
 
 \section{Structure of Thesis}
 
-In this section, we are going to give a summary of the structure of this thesis. We started with the introduction in the \chapref*{Introduction}, where we discuss the motivation of the thesis in the \secref*{Introduction-Motivation} and research questions in the \secref*{Introduction-Research}. Then, in the \chapref*{Background}, we are going to talk about the fundamentals required to comprehend the idea of the paper: in the \secref*{Background-Main} we are discussing the main theoretical concepts related to the distributed databases, while in the \secref*{2-antidotedb} we introduce the concepts of AntidoteDB, and in the \secref*{2-crdts} we cover Conflict-Free Replicated Datatypes in general. Additionaly, there we describe the datatypes we used in our work. Afterwards, in \secref*{4-Requirements} and \secref*{4-Assumptions} we will talk about the requirements and assumptions we make for the system we are going to design. Next, in the \secref*{4-protocol} we will show in details how we came up with the protocol of the system. Having done that, in the \chapref*{Implementation} we will go in details through the implementation of the system, starting discussing the system's main components in the \secref*{sysmaincomponents}. Furthemore, in the \chapref*{Evaluation} we will cover the topic on how we made an evaluation of the system, where we will also show WebCure running in a Calendar application. Finally, in the \chapref*{RelatedWork} we discuss other methods and technics that inspired us for this work. Then, in \chapref*{Conclusion} we will summarize the work of this thesis and in the \secref*{futurework} we will talk about any future improvements that can be done. 
+In this section, we are going to give a summary of the structure of this thesis. 
+
+We started with the introduction in the \chapref*{Introduction}, where we describe the motivation of the thesis in the \secref*{Introduction-Motivation} and then the research questions, which we specified in the \secref*{Introduction-Research}. 
+
+Next, in the \chapref*{Background}, we are going to talk about the fundamentals required to comprehend the idea of the paper: in the \secref*{Background-Main} we are discussing the main theoretical concepts related to the distributed databases, while in the \secref*{2-antidotedb} we introduce the cloud storage we are going to use for the server -- AntidoteDB, and in the \secref*{2-crdts} we cover CRDTs in general. Additionally, there we describe the datatypes we used in our work. 
+
+Afterwards, in \secref*{4-Requirements} and \secref*{4-Assumptions} we will talk about the requirements and assumptions we make for the system that we are going to design. Later, in the \secref*{4-protocol} we will show in details how we came up with the protocol of the system. 
+
+Then, there is a \chapref*{Technologies}, where we are going to discuss the technologies, which we used to implement the described protocol. Mainly, we will talk about the client side of the system there.
+
+Having explained all the previous topics, in the \chapref*{Implementation}, we will go in details through the implementation of the system, starting discussing the system's main components in the \secref*{sysmaincomponents}.
+
+Furthermore, in the \chapref*{Evaluation} we will cover the topic on how we evaluated the system, where we will also show WebCure running in a Calendar application. Finally, in the \chapref*{RelatedWork} we discuss other methods and technics that inspired us for this work. Then, in \chapref*{Conclusion} we will summarise the work of this thesis and in the \secref*{futurework} we will talk about any future improvements that can be done. 

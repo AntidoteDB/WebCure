@@ -1,15 +1,40 @@
 \chapter{Conclusion}
 \label{Conclusion}
 
-Conclusion
-
-This is always the first chapter of the thesis. The chapter should be short (up to 5 pages). The chapter should feature sections as follows (where applicable): o Summary (Summarize this work in an insightful manner, assuming that the reader has seen the rest.) o Limitations or threats to validity (Point out the limitations of this work. In the case of empirical research, discuss threats to validity in a systematic manner.) o Future work (Provide insightful advice on where this research should be taken next.)
+In this chapter, we will make a summary of our work and suggest some possibilities on the future wok.
 
 \section{Summary}
 \label{summary}
 
+The work of this thesis mostly concentrated on designing such a client-server system, which would let replicating the data on a client machine. That would allow the user for offline operation at times, when there is no internet connection available, or when it is poor. Moreover, there are requirements for the system such as the possibility to maintain the data at client side as well, and synchonize it with a cloud storage server, when the mode of the client switches from offline to online. Moreover, after the system was designed, it wa needed to be implemented and its feasibility and performance should have been evaluated.
+
+This task was achieved in framework, which we named WebCure. Firstly, we designed a stable protocol for the communication between a client and a server. Then, we made a research on available technologies, which would allow us to implement the system in a way it is intended to work. Next, we developed a presentation application, which demonstrates the work of WebCure on a example of a Set CRDT. After this step, we took a calendar application, which was already built based on AntidoteDB, and extended it to work with WebCure in order to evaluate the outcome. It turned out that, as expected, that the extended version of the calendar has a much shorter response time, better availability, while still keeping its original functionality and letting its users to work both offline and online. 
+
 \section{Future Work}
 \label{futurework}
+
+There are different circumstances that create an uncertainty with the current design of the application. In this section, we would like to discuss these situtations, while keeping the answers to them open for the future improvements.
+
+\section*{Missing acknowledgement}
+
+In the current design of the WebCure, when a client is online and makes a request to the server with an update, the server sends back the acknowledgement, so the client know that the requested operation was applied on server side. However, there is a topic for discussion in this use case. Let us imagine that the server does not send back the acknowledgement. There are two possibilities:
+
+\begin{itemize}
+    \item {The update was applied on the server, but the connection failed when the acknowledgement was about to be sent back to the client;}
+    \item {The update was not applied on the server and the client still did not receive an acknowledgement.}
+\end{itemize}
+
+However, the problem is that a client does not know, which of the above situations happened. 
+
+One of the solutions could be the following: it does not matter, whether the update was applied on the server or not. A client will just send the update again, utill it does not recieve an acknowledgement, regardless of what happens on the server's side. Nevertheless, in this case, there should be a policy in order not to apply on the server the same update twice.
+
+The other possibility is to have a double verification on the server side. Let us say, that a client sends an update to the server, which should send a message back that it received an update. Afterwards, if a client received an acknowledgement, it sends a message to the server that it is possible to apply the update. 
+
+Though, the above information just  represents our thoughts on the problem, which is not neccesary a solution to it.  
+
+\section*{Missing acknowledgement}
+
+Provide insightful advice on where this research should be taken next.
 
 - Automatic synchonization of updates like without pressing any buttons;
 - The thing that was mentioned in the design chapter about the state-based approach;
@@ -20,16 +45,7 @@ This is always the first chapter of the thesis. The chapter should be short (up 
 
 
 
-In case a client is sending an update to the server and does not receive an acknowledgement, what could have happened?
-
-There are possibilities:
-\begin{itemize}
-    \item {The update was applied on the server, but the connection failed when the acknowledgement was about to be sent;}
-    \item {The update was not applied on the server and the client did not receive an acknowledgement;}
-\end{itemize}
-However, the client does not know which of these situations happened. Therefore, we have to find a general solution for such kind of behaviour. 
-
-One of the solutions could be the following: it does not matter, whether the update was applied or not. A client will just send the update again, till it does not recieve an acknowledgement, regardless of what happens on the server's side.
+One of the solutions could be the following: it does not matter, 
 
 The other one is: the client sends an update to the server, which should send a message back that it received an update. Afterwards, a client removes this update from the temporary database and sends back a message to the server that it is possible to apply the update.
 

@@ -169,4 +169,11 @@ Finally, if the users request updates from the respective servers, associated wi
 
 As we can see, the user \textit{John} was removed and the user \textit{Wayne} was added for both calendars. Obviously, all the operations took their effect in the interface as well, the final state of which is shown at \figref*{fig:ev-fig-3}.
 
-To summarize this chapter, we took a working Calendar application and extended its functionality using the design concepts we developed for WebCure. The extended version proved to be available and functional offline and online, while partially replicating the data at client side, which lets users to continue working with their data. This example proves the point that WebCure allows to build applications based on it.
+\subsection*{Summary}
+
+To summarize this chapter, we took a working Calendar application and extended its functionality using the design concepts we developed for WebCure. 
+
+First of all, let us compare the responsibility of both applications. To do that, we are going to measure the \textit{Respose time}, which indicates the time needed till the main page of the application loads, as well as all the styles, images, and JavaScript libraries. For the \textit{N=20}, where \textit{N} -- number of trials, the mean response time of the original application was \textit{316.35ms}. For the extended version of the app it was \textit{2.06ms}, without taking into account the initial load (when all the files required for the application to work, are cached), obviously. As we can see, caching already makes a huge difference in terms of the performance and, therefore, user experience as well. 
+
+Apart from that, the extended version proved to be available and functional offline and online, while partially replicating the data at client side, which lets users to continue working with their data. This example proves the point that WebCure allows to build web applications, which outperform their normal versions, while keeping their functionality and giving users the opportunity to work on their data while offline.
+
