@@ -7,7 +7,7 @@ In this chapter, we describe the technologies we used to implement the design we
 \item{A service worker, in order to manage requests coming from the client;}
 \item{A Cache API to store HTML, CSS, JavaScript files, and any static files\cite{41} to make the application available offline;}
 \item{A database to store the data locally;}
-\item{Background Sync for deferring the actions conducted offline until the connection is stable;}
+\item{Background Sync for deferring the actions conducted offline until the connection is stable.}
 
 \end{itemize}
 
@@ -26,7 +26,7 @@ Service worker\cite{1} is a web worker\footnote{Web Workers make it possible to 
 \begin{itemize}
 \item{to let requests go to the network as usual;}
 \item{to skip the network and redirect requests to get the data from the cache;}
-\item{to perform any combination of the above;}
+\item{to perform any combination of the above.}
 \end{itemize}
 \end{itemize}
 
@@ -61,7 +61,7 @@ if ('serviceWorker' in navigator) {
 }
 \end{lstlisting}
 
-Looking at the \textit{line 1} of code at~\lstref*{lst:tech1}, we see that, firstly, it is necessary to check, whether the browser supports service workers by observing the property \textit{serviceWorker} of \textit{navigator}\footnote{The navigator object contains information about the browser\cite{43}.}. If so, the service worker is going to be registered then, as can be seen at the \textit{line 2}, where the location of the service worker is stated as well. The \textit{navigator.serviceWorker.register} returns a promise, which resolves when the registration was successful. Afterward, the scope of the service worker is logged with \textit{registration.scope}. 
+Looking at the \textit{line 1} of code at~\lstref*{lst:tech1}, we see that, firstly, it is necessary to check, whether the browser supports service workers by observing the property \textit{serviceWorker} of \textit{navigator}\footnote{The navigator object contains information about the browser\cite{43}.}. If so, the service worker is going to be registered then, as can be seen at the \textit{line 2}, where the location of the service worker is stated as well. The \textit{navigator.serviceWorker.register} returns a promise, which resolves when the registration was successful. Afterwards, the scope of the service worker is logged with \textit{registration.scope}. 
 
 Not every browser supports the functionality of service workers. Nowadays, the latest versions of such browsers as Chrome, Edge (partially) and Firefox support it. However, it is still only partially supported in Opera and Safari, and not at all in the Internet Explorer\cite{42} -- that is something developers should keep in mind.
 
@@ -86,7 +86,7 @@ After the registration, the browser might attempt installation of a service work
 
 Installation triggers service worker's \textit{install} event. There is a probability of having a listener for it in order to assign a specific task (depends on the use case), which follows the installation on success. The way to set up this listener is shown at~\lstref*{lst:tech3}.
 
-\begin{lstlisting}[caption={[Code for listening to installation of a Service Worker]Code, which demonstates a listener for the \textit{install} service worker's event\cite{32}.}, label={lst:tech3}]
+\begin{lstlisting}[caption={[Code for listening to the installation of a Service Worker]Code, which demonstrates a listener for the \textit{install} service worker's event\cite{32}.}, label={lst:tech3}]
 // Listen for install event, set callback
 self.addEventListener('install', function(event) {
     // Perform some task
@@ -99,7 +99,7 @@ After the installation, a service worker has to be activated. In case there are 
 
 Similar to the installation, the activation phase also has its event that gets triggered once the service worker is activating, as we can see at~\lstref*{lst:tech4}. For example, at this point, it might be a good idea to clean the previously stored old cached data.
 
-\begin{lstlisting}[caption={[Code for listening to activation of a Service Worker]Code, which demonstates a listener for the \textit{activation} service worker's event\cite{32}.}, label={lst:tech4}]
+\begin{lstlisting}[caption={[Code for listening to activation of a Service Worker]Code, which demonstrates a listener for the \textit{activation} service worker's event\cite{32}.}, label={lst:tech4}]
 self.addEventListener('activate', function(event) {
   // Perform some task
 });
@@ -110,13 +110,13 @@ self.addEventListener('activate', function(event) {
 
 For the best offline experience, the web application should store somewhere HTML, CSS, JavaScript code, as well as images, fonts. There is a place for all of it called Cache API, which we are going to use for WebCure. With Cache API it is possible to store network requests associated with corresponding requests.
 
-\begin{lstlisting}[caption={[Code for creating a cache storage using Cache API]Code, which demonstrates how one can create cache storage called \textit{my-cache}\cite{34}.}, label={lst:tech6}]
+\begin{lstlisting}[caption={[Code for creating cache storage using Cache API]Code, which demonstrates how one can create cache storage called \textit{my-cache}\cite{34}.}, label={lst:tech6}]
 caches.open('my-cache').then((cache) => {
   // do something with cache...
 });
 \end{lstlisting}
 
-At~\lstref*{lst:tech6} we see an example code of how a cache with a name \textit{my-cache} is created. If the operation is performed successfully, then a promise\footnote{JavaScript Promise is an object, which represents the eventual completion or failure of an asynchronous operation\cite{37}.} resolves and one is going to get access either to a newly created cache or to the one, which existed before the call of \textit{open} method.
+At~\lstref*{lst:tech6} we see an example code of how a cache with a name \textit{my-cache} is created. If the operation is performed successfully, then a promise\footnote{JavaScript Promise is an object, which represents the eventual completion or failure of an asynchronous operation\cite{37}.} resolves, and one is going to get access either to a newly created cache or to the one, which existed before the call of \textit{open} method.
 
 That covers the main functionality of the API. After creating a cache, it is possible to manipulate it in many ways. 
 
@@ -146,19 +146,19 @@ if (!('indexedDB' in window)) {
 }
 \end{lstlisting}
 
-Nevertheless, one of the most significant problems with IndexedDB is using it in the development. It has an asynchronous API, which is using events. That makes developers produce a complex code, which is hard to maintain. Therefore, in the design of WebCure, we are going to use a wrapper over the IndexedDB API -- IndexedDB Promised\cite{36, 48}. It is a tiny library, written by Jake Archibald from Google, which makes the use of JavaScript promises and simplifies the development process with IndexedDB, while keeping its functionality.
+Nevertheless, one of the most significant problems with IndexedDB is using it in the development. It has an asynchronous API, which is using events. That makes developers produce a complex code, which is hard to maintain. Therefore, in the design of WebCure, we are going to use a wrapper over the IndexedDB API -- IndexedDB Promised\cite{36, 48}. It is a tiny library, written by Jake Archibald from Google, which makes the use of JavaScript promises and simplifies the development process with IndexedDB while keeping its functionality.
 
 \section{Persistent Storage}
 \label{persistentstorage}
 
-Both Cache API and IndexedDB database mentioned in \secref*{CacheAPI} and \secref*{IndexedDB} are taking the place at the local machine. However, when the local machine is running out of storage space, user agents will clear it automatically on an LRU policy\footnote{In the systems with LRU or least recently used caching policy, the least frequently used data will be cleared first.}\cite{47}. This is not something that suits an application, which promises to provide offline experience. And in the worst case scenario, if the data was not synced with the server, it is going to be lost. The solution for this problem is to use a Persistent Storage API\cite{45, 46}, which guarantees that cached data is not going to be cleared if the browser comes under pressure.
+Both Cache API and IndexedDB database mentioned in \secref*{CacheAPI} and \secref*{IndexedDB} are taking place at the local machine. However, when the local machine is running out of storage space, user agents will clear it automatically on an LRU policy\footnote{In the systems with LRU or least recently used caching policy, the least frequently used data will be cleared first.}\cite{47}. This is not something that suits an application, which promises to provide offline experience. Moreover, in the worst case scenario, if the data was not synced with the server, it is going to be lost. The solution to this problem is to use a Persistent Storage API\cite{45, 46}, which guarantees that cached data is not going to be cleared if the browser comes under pressure.
 
 \section{Background Sync}
 \label{BackgroundSync}
 
 The reality is that it is not always possible to be online all the time, even if someone wanted to. Sometimes, there is no network connection at all, or it could be that abysmal that it could be hard to do anything under such conditions. Therefore, the scenario when someone could do his or her work offline and then, when the connection is re-established again, this work will go online, is useful. Nowadays, thanks to \textit{Background Sync}\cite{38} from Google it is possible to do in web applications. 
 
-\begin{lstlisting}[caption={[Code for registration of a sync event for a Service Worker]Code, which demonstrates how to register a sync (\textit{myFirstSync} here) event for the service worker\cite{38}.}, label={lst:tech8}]
+\begin{lstlisting}[caption={[Code for registration of a sync event for a Service Worker]Code, which demonstrates how to register sync (\textit{myFirstSync} here) event for the service worker\cite{38}.}, label={lst:tech8}]
 // Register the service worker:
 navigator.serviceWorker.register('/sw.js');
 
@@ -180,4 +180,4 @@ self.addEventListener('sync', function(event) {
 
 Afterwards, when a page controlled by the service worker is going back online (which is when the user agent has established a network connection\cite{44}), a \textit{sync} event is triggered. There, it is possible to perform a distinct action, depending on the registered earlier tag. For instance, at~\lstref*{lst:tech9} we can see that a function \textit{doSomeStuff} is called once the connection is back, after a \textit{sync} event occurred. This function has to return a promise, which could be successful or not. In the latter case, another sync will be scheduled to try when there is a connectivity\cite{38}. 
 
-Background synchronization is an advantageous feature, which can be used in different scenarios. It could be, for example, sending the e-mails or any other type of messages, after having failed to send it when the connection was poor. However, in our case, in WebCure we are going to use it for sending the operations conducted offline back to the AntidoteDB server for further synchronization. Moreover, if there was a use case with a requirement to get the most recent data from the server after the re-connection to the network, it is possible to implement it using the background synchronization feature.
+Background synchronisation is an advantageous feature, which can be used in different scenarios. It could be, for example, sending the e-mails or any other type of messages, after having failed to send it when the connection was poor. However, in our case, in WebCure we are going to use it for sending the operations conducted offline back to the AntidoteDB server for further synchronisation. Moreover, if there was a use case with a requirement to get the most recent data from the server after the re-connection to the network, it is possible to implement it using the background synchronisation feature.

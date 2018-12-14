@@ -105,10 +105,10 @@ In case this PUT request goes to the second CouchDB server, then this operation 
 However, it is still an undesirable situation. Thus, there are the limitations that should be given a thought in the development process, which indeed make the process of creating the product based on CouchDB more complicated:
     \begin{itemize}
         \item {Making a change, do not request multiple GETs and POSTs;}
-        \item {Do not update the \textit{\_rev} locally in the client without getting new data from the server before that;}
+        \item {Do not update the \textit{\_rev} locally in the client without getting new data from the server before that.}
       \end{itemize}
       
-Let us now summarize the advantages WebCure has due to using AntidoteDB and not CouchDB. 
+Let us now summarise the advantages WebCure has due to using AntidoteDB and not CouchDB. 
 
 First of all, since CouchDB ``blocks'' the possibility of updating the server's database without knowing the latest revision \textit{\_rev}, it already adds extra-work in the design and implementation of the protocol. Moreover, as we believe, it does not allow to perform concurrent updates. AntidoteDB, on the other hand, uses the concept of timestamps, which allows supporting causal consistency guarantees and, as it is not creating such restrictions on making updates, it has a massive advantage with the support of concurrent updates. 
 
@@ -120,7 +120,7 @@ As they state, ``at a very high level the rules are as follows:
     \begin{itemize}
         \item {\textbf{Deletes always win.} If one side deletes an object, it will always stay deleted, even if the other side has made changes to it later on;}
         \item {\textbf{The last update wins.} If two sides update the same property, the value will end up as the last updated;}
-        \item {\textbf{Inserts in lists are ordered by time.} If two items are inserted at the same position, the item that was inserted first will end up before the other item. It means that if both sides append items to the end of a list, they will end up in order of insertion time;}''\cite{22}
+        \item {\textbf{Inserts in lists are ordered by time.} If two items are inserted at the same position, the item that was inserted first will end up before the other item. It means that if both sides append items to the end of a list, they will end up in order of insertion time.}''\cite{22}
     \end{itemize}
 
 The authors of the framework state that ``strong eventual consistency'' guarantees are reached\cite{22} with the approach mentioned above. Though, such way of conflict handling is not as flexible as CRDTs and has to be taken into account by the programmer at the stage of the development.
