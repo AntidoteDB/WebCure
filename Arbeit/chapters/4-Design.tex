@@ -14,9 +14,9 @@ We listed the functional requirements of WebCure in \tableref*{table:req1} and n
 \label{table:req1}
 \begin{tabular}{|p{1cm}|p{14cm}|}
 \hline
-R1 & Retrieval, increment and decrement of the Counter CRDT should be possible.                         \\ \hline
-R2 & Retrieval, adding and removing elements from the Set CRDT should be possible.                       \\ \hline
-R3 & Retrieval, assigning and resetting the Multi-Value Register CRDT should be possible.               \\ \hline
+R1 & Retrieval, increment and decrement of the counter CRDT should be possible.                         \\ \hline
+R2 & Retrieval, adding and removing elements from the set CRDT should be possible.                       \\ \hline
+R3 & Retrieval, assigning and resetting the multi-Value Register CRDT should be possible.               \\ \hline
 R4 & Retrieval elements of any supported CRDTs should be possible according to the passed timestamp. \\ \hline
 R5 & The client should cache only the latest data available at server's side. \\ \hline
 R6 & It should not be possible to create elements of different CRDTs with the same name (due to limitations of AntidoteDB). \\ \hline
@@ -36,12 +36,12 @@ R11 & When the connection is re-established after having data changes in offline
 \begin{tabular}{|p{1cm}|p{14cm}|}
 \hline
 NFR1 & The system should be available online and offline (except for the functionality with timestamp-related updates). \\ \hline
-NFR2 & The system should be available with a poor internet connection. \\ \hline
+NFR2 & The system should be available with a poor network connection. \\ \hline
 \end{tabular}
 \caption*{}
 \end{table} 
 
-First of all, looking at the first three functional requirements, \textit{R1--R3}, we see that for the implementation were selected such CRDTs as Counter, Set and Multi-Value Register. The reason for that is that these data types cover the most operations on CRDTs and, if our design works for them, it will work for the rest as well. The requirement \textit{R4} makes the user able to get the data from the server at different timestamps and compare it. Next, talking about the requirement \textit{R5}, even though it is possible to request data at different timestamps, it is vital for the client to store in cache only the latest available at the server data. The requirement \textit{R6} is due to one of the limitations AntidoteDB possesses and is related to one of the assumptions we make in the following section. Requirements \textit{R7--R9} specify what kind of actions the user can perform on a client when offline, as well as their synchronisation with the server. Finally, the requirements \textit{R10} and \textit{R11} guarantee that the changes performed offline at the client, as well as changes at the server side, are synchronised in a way satisfying causal consistency model. 
+First of all, looking at the first three functional requirements, \textit{R1--R3}, we see that for the implementation were selected such CRDTs as counter, set and multi-value Register. The reason for that is that these data types cover the most operations on CRDTs and, if our design works for them, it will work for the rest as well. The requirement \textit{R4} makes the user able to get the data from the server at different timestamps and compare it. Next, talking about the requirement \textit{R5}, even though it is possible to request data at different timestamps, it is vital for the client to store in cache only the latest available at the server data. The reason for it is to make it possible to continue working on the most relevant data, while offline. The requirement \textit{R6} is due to one of the limitations AntidoteDB possesses and is related to one of the assumptions we make in the following section. Requirements \textit{R7--R9} specify what kind of actions the user can perform on a client when offline, as well as their synchronisation with the server. Finally, the requirements \textit{R10} and \textit{R11} guarantee that the changes performed offline at the client, as well as changes at the server side, are synchronised in a way satisfying causal consistency model. 
 
 Next, there are non-functional requirements: \textit{NFR1} and \textit{NFR2}. Basically, both of them support our claim that a client can work offline, as well as under uncertain network conditions. 
 
@@ -72,7 +72,7 @@ The fundamental part of WebCure will be its protocol design. We are going to des
 
 \subsection{Data transmission}
 
-As we already remember from the \chapref*{Background}, because AntidoteDB is using CRDT datatypes, the following options are possible to update the database: state-based and operation-based. This thesis will consider only the operation-based approach, as it has such an advantage over the state-based approach as less transferred data in most situations. Therefore, whenever a client wants to update the database, it will send to the server a list of operations. However, whenever it wants to read the value, it will receive the current state of the object from the database. For this thesis, we are going to use such datatypes as Counters, Sets and Multi-Value Registers, to which the reader was introduced in the \secref*{2-crdts}.
+As we already remember from the \chapref*{Background}, because AntidoteDB is using CRDT datatypes, the following options are possible to update the database: state-based and operation-based. This thesis will consider only the operation-based approach, as it has such an advantage over the state-based approach as less transferred data in most situations. Therefore, whenever a client needs to update the database, it will send to the server a list of operations. However, whenever it needs to read the value, it will receive the current state of the object from the database. For this thesis, we are going to use such datatypes as counters, sets and multi-Value Registers, to which the reader was introduced in the \secref*{2-crdts}.
 
 \subsection{Description} 
 
@@ -216,7 +216,7 @@ Have a look at the \figref*{fig:design4}, where appropriate markings can clearly
 \begin{lstlisting}[caption={Pseudocode for sending offline performed operations to the server: client.}, label={lst:offline}]
 // Update function that processes user-made updates performed offline when the connection is restored
 // @param offlineOperations: an array that contains all the operations performed on a client's side offline
-function synchronize(offlineOperations) {
+function synchronise(offlineOperations) {
   if (ONLINE) {
     offlineOperations.forEach(operation => {
       send(operation);
@@ -225,7 +225,7 @@ function synchronize(offlineOperations) {
 }
 \end{lstlisting} 
 
-The logic described above can be seen at the~\lstref*{lst:offline}, which has the function named \textit{synchronize} that should be triggered at the time when the client's side restored a network connection. There, we can see that every operation performed offline is sent once at a time to the server. For causality, the array should be sorted in the order the operations were performed initially.
+The logic described above can be seen at the~\lstref*{lst:offline}, which has the function named \textit{synchronise} that should be triggered at the time when the client's side restored a network connection. There, we can see that every operation performed offline is sent once at a time to the server. For causality, the array should be sorted in the order the operations were performed initially.
 
 Now, let us move to the point when more than one client interacts with a server, in order to see how scalable the described protocol is.
 

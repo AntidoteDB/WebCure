@@ -24,11 +24,11 @@ Polymer is a JavaScript library from Google, which helps to build web applicatio
 
 \subsection*{HTML5 Specification}
 
-The specification of HTML5 contains some features that offer a possibility to build web applications that work offline. The solution to address this problem is to use SQL-based database API in order to be able to store data locally and to use an offline application HTTP cache to make sure about the availability of the application when there is no internet connection. The latter makes possible the following advantages: offline browsing, flexibility and a fast load of resources from the hard drive\cite{20}. However, from 2015 the application cache is considered to be deprecated and is recommended to be avoided\cite{21} in favour of Service Workers. Thus, for the implementation of WebCure, we favoured the approach of using a combination of a service worker and a Cache API.
+The specification of HTML5 contains some features that offer a possibility to build web applications that work offline. The solution to address this problem is to use SQL-based database API in order to be able to store data locally and to use an offline application HTTP cache to make sure about the availability of the application when there is no internet connection. The latter makes possible the following advantages: offline browsing, flexibility and a fast load of resources from the hard drive\cite{20}. However, from 2015 the application cache is considered to be deprecated and is recommended to be avoided\cite{21} in favour of service workers. Thus, for the implementation of WebCure, we favoured the approach of using a combination of a service worker and a Cache API.
  
 \subsection*{Hoodie}
 
-Hoodie is a framework, which eases the process of developing web and iOS applications. We will not cover all the features it offers and will only stop on it providing offline experience for applications that are developed using Hoodie. The documentation states that the framework is offline-first\cite{23}, which means that all the data is firstly stored locally and could be accessed without the internet connection. It is possible due to PouchDB database, which performs this work in the background\cite{24}. We will explore the process of how PouchDB works below.
+Hoodie is a framework, which eases the process of developing web and iOS applications. We will not cover all the features it offers and will only stop on it providing offline experience for applications that are developed using Hoodie. The documentation states that the framework is offline-first\cite{23}, which means that all the data is stored locally and any request the application makes, firstly will be tried to be proccessed by acquiring the cached data. It is possible due to PouchDB database, which performs this work in the background\cite{24}. We will explore the process of how PouchDB works below.
 
 \subsection*{localForage}
 
@@ -110,7 +110,7 @@ However, it is still an undesirable situation. Thus, there are the limitations t
       
 Let us now summarise the advantages WebCure has due to using AntidoteDB and not CouchDB. 
 
-First of all, since CouchDB ``blocks'' the possibility of updating the server's database without knowing the latest revision \textit{\_rev}, it already adds extra-work in the design and implementation of the protocol. Moreover, as we believe, it does not allow to perform concurrent updates. AntidoteDB, on the other hand, uses the concept of timestamps, which allows supporting causal consistency guarantees and, as it is not creating such restrictions on making updates, it has a massive advantage with the support of concurrent updates. 
+First of all, since CouchDB ``blocks'' the possibility of updating the server's database without knowing the latest revision \textit{\_rev}, it already adds extra-work in the design and implementation of the protocol. Moreover, as we believe, it struggles to provide the support of concurrent updates. AntidoteDB, on the other hand, uses the concept of timestamps, which allows supporting causal consistency guarantees and, as it is not creating such restrictions on making updates, it has a massive advantage with the support of concurrent updates. 
 
 \subsection*{Realm Mobile}
 

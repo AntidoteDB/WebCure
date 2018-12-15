@@ -6,17 +6,17 @@
 \contentsline {chapter}{\numberline {2}Theoretical background}{5}{chapter.2}
 \contentsline {section}{\numberline {2.1}Main concepts}{5}{section.2.1}
 \contentsline {section}{\numberline {2.2}AntidoteDB}{7}{section.2.2}
-\contentsline {section}{\numberline {2.3}Conflict-Free Replicated Datatypes (CRDTs)}{8}{section.2.3}
+\contentsline {section}{\numberline {2.3}CRDTs}{8}{section.2.3}
 \contentsline {chapter}{\numberline {3}Design}{13}{chapter.3}
 \contentsline {section}{\numberline {3.1}Requirements}{13}{section.3.1}
-\contentsline {section}{\numberline {3.2}Assumptions}{13}{section.3.2}
+\contentsline {section}{\numberline {3.2}Assumptions}{15}{section.3.2}
 \contentsline {section}{\numberline {3.3}Protocol}{15}{section.3.3}
 \contentsline {subsection}{\numberline {3.3.1}Data transmission}{16}{subsection.3.3.1}
 \contentsline {subsection}{\numberline {3.3.2}Description}{16}{subsection.3.3.2}
 \contentsline {chapter}{\numberline {4}Technologies}{25}{chapter.4}
 \contentsline {section}{\numberline {4.1}Service Worker}{25}{section.4.1}
 \contentsline {subsection}{\numberline {4.1.1}Service worker lifecycle}{27}{subsection.4.1.1}
-\contentsline {section}{\numberline {4.2}Cache API}{29}{section.4.2}
+\contentsline {section}{\numberline {4.2}Cache API}{30}{section.4.2}
 \contentsline {section}{\numberline {4.3}IndexedDB}{30}{section.4.3}
 \contentsline {subsection}{\numberline {4.3.1}IndexedDB terms}{31}{subsection.4.3.1}
 \contentsline {subsection}{\numberline {4.3.2}IndexedDB Promised}{31}{subsection.4.3.2}

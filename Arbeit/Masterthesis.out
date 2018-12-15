@@ -6,7 +6,7 @@
 \BOOKMARK [0][-]{chapter.2}{2 Theoretical background}{}% 6
 \BOOKMARK [1][-]{section.2.1}{2.1 Main concepts}{chapter.2}% 7
 \BOOKMARK [1][-]{section.2.2}{2.2 AntidoteDB}{chapter.2}% 8
-\BOOKMARK [1][-]{section.2.3}{2.3 Conflict-Free Replicated Datatypes \(CRDTs\)}{chapter.2}% 9
+\BOOKMARK [1][-]{section.2.3}{2.3 CRDTs}{chapter.2}% 9
 \BOOKMARK [0][-]{chapter.3}{3 Design}{}% 10
 \BOOKMARK [1][-]{section.3.1}{3.1 Requirements}{chapter.3}% 11
 \BOOKMARK [1][-]{section.3.2}{3.2 Assumptions}{chapter.3}% 12

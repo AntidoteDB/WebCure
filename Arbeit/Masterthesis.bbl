@@ -5,6 +5,12 @@
   \providecommand{\doi}[1]{doi: #1}\else
   \providecommand{\doi}{doi: \begingroup \urlstyle{rm}\Url}\fi
 
+\bibitem[32(2018 (accessed November 18, 2018))]{32}
+Introduction to service worker.
+\newblock
+  \url{https://developers.google.com/web/ilt/pwa/introduction-to-service-worker},
+  2018 (accessed November 18, 2018).
+
 \bibitem[zsu and Valduriez(2011)]{11}
 M.~Tamer zsu and Patrick Valduriez.
 \newblock \emph{Principles of Distributed Database Systems}.
@@ -135,12 +141,6 @@ Web workers api.
   \url{https://developer.mozilla.org/en-US/docs/Web/API/Web_Workers_API}, 2018
   (accessed November 15, 2018).
 
-\bibitem[32(2018 (accessed November 18, 2018))]{32}
-Introduction to service worker.
-\newblock
-  \url{https://developers.google.com/web/ilt/pwa/introduction-to-service-worker},
-  2018 (accessed November 18, 2018).
-
 \bibitem[Desmedt(2005)]{33}
 Yvo Desmedt.
 \newblock \emph{Man-in-the-Middle Attack}, pages 368--368.
@@ -154,6 +154,12 @@ The navigator object.
 \newblock \url{https://www.w3schools.com/jsref/obj_navigator.asp}, 2018
   (accessed November 28, 2018).
 
+\bibitem[37(2018 (accessed November 23, 2018))]{37}
+Promise.
+\newblock
+  \url{https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise},
+  2018 (accessed November 23, 2018).
+
 \bibitem[42(2018 (accessed November 28, 2018))]{42}
 Service worker api.
 \newblock
@@ -166,12 +172,6 @@ Mat Scales.
 \newblock
   \url{https://developers.google.com/web/fundamentals/instant-and-offline/web-storage/cache-api},
   2018 (accessed November 28, 2018).
-
-\bibitem[37(2018 (accessed November 23, 2018))]{37}
-Promise.
-\newblock
-  \url{https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise},
-  2018 (accessed November 23, 2018).
 
 \bibitem[35(2018 (accessed November 23, 2018))]{35}
 Working with indexeddb.

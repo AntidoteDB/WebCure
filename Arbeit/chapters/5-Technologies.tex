@@ -1,7 +1,7 @@
 \chapter{Technologies}
 \label{Technologies}
 
-In this chapter, we describe the technologies we used to implement the design we introduced in the \chapref*{Design}. To give an overview, the implementation of WebCure's design demands the following components:
+In this chapter, we describe the technologies we used to implement the design we introduced in the \chapref*{Design}. To give an overview, the implementation of the design for WebCure demands the following components:
 
 \begin{itemize}
 \item{A service worker, in order to manage requests coming from the client;}
@@ -61,7 +61,7 @@ if ('serviceWorker' in navigator) {
 }
 \end{lstlisting}
 
-Looking at the \textit{line 1} of code at~\lstref*{lst:tech1}, we see that, firstly, it is necessary to check, whether the browser supports service workers by observing the property \textit{serviceWorker} of \textit{navigator}\footnote{The navigator object contains information about the browser\cite{43}.}. If so, the service worker is going to be registered then, as can be seen at the \textit{line 2}, where the location of the service worker is stated as well. The \textit{navigator.serviceWorker.register} returns a promise, which resolves when the registration was successful. Afterwards, the scope of the service worker is logged with \textit{registration.scope}. 
+Looking at the \textit{line 1} of code at~\lstref*{lst:tech1}, we see that, firstly, it is necessary to check, whether the browser supports service workers by observing the property \textit{serviceWorker} of \textit{navigator}\footnote{The navigator object contains information about the browser\cite{43}.}. If so, the service worker is going to be registered then, as can be seen at the \textit{line 2}, where the location of the service worker is stated as well. The \textit{navigator.serviceWorker.register} returns a promise\footnote{JavaScript Promise is an object, which represents the eventual completion or failure of an asynchronous operation\cite{37}.}, which resolves when the registration was successful. Afterwards, the scope of the service worker is logged with \textit{registration.scope}. 
 
 Not every browser supports the functionality of service workers. Nowadays, the latest versions of such browsers as Chrome, Edge (partially) and Firefox support it. However, it is still only partially supported in Opera and Safari, and not at all in the Internet Explorer\cite{42} -- that is something developers should keep in mind.
 
@@ -84,8 +84,6 @@ After the registration, the browser might attempt installation of a service work
 \item{when there is a difference between the previously installed service worker and the new one;}
 \end{itemize}
 
-Installation triggers service worker's \textit{install} event. There is a probability of having a listener for it in order to assign a specific task (depends on the use case), which follows the installation on success. The way to set up this listener is shown at~\lstref*{lst:tech3}.
-
 \begin{lstlisting}[caption={[Code for listening to the installation of a Service Worker]Code, which demonstrates a listener for the \textit{install} service worker's event\cite{32}.}, label={lst:tech3}]
 // Listen for install event, set callback
 self.addEventListener('install', function(event) {
@@ -93,17 +91,19 @@ self.addEventListener('install', function(event) {
 });
 \end{lstlisting}
 
+Installation triggers service worker's \textit{install} event. There is a probability of having a listener for it in order to assign a specific task (depends on the use case), which follows the installation on success. The way to set up this listener is shown at~\lstref*{lst:tech3}.
+
 \subsection*{Activation}
 
 After the installation, a service worker has to be activated. In case there are open pages, which are controlled by the previous version of a service worker, then the recently installed service worker will be waiting. The activation of a new service worker takes place only when there are no other pages, controlled by the old version of a service worker. That provides a guarantee that only one version of service worker manages the pages of its scope at any time.
-
-Similar to the installation, the activation phase also has its event that gets triggered once the service worker is activating, as we can see at~\lstref*{lst:tech4}. For example, at this point, it might be a good idea to clean the previously stored old cached data.
 
 \begin{lstlisting}[caption={[Code for listening to activation of a Service Worker]Code, which demonstrates a listener for the \textit{activation} service worker's event\cite{32}.}, label={lst:tech4}]
 self.addEventListener('activate', function(event) {
   // Perform some task
 });
 \end{lstlisting}
+
+Similar to the installation, the activation phase also has its event that gets triggered once the service worker is activating, as we can see at~\lstref*{lst:tech4}. For example, at this point, it might be a good idea to clean the previously stored old cached data.
 
 \section{Cache API}
 \label{CacheAPI}
@@ -116,7 +116,7 @@ caches.open('my-cache').then((cache) => {
 });
 \end{lstlisting}
 
-At~\lstref*{lst:tech6} we see an example code of how a cache with a name \textit{my-cache} is created. If the operation is performed successfully, then a promise\footnote{JavaScript Promise is an object, which represents the eventual completion or failure of an asynchronous operation\cite{37}.} resolves, and one is going to get access either to a newly created cache or to the one, which existed before the call of \textit{open} method.
+At~\lstref*{lst:tech6} we see an example code of how a cache with a name \textit{my-cache} is created. If the operation is performed successfully, then a promise resolves, and one is going to get access either to a newly created cache or to the one, which existed before the call of \textit{open} method.
 
 That covers the main functionality of the API. After creating a cache, it is possible to manipulate it in many ways. 
 
@@ -137,14 +137,14 @@ All read and write operations in IndexedDB should be wrapped into a \textit{tran
 
 \subsection{IndexedDB Promised}
 
-As IndexedDB is relatively a new API, it is not supported by all the web browsers yet and, therefore, the support for it should be checked before any further development, as it is shown at~\lstref*{lst:tech7}. However, all the recent versions of the major web browsers are compatible with it. 
-
 \begin{lstlisting}[caption={[Code for checking the support of IndexedDB API]Code, which demonstrates how one can check the support for IndexedDB API\cite{35}.}, label={lst:tech7}]
 if (!('indexedDB' in window)) {
   console.log('This browser doesn\'t support IndexedDB');
   return;
 }
 \end{lstlisting}
+
+As IndexedDB is relatively a new API, it is not supported by all the web browsers yet and, therefore, the support for it should be checked before any further development, as it is shown at~\lstref*{lst:tech7}. However, all the recent versions of the major web browsers are compatible with it. 
 
 Nevertheless, one of the most significant problems with IndexedDB is using it in the development. It has an asynchronous API, which is using events. That makes developers produce a complex code, which is hard to maintain. Therefore, in the design of WebCure, we are going to use a wrapper over the IndexedDB API -- IndexedDB Promised\cite{36, 48}. It is a tiny library, written by Jake Archibald from Google, which makes the use of JavaScript promises and simplifies the development process with IndexedDB while keeping its functionality.
 
@@ -168,7 +168,7 @@ navigator.serviceWorker.ready.then(function(swRegistration) {
 });
 \end{lstlisting} 
 
-For this feature to work, the web application has to use a service worker. First of all, it should be registered and, afterwards, a unique tag should be registered as well, which is going to be responsible for the background call of the method. Let us show an example: at~\lstref*{lst:tech8}, we can see how a synchronization tag \textit{myFirstSync} is registered.
+For this feature to work, the web application has to use a service worker. First of all, it should be registered and, afterwards, a unique tag should be registered as well, which is going to be responsible for the background call of the method. Let us show an example: at~\lstref*{lst:tech8}, we can see how a synchronisation tag \textit{myFirstSync} is registered.
 
 \begin{lstlisting}[caption={[Code for calling a specific function when sync event triggered]Code, which demonstates that a function \textit{doSomeStuff} called, when the \textit{sync} event happened\cite{38}.}, label={lst:tech9}]
 self.addEventListener('sync', function(event) {

@@ -61,7 +61,7 @@
     \put(0.85561497,0.13368984){\color[rgb]{0,0,0}\makebox(0,0)[t]{\lineheight{1.25}\smash{\begin{tabular}[t]{c}AntidoteDB\end{tabular}}}}%
     \put(0.49850267,0.30481283){\color[rgb]{0,0,0}\makebox(0,0)[t]{\lineheight{1.25}\smash{\begin{tabular}[t]{c}\textbf{Application layer}\end{tabular}}}}%
     \put(0.85648841,0.30481283){\color[rgb]{0,0,0}\makebox(0,0)[t]{\lineheight{1.25}\smash{\begin{tabular}[t]{c}\textbf{Data layer}\end{tabular}}}}%
-    \put(0.15329768,0.25){\color[rgb]{0,0,0}\makebox(0,0)[t]{\lineheight{1.25}\smash{\begin{tabular}[t]{c}{\fontsize{10}{50}\selectfont client.js, main.js}\\{\fontsize{10}{50}\selectfont dbhelper.js, idb.js}\\{\fontsize{10}{50}\selectfont logger.js, sw.js}\\{\fontsize{10}{50}\selectfont CounterCRDT.js}\\{\fontsize{10}{50}\selectfont SetCRDT.js}\\{\fontsize{10}{50}\selectfont MVRegisterCRDT.js}\\{\fontsize{10}{50}\selectfont index.html}\end{tabular}}}}%
+    \put(0.15329768,0.25){\color[rgb]{0,0,0}\makebox(0,0)[t]{\lineheight{1.25}\smash{\begin{tabular}[t]{c}{\fontsize{10}{50}\selectfont main.js}\\{\fontsize{10}{50}\selectfont dbhelper.js, idb.js}\\{\fontsize{10}{50}\selectfont logger.js, sw.js}\\{\fontsize{10}{50}\selectfont CounterCRDT.js}\\{\fontsize{10}{50}\selectfont SetCRDT.js}\\{\fontsize{10}{50}\selectfont MVRegisterCRDT.js}\\{\fontsize{10}{50}\selectfont index.html}\end{tabular}}}}%
     \put(0,0){\includegraphics[width=\unitlength,page=4]{images/implementation/3tier.pdf}}%
   \end{picture}%
 \endgroup%

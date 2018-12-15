@@ -7,7 +7,7 @@
 \addvspace {10\p@ }
 \contentsline {lstlisting}{\numberline {4.1}Code for a Service Worker registration}{27}{lstlisting.4.1}
 \contentsline {lstlisting}{\numberline {4.2}Code for setting up a custom scope of a Service Worker}{28}{lstlisting.4.2}
-\contentsline {lstlisting}{\numberline {4.3}Code for listening to the installation of a Service Worker}{29}{lstlisting.4.3}
+\contentsline {lstlisting}{\numberline {4.3}Code for listening to the installation of a Service Worker}{28}{lstlisting.4.3}
 \contentsline {lstlisting}{\numberline {4.4}Code for listening to activation of a Service Worker}{29}{lstlisting.4.4}
 \contentsline {lstlisting}{\numberline {4.5}Code for creating cache storage using Cache API}{30}{lstlisting.4.5}
 \contentsline {lstlisting}{\numberline {4.6}Code for checking the support of IndexedDB API}{31}{lstlisting.4.6}

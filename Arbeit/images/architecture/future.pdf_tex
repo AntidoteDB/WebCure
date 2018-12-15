@@ -50,38 +50,36 @@
   \global\let\svgwidth\undefined%
   \global\let\svgscale\undefined%
   \makeatother%
-  \begin{picture}(1,0.29578085)%
+  \begin{picture}(1,0.29501184)%
     \lineheight{1}%
     \setlength\tabcolsep{0pt}%
     \put(0,0){\includegraphics[width=\unitlength,page=1]{images/architecture/future.pdf}}%
-    \put(0.02124207,0.07199427){\color[rgb]{0,0,0}\makebox(0,0)[t]{\lineheight{1.25}\smash{\begin{tabular}[t]{c}Server\end{tabular}}}}%
-    \put(0.01876576,0.17228471){\color[rgb]{0,0,0}\makebox(0,0)[t]{\lineheight{1.25}\smash{\begin{tabular}[t]{c}Client\end{tabular}}}}%
+    \put(0.02124207,0.07122527){\color[rgb]{0,0,0}\makebox(0,0)[t]{\lineheight{1.25}\smash{\begin{tabular}[t]{c}Server\end{tabular}}}}%
+    \put(0.01876576,0.1715157){\color[rgb]{0,0,0}\makebox(0,0)[t]{\lineheight{1.25}\smash{\begin{tabular}[t]{c}Client\end{tabular}}}}%
     \put(0,0){\includegraphics[width=\unitlength,page=2]{images/architecture/future.pdf}}%
-%    \put(0.12896143,0.12523488){\color[rgb]{0,0,0}\makebox(0,0)[t]{\lineheight{1.25}\smash{\begin{tabular}[t]{c}\textit{\{id\}}\end{tabular}}}}%
-    \put(0.30982661,0.12523488){\color[rgb]{0,0,0}\makebox(0,0)[t]{\lineheight{1.25}\smash{\begin{tabular}[t]{c}\textit{\{value, t\textsubscript{1}\}}\end{tabular}}}}%
-    \put(0.32830415,0.19828593){\color[rgb]{0,0,0}\makebox(0,0)[t]{\lineheight{1.25}\smash{\begin{tabular}[t]{c}\textit{(id, value, t\textsubscript{1})}\end{tabular}}}}%
+    \put(0.29982661,0.12446587){\color[rgb]{0,0,0}\makebox(0,0)[t]{\lineheight{1.25}\smash{\begin{tabular}[t]{c}\textit{{value, t\textsubscript{1}}}\end{tabular}}}}%
+    \put(0.32830415,0.19751692){\color[rgb]{0,0,0}\makebox(0,0)[t]{\lineheight{1.25}\smash{\begin{tabular}[t]{c}\textit{(id, value, t\textsubscript{1})}\end{tabular}}}}%
     \put(0,0){\includegraphics[width=\unitlength,page=3]{images/architecture/future.pdf}}%
-    \put(0.08067344,0.0472312){\color[rgb]{0,0,0}\makebox(0,0)[t]{\lineheight{1.25}\smash{\begin{tabular}[t]{c}\textit{(id, value, t\textsubscript{1})}\end{tabular}}}}%
-    \put(0.44469058,0.28495668){\color[rgb]{0,0,0}\makebox(0,0)[t]{\lineheight{1.25}\smash{\begin{tabular}[t]{c}\textit{OFFLINE}\end{tabular}}}}%
+    \put(0.08067344,0.04646219){\color[rgb]{0,0,0}\makebox(0,0)[t]{\lineheight{1.25}\smash{\begin{tabular}[t]{c}\textit{(id, value, t\textsubscript{1})}\end{tabular}}}}%
+    \put(0.44469058,0.28418767){\color[rgb]{0,0,0}\makebox(0,0)[t]{\lineheight{1.25}\smash{\begin{tabular}[t]{c}\textit{OFFLINE}\end{tabular}}}}%
     \put(0,0){\includegraphics[width=\unitlength,page=4]{images/architecture/future.pdf}}%
-    \put(0.40754597,0.23181085){\color[rgb]{0,0,0}\makebox(0,0)[t]{\lineheight{1.25}\smash{\begin{tabular}[t]{c}\textit{operation(s)}\end{tabular}}}}%
+    \put(0.40754597,0.23104184){\color[rgb]{0,0,0}\makebox(0,0)[t]{\lineheight{1.25}\smash{\begin{tabular}[t]{c}\textit{operation(s)}\end{tabular}}}}%
     \put(0,0){\includegraphics[width=\unitlength,page=5]{images/architecture/future.pdf}}%
-    \put(0.46326288,0.19828593){\color[rgb]{0,0,0}\makebox(0,0)[t]{\lineheight{1.25}\smash{\begin{tabular}[t]{c}\textit{(id, value')}\end{tabular}}}}%
+    \put(0.46326288,0.19751692){\color[rgb]{0,0,0}\makebox(0,0)[t]{\lineheight{1.25}\smash{\begin{tabular}[t]{c}\textit{(id, value')}\end{tabular}}}}%
     \put(0,0){\includegraphics[width=\unitlength,page=6]{images/architecture/future.pdf}}%
-    \put(0.6279373,0.00018137){\color[rgb]{0,0,0}\makebox(0,0)[t]{\lineheight{1.25}\smash{\begin{tabular}[t]{c}\textit{ONLINE}\end{tabular}}}}%
-%    \put(0.53012317,0.124){\color[rgb]{0,0,0}\makebox(0,0)[t]{\lineheight{1.25}\smash{\begin{tabular}[t]{c}\textit{\{id, operation(s)\}}\end{tabular}}}}%
-    \put(0.65889114,0.0472312){\color[rgb]{0,0,0}\makebox(0,0)[t]{\lineheight{1.25}\smash{\begin{tabular}[t]{c}\textit{(id, value', t\textsubscript{2})}\end{tabular}}}}%
+    \put(0.62422284,0.28418767){\color[rgb]{0,0,0}\makebox(0,0)[t]{\lineheight{1.25}\smash{\begin{tabular}[t]{c}\textit{ONLINE}\end{tabular}}}}%
+    \put(0.65889114,0.04646219){\color[rgb]{0,0,0}\makebox(0,0)[t]{\lineheight{1.25}\smash{\begin{tabular}[t]{c}\textit{(id, value', t\textsubscript{2})}\end{tabular}}}}%
     \put(0,0){\includegraphics[width=\unitlength,page=7]{images/architecture/future.pdf}}%
-    \put(0.75175265,0.23181085){\color[rgb]{0,0,0}\makebox(0,0)[t]{\lineheight{1.25}\smash{\begin{tabular}[t]{c}\textit{operation(s)}\end{tabular}}}}%
+    \put(0.75175265,0.23104184){\color[rgb]{0,0,0}\makebox(0,0)[t]{\lineheight{1.25}\smash{\begin{tabular}[t]{c}\textit{operation(s)}\end{tabular}}}}%
     \put(0,0){\includegraphics[width=\unitlength,page=8]{images/architecture/future.pdf}}%
-    \put(0.84337601,0.28495668){\color[rgb]{0,0,0}\makebox(0,0)[t]{\lineheight{1.25}\smash{\begin{tabular}[t]{c}\textit{OFFLINE}\end{tabular}}}}%
+    \put(0.84337601,0.28418767){\color[rgb]{0,0,0}\makebox(0,0)[t]{\lineheight{1.25}\smash{\begin{tabular}[t]{c}\textit{OFFLINE}\end{tabular}}}}%
     \put(0,0){\includegraphics[width=\unitlength,page=9]{images/architecture/future.pdf}}%
-    \put(0.82604186,0.19828593){\color[rgb]{0,0,0}\makebox(0,0)[t]{\lineheight{1.25}\smash{\begin{tabular}[t]{c}\textit{(id, value'')}\end{tabular}}}}%
+    \put(0.82604186,0.19751692){\color[rgb]{0,0,0}\makebox(0,0)[t]{\lineheight{1.25}\smash{\begin{tabular}[t]{c}\textit{(id, value'')}\end{tabular}}}}%
     \put(0,0){\includegraphics[width=\unitlength,page=10]{images/architecture/future.pdf}}%
-    \put(0.79756433,0.01389583){\color[rgb]{0,0,0}\makebox(0,0)[t]{\lineheight{1.25}\smash{\begin{tabular}[t]{c}\textit{operation(s)}\end{tabular}}}}%
+    \put(0.79756433,0.01312682){\color[rgb]{0,0,0}\makebox(0,0)[t]{\lineheight{1.25}\smash{\begin{tabular}[t]{c}\textit{operation(s)}\end{tabular}}}}%
     \put(0,0){\includegraphics[width=\unitlength,page=11]{images/architecture/future.pdf}}%
-    \put(0.88299693,0.0472312){\color[rgb]{0,0,0}\makebox(0,0)[t]{\lineheight{1.25}\smash{\begin{tabular}[t]{c}\textit{(id, value''', t\textsubscript{3})}\end{tabular}}}}%
-    \put(0.10667466,0.1859044){\color[rgb]{0,0,0}\makebox(0,0)[t]{\lineheight{1.25}\smash{\begin{tabular}[t]{c}\textit{read(id)}\end{tabular}}}}%
-    \put(0.61364809,0.1859044){\color[rgb]{0,0,0}\makebox(0,0)[t]{\lineheight{1.25}\smash{\begin{tabular}[t]{c}\textit{update(id, operations)}\end{tabular}}}}%
+    \put(0.88299693,0.04646219){\color[rgb]{0,0,0}\makebox(0,0)[t]{\lineheight{1.25}\smash{\begin{tabular}[t]{c}\textit{(id, value''', t\textsubscript{3})}\end{tabular}}}}%
+    \put(0.11286543,0.18513539){\color[rgb]{0,0,0}\makebox(0,0)[t]{\lineheight{1.25}\smash{\begin{tabular}[t]{c}\textit{read(id)}\end{tabular}}}}%
+    \put(0.59964931,0.18513539){\color[rgb]{0,0,0}\makebox(0,0)[t]{\lineheight{1.25}\smash{\begin{tabular}[t]{c}\textit{update(id, operations)}\end{tabular}}}}%
   \end{picture}%
 \endgroup%
