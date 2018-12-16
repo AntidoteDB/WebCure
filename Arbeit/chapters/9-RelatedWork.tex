@@ -42,7 +42,7 @@ PouchDB represents an open-source JavaScript database, which is designed to buil
 {"_id":"document","_rev":"1-23202479633c2b380f79507a776743d5","a":1}
 \end{lstlisting}
 
-For every item stored in CouchDB, the database will add two extra properties: \textit{\_id} and \textit{\_rev}, which can be seen at \lstref*{lst:rwork1} that shows the result of getting an element named \textit{document} previously stored in the database. As we can see, the \textit{\_id} represents the name of the item, which is a custom name set by the user, while \textit{\_rev} represents the hash value, associated with the content. Afterwards, whenever we want to change the item \textit{document}, the same \textit{\_id} and \textit{\_rev} should be used.
+For every item stored in CouchDB, the database will add two extra properties: \textit{\_id} and \textit{\_rev}, which can be seen in \lstref*{lst:rwork1} that shows the result of getting an element named \textit{document} previously stored in the database. As we can see, the \textit{\_id} represents the name of the item, which is a custom name set by the user, while \textit{\_rev} represents the hash value, associated with the content. Afterwards, whenever we want to change the item \textit{document}, the same \textit{\_id} and \textit{\_rev} should be used.
 
 \begin{lstlisting}[caption={Updating the value of item \textit{document} by adding \textit{b} into it.}, label={lst:rwork2}]
 PUT /database/document
@@ -56,7 +56,7 @@ GET /database/document
 {"_id":"document","_rev":"2-c5242a69558bf0c24dda59b585d1a52b","a":1, "b":2}
 \end{lstlisting}
 
-The next retrieval of the \textit{document} will get us the result shown at \lstref*{lst:rwork3}.
+The next retrieval of the \textit{document} will get us the result shown in \lstref*{lst:rwork3}.
 
 As we can see, the \textit{\_rev} property got updated. In case the wrong revision is sent to update the document, the database will respond with an error.
 
@@ -65,21 +65,21 @@ PUT /database/document
 {"_id":"document","_rev":"2-c5242a69558bf0c24dda59b585d1a52b","a":1, "b":2, "d":4}
 \end{lstlisting}
 
-However, as our reader might have guessed, it is much more interesting, when we have more than one server. Let us assume that now we have two CouchDB servers. Imagine we try to update the \textit{document} once again with the values shown at \lstref*{lst:rwork4}.
+However, as our reader might have guessed, it is much more interesting, when we have more than one server. Let us assume that now we have two CouchDB servers. Imagine we try to update the \textit{document} once again with the values shown in \lstref*{lst:rwork4}.
 
 \begin{lstlisting}[caption={The result of requesting the \textit{document} from CouchDB-1.}, label={lst:rwork5}]
 GET /database/document
 {"_id":"document","_rev":"3-2235fd4815b81b2da1b84159aba4006e", "a":1, "b":2, "d":4}
 \end{lstlisting}
 
-For example, let us say that it gets written to the first CouchDB server, which gives the response shown at \lstref*{lst:rwork5}.
+For example, let us say that it gets written to the first CouchDB server, which gives the response shown in \lstref*{lst:rwork5}.
 
 \begin{lstlisting}[caption={The result of requesting the \textit{document} from CouchDB-2.}, label={lst:rwork6}]
 GET /database/document
 {"_id":"document","_rev":"2-c5242a69558bf0c24dda59b585d1a52b","a":1, "b":2}
 \end{lstlisting}
 
-However, the second CouchDB server still has the old data, as we can see at \lstref*{lst:rwork6}.
+However, the second CouchDB server still has the old data, as we can see in \lstref*{lst:rwork6}.
 
 Ideally, the replication happens fastly, and both databases will synchronise and reach the same state. However, sometimes it might take a while. Moreover, if a client tries to update the document yet another time, there is a possibility that the update will go to the second server, which will reject the update, as \textit{\_rev} does not match any more. 
 
@@ -92,14 +92,14 @@ PUT /database/document
 {"error":"conflict","reason":"Document update conflict."}
 \end{lstlisting}
 
-As we mentioned earlier, the response of the second CouchDB server for the operation shown at \lstref*{lst:rwork7} will look like the one at \lstref*{lst:rwork8}.
+As we mentioned earlier, the response of the second CouchDB server for the operation shown in \lstref*{lst:rwork7} will look like the one in \lstref*{lst:rwork8}.
 
 \begin{lstlisting}[caption={Updating the value of item \textit{document} by adding element \textit{e} and removing previously added element \textit{d} after receiving the new \textit{\_rev} from the second CouchDB server.}, label={lst:rwork9}]
 PUT /database/document
 {"_id":"document","_rev":"2-c5242a69558bf0c24dda59b585d1a52b", "a":1, "b":2, "e":5}
 \end{lstlisting}
 
-However, there is another option to perform this update. We might have a strategy of getting the latest \textit{\_rev} first, which was \textit{"2-c5242a69558bf0c24dda59b585d1a52b"} at the second CouchDB server, and only then applying the update. So, the operation will look as at \lstref*{lst:rwork9}.
+However, there is another option to perform this update. We might have a strategy of getting the latest \textit{\_rev} first, which was \textit{"2-c5242a69558bf0c24dda59b585d1a52b"} at the second CouchDB server, and only then applying the update. So, the operation will look as it is in \lstref*{lst:rwork9}.
 
 In case this PUT request goes to the second CouchDB server, then this operation will be successful, and now both servers will have different states, which creates a conflict situation. 
 However, it is still an undesirable situation. Thus, there are the limitations that should be given a thought in the development process, which indeed make the process of creating the product based on CouchDB more complicated:

@@ -25,7 +25,7 @@ Firstly, we did unit testing for the implemented CRDT classes, which purpose is 
   });
 \end{lstlisting}
 
-At \lstref*{lst:ev1}, we can observe a simple unit test, which helps to check the correctness of the initialisation of \textit{SetCRDT} objects, written with the help of Jasmine framework\footnote{https://jasmine.github.io/}. At \textit{lines 9 and 10} we can see that objects \textit{a} and \textit{b} are created using a constructor of \textit{SetCRDT} with parameters. The first parameter, as our reader might remember from \secref*{impl-client}, is referring to the \textit{id} of the set, while the second one is referring to the elements, it contains initially. Later, step by step, every property is checked according to the expected values it should possess. This is just one of the unit tests, which serves as an example to demonstrate the way we wrote unit tests for the abstract CRDT classes, which we implemented for the client side.
+In \lstref*{lst:ev1}, we can observe a simple unit test, which helps to check the correctness of the initialisation of \textit{SetCRDT} objects, written with the help of Jasmine framework\footnote{https://jasmine.github.io/}. At \textit{lines 9 and 10} we can see that objects \textit{a} and \textit{b} are created using a constructor of \textit{SetCRDT} with parameters. The first parameter, as our reader might remember from \secref*{impl-client}, is referring to the \textit{id} of the set, while the second one is referring to the elements, it contains initially. Later, step by step, every property is checked according to the expected values it should possess. This is just one of the unit tests, which serves as an example to demonstrate the way we wrote unit tests for the abstract CRDT classes, which we implemented for the client side.
 
 Apart from that, we did system testing as well. To achieve that, we had to mimic the behaviour of WebCure in the testing environment. For that, we set up the server running with AntidoteDB configured in the same way we used it for the demonstration application. Then, we created test cases that reproduce the possible actions of the user and wrote system tests based on them. So, basically, for these tests, we had the whole system running. 
 
@@ -51,7 +51,7 @@ describe('Set', function() {
 });
 \end{lstlisting}
 
-The example of such a system test we can observe at \lstref*{lst:ev2}. There, we can see two test cases, wrapped up in \textit{it} structure, which is a syntax of Jasmine. Normally, every \textit{it} corresponds to a new test case. First of all, to perform system testing, we created our testing helper. It can be seen at \textit{line 1}. Then, the first system test checks that a GET HTTP request to the server should return a Set CRDT, which does not contain any elements. For that, it calls the method \textit{checkGet}, which takes four parameters. The first parameter is for the type of the CRDT (we declared ours at the top of the file), the second parameter is for \textit{id}, the third one is of type array, which reflects the number of elements a Set CRDT should contain and is representing the values that are checked, while the fourth parameter is a callback, which is executed at the end of the \textit{it} structure. The second system test is quite simple as well, as it checks that methods of adding/removing elements to the server database are working correctly. There, \textit{checkPut} stands for sending a PUT HTTP request to update a SetCRDT by adding an element into it, and \textit{checkDel} stands for a DEL HTTP request to update a Set CRDT by removing an element from it. The checks are happening again by the \textit{checkGet} method of \textit{TestHelper}.
+The example of such a system test we can observe in \lstref*{lst:ev2}. There, we can see two test cases, wrapped up in \textit{it} structure, which is a syntax of Jasmine. Normally, every \textit{it} corresponds to a new test case. First of all, to perform system testing, we created our testing helper. It can be seen at \textit{line 1}. Then, the first system test checks that a GET HTTP request to the server should return a Set CRDT, which does not contain any elements. For that, it calls the method \textit{checkGet}, which takes four parameters. The first parameter is for the type of the CRDT (we declared ours at the top of the file), the second parameter is for \textit{id}, the third one is of type array, which reflects the number of elements a Set CRDT should contain and is representing the values that are checked, while the fourth parameter is a callback, which is executed at the end of the \textit{it} structure. The second system test is quite simple as well, as it checks that methods of adding/removing elements to the server database are working correctly. There, \textit{checkPut} stands for sending a PUT HTTP request to update a SetCRDT by adding an element into it, and \textit{checkDel} stands for a DEL HTTP request to update a Set CRDT by removing an element from it. The checks are happening again by the \textit{checkGet} method of \textit{TestHelper}.
 
 \section{Running the Calendar App based on WebCure}
 
@@ -69,7 +69,7 @@ Now, after we designed, implemented and tested our system, it is time to demonst
 \end{center}
 \end{figure}
 
-We can see the interface of the Calendar App at \figref*{fig:ev-fig-1}. As it was said, it provides the basic functionality, which every application of that sort should have: adding/removing users, creating appointments from their behalf and editing this data. At the top left corner of the figure, we can observe a label \textit{Name:}, where there is a list of users on the right-hand side from it. Apart from that, there is a calendar view, which covers the most space of the interface in the middle. Additionally, the functionality is controlled by four buttons: \textit{Remove} -- for removing selected users from the list of users; \textit{Update} -- for updating the available list of users and appointments from the server; \textit{new appointment} -- to create a new appointment on behalf of the selected user; \textit{add new participant} -- to add a participant with a name specified in the input on the left side from the button. 
+We can see the interface of the Calendar App in \figref*{fig:ev-fig-1}. As it was said, it provides the basic functionality, which every application of that sort should have: adding/removing users, creating appointments from their behalf and editing this data. At the top left corner of the figure, we can observe a label \textit{Name:}, where there is a list of users on the right-hand side from it. Apart from that, there is a calendar view, which covers the most space of the interface in the middle. Additionally, the functionality is controlled by four buttons: \textit{Remove} -- for removing selected users from the list of users; \textit{Update} -- for updating the available list of users and appointments from the server; \textit{new appointment} -- to create a new appointment on behalf of the selected user; \textit{add new participant} -- to add a participant with a name specified in the input on the left side from the button. 
 
 Now, as we introduced our reader to the interface of the application and the functionality it has, we are going to demonstrate how a part of its functionality was integrated to work based on WebCure framework. 
 
@@ -97,7 +97,7 @@ type: "set",
 }
 \end{lstlisting}
 
-Let us say, we added two users with names \textit{John} and \textit{Jennie} to the first Calendar App, as \figref*{fig:ev-fig-2} shows. At this point, the first Calendar App will have its users stored under the \textit{``users''} id, as it is shown at \lstref*{lst:ev3}. The second Calendar App, at this point, will have its storage empty at client side, even though its server storage synchronises with the server storage of the first Calendar. If the user of the second Calendar App requests the updates from its server by clicking the button \textit{Update}, the client storage of the second Calendar App will reach the same state as the first Calendar App has. However, for now, we are postponing this step.
+Let us say, we added two users with names \textit{John} and \textit{Jennie} to the first Calendar App, as \figref*{fig:ev-fig-2} shows. At this point, the first Calendar App will have its users stored under the \textit{``users''} id, as it is shown in \lstref*{lst:ev3}. The second Calendar App, at this point, will have its storage empty at client side, even though its server storage synchronises with the server storage of the first Calendar. If the user of the second Calendar App requests the updates from its server by clicking the button \textit{Update}, the client storage of the second Calendar App will reach the same state as the first Calendar App has. However, for now, we are postponing this step.
 
 Next, let us say, that we turn off the network for both calendar applications. Then, we firstly locally remove the user \textit{John} through the interface of the first Calendar App and, afterwards, we add a user \textit{Wayne} at the second Calendar App.
 
@@ -120,7 +120,7 @@ type: "set"
 }
 \end{lstlisting}
 
-As we are working offline, the changes will be applied straight away, so the local stores of the calendars will look like they are represented at \lstref*{lst:ev4} and \lstref*{lst:ev5}, respectively. As our reader observes, even though both applications are in offline mode, they are still available and functional. 
+As we are working offline, the changes will be applied straight away, so the local stores of the calendars will look like they are represented in \lstref*{lst:ev4} and \lstref*{lst:ev5}, respectively. As our reader observes, even though both applications are in offline mode, they are still available and functional. 
 
 \begin{lstlisting}[caption={The state of the users object store after the connection is enabled at the first Calendar App.}, label={lst:ev6}]
 {
@@ -141,7 +141,7 @@ type: "set"
 }
 \end{lstlisting}
 
-After we turn the connection back on, all the offline performed operations are sent to the server immediately. Therefore, now the data stores of the calendars will change again. Basically, as we remember, the operations performed offline will move to the array \textit{sentOperations}. We can observe this behaviour at \lstref*{lst:ev6} and \lstref*{lst:ev7}.
+After we turn the connection back on, all the offline performed operations are sent to the server immediately. Therefore, now the data stores of the calendars will change again. Basically, as we remember, the operations performed offline will move to the array \textit{sentOperations}. We can observe this behaviour in \lstref*{lst:ev6} and \lstref*{lst:ev7}.
 
 \begin{lstlisting}[caption={The state of the users object store for both calendars.}, label={lst:ev8}]
 {
@@ -153,7 +153,7 @@ type: "set"
 }
 \end{lstlisting}
 
-Finally, if the users request updates from the respective servers, associated with their applications, both calendars will reach the same state, as the servers converged having applied all the provided operations. At this point, at client sides of both Calendar Apps the state of the users' local storage will look like it is shown at \lstref*{lst:ev8}.
+Finally, if the users request updates from the respective servers, associated with their applications, both calendars will reach the same state, as the servers converged having applied all the provided operations. At this point, at client sides of both Calendar Apps the state of the users' local storage will look like it is shown in \lstref*{lst:ev8}.
 
 \begin{figure}[!htb]
     \begin{center}
@@ -167,7 +167,7 @@ Finally, if the users request updates from the respective servers, associated wi
 \end{center}
 \end{figure}
 
-As we can see, the user \textit{John} was removed and the user \textit{Wayne} was added for both calendars. Obviously, all the operations took their effect in the interface as well, the final state of which is shown at \figref*{fig:ev-fig-3}.
+As we can see, the user \textit{John} was removed and the user \textit{Wayne} was added for both calendars. Obviously, all the operations took their effect in the interface as well, the final state of which is shown in \figref*{fig:ev-fig-3}.
 
 \subsection*{Summary}
 

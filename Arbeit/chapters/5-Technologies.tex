@@ -1,7 +1,7 @@
 \chapter{Technologies}
 \label{Technologies}
 
-In this chapter, we describe the technologies we used to implement the design we introduced in the \chapref*{Design}. To give an overview, the implementation of the design for WebCure demands the following components:
+In this chapter, we describe the technologies we used to implement the design we introduced in \chapref*{Design}. To give an overview, the implementation of the design for WebCure demands the following components:
 
 \begin{itemize}
 \item{A service worker, in order to manage requests coming from the client;}
@@ -61,7 +61,7 @@ if ('serviceWorker' in navigator) {
 }
 \end{lstlisting}
 
-Looking at the \textit{line 1} of code at~\lstref*{lst:tech1}, we see that, firstly, it is necessary to check, whether the browser supports service workers by observing the property \textit{serviceWorker} of \textit{navigator}\footnote{The navigator object contains information about the browser\cite{43}.}. If so, the service worker is going to be registered then, as can be seen at the \textit{line 2}, where the location of the service worker is stated as well. The \textit{navigator.serviceWorker.register} returns a promise\footnote{JavaScript Promise is an object, which represents the eventual completion or failure of an asynchronous operation\cite{37}.}, which resolves when the registration was successful. Afterwards, the scope of the service worker is logged with \textit{registration.scope}. 
+Looking at the \textit{line 1} of code in \lstref*{lst:tech1}, we see that, firstly, it is necessary to check, whether the browser supports service workers by observing the property \textit{serviceWorker} of \textit{navigator}\footnote{The navigator object contains information about the browser\cite{43}.}. If so, the service worker is going to be registered then, as can be seen at the \textit{line 2}, where the location of the service worker is stated as well. The \textit{navigator.serviceWorker.register} returns a promise\footnote{JavaScript Promise is an object, which represents the eventual completion or failure of an asynchronous operation\cite{37}.}, which resolves when the registration was successful. Afterwards, the scope of the service worker is logged with \textit{registration.scope}. 
 
 Not every browser supports the functionality of service workers. Nowadays, the latest versions of such browsers as Chrome, Edge (partially) and Firefox support it. However, it is still only partially supported in Opera and Safari, and not at all in the Internet Explorer\cite{42} -- that is something developers should keep in mind.
 
@@ -73,7 +73,7 @@ navigator.serviceWorker.register('/service-worker.js', {
 });
 \end{lstlisting}
 
-When registering, it is also possible to use a custom scope. ~\lstref*{lst:tech2} demonstrates that the service worker is going to have a scope of \textit{/app/}. It indicates that it will control requests from all the pages like \textit{/app/} and deeper. When the service worker is already installed, \textit{navigator.serviceWorker.register} returns the object of the currently active service worker.
+When registering, it is also possible to use a custom scope. \lstref*{lst:tech2} demonstrates that the service worker is going to have a scope of \textit{/app/}. It indicates that it will control requests from all the pages like \textit{/app/} and deeper. When the service worker is already installed, \textit{navigator.serviceWorker.register} returns the object of the currently active service worker.
 
 \subsection*{Installation}
 
@@ -91,7 +91,7 @@ self.addEventListener('install', function(event) {
 });
 \end{lstlisting}
 
-Installation triggers service worker's \textit{install} event. There is a probability of having a listener for it in order to assign a specific task (depends on the use case), which follows the installation on success. The way to set up this listener is shown at~\lstref*{lst:tech3}.
+Installation triggers service worker's \textit{install} event. There is a probability of having a listener for it in order to assign a specific task (depends on the use case), which follows the installation on success. The way to set up this listener is shown in \lstref*{lst:tech3}.
 
 \subsection*{Activation}
 
@@ -103,7 +103,7 @@ self.addEventListener('activate', function(event) {
 });
 \end{lstlisting}
 
-Similar to the installation, the activation phase also has its event that gets triggered once the service worker is activating, as we can see at~\lstref*{lst:tech4}. For example, at this point, it might be a good idea to clean the previously stored old cached data.
+Similar to the installation, the activation phase also has its event that gets triggered once the service worker is activating, as we can see in \lstref*{lst:tech4}. For example, at this point, it might be a good idea to clean the previously stored old cached data.
 
 \section{Cache API}
 \label{CacheAPI}
@@ -116,7 +116,7 @@ caches.open('my-cache').then((cache) => {
 });
 \end{lstlisting}
 
-At~\lstref*{lst:tech6} we see an example code of how a cache with a name \textit{my-cache} is created. If the operation is performed successfully, then a promise resolves, and one is going to get access either to a newly created cache or to the one, which existed before the call of \textit{open} method.
+In \lstref*{lst:tech6} we see an example code of how a cache with a name \textit{my-cache} is created. If the operation is performed successfully, then a promise resolves, and one is going to get access either to a newly created cache or to the one, which existed before the call of \textit{open} method.
 
 That covers the main functionality of the API. After creating a cache, it is possible to manipulate it in many ways. 
 
@@ -127,7 +127,7 @@ Apart from adding to the cache object, it is also possible to remove stored URLs
 \section{IndexedDB}
 \label{IndexedDB}
 
-As the protocol we introduced in the \chapref*{Design} clearly describes that there is a necessity to have a client-side storage system, we are going to use for that purpose IndexedDB\cite{35}. It is a large-scale, NoSQL database, which lets us store any data in the user's browser. Apart from that, it supports transactions and achieves a high-performance search due to the usage of indexes. 
+As the protocol we introduced in \chapref*{Design} clearly describes that there is a necessity to have a client-side storage system, we are going to use for that purpose IndexedDB\cite{35}. It is a large-scale, NoSQL database, which lets us store any data in the user's browser. Apart from that, it supports transactions and achieves a high-performance search due to the usage of indexes. 
 
 \subsection{IndexedDB terms}
 
@@ -144,7 +144,7 @@ if (!('indexedDB' in window)) {
 }
 \end{lstlisting}
 
-As IndexedDB is relatively a new API, it is not supported by all the web browsers yet and, therefore, the support for it should be checked before any further development, as it is shown at~\lstref*{lst:tech7}. However, all the recent versions of the major web browsers are compatible with it. 
+As IndexedDB is relatively a new API, it is not supported by all the web browsers yet and, therefore, the support for it should be checked before any further development, as it is shown in \lstref*{lst:tech7}. However, all the recent versions of the major web browsers are compatible with it. 
 
 Nevertheless, one of the most significant problems with IndexedDB is using it in the development. It has an asynchronous API, which is using events. That makes developers produce a complex code, which is hard to maintain. Therefore, in the design of WebCure, we are going to use a wrapper over the IndexedDB API -- IndexedDB Promised\cite{36, 48}. It is a tiny library, written by Jake Archibald from Google, which makes the use of JavaScript promises and simplifies the development process with IndexedDB while keeping its functionality.
 
@@ -168,7 +168,7 @@ navigator.serviceWorker.ready.then(function(swRegistration) {
 });
 \end{lstlisting} 
 
-For this feature to work, the web application has to use a service worker. First of all, it should be registered and, afterwards, a unique tag should be registered as well, which is going to be responsible for the background call of the method. Let us show an example: at~\lstref*{lst:tech8}, we can see how a synchronisation tag \textit{myFirstSync} is registered.
+For this feature to work, the web application has to use a service worker. First of all, it should be registered and, afterwards, a unique tag should be registered as well, which is going to be responsible for the background call of the method. Let us show an example: in \lstref*{lst:tech8}, we can see how a synchronisation tag \textit{myFirstSync} is registered.
 
 \begin{lstlisting}[caption={[Code for calling a specific function when sync event triggered]Code, which demonstates that a function \textit{doSomeStuff} called, when the \textit{sync} event happened\cite{38}.}, label={lst:tech9}]
 self.addEventListener('sync', function(event) {
@@ -178,6 +178,6 @@ self.addEventListener('sync', function(event) {
 });
 \end{lstlisting} 
 
-Afterwards, when a page controlled by the service worker is going back online (which is when the user agent has established a network connection\cite{44}), a \textit{sync} event is triggered. There, it is possible to perform a distinct action, depending on the registered earlier tag. For instance, at~\lstref*{lst:tech9} we can see that a function \textit{doSomeStuff} is called once the connection is back, after a \textit{sync} event occurred. This function has to return a promise, which could be successful or not. In the latter case, another sync will be scheduled to try when there is a connectivity\cite{38}. 
+Afterwards, when a page controlled by the service worker is going back online (which is when the user agent has established a network connection\cite{44}), a \textit{sync} event is triggered. There, it is possible to perform a distinct action, depending on the registered earlier tag. For instance, in \lstref*{lst:tech9} we can see that a function \textit{doSomeStuff} is called once the connection is back, after a \textit{sync} event occurred. This function has to return a promise, which could be successful or not. In the latter case, another sync will be scheduled to try when there is a connectivity\cite{38}. 
 
 Background synchronisation is an advantageous feature, which can be used in different scenarios. It could be, for example, sending the e-mails or any other type of messages, after having failed to send it when the connection was poor. However, in our case, in WebCure we are going to use it for sending the operations conducted offline back to the AntidoteDB server for further synchronisation. Moreover, if there was a use case with a requirement to get the most recent data from the server after the re-connection to the network, it is possible to implement it using the background synchronisation feature.
