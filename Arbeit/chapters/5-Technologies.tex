@@ -19,7 +19,7 @@ Service worker\cite{1} is a web worker\footnote{Web Workers make it possible to 
 
 \begin{itemize}
 \item{It does not have access to the DOM\footnote{DOM, or \textbf{D}ocument \textbf{O}bject \textbf{M}odel of the page defines HTML elements as objects, as well as their properties, methods, and events.}, however, it has the control over pages (not just a specific one);}
-\item{When the application is not running, a service worker still can receive push-notifications from the server\cite{32}, which let us improve the user experience of the application and makes it ``closer'' to native mobile applications;}
+\item{When the application is not running, a service worker still can receive push-notifications from the server\cite{32}, which improves the user experience of the application and makes it ``closer'' to native mobile applications;}
 
 \item{It runs over HTTPS, as for the projects using a service worker, the ``man-in-the-middle''\footnote{In computer security, this is a type of attack, where a third party secretly alters the communication between two parties, while they believe they are directly ``talking'' to each other\cite{33}.} attacks could represent a real threat;}
 \item{It offers a possibility to intercept requests as the browser makes them and has the following options:}
@@ -120,7 +120,7 @@ In \lstref*{lst:tech6} we see an example code of how a cache with a name \textit
 
 That covers the main functionality of the API. After creating a cache, it is possible to manipulate it in many ways. 
 
-Let us now introduce one of the operations -- adding elements to the cache. A developer can provide a string for the URL that will be fetched and stored in a cache object. Whenever the data is received from the cache, the browser will return a particular object according to the URL that was stored in the cache. More details on how long the data could be stored in the cache are given in \secref*{persistentstorage}.
+We now introduce one of the operations -- adding elements to the cache. A developer can provide a string for the URL that will be fetched and stored in a cache object. Whenever the data is received from the cache, the browser will return a particular object according to the URL that was stored in the cache. More details on how long the data could be stored in the cache are given in \secref*{persistentstorage}.
 
 Apart from adding to the cache object, it is also possible to remove stored URLs, check the current list of cached requests, delete a cache object, and other operations. 
 
@@ -144,7 +144,7 @@ if (!('indexedDB' in window)) {
 }
 \end{lstlisting}
 
-As IndexedDB is relatively a new API, it is not supported by all the web browsers yet and, therefore, the support for it should be checked before any further development, as it is shown in \lstref*{lst:tech7}. However, all the recent versions of the major web browsers are compatible with it. 
+As IndexedDB is relatively a new API, it is not supported by all the web browsers yet. Therefore, the support for it should be checked before any further development, as it is shown in \lstref*{lst:tech7}. However, all the recent versions of the major web browsers are compatible with it. 
 
 Nevertheless, one of the most significant problems with IndexedDB is using it in the development. It has an asynchronous API, which is using events. That makes developers produce a complex code, which is hard to maintain. Therefore, in the design of WebCure, we are going to use a wrapper over the IndexedDB API -- IndexedDB Promised\cite{36, 48}. It is a tiny library, written by Jake Archibald from Google, which makes the use of JavaScript promises and simplifies the development process with IndexedDB while keeping its functionality.
 
@@ -168,7 +168,7 @@ navigator.serviceWorker.ready.then(function(swRegistration) {
 });
 \end{lstlisting} 
 
-For this feature to work, the web application has to use a service worker. First of all, it should be registered and, afterwards, a unique tag should be registered as well, which is going to be responsible for the background call of the method. Let us show an example: in \lstref*{lst:tech8}, we can see how a synchronisation tag \textit{myFirstSync} is registered.
+For this feature to work, the web application has to use a service worker. First of all, it should be registered and, afterwards, a unique tag should be registered as well, which is going to be responsible for the background call of the method. In \lstref*{lst:tech8}, we can see how a synchronisation tag \textit{myFirstSync} is registered.
 
 \begin{lstlisting}[caption={[Code for calling a specific function when sync event triggered]Code, which demonstates that a function \textit{doSomeStuff} called, when the \textit{sync} event happened\cite{38}.}, label={lst:tech9}]
 self.addEventListener('sync', function(event) {

@@ -65,14 +65,14 @@ PUT /database/document
 {"_id":"document","_rev":"2-c5242a69558bf0c24dda59b585d1a52b","a":1, "b":2, "d":4}
 \end{lstlisting}
 
-However, as our reader might have guessed, it is much more interesting, when we have more than one server. Let us assume that now we have two CouchDB servers. Imagine we try to update the \textit{document} once again with the values shown in \lstref*{lst:rwork4}.
+However, it is much more interesting, when we have more than one server. Thus, assume that now we have two CouchDB servers. Imagine we try to update the \textit{document} once again with the values shown in \lstref*{lst:rwork4}.
 
 \begin{lstlisting}[caption={The result of requesting the \textit{document} from CouchDB-1.}, label={lst:rwork5}]
 GET /database/document
 {"_id":"document","_rev":"3-2235fd4815b81b2da1b84159aba4006e", "a":1, "b":2, "d":4}
 \end{lstlisting}
 
-For example, let us say that it gets written to the first CouchDB server, which gives the response shown in \lstref*{lst:rwork5}.
+For example, it gets written to the first CouchDB server, which gives the response shown in \lstref*{lst:rwork5}.
 
 \begin{lstlisting}[caption={The result of requesting the \textit{document} from CouchDB-2.}, label={lst:rwork6}]
 GET /database/document
@@ -108,7 +108,7 @@ However, it is still an undesirable situation. Thus, there are the limitations t
         \item {Do not update the \textit{\_rev} locally in the client without getting new data from the server before that.}
       \end{itemize}
       
-Let us now summarise the advantages WebCure has due to using AntidoteDB and not CouchDB. 
+We will now summarise the advantages WebCure has due to using AntidoteDB and not CouchDB. 
 
 First of all, since CouchDB ``blocks'' the possibility of updating the server's database without knowing the latest revision \textit{\_rev}, it already adds extra-work in the design and implementation of the protocol. Moreover, as we believe, it struggles to provide the support of concurrent updates. AntidoteDB, on the other hand, uses the concept of timestamps, which allows supporting causal consistency guarantees and, as it is not creating such restrictions on making updates, it has a massive advantage with the support of concurrent updates. 
 

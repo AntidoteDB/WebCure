@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.19 (MiKTeX 2.9.6800 64-bit) (preloaded format=pdflatex 2018.8.30)  16 DEC 2018 15:16
+This is pdfTeX, Version 3.14159265-2.6-1.40.19 (MiKTeX 2.9.6800 64-bit) (preloaded format=pdflatex 2018.8.30)  16 DEC 2018 16:41
 entering extended mode
 **"c:/Users/Server/Dropbox (Server (Study))/TU Kaiserslautern/Thesis/Project/MasterThesis/Arbeit/Masterthesis.tex"
 ("c:/Users/Server/Dropbox (Server (Study))/TU Kaiserslautern/Thesis/Project/MasterThesis/Arbeit/Masterthesis.tex"
@@ -2975,19 +2975,16 @@ Overfull \hbox (19.0pt too wide) in paragraph at lines 77--77
  []
 
 
-Underfull \vbox (badness 6691) has occurred while \output is active []
-
-
 Overfull \vbox (13.77516pt too high) has occurred while \output is active []
 
 Package babel Info: Redefining ngerman shorthand "|
-(babel)             in language  on input line 77.
+(babel)             in language  on input line 78.
 Package babel Info: Redefining ngerman shorthand "~
-(babel)             in language  on input line 77.
+(babel)             in language  on input line 78.
 Package babel Info: Redefining ngerman shorthand "|
-(babel)             in language  on input line 77.
+(babel)             in language  on input line 78.
 Package babel Info: Redefining ngerman shorthand "~
-(babel)             in language  on input line 77.
+(babel)             in language  on input line 78.
  [71]
 Overfull \hbox (19.0pt too wide) in paragraph at lines 86--86
 [][] 
@@ -3004,13 +3001,13 @@ Overfull \hbox (19.0pt too wide) in paragraph at lines 97--97
  []
 
 Package babel Info: Redefining ngerman shorthand "|
-(babel)             in language  on input line 98.
+(babel)             in language  on input line 99.
 Package babel Info: Redefining ngerman shorthand "~
-(babel)             in language  on input line 98.
+(babel)             in language  on input line 99.
 Package babel Info: Redefining ngerman shorthand "|
-(babel)             in language  on input line 98.
+(babel)             in language  on input line 99.
 Package babel Info: Redefining ngerman shorthand "~
-(babel)             in language  on input line 98.
+(babel)             in language  on input line 99.
 [72]
 Underfull \hbox (badness 3690) in paragraph at lines 102--103
 []\T1/ppl/m/n/12 However, the-re is ano-ther op-ti-on to per-form this up-da-te. We
@@ -3020,13 +3017,13 @@ Underfull \hbox (badness 3690) in paragraph at lines 102--103
 Overfull \vbox (10.87498pt too high) has occurred while \output is active []
 
 Package babel Info: Redefining ngerman shorthand "|
-(babel)             in language  on input line 119.
+(babel)             in language  on input line 121.
 Package babel Info: Redefining ngerman shorthand "~
-(babel)             in language  on input line 119.
+(babel)             in language  on input line 121.
 Package babel Info: Redefining ngerman shorthand "|
-(babel)             in language  on input line 119.
+(babel)             in language  on input line 121.
 Package babel Info: Redefining ngerman shorthand "~
-(babel)             in language  on input line 119.
+(babel)             in language  on input line 121.
  [73])
 Package babel Info: Redefining ngerman shorthand "|
 (babel)             in language  on input line 108.
@@ -3494,7 +3491,7 @@ Here is how much of TeX's memory you used:
  1141 hyphenation exceptions out of 8191
  57i,18n,71p,9187b,2132s stack positions out of 5000i,500n,10000p,200000b,50000s
 {C:/MiKTeX/fonts/enc/dvips/base/8r.enc}<C:/MiKTeX/fonts/type1/urw/courier/ucrb8a.pfb><C:/MiKTeX/fonts/type1/urw/courier/ucrr8a.pfb><C:/MiKTeX/fonts/type1/urw/helvetic/uhvb8a.pfb><C:/MiKTeX/fonts/type1/urw/helvetic/uhvr8a.pfb><C:/MiKTeX/fonts/type1/urw/helvetic/uhvro8a.pfb><C:/MiKTeX/fonts/type1/urw/palatino/uplb8a.pfb><C:/MiKTeX/fonts/type1/urw/palatino/uplr8a.pfb><C:/MiKTeX/fonts/type1/urw/palatino/uplr8a.pfb><C:/MiKTeX/fonts/type1/urw/palatino/uplri8a.pfb>
-Output written on Masterthesis.pdf (97 pages, 719874 bytes).
+Output written on Masterthesis.pdf (97 pages, 719893 bytes).
 PDF statistics:
  2050 PDF objects out of 2073 (max. 8388607)
  793 named destinations out of 1000 (max. 500000)

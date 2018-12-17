@@ -54,7 +54,7 @@ In this section, we are going to give a list of assumptions we make for WebCure.
 \item {\textbf{Timestamps}. Firstly, the database storage used for the server's side should have the concept of timestamps (like in AntidoteDB, described in \secref*{2-antidotedb}), in order for the protocol we are going to describe in \secref*{4-protocol} to work correctly.}
 \item {\textbf{Cache is persistent}. For WebCure to work online and, especially, offline, we believe that the browser's cache is safe from automatic clearing. Contrarily, if the cache could be cleared automatically depending on the browser's behaviour, it makes it impossible to support the claim that the application can work offline. To guarantee this assumption, a Persistent Storage API described in \secref*{persistentstorage} can be used.}
 \item{\textbf{Name duplicates}. We limit the creation of different CRDT elements with the same name in the system due to limitations of AntidoteDB, as the requirement \textit{R7} describes it in the \tableref*{table:req1}. As AntidoteDB is in the process of ongoing development, currently the database crashes when there is an attempt to create elements of different CRDTs with the same name. Thus, this condition has to be fulfilled.}
-\item{\textbf{Server's database is always on}. We assume that the server's database is not going to be reset and lose all its data. As the client entirely relies on the server's storage for the synchronisation and only sends back operations performed offline on client's side, it will be impossible to restore the server's database from the client's storage, even if it was up-to-date before the server's data loss. With additional changes to the current protocol, it might be possible, though, but that is not the topic we cover in this thesis. However, even in such a situation, the client will be able to continue the offline work.}
+\item{\textbf{Server's database is always on}. We assume that the server's database is not going to be reset and lose all its data. The client entirely relies on the server's storage for the synchronisation and only sends back operations performed offline on client's side. Therefore, it will be impossible to restore the server's database from the client's storage, even if it was up-to-date before the server's data loss. With additional changes to the current protocol, it might be possible, though, but that is not the topic we cover in this thesis. However, even in such a situation, the client will be able to continue the offline work.}
 \end{enumerate}
 
 As we specified the requirements, we can go further into and design the protocol of the system.
@@ -85,7 +85,7 @@ As we already remember from \chapref*{Background}, because AntidoteDB is using C
 \end{center}
 \end{figure}
 
-Firstly, as we would like to focus on the communication part between a server and a client, let us for now keep both of them as black boxes\footnote{In software engineering, a black box is a system, which can be viewed in terms of its inputs and outputs, without the understanding of its internal workings.\cite{49}}, as they are represented in \figref*{fig:protocol1}. Next, we will go through different stages of their communication and describe, how we handled these processes. 
+Firstly, as we would like to focus on the communication part between a server and a client, we will for now keep both of them as black boxes\footnote{In software engineering, a black box is a system, which can be viewed in terms of its inputs and outputs, without the understanding of its internal workings.\cite{49}}, as they are represented in \figref*{fig:protocol1}. Next, we will go through different stages of their communication and describe, how we handled these processes. 
 
 \subsection*{Graphics notations}
 
@@ -106,7 +106,7 @@ Firstly, as we would like to focus on the communication part between a server an
     \label{fig:notations}%
 \end{figure}
 
-Let us explain the notations, which are going to be used for a further protocol description. In \figref*{fig:notations} \textbf{(a)}, we can see a notation for the timeline. Timelines will be used for the matter of showing the sequence of events happening. In \figref*{fig:notations} \textbf{(b)}, the arrow shows the transmission of data between a subsystem \textit{A} and subsystem \textit{B}, as well as its direction and a command. \figref*{fig:notations} \textbf{(c)} represents the state of the data on a system's side, while \figref*{fig:notations} \textbf{(d)} points to a timestamp, at which an operation that changes the system's storage was applied.
+Consider the notations, which are going to be used for a further protocol description. In \figref*{fig:notations} \textbf{(a)}, we can see a notation for the timeline. Timelines will be used for the matter of showing the sequence of events happening. In \figref*{fig:notations} \textbf{(b)}, the arrow shows the transmission of data between a subsystem \textit{A} and subsystem \textit{B}, as well as its direction and a command. \figref*{fig:notations} \textbf{(c)} represents the state of the data on a system's side, while \figref*{fig:notations} \textbf{(d)} points to a timestamp, at which an operation that changes the system's storage was applied.
 
 Next, as we already mentioned, we will explain the protocol in an event-based way. 
 
@@ -121,7 +121,7 @@ Next, as we already mentioned, we will explain the protocol in an event-based wa
 \end{center}
 \end{figure}
 
-Let us assume that a client initiates its work with empty storage. Then, a user might want to request the actual data from the server. In this case, as can be seen in \figref*{fig:design2}, a user has to pass to the server an \textit{id} of the data to \textit{read}. If the request is successful, the server is going to \textit{respond} with a \textit{value} for the requested \textit{id} and the timestamp of the last write -- \textit{t\textsubscript{0}}, so the client will store this information in its own storage.
+We assume that a client initiates its work with empty storage. Then, a user might want to request the actual data from the server. In this case, as can be seen in \figref*{fig:design2}, a user has to pass to the server an \textit{id} of the data to \textit{read}. If the request is successful, the server is going to \textit{respond} with a \textit{value} for the requested \textit{id} and the timestamp of the last write -- \textit{t\textsubscript{0}}, so the client will store this information in its own storage.
 
 \begin{lstlisting}[caption={Pseudocode for requesting the data: client.}, label={lst:read1}]
 // Read function that pulls database changes
@@ -158,7 +158,7 @@ In case of success, the value and the timestamp associated with passed \textit{i
 In case of failure, however, the method \textit{getFromCache} is going to be called with an argument \textit{id}, as can be seen at the \textit{line 22}. If \textit{id} exists at client's cache, then it will be returned. 
 
 
-Now, let us say, that after receiving an element \textit{id} from the server, the client wants to change it and send it back to the server.
+Now, imagine that after receiving an element \textit{id} from the server, the client wants to change it and send it back to the server.
 
 \subsection*{A client sends an update to the server}
 
@@ -196,9 +196,9 @@ function update(id, op) {
 }
 \end{lstlisting} 
 
-However, let us look at the pseudocode placed in \lstref*{lst:update1}. There we can see the function \textit{update}, which has to have an access to the parameters \textit{id} and \textit{op}. There is an attempt to send the operation \textit{op} for the element \textit{id} to the server, by using \textit{PostHttpRequest}. It is asynchronous and has two callbacks -- \textit{onSuccess} and \textit{onFail}, just as before it was explained for the \textit{read} function. If the request succeeds, then the client gets notified about it, and no further actions are taken. However, in the case of failure, as we can see at the \textit{line 13}, firstly we are getting the object from the cache by \textit{id}. If it exists, then we add the operation \textit{op} to that object into its property \textit{operations}, and, afterwards, store an updated object in cache again using \textit{storeInCache} at the \textit{line 15}. That makes the update available while the user is offline and gives an opportunity to send the operation again when the connection is back.
+However, have a look at the pseudocode placed in \lstref*{lst:update1}. There we can see the function \textit{update}, which has to have an access to the parameters \textit{id} and \textit{op}. There is an attempt to send the operation \textit{op} for the element \textit{id} to the server, by using \textit{PostHttpRequest}. It is asynchronous and has two callbacks -- \textit{onSuccess} and \textit{onFail}, just as before it was explained for the \textit{read} function. If the request succeeds, then the client gets notified about it, and no further actions are taken. However, in the case of failure, as we can see at the \textit{line 13}, firstly we are getting the object from the cache by \textit{id}. If it exists, then we add the operation \textit{op} to that object into its property \textit{operations}, and, afterwards, store an updated object in cache again using \textit{storeInCache} at the \textit{line 15}. That makes the update available while the user is offline and gives an opportunity to send the operation again when the connection is back.
 
-Next, let us say that a client loses its network connection, so any updates made from that point onwards will be stored locally.  
+Next, imagine that a client loses its network connection, so any updates made from that point onwards will be stored locally.  
 
 \subsection*{Offline behaviour}
 
@@ -227,7 +227,7 @@ function synchronise(offlineOperations) {
 
 The logic described above can be seen in \lstref*{lst:offline}, which has the function named \textit{synchronise} that should be triggered at the time when the client's side restored a network connection. There, we can see that every operation performed offline is sent once at a time to the server. For causality, the array should be sorted in the order the operations were performed initially.
 
-Now, let us move to the point when more than one client interacts with a server, in order to see how scalable the described protocol is.
+Now, we move to the point when more than one client interacts with a server, in order to see how scalable the described protocol is.
 
 \subsection*{Two clients interact with a server.}
 
@@ -240,6 +240,6 @@ Now, let us move to the point when more than one client interacts with a server,
 \end{center}
 \end{figure}
 
-Let us assume that, initially, as can be seen in \figref*{fig:design5}, the server has a stored element \textit{(id, value)} at the timestamp \textit{t\textsubscript{0}}. Therefore, when both clients request to read the data from the server, they get that data and store it locally. At the representation above, a \textit{Client 1} is acting first and sends an update to the server changing the value of an element \textit{id} to \textit{value'} at \textit{t\textsubscript{1}}. Observe that \textit{Client 1} does not request the latest data from the server and still only has its local changes. In parallel, a \textit{Client 2} makes the change later at time \textit{t\textsubscript{2}}, and an element \textit{id} is now set to \textit{value''}. Then, both clients request the updated data from the server and both receive the actual value of the element \textit{id} at the timestamp \textit{t\textsubscript{2}}, which is \textit{value''}. We would like to stress the point that all systems - the server and both clients end up having the same data.
+We assume that, initially, as can be seen in \figref*{fig:design5}, the server has a stored element \textit{(id, value)} at the timestamp \textit{t\textsubscript{0}}. Therefore, when both clients request to read the data from the server, they get that data and store it locally. At the representation above, a \textit{Client 1} is acting first and sends an update to the server changing the value of an element \textit{id} to \textit{value'} at \textit{t\textsubscript{1}}. Observe that \textit{Client 1} does not request the latest data from the server and still only has its local changes. In parallel, a \textit{Client 2} makes the change later at time \textit{t\textsubscript{2}}, and an element \textit{id} is now set to \textit{value''}. Then, both clients request the updated data from the server and both receive the actual value of the element \textit{id} at the timestamp \textit{t\textsubscript{2}}, which is \textit{value''}. We would like to stress the point that all systems - the server and both clients end up having the same data.
 
 Now we would like to give a brief overview of the next two chapters: firstly, in \chapref*{Technologies} we will give a proper introduction into the technologies we used to implement the described protocol and, then, in \chapref*{Implementation} we will go through its development.
