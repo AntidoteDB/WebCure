@@ -15,8 +15,8 @@
 \contentsline {lstlisting}{\numberline {4.8}Code for calling a specific function when sync event triggered}{33}{lstlisting.4.8}
 \addvspace {10\p@ }
 \contentsline {lstlisting}{\numberline {5.1}Code for sending back to the client the requested data.}{38}{lstlisting.5.1}
-\contentsline {lstlisting}{\numberline {5.2}Code for applying an \textit {add} operation to a Set CRDT.}{40}{lstlisting.5.2}
-\contentsline {lstlisting}{\numberline {5.3}Code for applying an \textit {add} operation to a Set CRDT.}{41}{lstlisting.5.3}
+\contentsline {lstlisting}{\numberline {5.2}Code for applying an \textit {add} operation to a set CRDT.}{40}{lstlisting.5.2}
+\contentsline {lstlisting}{\numberline {5.3}Code for applying an \textit {add} operation to a set CRDT.}{41}{lstlisting.5.3}
 \contentsline {lstlisting}{\numberline {5.4}Code for caching necessary data for the client.}{43}{lstlisting.5.4}
 \contentsline {lstlisting}{\numberline {5.5}Code for maintaining the requests of the application.}{44}{lstlisting.5.5}
 \contentsline {lstlisting}{\numberline {5.6}Creating object stores in IndexedDB}{45}{lstlisting.5.6}
@@ -24,7 +24,7 @@
 \contentsline {lstlisting}{\numberline {5.8}An example of a \textit {SetCRDT} object, stored on a client side.}{49}{lstlisting.5.8}
 \contentsline {lstlisting}{\numberline {5.9}Caching on a client side CRDT states, received from the server}{49}{lstlisting.5.9}
 \contentsline {lstlisting}{\numberline {5.10}Reading CRDT states from client's cache.}{51}{lstlisting.5.10}
-\contentsline {lstlisting}{\numberline {5.11}Applying operation \textit {add} on a Set CRDT while offline}{52}{lstlisting.5.11}
+\contentsline {lstlisting}{\numberline {5.11}Applying operation \textit {add} on a set CRDT while offline}{52}{lstlisting.5.11}
 \contentsline {lstlisting}{\numberline {5.12}A function, which synchronises operations with the server when the connection is re-established}{53}{lstlisting.5.12}
 \addvspace {10\p@ }
 \contentsline {lstlisting}{\numberline {6.1}Unit test example for the \textit {SetCRDT} class}{57}{lstlisting.6.1}

@@ -28,7 +28,7 @@ The specification of HTML5 contains some features that offer a possibility to bu
  
 \subsection*{Hoodie}
 
-Hoodie is a framework, which eases the process of developing web and iOS applications. We will not cover all the features it offers and will only stop on it providing offline experience for applications that are developed using Hoodie. The documentation states that the framework is offline-first\cite{23}, which means that all the data is stored locally and any request the application makes, firstly will be tried to be proccessed by acquiring the cached data. It is possible due to PouchDB database, which performs this work in the background\cite{24}. We will explore the process of how PouchDB works below.
+Hoodie is a framework, which eases the process of developing web and iOS applications. We will not cover all the features that it offers and will only stop on it providing offline experience for applications that are developed using Hoodie. The documentation states that the framework is offline-first\cite{23}, which means that all the data is stored locally and any request the application makes, firstly will be tried to be proccessed by acquiring the cached data. It is possible due to PouchDB database, which performs this work in the background\cite{24}. We will explore the process of how PouchDB works below.
 
 \subsection*{localForage}
 
@@ -81,7 +81,7 @@ GET /database/document
 
 However, the second CouchDB server still has the old data, as we can see in \lstref*{lst:rwork6}.
 
-Ideally, the replication happens fastly, and both databases will synchronise and reach the same state. However, sometimes it might take a while. Moreover, if a client tries to update the document yet another time, there is a possibility that the update will go to the second server, which will reject the update, as \textit{\_rev} does not match any more. 
+Ideally, the replication happens fast, and both databases will synchronise and reach the same state. However, sometimes it might take a while. Moreover, if a client tries to update the document yet another time, there is a possibility that the update will go to the second server, which will reject the update, as \textit{\_rev} does not match anymore. 
 
 \begin{lstlisting}[caption={Updating the value of item \textit{document} by adding element \textit{e} and removing previously added element \textit{d}}, label={lst:rwork7}]
 PUT /database/document

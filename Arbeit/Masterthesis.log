@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.19 (MiKTeX 2.9.6800 64-bit) (preloaded format=pdflatex 2018.8.30)  19 DEC 2018 01:48
+This is pdfTeX, Version 3.14159265-2.6-1.40.19 (MiKTeX 2.9.6800 64-bit) (preloaded format=pdflatex 2018.8.30)  19 DEC 2018 17:24
 entering extended mode
 **"c:/Users/Server/Dropbox (Server (Study))/TU Kaiserslautern/Thesis/Project/MasterThesis/Arbeit/Masterthesis.tex"
 ("c:/Users/Server/Dropbox (Server (Study))/TU Kaiserslautern/Thesis/Project/MasterThesis/Arbeit/Masterthesis.tex"
@@ -1307,20 +1307,15 @@ Package babel Info: Redefining ngerman shorthand "|
 (babel)             in language  on input line 36.
 Package babel Info: Redefining ngerman shorthand "~
 (babel)             in language  on input line 36.
-
-Underfull \hbox (badness 1337) in paragraph at lines 47--48
-[]\T1/ppl/m/n/12 Merging con-cur-rent ope-ra-ti-ons is pos-si-ble be-cau-se of CRDTs[[]],
- []
-
 Package babel Info: Redefining ngerman shorthand "|
-(babel)             in language  on input line 48.
+(babel)             in language  on input line 45.
 Package babel Info: Redefining ngerman shorthand "~
-(babel)             in language  on input line 48.
+(babel)             in language  on input line 45.
 Package babel Info: Redefining ngerman shorthand "|
-(babel)             in language  on input line 48.
+(babel)             in language  on input line 45.
 Package babel Info: Redefining ngerman shorthand "~
-(babel)             in language  on input line 48.
-[7 <./images/causal/causal_true.pdf> <./images/causal/causal_true.pdf
+(babel)             in language  on input line 45.
+ [7 <./images/causal/causal_true.pdf> <./images/causal/causal_true.pdf
 
 pdfTeX warning: pdflatex (file ./images/causal/causal_true.pdf): PDF inclusion: multiple pdfs with page group included in a single page
 > <./images/causal/causal_true.pdf
@@ -1354,14 +1349,27 @@ pdfTeX warning: pdflatex (file ./images/causal/causal_false.pdf): PDF inclusion:
 
 pdfTeX warning: pdflatex (file ./images/causal/causal_false.pdf): PDF inclusion: multiple pdfs with page group included in a single page
 >]
+Underfull \hbox (badness 1337) in paragraph at lines 47--48
+[]\T1/ppl/m/n/12 Merging con-cur-rent ope-ra-ti-ons is pos-si-ble be-cau-se of CRDTs[[]],
+ []
+
 Package babel Info: Redefining ngerman shorthand "|
 (babel)             in language  on input line 53.
 Package babel Info: Redefining ngerman shorthand "~
 (babel)             in language  on input line 53.
+Package babel Info: Redefining ngerman shorthand "|
+(babel)             in language  on input line 65.
+Package babel Info: Redefining ngerman shorthand "~
+(babel)             in language  on input line 65.
+Package babel Info: Redefining ngerman shorthand "|
+(babel)             in language  on input line 65.
+Package babel Info: Redefining ngerman shorthand "~
+(babel)             in language  on input line 65.
+[8]
 LaTeX Font Info:    Font shape `T1/ppl/bx/n' in size <14.4> not available
 (Font)              Font shape `T1/ppl/b/n' tried instead on input line 66.
  (images/crdts-replication/op-based.pdf_tex
-<images/crdts-replication/op-based.pdf, id=363, page=1, 252.14159pt x 91.54199pt>
+<images/crdts-replication/op-based.pdf, id=369, page=1, 252.14159pt x 91.54199pt>
 File: images/crdts-replication/op-based.pdf Graphic file (type pdf)
 <use images/crdts-replication/op-based.pdf, page 1>
 Package pdftex.def Info: images/crdts-replication/op-based.pdf , page1 used on input line 56.
@@ -1373,68 +1381,59 @@ LaTeX Font Info:    External font `yhcmex10' loaded for size
 (Font)              <6.80386> on input line 57.
 LaTeX Font Info:    External font `yhcmex10' loaded for size
 (Font)              <4.85992> on input line 57.
-<images/crdts-replication/op-based.pdf, id=364, page=2, 252.14159pt x 91.54199pt>
+<images/crdts-replication/op-based.pdf, id=370, page=2, 252.14159pt x 91.54199pt>
 File: images/crdts-replication/op-based.pdf Graphic file (type pdf)
 <use images/crdts-replication/op-based.pdf, page 2>
 Package pdftex.def Info: images/crdts-replication/op-based.pdf , page2 used on input line 58.
 (pdftex.def)             Requested size: 386.38849pt x 140.28925pt.
-<images/crdts-replication/op-based.pdf, id=365, page=3, 252.14159pt x 91.54199pt>
+<images/crdts-replication/op-based.pdf, id=371, page=3, 252.14159pt x 91.54199pt>
 File: images/crdts-replication/op-based.pdf Graphic file (type pdf)
 <use images/crdts-replication/op-based.pdf, page 3>
 Package pdftex.def Info: images/crdts-replication/op-based.pdf , page3 used on input line 60.
 (pdftex.def)             Requested size: 386.38849pt x 140.28925pt.
 LaTeX Font Info:    Font shape `T1/ppl/bx/n' in size <9.71986> not available
 (Font)              Font shape `T1/ppl/b/n' tried instead on input line 61.
-<images/crdts-replication/op-based.pdf, id=366, page=4, 252.14159pt x 91.54199pt>
+<images/crdts-replication/op-based.pdf, id=372, page=4, 252.14159pt x 91.54199pt>
 File: images/crdts-replication/op-based.pdf Graphic file (type pdf)
 <use images/crdts-replication/op-based.pdf, page 4>
 Package pdftex.def Info: images/crdts-replication/op-based.pdf , page4 used on input line 64.
 (pdftex.def)             Requested size: 386.38849pt x 140.28925pt.
-<images/crdts-replication/op-based.pdf, id=367, page=5, 252.14159pt x 91.54199pt>
+<images/crdts-replication/op-based.pdf, id=373, page=5, 252.14159pt x 91.54199pt>
 File: images/crdts-replication/op-based.pdf Graphic file (type pdf)
 <use images/crdts-replication/op-based.pdf, page 5>
 Package pdftex.def Info: images/crdts-replication/op-based.pdf , page5 used on input line 67.
 (pdftex.def)             Requested size: 386.38849pt x 140.28925pt.
-<images/crdts-replication/op-based.pdf, id=368, page=6, 252.14159pt x 91.54199pt>
+<images/crdts-replication/op-based.pdf, id=374, page=6, 252.14159pt x 91.54199pt>
 File: images/crdts-replication/op-based.pdf Graphic file (type pdf)
 <use images/crdts-replication/op-based.pdf, page 6>
 Package pdftex.def Info: images/crdts-replication/op-based.pdf , page6 used on input line 69.
 (pdftex.def)             Requested size: 386.38849pt x 140.28925pt.
-<images/crdts-replication/op-based.pdf, id=369, page=7, 252.14159pt x 91.54199pt>
+<images/crdts-replication/op-based.pdf, id=375, page=7, 252.14159pt x 91.54199pt>
 File: images/crdts-replication/op-based.pdf Graphic file (type pdf)
 <use images/crdts-replication/op-based.pdf, page 7>
 Package pdftex.def Info: images/crdts-replication/op-based.pdf , page7 used on input line 71.
 (pdftex.def)             Requested size: 386.38849pt x 140.28925pt.
-<images/crdts-replication/op-based.pdf, id=370, page=8, 252.14159pt x 91.54199pt>
+<images/crdts-replication/op-based.pdf, id=376, page=8, 252.14159pt x 91.54199pt>
 File: images/crdts-replication/op-based.pdf Graphic file (type pdf)
 <use images/crdts-replication/op-based.pdf, page 8>
 Package pdftex.def Info: images/crdts-replication/op-based.pdf , page8 used on input line 73.
 (pdftex.def)             Requested size: 386.38849pt x 140.28925pt.
-<images/crdts-replication/op-based.pdf, id=371, page=9, 252.14159pt x 91.54199pt>
+<images/crdts-replication/op-based.pdf, id=377, page=9, 252.14159pt x 91.54199pt>
 File: images/crdts-replication/op-based.pdf Graphic file (type pdf)
 <use images/crdts-replication/op-based.pdf, page 9>
 Package pdftex.def Info: images/crdts-replication/op-based.pdf , page9 used on input line 76.
 (pdftex.def)             Requested size: 386.38849pt x 140.28925pt.
-<images/crdts-replication/op-based.pdf, id=372, page=10, 252.14159pt x 91.54199pt>
+<images/crdts-replication/op-based.pdf, id=378, page=10, 252.14159pt x 91.54199pt>
 File: images/crdts-replication/op-based.pdf Graphic file (type pdf)
 <use images/crdts-replication/op-based.pdf, page 10>
 Package pdftex.def Info: images/crdts-replication/op-based.pdf , page10 used on input line 79.
 (pdftex.def)             Requested size: 386.38849pt x 140.28925pt.
-<images/crdts-replication/op-based.pdf, id=373, page=11, 252.14159pt x 91.54199pt>
+<images/crdts-replication/op-based.pdf, id=379, page=11, 252.14159pt x 91.54199pt>
 File: images/crdts-replication/op-based.pdf Graphic file (type pdf)
 <use images/crdts-replication/op-based.pdf, page 11>
 Package pdftex.def Info: images/crdts-replication/op-based.pdf , page11 used on input line 82.
 (pdftex.def)             Requested size: 386.38849pt x 140.28925pt.
-)
-Package babel Info: Redefining ngerman shorthand "|
-(babel)             in language  on input line 75.
-Package babel Info: Redefining ngerman shorthand "~
-(babel)             in language  on input line 75.
-Package babel Info: Redefining ngerman shorthand "|
-(babel)             in language  on input line 75.
-Package babel Info: Redefining ngerman shorthand "~
-(babel)             in language  on input line 75.
- [8] (images/crdts-replication/state-based.pdf_tex
+) (images/crdts-replication/state-based.pdf_tex
 <images/crdts-replication/state-based.pdf, id=384, page=1, 260.17198pt x 105.59369pt>
 File: images/crdts-replication/state-based.pdf Graphic file (type pdf)
 <use images/crdts-replication/state-based.pdf, page 1>
@@ -1487,13 +1486,13 @@ Package pdftex.def Info: images/crdts-replication/state-based.pdf , page10 used 
 (pdftex.def)             Requested size: 386.38849pt x 156.82883pt.
 )
 Package babel Info: Redefining ngerman shorthand "|
-(babel)             in language  on input line 98.
+(babel)             in language  on input line 95.
 Package babel Info: Redefining ngerman shorthand "~
-(babel)             in language  on input line 98.
+(babel)             in language  on input line 95.
 Package babel Info: Redefining ngerman shorthand "|
-(babel)             in language  on input line 98.
+(babel)             in language  on input line 95.
 Package babel Info: Redefining ngerman shorthand "~
-(babel)             in language  on input line 98.
+(babel)             in language  on input line 95.
  [9 <./images/crdts-replication/op-based.pdf> <./images/crdts-replication/op-based.pdf
 
 pdfTeX warning: pdflatex (file ./images/crdts-replication/op-based.pdf): PDF inclusion: multiple pdfs with page group included in a single page
@@ -1525,6 +1524,8 @@ pdfTeX warning: pdflatex (file ./images/crdts-replication/op-based.pdf): PDF inc
 
 pdfTeX warning: pdflatex (file ./images/crdts-replication/op-based.pdf): PDF inclusion: multiple pdfs with page group included in a single page
 >]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
 Package babel Info: Redefining ngerman shorthand "|
 (babel)             in language  on input line 107.
 Package babel Info: Redefining ngerman shorthand "~
@@ -3494,7 +3495,7 @@ Here is how much of TeX's memory you used:
  1141 hyphenation exceptions out of 8191
  57i,18n,71p,9187b,2132s stack positions out of 5000i,500n,10000p,200000b,50000s
 {C:/MiKTeX/fonts/enc/dvips/base/8r.enc}<C:/MiKTeX/fonts/type1/urw/courier/ucrb8a.pfb><C:/MiKTeX/fonts/type1/urw/courier/ucrr8a.pfb><C:/MiKTeX/fonts/type1/urw/helvetic/uhvb8a.pfb><C:/MiKTeX/fonts/type1/urw/helvetic/uhvr8a.pfb><C:/MiKTeX/fonts/type1/urw/helvetic/uhvro8a.pfb><C:/MiKTeX/fonts/type1/urw/palatino/uplb8a.pfb><C:/MiKTeX/fonts/type1/urw/palatino/uplr8a.pfb><C:/MiKTeX/fonts/type1/urw/palatino/uplr8a.pfb><C:/MiKTeX/fonts/type1/urw/palatino/uplri8a.pfb>
-Output written on Masterthesis.pdf (97 pages, 720105 bytes).
+Output written on Masterthesis.pdf (97 pages, 720266 bytes).
 PDF statistics:
  2052 PDF objects out of 2073 (max. 8388607)
  794 named destinations out of 1000 (max. 500000)

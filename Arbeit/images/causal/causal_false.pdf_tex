@@ -62,7 +62,7 @@
     \put(0,0){\includegraphics[width=\unitlength,page=4]{images/causal/causal_false.pdf}}%
     \put(0.57058824,0.62039216){\color[rgb]{0,0,0}\makebox(0,0)[t]{\lineheight{1.25}\smash{\begin{tabular}[t]{c}This post \\is not observable.\end{tabular}}}}%
     \put(0,0){\includegraphics[width=\unitlength,page=5]{images/causal/causal_false.pdf}}%
-    \put(0.57058824,0.27921569){\color[rgb]{0,0,0}\makebox(0,0)[t]{\lineheight{1.25}\smash{\begin{tabular}[t]{c}I agree, \\Manchester is red!\end{tabular}}}}%
+    \put(0.57058824,0.27921569){\color[rgb]{0,0,0}\makebox(0,0)[t]{\lineheight{1.25}\smash{\begin{tabular}[t]{c}I did not expect it \\to be so cold!\end{tabular}}}}%
     \put(0,0){\includegraphics[width=\unitlength,page=6]{images/causal/causal_false.pdf}}%
   \end{picture}%
 \endgroup%
