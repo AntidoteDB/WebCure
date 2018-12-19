@@ -1,4 +1,4 @@
-\begin{thebibliography}{50}
+\begin{thebibliography}{51}
 \providecommand{\natexlab}[1]{#1}
 \providecommand{\url}[1]{\texttt{#1}}
 \expandafter\ifx\csname urlstyle\endcsname\relax
@@ -16,6 +16,12 @@ M.~Tamer zsu and Patrick Valduriez.
 \newblock \emph{Principles of Distributed Database Systems}.
 \newblock Springer Publishing Company, Incorporated, 3rd edition, 2011.
 \newblock ISBN 1441988335, 9781441988331.
+
+\bibitem[Neeraj~Mittal(1998)]{55}
+Vijay K.~Garg Neeraj~Mittal.
+\newblock Consistency conditions for multi-object distributed operations.
+\newblock \emph{Proceedings. 18th International Conference on Distributed
+  Computing Systems}, 1998.
 
 \bibitem[Attiya and Welch(1994)]{27}
 Hagit Attiya and Jennifer~L. Welch.
