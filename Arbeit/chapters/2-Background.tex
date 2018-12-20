@@ -44,7 +44,7 @@ For this thesis, one of the core parts of the architecture of WebCure belongs to
 \item {delivers updates in a causal order and merges concurrent operations.}
 \end{itemize} 
 
-Merging concurrent operations is possible because of CRDTs\cite{2}, which are used in AntidoteDB. It supports counters, sets, maps, multi-value registers and other types of data that are designed to work correctly in the presence of concurrent updates and failures. The usage of CRDTs allows the programmer to avoid problems that are common for other databases like NoSQL, which are fast and available, but hard to program against\cite{15}. We will cover the topic of CRDTs later in this chapter.
+Merging concurrent operations is possible because of CRDTs\cite{2}, which are used in AntidoteDB. It supports counters, sets, maps, multi-value registers and other types of data that are designed to work correctly in case of concurrent updates and failures. The usage of CRDTs allows the programmer to avoid problems that are common for other databases like NoSQL, which are fast and available, but hard to program against\cite{15}. We will cover the topic of CRDTs later in this chapter.
 
 Apart from that, to replicate the data AntidoteDB implements the \textit{Cure}\cite{15} protocol. It is a highly scalable protocol, which provides causal consistency. 
 
