@@ -15,7 +15,6 @@ Introduction to service worker.
 M.~Tamer zsu and Patrick Valduriez.
 \newblock \emph{Principles of Distributed Database Systems}.
 \newblock Springer Publishing Company, Incorporated, 3rd edition, 2011.
-\newblock ISBN 1441988335, 9781441988331.
 
 \bibitem[Neeraj~Mittal(1998)]{55}
 Vijay K.~Garg Neeraj~Mittal.
@@ -26,10 +25,7 @@ Vijay K.~Garg Neeraj~Mittal.
 \bibitem[Attiya and Welch(1994)]{27}
 Hagit Attiya and Jennifer~L. Welch.
 \newblock Sequential consistency versus linearizability.
-\newblock \emph{ACM Trans. Comput. Syst.}, 12\penalty0 (2):\penalty0 91--122,
-  May 1994.
-\newblock ISSN 0734-2071.
-\newblock \doi{10.1145/176575.176576}.
+\newblock \emph{ACM Trans. Comput. Syst.}, 1994.
 \newblock URL \url{http://doi.acm.org/10.1145/176575.176576}.
 
 \bibitem[Zhang(2015 (accessed October 23, 2018))]{12}
@@ -48,8 +44,7 @@ Marc Shapiro.
 \bibitem[Gilbert and Lynch(2012)]{29}
 S.~Gilbert and N.~Lynch.
 \newblock Perspectives on the cap theorem.
-\newblock \emph{Computer}, 45\penalty0 (2):\penalty0 30--36, Feb 2012.
-\newblock ISSN 0018-9162.
+\newblock \emph{Computer}, 2012.
 \newblock \doi{10.1109/MC.2011.389}.
 
 \bibitem[Casti\~{n}eira and Bieniusa(2015)]{28}
@@ -57,10 +52,7 @@ Santiago~J. Casti\~{n}eira and Annette Bieniusa.
 \newblock Collaborative offline web applications using conflict-free replicated
   data types.
 \newblock In \emph{Proceedings of the First Workshop on Principles and Practice
-  of Consistency for Distributed Data}, PaPoC '15, pages 5:1--5:4, New York,
-  NY, USA, 2015. ACM.
-\newblock ISBN 978-1-4503-3537-9.
-\newblock \doi{10.1145/2745947.2745952}.
+  of Consistency for Distributed Data}, 2015.
 \newblock URL \url{http://doi.acm.org/10.1145/2745947.2745952}.
 
 \bibitem[Zawirski et~al.(2015)Zawirski, Pregui\c{c}a, Duarte, Bieniusa,
@@ -69,10 +61,7 @@ Marek Zawirski, Nuno Pregui\c{c}a, S{\'e}rgio Duarte, Annette Bieniusa, Valter
   Balegas, and Marc Shapiro.
 \newblock Write fast, read in the past: Causal consistency for client-side
   applications.
-\newblock In \emph{Proceedings of the 16th Annual Middleware Conference},
-  Middleware '15, 2015.
-\newblock ISBN 978-1-4503-3618-5.
-\newblock \doi{10.1145/2814576.2814733}.
+\newblock In \emph{Proceedings of the 16th Annual Middleware Conference}, 2015.
 \newblock URL \url{http://doi.acm.org/10.1145/2814576.2814733}.
 
 \bibitem[4(2018 (accessed September 25, 2018))]{4}
@@ -90,7 +79,6 @@ Butler~W. Lampson.
 \newblock Atomic transactions.
 \newblock In \emph{Distributed Systems - Architecture and Implementation, An
   Advanced Course}, 1981.
-\newblock ISBN 3-540-10571-9.
 \newblock URL \url{http://dl.acm.org/citation.cfm?id=647434.726386}.
 
 \bibitem[Akkoorath et~al.(2016)Akkoorath, Tomsic, Bravo, Li, Crain, Bieniusa,
@@ -100,8 +88,6 @@ Deepthi~Devaki Akkoorath, Alejandro~Z. Tomsic, Manuel Bravo, Zhongmiao Li,
 \newblock {Cure: Strong Semantics Meets High Availability and Low Latency}.
 \newblock \emph{Proceedings - International Conference on Distributed Computing
   Systems}, 2016.
-\newblock ISSN 1063-6927.
-\newblock \doi{10.1109/ICDCS.2016.98}.
 
 \bibitem[Shapiro et~al.(2011)Shapiro, Pregui, Baquero, and Zawirski]{2}
 Marc Shapiro, Nuno Pregui, Carlos Baquero, and Marek Zawirski.
@@ -114,8 +100,6 @@ Marc Shapiro, Nuno Pregui, Carlos Baquero, and Marek Zawirski.
 Nuno Pregui{\c{c}}a, Carlos Baquero, and Marc Shapiro.
 \newblock \emph{Conflict-Free Replicated Data Types CRDTs}.
 \newblock Springer International Publishing, 2018.
-\newblock ISBN 978-3-319-63962-8.
-\newblock \doi{10.1007/978-3-319-63962-8_185-1}.
 \newblock URL \url{https://doi.org/10.1007/978-3-319-63962-8_185-1}.
 
 \bibitem[39(2018 (accessed November 26, 2018))]{39}
@@ -149,10 +133,8 @@ Web workers api.
 
 \bibitem[Desmedt(2005)]{33}
 Yvo Desmedt.
-\newblock \emph{Man-in-the-Middle Attack}, pages 368--368.
-\newblock Springer US, Boston, MA, 2005.
-\newblock ISBN 978-0-387-23483-0.
-\newblock \doi{10.1007/0-387-23483-7_241}.
+\newblock \emph{Man-in-the-Middle Attack}.
+\newblock 2005.
 \newblock URL \url{https://doi.org/10.1007/0-387-23483-7_241}.
 
 \bibitem[43(2018 (accessed November 28, 2018))]{43}
@@ -240,8 +222,7 @@ Lauren Long.
 Riemann~Hui Joseph~Fong.
 \newblock Application of middleware in the three tier client/server database
   design methodology.
-\newblock \emph{Journal of the Brazilian Computer Society}, \penalty0 (6),
-  1999.
+\newblock \emph{Journal of the Brazilian Computer Society}, 1999.
 
 \bibitem[h.~c. Dieter~Rombach(2017)]{50}
 Prof. Dr.~Dr. h.~c. Dieter~Rombach.
@@ -262,9 +243,7 @@ Dr. Annette~Bieniusa Tim~Dellmann, Prof. Dr. Poetzsch-Heffter.
 Yair Sovran, Russell Power, Marcos~K. Aguilera, and Jinyang Li.
 \newblock Transactional storage for geo-replicated systems.
 \newblock In \emph{Proceedings of the Twenty-Third ACM Symposium on Operating
-  Systems Principles}, SOSP '11, 2011.
-\newblock ISBN 978-1-4503-0977-6.
-\newblock \doi{10.1145/2043556.2043592}.
+  Systems Principles}, 2011.
 \newblock URL \url{http://doi.acm.org/10.1145/2043556.2043592}.
 
 \bibitem[Pregui\c{c}a et~al.(2014)Pregui\c{c}a, Zawirski, Bieniusa, Duarte,
@@ -274,9 +253,7 @@ Nuno Pregui\c{c}a, Marek Zawirski, Annette Bieniusa, S{\'e}rgio Duarte, Valter
 \newblock Swiftcloud: Fault-tolerant geo-replication integrated all the way to
   the client machine.
 \newblock In \emph{Proceedings of the 2014 IEEE 33rd International Symposium on
-  Reliable Distributed Systems Workshops}, SRDSW '14, 2014.
-\newblock ISBN 978-1-4799-7361-3.
-\newblock \doi{10.1109/SRDSW.2014.33}.
+  Reliable Distributed Systems Workshops}, 2014.
 \newblock URL \url{https://doi.org/10.1109/SRDSW.2014.33}.
 
 \bibitem[van~der Linde et~al.(2017)van~der Linde, Fouto, Leit{\~{a}}o,
@@ -286,7 +263,7 @@ Albert van~der Linde, Pedro Fouto, Jo{\~{a}}o Leit{\~{a}}o, Nuno
 \newblock {Legion: Enriching Internet Services with Peer-to-Peer Interactions}.
 \newblock \emph{Proceedings of the 26th International Conference on World Wide
   Web}, 2017.
-\newblock \doi{10.1145/3038912.3052673}.
+\newblock URL \url{https://doi.org/10.1145/3038912.3052673}.
 
 \bibitem[16(2018 (accessed October 29, 2018))]{16}
 What are web components?

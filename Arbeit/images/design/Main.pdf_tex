@@ -38,7 +38,7 @@
   \newcommand*\fsize{\dimexpr\f@size pt\relax}%
   \newcommand*\lineheight[1]{\fontsize{\fsize}{#1\fsize}\selectfont}%
   \ifx\svgwidth\undefined%
-    \setlength{\unitlength}{401.17675781bp}%
+    \setlength{\unitlength}{422.17529297bp}%
     \ifx\svgscale\undefined%
       \relax%
     \else%
@@ -50,18 +50,22 @@
   \global\let\svgwidth\undefined%
   \global\let\svgscale\undefined%
   \makeatother%
-  \begin{picture}(1,0.56408515)%
+  \begin{picture}(1,0.53984143)%
     \lineheight{1}%
     \setlength\tabcolsep{0pt}%
     \put(0,0){\includegraphics[width=\unitlength,page=1]{images/design/Main.pdf}}%
-    \put(0.19089714,0.54802644){\color[rgb]{0,0,0}\makebox(0,0)[t]{\lineheight{1.25}\smash{\begin{tabular}[t]{c}Web Application\end{tabular}}}}%
+    \put(0.18212037,0.5207682){\color[rgb]{0,0,0}\makebox(0,0)[t]{\lineheight{1.25}\smash{\begin{tabular}[t]{c}Web Application\end{tabular}}}}%
+    \put(0.30614675,0.26672681){\color[rgb]{0,0,0}\makebox(0,0)[t]{\lineheight{1.25}\smash{\begin{tabular}[t]{c}Read data\end{tabular}}}}%
+    \put(0.19100293,0.00024982){\color[rgb]{0,0,0}\makebox(0,0)[t]{\lineheight{1.25}\smash{\begin{tabular}[t]{c}Database\end{tabular}}}}%
     \put(0,0){\includegraphics[width=\unitlength,page=2]{images/design/Main.pdf}}%
-    \put(0.07311863,0.28068792){\color[rgb]{0,0,0}\makebox(0,0)[t]{\lineheight{1.25}\smash{\begin{tabular}[t]{c}Store data\end{tabular}}}}%
-    \put(0.31615365,0.28068792){\color[rgb]{0,0,0}\makebox(0,0)[t]{\lineheight{1.25}\smash{\begin{tabular}[t]{c}Read data\end{tabular}}}}%
-    \put(0.20024464,0.0002629){\color[rgb]{0,0,0}\makebox(0,0)[t]{\lineheight{1.25}\smash{\begin{tabular}[t]{c}Database\end{tabular}}}}%
+    \put(0.51610486,0.48767353){\color[rgb]{0,0,0}\makebox(0,0)[t]{\lineheight{1.25}\smash{\begin{tabular}[t]{c}Send an operation\end{tabular}}}}%
+    \put(0.51255183,0.39108274){\color[rgb]{0,0,0}\makebox(0,0)[t]{\lineheight{1.25}\smash{\begin{tabular}[t]{c}Receive a state\end{tabular}}}}%
+    \put(0.79646441,0.52432123){\color[rgb]{0,0,0}\makebox(0,0)[t]{\lineheight{1.25}\smash{\begin{tabular}[t]{c}Server\end{tabular}}}}%
+    \put(0.80745303,0.00024982){\color[rgb]{0,0,0}\makebox(0,0)[t]{\lineheight{1.25}\smash{\begin{tabular}[t]{c}AntidoteDB\end{tabular}}}}%
     \put(0,0){\includegraphics[width=\unitlength,page=3]{images/design/Main.pdf}}%
-    \put(0.54236317,0.52372293){\color[rgb]{0,0,0}\makebox(0,0)[t]{\lineheight{1.25}\smash{\begin{tabular}[t]{c}Send an operation\end{tabular}}}}%
-    \put(0.53862416,0.41155293){\color[rgb]{0,0,0}\makebox(0,0)[t]{\lineheight{1.25}\smash{\begin{tabular}[t]{c}Receive a state\end{tabular}}}}%
-    \put(0.83587469,0.26199292){\color[rgb]{0,0,0}\makebox(0,0)[t]{\lineheight{1.25}\smash{\begin{tabular}[t]{c}AntidoteDB database Server\end{tabular}}}}%
+    \put(0.69,0.24007911){\color[rgb]{0,0,0}\makebox(0,0)[t]{\lineheight{1.25}\smash{\begin{tabular}[t]{c}Store CRDT\end{tabular}}}}%
+    \put(0.93,0.24007911){\color[rgb]{0,0,0}\makebox(0,0)[t]{\lineheight{1.25}\smash{\begin{tabular}[t]{c}Read CRDT\end{tabular}}}}%
+    \put(0.07020003,0.2649503){\color[rgb]{0,0,0}\makebox(0,0)[t]{\lineheight{1.25}\smash{\begin{tabular}[t]{c}Store data\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=4]{images/design/Main.pdf}}%
   \end{picture}%
 \endgroup%

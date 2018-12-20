@@ -23,7 +23,7 @@
 \contentsline {lstlisting}{\numberline {5.7}Code for the implementation of \textit {SetCRDT} class}{46}{lstlisting.5.7}
 \contentsline {lstlisting}{\numberline {5.8}An example of a \textit {SetCRDT} object, stored on a client side.}{49}{lstlisting.5.8}
 \contentsline {lstlisting}{\numberline {5.9}Caching on a client side CRDT states, received from the server}{49}{lstlisting.5.9}
-\contentsline {lstlisting}{\numberline {5.10}Reading CRDT states from client's cache.}{51}{lstlisting.5.10}
+\contentsline {lstlisting}{\numberline {5.10}Reading CRDT states from client's cache.}{50}{lstlisting.5.10}
 \contentsline {lstlisting}{\numberline {5.11}Applying operation \textit {add} on a set CRDT while offline}{52}{lstlisting.5.11}
 \contentsline {lstlisting}{\numberline {5.12}A function, which synchronises operations with the server when the connection is re-established}{53}{lstlisting.5.12}
 \addvspace {10\p@ }
