@@ -74,7 +74,7 @@
     \put(0.1908691,0.27257515){\color[rgb]{0,0,0}\makebox(0,0)[t]{\lineheight{1.25}\smash{\begin{tabular}[t]{c}\textit{OFFLINE}\end{tabular}}}}%
     \put(0,0.248){\includegraphics[width=\unitlength,page=9]{images/architecture/offline.pdf}}%
     \put(0.67127267,0.27257515){\color[rgb]{0,0,0}\makebox(0,0)[t]{\lineheight{1.25}\smash{\begin{tabular}[t]{c}\textit{ONLINE}\end{tabular}}}}%
-    \put(0.39935276,0.17352286){\color[rgb]{0,0,0}\makebox(0,0)[t]{\lineheight{1.25}\smash{\begin{tabular}[t]{c}\textit{update(id, operations)}\end{tabular}}}}%
+    \put(0.39935276,0.17352286){\color[rgb]{0,0,0}\makebox(0,0)[t]{\lineheight{1.25}\smash{\begin{tabular}[t]{c}\textit{update(id, operations, t\textsubscript{1})}\end{tabular}}}}%
     \put(0.57031516,0.10666257){\color[rgb]{0,0,0}\makebox(0,0)[t]{\lineheight{1.25}\smash{\begin{tabular}[t]{c}\textit{\{status\}}\end{tabular}}}}%
     \put(0.72451327,0.17352286){\color[rgb]{0,0,0}\makebox(0,0)[t]{\lineheight{1.25}\smash{\begin{tabular}[t]{c}\textit{read(id)}\end{tabular}}}}%
   \end{picture}%
